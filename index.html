@@ -1,1 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Cristiano Ronaldo | GOAT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,.45);
+backdrop-filter:blur(12px);
+z-index:1000;
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+color:#FFD700;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+margin-left:30px;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#FFD700;
+}
+
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1600&q=80") center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+text-align:center;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+padding:20px;
+animation:fade 2s;
+}
+
+.hero h1{
+font-size:75px;
+font-weight:800;
+margin-bottom:20px;
+color:#FFD700;
+}
+
+.hero p{
+font-size:24px;
+margin-bottom:35px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 45px;
+background:#FFD700;
+color:#000;
+text-decoration:none;
+font-weight:700;
+border-radius:50px;
+transition:.4s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 30px gold;
+}
+
+section{
+padding:100px 8%;
+}
+
+.title{
+font-size:45px;
+text-align:center;
+margin-bottom:60px;
+color:#FFD700;
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:25px;
+box-shadow:0 0 30px rgba(255,215,0,.4);
+}
+
+.about p{
+font-size:18px;
+line-height:1.8;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:900px){
+
+nav{
+display:none;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CR7</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#stats">Stats</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Cristiano Ronaldo</h1>
+
+<p>The Greatest Footballer Of All Time</p>
+
+<a href="#about" class="btn">
+Explore
+</a>
+
+</div>
+
+</section>
+  <!-- About -->
+
+<section id="about">
+
+<h2 class="title">About Ronaldo</h2>
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?auto=format&fit=crop&w=900&q=80">
+
+<div>
+
+<p>
+Cristiano Ronaldo dos Santos Aveiro is one of the greatest football players in history. Known for his incredible speed, finishing, athleticism, and leadership, Ronaldo has inspired millions around the world.
+</p>
+
+<br>
+
+<p>
+From Sporting CP to Manchester United, Real Madrid, Juventus, Al Nassr and Portugal, Ronaldo has broken countless records and won numerous titles throughout his legendary career.
+</p>
+
+<br>
+
+<p>
+His famous motto is:
+<b>"Your Love Makes Me Strong, Your Hate Makes Me Unstoppable."</b>
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Stats -->
+
+<section id="stats">
+
+<h2 class="title">Career Statistics</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
+
+<div style="background:#111;padding:35px;border-radius:20px;text-align:center;">
+<h1 style="color:gold;font-size:55px;">900+</h1>
+<p>Career Goals</p>
+</div>
+
+<div style="background:#111;padding:35px;border-radius:20px;text-align:center;">
+<h1 style="color:gold;font-size:55px;">35+</h1>
+<p>Major Trophies</p>
+</div>
+
+<div style="background:#111;padding:35px;border-radius:20px;text-align:center;">
+<h1 style="color:gold;font-size:55px;">5</h1>
+<p>Ballon d'Or</p>
+</div>
+
+<div style="background:#111;padding:35px;border-radius:20px;text-align:center;">
+<h1 style="color:gold;font-size:55px;">200+</h1>
+<p>International Caps</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Achievements -->
+
+<section>
+
+<h2 class="title">Greatest Achievements</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;">
+
+<div style="background:#111;padding:30px;border-radius:20px;">
+<h3>🏆 Champions League</h3>
+<p>5 Times Winner</p>
+</div>
+
+<div style="background:#111;padding:30px;border-radius:20px;">
+<h3>🥇 Euro Champion</h3>
+<p>Portugal 2016</p>
+</div>
+
+<div style="background:#111;padding:30px;border-radius:20px;">
+<h3>⚽ All-Time Goal Scorer</h3>
+<p>One of Football's Greatest Goal Machines.</p>
+</div>
+
+<div style="background:#111;padding:30px;border-radius:20px;">
+<h3>👑 Captain</h3>
+<p>Leader of Portugal National Team.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Gallery -->
+
+<section id="gallery">
+
+<h2 class="title">Gallery</h2>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;">
+
+<img src="https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=700&q=80" style="width:100%;border-radius:20px;">
+
+<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=700&q=80" style="width:100%;border-radius:20px;">
+
+<img src="https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=700&q=80" style="width:100%;border-radius:20px;">
+
+</div>
+
+</section>
+  <!-- Contact -->
+
+<section id="contact">
+
+<h2 class="title">Cristiano Ronaldo</h2>
+
+<div style="text-align:center;max-width:900px;margin:auto;">
+
+<p style="font-size:20px;line-height:1.8;">
+"Dreams are not what you see in your sleep. Dreams are things which do not let you sleep."
+</p>
+
+<br>
+
+<a href="https://www.instagram.com/cristiano/" target="_blank" class="btn">
+Follow Ronaldo
+</a>
+
+</div>
+
+</section>
+
+<footer style="padding:40px;text-align:center;background:#090909;">
+
+<h2 style="color:gold;">CR7</h2>
+
+<br>
+
+<p>
+Designed with ❤️ for Cristiano Ronaldo Fans
+</p>
+
+<br>
+
+<p style="opacity:.7;">
+© 2026 Ronaldo Fan Website
+</p>
+
+</footer>
+
+<button id="topBtn">↑</button>
+
+<style>
+
+#topBtn{
+
+position:fixed;
+right:25px;
+bottom:25px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:gold;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+display:none;
+transition:.3s;
+
+}
+
+#topBtn:hover{
+
+transform:scale(1.1);
+
+}
+
+img{
+
+transition:.4s;
+
+}
+
+img:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 25px gold;
+
+}
+
+</style>
+
+<script>
+
+const btn=document.getElementById("topBtn");
+
+window.onscroll=function(){
+
+if(document.documentElement.scrollTop>300){
+
+btn.style.display="block";
+
+}else{
+
+btn.style.display="none";
+
+}
+
+}
+
+btn.onclick=function(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
+
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.style.opacity=1;
+
+entry.target.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+document.querySelectorAll("section").forEach(sec=>{
+
+sec.style.opacity="0";
+
+sec.style.transform="translateY(60px)";
+
+sec.style.transition="1s";
+
+observer.observe(sec);
+
+});
+
+</script>
+
+</body>
+</html>
