@@ -1,1 +1,42 @@
+body{
 
+margin:0;
+padding:0;
+
+background:#0f0f18;
+
+font-family:Arial,sans-serif;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+color:white;
+
+}
+
+.loader{
+
+text-align:center;
+
+}
+
+.loader h1{
+
+font-size:55px;
+
+margin-bottom:10px;
+
+}
+
+.loader p{
+
+font-size:20px;
+
+opacity:.8;
+
+}
