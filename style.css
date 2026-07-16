@@ -360,12 +360,17 @@ button:hover{
 
 @media(max-width:768px){
 
-.hero h1{
-    font-size:48px;
-}
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
 
-.hero p{
-    font-size:18px;
+    width:100%;
+    max-width:none;
+    margin:0;
 }
 
 h2{
