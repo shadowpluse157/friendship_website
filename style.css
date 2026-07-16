@@ -175,3 +175,475 @@ body{
     transform:scale(1.08);
 
 }
+/* ===============================
+   STORY SECTION
+=================================*/
+
+.story{
+
+    background:rgba(255,255,255,.05);
+
+    margin:80px auto;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 0 30px rgba(255,255,255,.05);
+
+}
+
+.story h2{
+
+    text-align:center;
+
+    font-size:45px;
+
+    margin-bottom:30px;
+
+}
+
+.story p{
+
+    text-align:center;
+
+    font-size:20px;
+
+    line-height:2;
+
+}
+
+/* ===============================
+   LETTER
+=================================*/
+
+.letter{
+
+    background:rgba(255,255,255,.05);
+
+    margin:80px auto;
+
+    border-radius:25px;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:0 0 30px rgba(255,255,255,.05);
+
+}
+
+.letter h2{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+}
+
+.letter p{
+
+    font-size:20px;
+
+    line-height:2;
+
+}
+
+/* ===============================
+   QUOTES
+=================================*/
+
+.quotes{
+
+    text-align:center;
+
+}
+
+.quote-box{
+
+    background:rgba(255,255,255,.06);
+
+    margin:25px auto;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    backdrop-filter:blur(10px);
+
+    transition:.4s;
+
+}
+
+.quote-box:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.quote-box h3{
+
+    font-size:24px;
+
+    font-weight:500;
+
+}
+
+/* ===============================
+   TIMELINE
+=================================*/
+
+.timeline{
+
+    text-align:center;
+
+}
+
+.timeline-box{
+
+    background:rgba(255,255,255,.05);
+
+    margin:30px auto;
+
+    padding:30px;
+
+    border-radius:20px;
+
+}
+
+.timeline-box h3{
+
+    margin-bottom:15px;
+
+    font-size:28px;
+
+}
+
+.timeline-box p{
+
+    font-size:20px;
+
+}
+/* ===============================
+   SONG SECTION
+=================================*/
+
+.song{
+
+    text-align:center;
+
+}
+
+.song h2{
+
+    margin-bottom:25px;
+
+}
+
+.song p{
+
+    margin-bottom:30px;
+
+}
+
+#musicBtn{
+
+    padding:18px 50px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#musicBtn:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* ===============================
+   PROMISE
+=================================*/
+
+.promise{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:25px;
+
+    margin:80px auto;
+
+    text-align:center;
+
+    backdrop-filter:blur(12px);
+
+}
+
+.promise p{
+
+    margin:20px 0;
+
+    font-size:20px;
+
+}
+
+/* ===============================
+   ENDING
+=================================*/
+
+.ending{
+
+    text-align:center;
+
+}
+
+.ending h1{
+
+    margin-top:35px;
+
+    font-size:60px;
+
+}
+
+.ending p{
+
+    font-size:20px;
+
+    line-height:2;
+
+}
+
+/* ===============================
+   FOOTER
+=================================*/
+
+footer{
+
+    text-align:center;
+
+    padding:50px 20px;
+
+    opacity:.8;
+
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+=================================*/
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+}
+
+h2{
+
+font-size:35px;
+
+}
+
+.story p,
+.letter p,
+.timeline p,
+.promise p,
+.ending p{
+
+font-size:18px;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}
+/*======================================
+  PART 4
+  STARS + ANIMATIONS + EFFECTS
+======================================*/
+
+/* Animated Background */
+
+#background{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:
+linear-gradient(135deg,#090914,#17172f,#29144f);
+
+z-index:-5;
+
+animation:bgMove 15s ease infinite;
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+filter:hue-rotate(0deg);
+
+}
+
+50%{
+
+filter:hue-rotate(20deg);
+
+}
+
+100%{
+
+filter:hue-rotate(0deg);
+
+}
+
+}
+
+/* Floating Hearts */
+
+#hearts{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+overflow:hidden;
+
+z-index:-4;
+
+}
+
+/* Glass Effect */
+
+.story,
+.letter,
+.timeline-box,
+.quote-box,
+.promise{
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.4s;
+
+}
+
+.story:hover,
+.letter:hover,
+.timeline-box:hover,
+.quote-box:hover,
+.promise:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 0 30px rgba(255,255,255,.12);
+
+}
+
+/* Button Animation */
+
+button{
+
+box-shadow:0 0 20px rgba(255,255,255,.15);
+
+}
+
+button:hover{
+
+box-shadow:0 0 35px rgba(255,105,180,.45);
+
+}
+
+/* Fade Animation */
+
+.hero,
+.story,
+.letter,
+.quotes,
+.timeline,
+.song,
+.promise,
+.ending{
+
+animation:fadeUp 1s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#111827;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ff4f7a;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#ff7ca5;
+
+}
