@@ -113,13 +113,6 @@ body{
   PART 2
   SECTIONS + CARDS
 ======================================*/
-
-section{
-    width:90%;
-    max-width:1000px;
-    margin:90px auto;
-}
-
 .story,
 .letter,
 .quotes,
@@ -127,6 +120,10 @@ section{
 .song,
 .promise,
 .ending{
+    width:90%;
+    max-width:1000px;
+    margin:90px auto;
+}
 
     background:rgba(255,255,255,.05);
 
