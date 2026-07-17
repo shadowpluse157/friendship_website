@@ -331,7 +331,10 @@ button:hover{
 
 /* Smooth Transition */
 
-*{
+button,
+.quote-box,
+.timeline-box,
+section{
     transition:
     background .3s,
     color .3s,
