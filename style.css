@@ -24,23 +24,37 @@ body{
 }
 
 /* Animated Background */
-
 #background{
     position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    inset:0;
     z-index:-10;
-    background:
-    linear-gradient(
-    135deg,
-    #090914,
-    #14142b,
-    #231b4d,
-    #3a2370
+    background:linear-gradient(
+        -45deg,
+        #ff5d93,
+        #ff8fc7,
+        #6a5cff,
+        #3a2370
     );
+    background-size:400% 400%;
+    animation:gradientMove 15s ease infinite;
 }
+
+@keyframes gradientMove{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
 
 /* Hearts Layer */
 
