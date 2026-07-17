@@ -183,39 +183,53 @@ h2{
 
 }
 
-/* Quote Cards */
+<!-- Favourite Quotes -->
 
-.quote-box{
+<section class="quotes">
 
-    margin:25px 0;
+    <h2>Our Little Quotes ❤️</h2>
 
-    padding:25px;
+    <div class="quote-box">
+        <h3>
+            "You're always the calm to my heart." 🤍
+        </h3>
+    </div>
 
-    background:rgba(255,255,255,.06);
+    <div class="quote-box">
+        <h3>
+            "U my comfort always." 🤍
+        </h3>
+    </div>
 
-    border-radius:20px;
+    <div class="quote-box">
+        <h3>
+            "I think my future is with u." ❤️
+        </h3>
+    </div>
 
-    transition:.3s;
+    <div class="quote-box">
+        <h3>
+            "You're the one I wanna kiss in the future." 🤍
+        </h3>
+    </div>
 
-}
+    <div class="quote-box">
+        <h3>
+            "I always choose you from the start." ❤️
+        </h3>
+    </div>
 
-.quote-box:hover{
+    <div class="quote-box">
+        <h3>
+            "Will you be my boyfriend?" 🥹🤍
+        </h3>
+    </div>
 
-    background:rgba(255,255,255,.10);
+</section>
 
-    transform:scale(1.02);
 
-}
+    
 
-.quote-box h3{
-
-    text-align:center;
-
-    font-size:24px;
-
-    font-weight:500;
-
-}
 
 /* Timeline */
 
