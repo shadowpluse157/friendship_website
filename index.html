@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -13,7 +12,8 @@
 
     <!-- CSS -->
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="style.css">
 
     <!-- Minecraft Font -->
 
@@ -24,174 +24,158 @@
           href="https://fonts.gstatic.com"
           crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;500;600&display=swap"
           rel="stylesheet">
 
 </head>
 
 <body>
 
-<!-- Minecraft Background -->
+    <!-- ==========================
+         Minecraft World
+    =========================== -->
 
-<div id="minecraft-world">
+    <div id="minecraft-world">
 
-    <!-- Sky -->
+        <!-- Sky -->
 
-    <div class="sky"></div>
+        <div class="sky"></div>
 
-    <!-- Sun / Moon -->
+        <!-- Stars -->
 
-    <div class="moon"></div>
+        <div class="stars"></div>
 
-    <!-- Clouds -->
+        <!-- Moon -->
 
-    <div class="cloud cloud1"></div>
+        <div class="moon"></div>
 
-    <div class="cloud cloud2"></div>
+        <!-- Clouds -->
 
-    <!-- Floating Pixel Hearts -->
+        <div class="cloud cloud1"></div>
 
-    <div class="pixel-hearts"></div>
+        <div class="cloud cloud2"></div>
 
-</div>
-  <!-- ==========================
-     Minecraft Main Container
-========================== -->
+        <!-- Floating Hearts -->
 
-<div class="container">
-
-    <!-- Minecraft Logo -->
-
-    <h1 class="minecraft-title">
-
-        OUR MINECRAFT LOVE WORLD ❤️
-
-    </h1>
-
-    <!-- Small Text -->
-
-    <p class="subtitle">
-
-        Two players...
-
-        One beautiful world...
-
-        One beautiful story.
-
-    </p>
-
-    <!-- Minecraft House -->
-
-    <div class="house">
-
-        <div class="roof"></div>
-
-        <div class="walls">
-
-            <div class="door"></div>
-
-            <div class="window left-window"></div>
-
-            <div class="window right-window"></div>
-
-        </div>
+        <div class="pixel-hearts"></div>
 
     </div>
+        <!-- ==========================
+         Main Container
+    =========================== -->
 
-    <!-- Campfire -->
+    <div class="container">
 
-    <div class="campfire">
+        <!-- Minecraft Title -->
 
-        <div class="fire"></div>
+        <h1 class="minecraft-title">
+            Our Minecraft Love World ❤️
+        </h1>
 
-        <div class="wood"></div>
+        <p class="subtitle">
+            Every block we place together becomes another memory.
+        </p>
 
-    </div>
+        <!-- Minecraft House -->
 
-    <!-- Grass -->
+        <div class="house" id="house">
 
-    <div class="grass"></div>
+            <div class="roof"></div>
 
-    <!-- Open Book Button -->
+            <div class="chimney"></div>
 
-    <button id="openBook">
+            <div class="walls">
 
-        Open Our Love Book 📖
+                <div class="window left-window"></div>
 
-    </button>
+                <div class="window right-window"></div>
 
-</div>
-  <!-- ==========================
-     Minecraft Love Book
-========================== -->
+                <div class="door" id="door"></div>
 
-<div class="book-page" id="bookPage">
-
-    <div class="book">
-
-        <div class="book-header">
-
-            <h2>
-
-                📖 Dear Ali 🤍
-
-            </h2>
-
-        </div>
-
-        <div class="book-content">
-
-            <div id="typingText">
+                <div class="door-knob"></div>
 
             </div>
 
         </div>
 
+        <!-- Campfire -->
+
+        <div class="campfire">
+
+            <div class="fire"></div>
+
+            <div class="wood"></div>
+
+        </div>
+
+        <p class="click-text">
+            ⛏️ Click the house to enter...
+        </p>
+                <!-- ==========================
+             Minecraft Love Book
+        =========================== -->
+
+        <div class="book-page" id="bookPage">
+
+            <div class="book">
+
+                <div class="book-header">
+
+                    <h2>📖 Dear Ali 🤍</h2>
+
+                    <button id="closeBook" class="close-btn">
+                        ✖
+                    </button>
+
+                </div>
+
+                <div class="book-content">
+
+                    <div id="typingText"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==========================
+             Decorations
+        =========================== -->
+
+        <div class="diamond diamond-left">💎</div>
+
+        <div class="diamond diamond-right">💎</div>
+
+        <div class="emerald emerald-left">🟩</div>
+
+        <div class="emerald emerald-right">🟩</div>
+
     </div>
 
-</div>
+    <!-- ==========================
+         Footer
+    =========================== -->
 
-<!-- ==========================
-     Minecraft Decorations
-========================== -->
+    <footer>
 
-<div class="diamond diamond-left">💎</div>
+        <p>
+            Built block by block with love ❤️
+        </p>
 
-<div class="diamond diamond-right">💎</div>
+    </footer>
 
-<div class="emerald emerald-left">🟩</div>
+    <!-- Background Music -->
 
-<div class="emerald emerald-right">🟩</div>
+    <audio id="bgMusic" loop>
 
-<!-- ==========================
-     Footer
-========================== -->
+        <source src="music.mp3" type="audio/mpeg">
 
-<footer>
+    </audio>
 
-    <p>
+    <!-- JavaScript -->
 
-        Built block by block with love ❤️
-
-    </p>
-
-</footer>
-
-<!-- ==========================
-     Background Music
-========================== -->
-
-<audio id="bgMusic" loop>
-
-    <source src="music.mp3" type="audio/mpeg">
-
-</audio>
-
-<!-- ==========================
-     JavaScript
-========================== -->
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
