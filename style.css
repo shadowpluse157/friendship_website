@@ -1,1 +1,420 @@
+/* ===================================
+        RESET
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ===================================
+        BODY
+=================================== */
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:'Press Start 2P',cursive;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#87CEEB;
+
+    position:relative;
+
+    color:white;
+
+}
+
+/* ===================================
+      MINECRAFT WORLD
+=================================== */
+
+#minecraft-world{
+
+    position:fixed;
+
+    width:100%;
+    height:100%;
+
+    top:0;
+    left:0;
+
+    overflow:hidden;
+
+    z-index:-10;
+
+}
+
+/* ===================================
+            SKY
+=================================== */
+
+.sky{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+
+        to bottom,
+
+        #1d2951 0%,
+
+        #243b6b 35%,
+
+        #3c6e71 70%,
+
+        #6aa84f 100%
+
+    );
+
+}
+
+/* ===================================
+            MOON
+=================================== */
+
+.moon{
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:#F5F5F5;
+
+    top:60px;
+    right:120px;
+
+    box-shadow:
+
+        0 0 30px white,
+
+        0 0 80px rgba(255,255,255,.5);
+
+}
+/* ===================================
+            CLOUDS
+=================================== */
+
+.cloud{
+
+    position:absolute;
+
+    width:180px;
+    height:55px;
+
+    background:rgba(255,255,255,.20);
+
+    border-radius:50px;
+
+    filter:blur(2px);
+
+}
+
+.cloud::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:70px;
+    height:70px;
+
+    background:rgba(255,255,255,.20);
+
+    border-radius:50%;
+
+    top:-20px;
+    left:25px;
+
+}
+
+.cloud::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:60px;
+    height:60px;
+
+    background:rgba(255,255,255,.20);
+
+    border-radius:50%;
+
+    top:-15px;
+    right:25px;
+
+}
+
+.cloud1{
+
+    top:120px;
+    left:-250px;
+
+    animation:cloudMove1 45s linear infinite;
+
+}
+
+.cloud2{
+
+    top:220px;
+    left:-350px;
+
+    animation:cloudMove2 60s linear infinite;
+
+}
+
+@keyframes cloudMove1{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(1800px);
+
+    }
+
+}
+
+@keyframes cloudMove2{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(2000px);
+
+    }
+
+}
+
+/* ===================================
+        PIXEL HEARTS
+=================================== */
+
+.pixel-hearts{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+}
+
+/* ===================================
+            GRASS
+=================================== */
+
+.grass{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:140px;
+
+    background:linear-gradient(
+
+        to bottom,
+
+        #5cb85c,
+
+        #3d8b3d
+
+    );
+
+    border-top:8px solid #7CFC00;
+
+}
+/* ===================================
+        MAIN CONTAINER
+=================================== */
+
+.container{
+
+    position:relative;
+
+    z-index:10;
+
+    width:90%;
+    max-width:1000px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    text-align:center;
+
+}
+
+/* ===================================
+        TITLE
+=================================== */
+
+.minecraft-title{
+
+    font-size:38px;
+
+    color:#ffffff;
+
+    text-shadow:
+
+    4px 4px 0px #000,
+
+    0px 0px 20px #00ff99;
+
+    margin-bottom:25px;
+
+}
+
+/* ===================================
+        SUBTITLE
+=================================== */
+
+.subtitle{
+
+    width:80%;
+
+    font-size:14px;
+
+    line-height:2;
+
+    color:#e5e5e5;
+
+    text-shadow:
+
+    2px 2px 0px black;
+
+    margin-bottom:40px;
+
+}
+
+/* ===================================
+        MINECRAFT HOUSE
+=================================== */
+
+.house{
+
+    position:relative;
+
+    width:240px;
+
+    height:180px;
+
+    margin-bottom:35px;
+
+}
+
+/* Roof */
+
+.roof{
+
+    width:0;
+
+    height:0;
+
+    border-left:120px solid transparent;
+
+    border-right:120px solid transparent;
+
+    border-bottom:80px solid #7b4f28;
+
+}
+
+/* Walls */
+
+.walls{
+
+    width:220px;
+
+    height:120px;
+
+    margin:auto;
+
+    background:#9c6b3d;
+
+    border:5px solid #5c3a1e;
+
+    position:relative;
+
+}
+
+/* Door */
+
+.door{
+
+    position:absolute;
+
+    bottom:0;
+
+    left:80px;
+
+    width:55px;
+
+    height:70px;
+
+    background:#4b2e17;
+
+}
+
+/* Windows */
+
+.window{
+
+    position:absolute;
+
+    width:35px;
+
+    height:35px;
+
+    background:#7fd3ff;
+
+    border:3px solid #3d2a15;
+
+}
+
+.left-window{
+
+    left:20px;
+
+    top:30px;
+
+}
+
+.right-window{
+
+    right:20px;
+
+    top:30px;
+
+}
 
