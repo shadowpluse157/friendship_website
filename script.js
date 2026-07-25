@@ -9,15 +9,10 @@
 // =============================
 
 const house = document.getElementById("house");
-
 const door = document.getElementById("door");
-
 const bookPage = document.getElementById("bookPage");
-
 const closeBook = document.getElementById("closeBook");
-
 const typingText = document.getElementById("typingText");
-
 const music = document.getElementById("bgMusic");
 
 
@@ -26,28 +21,63 @@ const music = document.getElementById("bgMusic");
 // =============================
 
 let enteredHouse = false;
-
 let currentIndex = 0;
 
 
 // =============================
-// Love Letter
-// (Temporary)
+// Minecraft Love Letter
 // =============================
 
 const letter = `
 
-Dear Ali 🤍
+Dear Ali 🤍,
 
-This is only a temporary letter.
+Welcome to our little Minecraft world.
 
-Soon...
+This isn't just a house.
 
-A beautiful Minecraft love letter
-with more than 100 lines
-will appear here.
+It's a place I imagined for us.
+
+A place where we'd build together...
+mine together...
+fight mobs together...
+and watch every sunset together.
+
+Every block here was placed
+while thinking about you.
+
+Every heart floating in the sky...
+every diamond...
+every little detail...
+
+has a reason.
+
+If I ever found a diamond,
+I'd share it with you.
+
+If I ever built a castle,
+I'd want you living in it.
+
+Because...
+Minecraft is fun.
+
+But it's even better
+when you're playing with someone
+who makes you smile.
+
+Thank you
+for every conversation,
+every laugh,
+and every memory.
+
+No matter how many blocks apart we are,
+
+you'll always have a place
+in this little world.
 
 ❤️
+
+— Faizan
 
 `;
 // =============================
@@ -56,17 +86,15 @@ will appear here.
 
 house.addEventListener("click", () => {
 
-    // Prevent multiple clicks
-
     if (enteredHouse) return;
 
     enteredHouse = true;
 
-    // Open Door
+    // Open the door
 
     door.classList.add("open");
 
-    // Play music
+    // Play background music
 
     if (music) {
 
@@ -74,15 +102,15 @@ house.addEventListener("click", () => {
 
     }
 
-    // Wait for door animation
+    // Wait for the door animation
 
     setTimeout(() => {
 
-        // Show Love Book
+        // Show the book
 
         bookPage.style.display = "flex";
 
-        // Start typing
+        // Start typing the letter
 
         startTyping();
 
@@ -92,7 +120,7 @@ house.addEventListener("click", () => {
 
 
 // =============================
-// Close Book
+// Close Book Event
 // =============================
 
 closeBook.addEventListener("click", () => {
@@ -103,14 +131,19 @@ closeBook.addEventListener("click", () => {
 
     enteredHouse = false;
 
+    if (music) {
+
+        music.pause();
+        music.currentTime = 0;
+
+    }
+
 });
 // =============================
 // Typewriter Effect
 // =============================
 
 function startTyping() {
-
-    // Reset text
 
     typingText.innerHTML = "";
 
@@ -133,6 +166,8 @@ function typeWriter() {
     }
 
 }
+
+
 // =============================
 // Floating Hearts
 // =============================
@@ -141,16 +176,14 @@ const heartsContainer = document.querySelector(".pixel-hearts");
 
 function createHeart() {
 
+    if (!heartsContainer) return;
+
     const heart = document.createElement("div");
 
     heart.innerHTML = "❤️";
 
-    heart.className = "heart";
-
     heart.style.position = "absolute";
-
     heart.style.left = Math.random() * 100 + "%";
-
     heart.style.bottom = "-30px";
 
     heart.style.fontSize = (18 + Math.random() * 16) + "px";
@@ -167,30 +200,13 @@ function createHeart() {
 
 }
 
-// Create a new heart every second
+// Create hearts every second
 
 setInterval(createHeart, 1000);
 
 
 // =============================
-// Stop Music When Book Closes
-// =============================
-
-closeBook.addEventListener("click", () => {
-
-    if (music) {
-
-        music.pause();
-
-        music.currentTime = 0;
-
-    }
-
-});
-
-
-// =============================
-// Console Message
+// Console
 // =============================
 
 console.log("❤️ Minecraft Love Website Loaded Successfully!");
