@@ -30,54 +30,113 @@ let currentIndex = 0;
 
 const letter = `
 
-Dear Ali 🤍,
+Dear Ali, 🤍
 
-Welcome to our little Minecraft world.
+I don't really know how to put everything in my heart into words, but today I wanted to try.
 
-This isn't just a house.
+From the day you became part of my life, something quietly changed inside me. You became someone I genuinely looked forward to talking to. Even the smallest message from you could make an ordinary day feel special.
 
-It's a place I imagined for us.
+I know life isn't always easy. We both get busy, we both have responsibilities, and sometimes we misunderstand each other. There were moments when I felt hurt, and I'm sure there were moments when I unintentionally hurt you too. But every disagreement reminded me of one thing...
 
-A place where we'd build together...
-mine together...
-fight mobs together...
-and watch every sunset together.
+I'd rather understand you than lose you.
 
-Every block here was placed
-while thinking about you.
+Thank you for every conversation we've shared.
 
-Every heart floating in the sky...
-every diamond...
-every little detail...
+Thank you for every laugh.
 
-has a reason.
+Thank you for every late-night chat.
 
-If I ever found a diamond,
-I'd share it with you.
+Thank you for every memory we've created together.
 
-If I ever built a castle,
-I'd want you living in it.
+Thank you for believing in me whenever I showed you something I made. Seeing you smile after looking at the website I created made all my hard work worth it.
 
-Because...
-Minecraft is fun.
+Sometimes I wonder if you truly realize how much your presence means to me.
 
-But it's even better
-when you're playing with someone
-who makes you smile.
+You have a beautiful heart.
 
-Thank you
-for every conversation,
-every laugh,
-and every memory.
+Your kindness...
 
-No matter how many blocks apart we are,
+Your honesty...
 
-you'll always have a place
-in this little world.
+Your little jokes...
 
-❤️
+Even the way you care about the people around you...
 
-— Faizan
+They're all reasons why you're so special to me.
+
+I know you're working hard for your future.
+
+I know university keeps you busy.
+
+I know life isn't always simple.
+
+But I genuinely hope every dream you're chasing comes true.
+
+I don't want to become someone successful only for myself.
+
+I want to become someone who deserves the people I care about.
+
+Someone who keeps improving every single day.
+
+Someone you can always be proud of.
+
+Distance may separate us...
+
+Time may make us busy...
+
+Life may become complicated...
+
+But some people leave footprints on our hearts that never disappear.
+
+You're one of those people.
+
+I don't expect perfection.
+
+Nobody is perfect.
+
+But I promise that I'll always choose honesty over lies...
+
+Respect over pride...
+
+Kindness over anger...
+
+And understanding over unnecessary arguments.
+
+I hope whenever you read this letter, you remember one thing...
+
+You're appreciated.
+
+You're valued.
+
+You're important.
+
+And you'll always have a very special place in my heart.
+
+May Allah always protect you.
+
+May He fill your life with happiness.
+
+May He make your heart peaceful.
+
+May He bless you with success in everything you do.
+
+And may He always keep your beautiful smile on your face.
+
+Thank you...
+
+For being yourself.
+
+For being part of my story.
+
+For giving me memories I'll always cherish.
+
+No matter how many kilometres separate us...
+
+You'll always have a home inside my heart.
+
+With all my heart,
+
+Faizan 🤍
 
 `;
 // =============================
@@ -161,7 +220,7 @@ function typeWriter() {
 
         currentIndex++;
 
-        setTimeout(typeWriter, 35);
+        setTimeout(typeWriter, 22);
 
     }
 
