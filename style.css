@@ -1,6 +1,6 @@
-/* ===================================
-        RESET
-=================================== */
+/* =========================================
+            RESET
+========================================= */
 
 *{
     margin:0;
@@ -8,44 +8,51 @@
     box-sizing:border-box;
 }
 
-/* ===================================
-        BODY
-=================================== */
-
+html,
 body{
 
     width:100%;
-    height:100vh;
+    height:100%;
 
     overflow:hidden;
 
     font-family:'Press Start 2P',cursive;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+}
 
-    background:#87CEEB;
+/* =========================================
+            BODY
+========================================= */
+
+body{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     position:relative;
 
-    color:white;
+    background:#0d1830;
+
+    color:#ffffff;
 
 }
 
-/* ===================================
-      MINECRAFT WORLD
-=================================== */
+/* =========================================
+        MINECRAFT WORLD
+========================================= */
 
 #minecraft-world{
 
     position:fixed;
 
-    width:100%;
-    height:100%;
-
     top:0;
     left:0;
+
+    width:100%;
+    height:100%;
 
     overflow:hidden;
 
@@ -53,9 +60,9 @@ body{
 
 }
 
-/* ===================================
+/* =========================================
             SKY
-=================================== */
+========================================= */
 
 .sky{
 
@@ -68,55 +75,94 @@ body{
 
         to bottom,
 
-        #1d2951 0%,
+        #091428 0%,
 
-        #243b6b 35%,
+        #13294b 35%,
 
-        #3c6e71 70%,
+        #204b5d 70%,
 
-        #6aa84f 100%
+        #4f8b3a 100%
 
     );
 
 }
 
-/* ===================================
+/* =========================================
+            STARS
+========================================= */
+
+.stars{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:40px 40px;
+
+    opacity:.6;
+
+    animation:twinkle 4s infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+    from{
+
+        opacity:.3;
+
+    }
+
+    to{
+
+        opacity:.8;
+
+    }
+
+}
+
+/* =========================================
             MOON
-=================================== */
+========================================= */
 
 .moon{
 
     position:absolute;
+
+    top:60px;
+    right:100px;
 
     width:120px;
     height:120px;
 
     border-radius:50%;
 
-    background:#F5F5F5;
-
-    top:60px;
-    right:120px;
+    background:#f5f5f5;
 
     box-shadow:
 
-        0 0 30px white,
+    0 0 30px #ffffff,
 
-        0 0 80px rgba(255,255,255,.5);
+    0 0 80px rgba(255,255,255,.5);
 
 }
-/* ===================================
+/* =========================================
             CLOUDS
-=================================== */
+========================================= */
 
 .cloud{
 
     position:absolute;
 
     width:180px;
-    height:55px;
+    height:60px;
 
-    background:rgba(255,255,255,.20);
+    background:rgba(255,255,255,.18);
 
     border-radius:50px;
 
@@ -133,7 +179,7 @@ body{
     width:70px;
     height:70px;
 
-    background:rgba(255,255,255,.20);
+    background:rgba(255,255,255,.18);
 
     border-radius:50%;
 
@@ -151,7 +197,7 @@ body{
     width:60px;
     height:60px;
 
-    background:rgba(255,255,255,.20);
+    background:rgba(255,255,255,.18);
 
     border-radius:50%;
 
@@ -162,7 +208,7 @@ body{
 
 .cloud1{
 
-    top:120px;
+    top:100px;
     left:-250px;
 
     animation:cloudMove1 45s linear infinite;
@@ -171,7 +217,7 @@ body{
 
 .cloud2{
 
-    top:220px;
+    top:200px;
     left:-350px;
 
     animation:cloudMove2 60s linear infinite;
@@ -181,15 +227,11 @@ body{
 @keyframes cloudMove1{
 
     from{
-
         transform:translateX(0);
-
     }
 
     to{
-
         transform:translateX(1800px);
-
     }
 
 }
@@ -197,22 +239,18 @@ body{
 @keyframes cloudMove2{
 
     from{
-
         transform:translateX(0);
-
     }
 
     to{
-
-        transform:translateX(2000px);
-
+        transform:translateX(2100px);
     }
 
 }
 
-/* ===================================
-        PIXEL HEARTS
-=================================== */
+/* =========================================
+        FLOATING HEARTS
+========================================= */
 
 .pixel-hearts{
 
@@ -221,15 +259,15 @@ body{
     width:100%;
     height:100%;
 
-    pointer-events:none;
-
     overflow:hidden;
+
+    pointer-events:none;
 
 }
 
-/* ===================================
+/* =========================================
             GRASS
-=================================== */
+========================================= */
 
 .grass{
 
@@ -244,27 +282,26 @@ body{
 
         to bottom,
 
-        #5cb85c,
+        #63c74d,
 
-        #3d8b3d
+        #3f8f2f
 
     );
 
-    border-top:8px solid #7CFC00;
+    border-top:8px solid #8cff66;
 
 }
-/* ===================================
+
+/* =========================================
         MAIN CONTAINER
-=================================== */
+========================================= */
 
 .container{
 
-    position:relative;
-
-    z-index:10;
-
     width:90%;
     max-width:1000px;
+
+    text-align:center;
 
     display:flex;
 
@@ -272,161 +309,218 @@ body{
 
     align-items:center;
 
-    text-align:center;
+    position:relative;
+
+    z-index:5;
 
 }
 
-/* ===================================
+/* =========================================
         TITLE
-=================================== */
+========================================= */
 
 .minecraft-title{
 
-    font-size:38px;
+    font-size:34px;
 
     color:#ffffff;
 
     text-shadow:
 
-    4px 4px 0px #000,
+    4px 4px 0 #000,
 
-    0px 0px 20px #00ff99;
+    0 0 20px #00ff99;
 
-    margin-bottom:25px;
+    margin-bottom:20px;
 
 }
-
-/* ===================================
-        SUBTITLE
-=================================== */
 
 .subtitle{
 
     width:80%;
 
-    font-size:14px;
+    font-size:12px;
 
     line-height:2;
 
-    color:#e5e5e5;
+    color:#f0f0f0;
 
-    text-shadow:
-
-    2px 2px 0px black;
-
-    margin-bottom:40px;
+    margin-bottom:35px;
 
 }
-
-/* ===================================
-        MINECRAFT HOUSE
-=================================== */
+/* =========================================
+            MINECRAFT HOUSE
+========================================= */
 
 .house{
 
     position:relative;
 
-    width:240px;
+    width:260px;
 
-    height:180px;
+    height:190px;
 
-    margin-bottom:35px;
+    margin-bottom:40px;
+
+    cursor:pointer;
+
+    transition:.4s;
 
 }
 
-/* Roof */
+.house:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* =========================================
+            ROOF
+========================================= */
 
 .roof{
 
     width:0;
-
     height:0;
-
-    border-left:120px solid transparent;
-
-    border-right:120px solid transparent;
-
-    border-bottom:80px solid #7b4f28;
-
-}
-
-/* Walls */
-
-.walls{
-
-    width:220px;
-
-    height:120px;
 
     margin:auto;
 
-    background:#9c6b3d;
+    border-left:130px solid transparent;
 
-    border:5px solid #5c3a1e;
+    border-right:130px solid transparent;
 
-    position:relative;
+    border-bottom:90px solid #6b3f1d;
 
 }
 
-/* Door */
+/* =========================================
+            CHIMNEY
+========================================= */
+
+.chimney{
+
+    position:absolute;
+
+    top:18px;
+    right:45px;
+
+    width:30px;
+    height:65px;
+
+    background:#4d2d16;
+
+}
+
+/* =========================================
+            WALLS
+========================================= */
+
+.walls{
+
+    position:relative;
+
+    width:235px;
+    height:125px;
+
+    margin:auto;
+
+    background:#a16d3b;
+
+    border:5px solid #5b371d;
+
+}
+
+/* =========================================
+            DOOR
+========================================= */
 
 .door{
 
     position:absolute;
 
     bottom:0;
+    left:88px;
 
-    left:80px;
+    width:60px;
+    height:78px;
 
-    width:55px;
+    background:#4a2d18;
 
-    height:70px;
+    transition:.5s;
 
-    background:#4b2e17;
+    transform-origin:left;
 
 }
 
-/* Windows */
+/* Door opens later with JavaScript */
+
+.door.open{
+
+    transform:rotateY(-80deg);
+
+}
+
+/* =========================================
+        DOOR KNOB
+========================================= */
+
+.door-knob{
+
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:gold;
+
+    left:135px;
+    bottom:35px;
+
+}
+
+/* =========================================
+            WINDOWS
+========================================= */
 
 .window{
 
     position:absolute;
 
-    width:35px;
+    width:38px;
+    height:38px;
 
-    height:35px;
+    background:#8fd8ff;
 
-    background:#7fd3ff;
+    border:3px solid #3f2815;
 
-    border:3px solid #3d2a15;
+    box-shadow:0 0 10px rgba(120,220,255,.6);
 
 }
 
 .left-window{
 
-    left:20px;
-
+    left:22px;
     top:30px;
 
 }
 
 .right-window{
 
-    right:20px;
-
+    right:22px;
     top:30px;
 
 }
-/* ===================================
-        CAMPFIRE
-=================================== */
+/* =========================================
+            CAMPFIRE
+========================================= */
 
 .campfire{
 
     position:relative;
 
-    width:80px;
-
+    width:90px;
     height:100px;
 
     margin-bottom:35px;
@@ -437,9 +531,8 @@ body{
 
 .fire{
 
-    width:40px;
-
-    height:55px;
+    width:42px;
+    height:58px;
 
     margin:auto;
 
@@ -463,33 +556,11 @@ body{
         10% 40%
     );
 
-    animation:fire 0.8s infinite alternate;
+    animation:fireAnimation .8s infinite alternate;
 
 }
 
-/* Wood */
-
-.wood{
-
-    width:70px;
-
-    height:10px;
-
-    background:#5c3a1e;
-
-    margin:auto;
-
-    margin-top:8px;
-
-    transform:rotate(-10deg);
-
-    box-shadow:
-
-    0 6px 0 #5c3a1e;
-
-}
-
-@keyframes fire{
+@keyframes fireAnimation{
 
     from{
 
@@ -509,15 +580,33 @@ body{
 
 }
 
-/* ===================================
-        DIAMONDS
-=================================== */
+/* Logs */
+
+.wood{
+
+    width:75px;
+    height:10px;
+
+    margin:auto;
+    margin-top:8px;
+
+    background:#5a3317;
+
+    transform:rotate(-12deg);
+
+    box-shadow:0 6px 0 #5a3317;
+
+}
+
+/* =========================================
+            DIAMONDS
+========================================= */
 
 .diamond{
 
     position:absolute;
 
-    font-size:40px;
+    font-size:42px;
 
     animation:diamondFloat 4s ease-in-out infinite;
 
@@ -561,15 +650,15 @@ body{
 
 }
 
-/* ===================================
-        EMERALDS
-=================================== */
+/* =========================================
+            EMERALDS
+========================================= */
 
 .emerald{
 
     position:absolute;
 
-    font-size:35px;
+    font-size:36px;
 
     animation:emeraldFloat 5s ease-in-out infinite;
 
@@ -613,48 +702,44 @@ body{
 
 }
 
-/* ===================================
-        BUTTON
-=================================== */
+/* =========================================
+            CLICK TEXT
+========================================= */
 
-#openBook{
+.click-text{
 
-    margin-top:20px;
+    margin-top:10px;
 
-    padding:18px 45px;
+    font-size:12px;
 
-    border:none;
+    color:#ffffff;
 
-    border-radius:10px;
+    text-shadow:
 
-    background:#55aa33;
+        2px 2px #000;
 
-    color:white;
-
-    font-family:'Press Start 2P',cursive;
-
-    font-size:14px;
-
-    cursor:pointer;
-
-    transition:.35s;
-
-    box-shadow:
-
-    0 8px 0 #2f6d1d;
+    animation:blink 2s infinite;
 
 }
 
-#openBook:hover{
+@keyframes blink{
 
-    transform:translateY(-4px);
+    0%,100%{
 
-    background:#66cc44;
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:.35;
+
+    }
 
 }
-/* ===================================
-        LOVE BOOK
-=================================== */
+/* =========================================
+            LOVE BOOK
+========================================= */
 
 .book-page{
 
@@ -668,14 +753,14 @@ body{
     width:100%;
     height:100%;
 
-    background:rgba(5,8,22,.95);
+    background:rgba(5,10,20,.92);
 
     justify-content:center;
     align-items:center;
 
     z-index:999;
 
-    padding:40px;
+    animation:fadeIn .6s ease;
 
 }
 
@@ -686,33 +771,63 @@ body{
 
     background:#d9c28f;
 
-    border:8px solid #7b4f28;
+    border:8px solid #6b3f1d;
 
-    border-radius:15px;
+    border-radius:12px;
 
-    padding:40px;
+    padding:35px;
 
     color:#222;
 
     box-shadow:
-
-    0 0 60px rgba(0,0,0,.5);
+        0 0 60px rgba(0,0,0,.5);
 
 }
 
 .book-header{
 
-    text-align:center;
+    display:flex;
 
-    margin-bottom:30px;
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
 
 }
 
 .book-header h2{
 
-    font-size:24px;
+    font-size:22px;
 
-    color:#5c3a1e;
+    color:#5b371d;
+
+}
+
+.close-btn{
+
+    border:none;
+
+    background:#c0392b;
+
+    color:white;
+
+    width:40px;
+    height:40px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+
+}
+
+.close-btn:hover{
+
+    background:#e74c3c;
 
 }
 
@@ -734,91 +849,107 @@ body{
 
     white-space:pre-line;
 
+    color:#222;
+
 }
 
-/* ===================================
-        FOOTER
-=================================== */
+/* =========================================
+            FOOTER
+========================================= */
 
 footer{
 
     position:fixed;
 
-    bottom:20px;
+    bottom:18px;
 
     width:100%;
 
     text-align:center;
 
-    color:white;
+    color:#ffffff;
 
-    font-size:11px;
+    font-size:10px;
 
-    text-shadow:2px 2px black;
+    text-shadow:2px 2px #000;
 
 }
 
-/* ===================================
-        RESPONSIVE
-=================================== */
+/* =========================================
+            ANIMATION
+========================================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+/* =========================================
+            RESPONSIVE
+========================================= */
 
 @media(max-width:768px){
 
-.minecraft-title{
+    .minecraft-title{
 
-font-size:22px;
+        font-size:20px;
 
-}
+    }
 
-.subtitle{
+    .subtitle{
 
-font-size:10px;
+        width:95%;
 
-width:95%;
+        font-size:10px;
 
-}
+        line-height:1.8;
 
-.house{
+    }
 
-transform:scale(.8);
+    .house{
 
-}
+        transform:scale(.8);
 
-.book{
+    }
 
-padding:20px;
+    .book{
 
-}
+        padding:20px;
 
-.book-header h2{
+    }
 
-font-size:18px;
+    .book-header h2{
 
-}
+        font-size:16px;
 
-.book-content{
+    }
 
-font-size:15px;
+    .book-content{
 
-line-height:1.8;
+        font-size:15px;
 
-}
+        line-height:1.8;
 
-#openBook{
+    }
 
-font-size:10px;
+    .moon{
 
-padding:15px 20px;
+        width:80px;
+        height:80px;
 
-}
+        right:25px;
 
-.moon{
-
-width:80px;
-height:80px;
-
-right:30px;
-
-}
+    }
 
 }
