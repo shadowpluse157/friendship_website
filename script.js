@@ -1,6 +1,6 @@
 // ======================================
-// Minecraft Love Website
-// Made with ❤️ by Faizan
+// Minecraft Love Website ❤️
+// Made by Faizan
 // ======================================
 
 
@@ -8,66 +8,109 @@
 // Select Elements
 // =============================
 
-const openBook =
-document.getElementById("openBook");
+const house = document.getElementById("house");
 
-const bookPage =
-document.getElementById("bookPage");
+const door = document.getElementById("door");
 
-const typingText =
-document.getElementById("typingText");
+const bookPage = document.getElementById("bookPage");
 
-const music =
-document.getElementById("bgMusic");
+const closeBook = document.getElementById("closeBook");
+
+const typingText = document.getElementById("typingText");
+
+const music = document.getElementById("bgMusic");
+
+
+// =============================
+// Website State
+// =============================
+
+let enteredHouse = false;
+
+let currentIndex = 0;
 
 
 // =============================
 // Love Letter
-// (Placeholder)
+// (Temporary)
 // =============================
 
 const letter = `
 
 Dear Ali 🤍
 
-This is just a placeholder.
+This is only a temporary letter.
 
-Our real Minecraft Love Letter
-will be added later...
+Soon...
+
+A beautiful Minecraft love letter
+with more than 100 lines
+will appear here.
 
 ❤️
 
 `;
 // =============================
-// Open Minecraft Love Book
+// House Click Event
 // =============================
 
-openBook.addEventListener("click", () => {
+house.addEventListener("click", () => {
 
-    // Open Book
+    // Prevent multiple clicks
 
-    bookPage.style.display = "flex";
+    if (enteredHouse) return;
 
-    // Play Music (if available)
+    enteredHouse = true;
 
-    if(music){
+    // Open Door
+
+    door.classList.add("open");
+
+    // Play music
+
+    if (music) {
 
         music.play().catch(() => {});
 
     }
 
-    // Start Typewriter
+    // Wait for door animation
 
-    startTyping();
+    setTimeout(() => {
+
+        // Show Love Book
+
+        bookPage.style.display = "flex";
+
+        // Start typing
+
+        startTyping();
+
+    }, 1000);
+
+});
+
+
+// =============================
+// Close Book
+// =============================
+
+closeBook.addEventListener("click", () => {
+
+    bookPage.style.display = "none";
+
+    door.classList.remove("open");
+
+    enteredHouse = false;
 
 });
 // =============================
 // Typewriter Effect
 // =============================
 
-let currentIndex = 0;
+function startTyping() {
 
-function startTyping(){
+    // Reset text
 
     typingText.innerHTML = "";
 
@@ -77,9 +120,9 @@ function startTyping(){
 
 }
 
-function typeWriter(){
+function typeWriter() {
 
-    if(currentIndex < letter.length){
+    if (currentIndex < letter.length) {
 
         typingText.innerHTML += letter.charAt(currentIndex);
 
@@ -91,30 +134,28 @@ function typeWriter(){
 
 }
 // =============================
-// Floating Pixel Hearts
+// Floating Hearts
 // =============================
 
 const heartsContainer = document.querySelector(".pixel-hearts");
 
-function createHeart(){
+function createHeart() {
 
     const heart = document.createElement("div");
 
-    heart.classList.add("heart");
-
     heart.innerHTML = "❤️";
+
+    heart.className = "heart";
 
     heart.style.position = "absolute";
 
     heart.style.left = Math.random() * 100 + "%";
 
-    heart.style.bottom = "-40px";
+    heart.style.bottom = "-30px";
 
-    heart.style.fontSize = (16 + Math.random() * 20) + "px";
+    heart.style.fontSize = (18 + Math.random() * 16) + "px";
 
-    heart.style.opacity = Math.random();
-
-    heart.style.animation = `heartFloat ${4 + Math.random() * 4}s linear`;
+    heart.style.animation = "heartFloat 6s linear forwards";
 
     heartsContainer.appendChild(heart);
 
@@ -122,64 +163,34 @@ function createHeart(){
 
         heart.remove();
 
-    },8000);
+    }, 6000);
 
 }
 
-// Create Hearts Every 500ms
+// Create a new heart every second
 
-setInterval(createHeart,500);
+setInterval(createHeart, 1000);
 
 
 // =============================
-// Prevent Multiple Clicks
+// Stop Music When Book Closes
 // =============================
 
-let opened = false;
+closeBook.addEventListener("click", () => {
 
-openBook.addEventListener("click",()=>{
+    if (music) {
 
-    if(opened) return;
+        music.pause();
 
-    opened = true;
+        music.currentTime = 0;
+
+    }
 
 });
 
 
 // =============================
-// Heart Animation
+// Console Message
 // =============================
 
-const style = document.createElement("style");
-
-style.innerHTML = `
-
-@keyframes heartFloat{
-
-0%{
-
-transform:translateY(0) scale(.5);
-
-opacity:0;
-
-}
-
-20%{
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(-120vh) scale(1.5);
-
-opacity:0;
-
-}
-
-}
-
-`;
-
-document.head.appendChild(style);
+console.log("❤️ Minecraft Love Website Loaded Successfully!");
