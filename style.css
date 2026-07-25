@@ -417,4 +417,238 @@ body{
     top:30px;
 
 }
+/* ===================================
+        CAMPFIRE
+=================================== */
 
+.campfire{
+
+    position:relative;
+
+    width:80px;
+
+    height:100px;
+
+    margin-bottom:35px;
+
+}
+
+/* Fire */
+
+.fire{
+
+    width:40px;
+
+    height:55px;
+
+    margin:auto;
+
+    background:linear-gradient(
+
+        to top,
+
+        #ff3d00,
+
+        #ff9800,
+
+        #ffee58
+
+    );
+
+    clip-path:polygon(
+        50% 0%,
+        90% 40%,
+        75% 100%,
+        25% 100%,
+        10% 40%
+    );
+
+    animation:fire 0.8s infinite alternate;
+
+}
+
+/* Wood */
+
+.wood{
+
+    width:70px;
+
+    height:10px;
+
+    background:#5c3a1e;
+
+    margin:auto;
+
+    margin-top:8px;
+
+    transform:rotate(-10deg);
+
+    box-shadow:
+
+    0 6px 0 #5c3a1e;
+
+}
+
+@keyframes fire{
+
+    from{
+
+        transform:scale(1);
+
+        filter:brightness(1);
+
+    }
+
+    to{
+
+        transform:scale(1.15);
+
+        filter:brightness(1.4);
+
+    }
+
+}
+
+/* ===================================
+        DIAMONDS
+=================================== */
+
+.diamond{
+
+    position:absolute;
+
+    font-size:40px;
+
+    animation:diamondFloat 4s ease-in-out infinite;
+
+}
+
+.diamond-left{
+
+    left:60px;
+
+    bottom:170px;
+
+}
+
+.diamond-right{
+
+    right:60px;
+
+    bottom:170px;
+
+}
+
+@keyframes diamondFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===================================
+        EMERALDS
+=================================== */
+
+.emerald{
+
+    position:absolute;
+
+    font-size:35px;
+
+    animation:emeraldFloat 5s ease-in-out infinite;
+
+}
+
+.emerald-left{
+
+    left:120px;
+
+    bottom:250px;
+
+}
+
+.emerald-right{
+
+    right:120px;
+
+    bottom:250px;
+
+}
+
+@keyframes emeraldFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===================================
+        BUTTON
+=================================== */
+
+#openBook{
+
+    margin-top:20px;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#55aa33;
+
+    color:white;
+
+    font-family:'Press Start 2P',cursive;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 8px 0 #2f6d1d;
+
+}
+
+#openBook:hover{
+
+    transform:translateY(-4px);
+
+    background:#66cc44;
+
+}
