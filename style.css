@@ -1,1 +1,521 @@
+/* ==========================
+   Reset
+========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ==========================
+   Body
+========================== */
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:"Poppins",sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #08111f,
+        #111827,
+        #1e293b
+    );
+
+    color:white;
+
+    position:relative;
+
+}
+
+/* ==========================
+   Smooth Scroll
+========================== */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+/* ==========================
+   Floating Hearts
+========================== */
+
+.hearts{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.heart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    color:#ff4d8d;
+
+    opacity:.6;
+
+    animation:floatUp linear infinite;
+
+}
+
+/* ==========================
+   Stars Background
+========================== */
+
+.stars{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    top:0;
+
+    left:0;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    opacity:.18;
+
+    animation:starsMove 35s linear infinite;
+
+    z-index:0;
+
+}
+
+/* ==========================
+   Animations
+========================== */
+
+@keyframes floatUp{
+
+    0%{
+
+        transform:translateY(0) scale(.5);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.8;
+
+    }
+
+    100%{
+
+        transform:translateY(-120vh) scale(1.5);
+
+        opacity:0;
+
+    }
+
+}
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-120px);
+
+    }
+
+}
+/* ==========================
+   Main Container
+========================== */
+
+.container{
+
+    position:relative;
+
+    z-index:5;
+
+    width:90%;
+    max-width:850px;
+
+    text-align:center;
+
+    padding:60px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:30px;
+
+    box-shadow:
+    0 0 50px rgba(255,255,255,.08);
+
+}
+
+/* ==========================
+   Title
+========================== */
+
+.container h1{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:70px;
+
+    color:#ffd6e8;
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+    0 0 15px rgba(255,214,232,.5);
+
+}
+
+/* ==========================
+   Subtitle
+========================== */
+
+.subtitle{
+
+    font-size:20px;
+
+    font-weight:300;
+
+    color:#e5e7eb;
+
+    line-height:1.8;
+
+    margin-bottom:50px;
+
+}
+
+/* ==========================
+   Bottom Quote
+========================== */
+
+.bottom-quote{
+
+    position:absolute;
+
+    bottom:30px;
+
+    width:100%;
+
+    text-align:center;
+
+    left:0;
+
+    font-size:16px;
+
+    color:rgba(255,255,255,.65);
+
+    font-style:italic;
+
+}
+/* ==========================
+   Envelope
+========================== */
+
+.envelope{
+
+    width:230px;
+    height:160px;
+
+    margin:0 auto 40px;
+
+    position:relative;
+
+    cursor:pointer;
+
+    transition:.5s;
+
+}
+
+/* Front */
+
+.envelope-front{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:linear-gradient(
+        135deg,
+        #ff4d8d,
+        #ff7aa8
+    );
+
+    border-radius:12px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:60px;
+
+    color:white;
+
+    z-index:2;
+
+    box-shadow:
+    0 15px 40px rgba(255,77,141,.4);
+
+    transition:.5s;
+
+}
+
+/* Back */
+
+.envelope-back{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    background:#ffb3cc;
+
+    border-radius:12px;
+
+    transform:rotate(-5deg);
+
+    z-index:1;
+
+}
+
+/* Hover */
+
+.envelope:hover{
+
+    transform:translateY(-10px) scale(1.05);
+
+}
+
+.envelope:hover .envelope-front{
+
+    box-shadow:
+
+    0 20px 60px rgba(255,77,141,.6);
+
+}
+
+/* ==========================
+   Open Button
+========================== */
+
+#openLetter{
+
+    padding:18px 55px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #ff4d8d,
+        #ff2674
+    );
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+    box-shadow:
+    0 10px 30px rgba(255,77,141,.4);
+
+}
+
+#openLetter:hover{
+
+    transform:translateY(-5px) scale(1.08);
+
+    box-shadow:
+
+    0 20px 50px rgba(255,77,141,.6);
+
+}
+/* ==========================
+   Hidden Letter Page
+========================== */
+
+.letter-page{
+
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(7,17,31,.98);
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:100;
+
+    padding:40px;
+
+}
+
+.letter-content{
+
+    width:90%;
+    max-width:900px;
+
+    background:white;
+
+    color:#1f2937;
+
+    padding:60px;
+
+    border-radius:25px;
+
+    box-shadow:0 0 60px rgba(255,255,255,.2);
+
+    overflow-y:auto;
+
+    max-height:85vh;
+
+}
+
+.letter-content h2{
+
+    text-align:center;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:60px;
+
+    color:#ff4d8d;
+
+    margin-bottom:35px;
+
+}
+
+#typingText{
+
+    font-size:20px;
+
+    line-height:2;
+
+    white-space:pre-line;
+
+}
+
+/* ==========================
+   Responsive Design
+========================== */
+
+@media (max-width:768px){
+
+.container{
+
+padding:35px 25px;
+
+}
+
+.container h1{
+
+font-size:48px;
+
+}
+
+.subtitle{
+
+font-size:17px;
+
+}
+
+.envelope{
+
+width:180px;
+height:130px;
+
+}
+
+.envelope-front{
+
+font-size:45px;
+
+}
+
+#openLetter{
+
+padding:15px 35px;
+
+font-size:17px;
+
+}
+
+.letter-content{
+
+padding:35px 25px;
+
+}
+
+.letter-content h2{
+
+font-size:45px;
+
+}
+
+#typingText{
+
+font-size:17px;
+
+}
+
+.bottom-quote{
+
+font-size:13px;
+
+}
+
+}
