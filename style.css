@@ -1,12 +1,14 @@
-/* ========================================= */
+/* ===================================================
+   Happy Girlfriend Day
+   Wuthering Waves Edition
+   Part 1 - Foundation
+=================================================== */
+
 /* Google Fonts */
-/* ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* ========================================= */
 /* Reset */
-/* ========================================= */
 
 *{
     margin:0;
@@ -20,7 +22,7 @@ html{
 
 body{
 
-    background:#061320;
+    background:#07131f;
 
     color:#ffffff;
 
@@ -32,21 +34,17 @@ body{
 
 }
 
-/* ========================================= */
 /* Selection */
-/* ========================================= */
 
 ::selection{
 
-    background:#5fd7ff;
+    background:#67d9ff;
 
-    color:#061320;
+    color:#07131f;
 
 }
 
-/* ========================================= */
 /* Scrollbar */
-/* ========================================= */
 
 ::-webkit-scrollbar{
 
@@ -56,29 +54,27 @@ body{
 
 ::-webkit-scrollbar-track{
 
-    background:#071825;
+    background:#07131f;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-    background:#4bc5ff;
+    background:#4ecfff;
 
-    border-radius:20px;
+    border-radius:30px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#82dcff;
+    background:#79e2ff;
 
 }
 
-/* ========================================= */
-/* Wrapper */
-/* ========================================= */
+/* Main Website */
 
-#wrapper{
+#website{
 
     position:relative;
 
@@ -89,9 +85,10 @@ body{
     overflow:hidden;
 
 }
-/* ========================================= */
-/* Loader */
-/* ========================================= */
+
+/* ===========================
+   Loader
+=========================== */
 
 #loader{
 
@@ -105,7 +102,7 @@ body{
 
     align-items:center;
 
-    background:#061320;
+    background:#07131f;
 
     z-index:99999;
 
@@ -119,215 +116,194 @@ body{
 
     background:
     radial-gradient(circle at top,
-    rgba(85,210,255,.15),
-    transparent 60%);
+    rgba(103,217,255,.18),
+    transparent 70%);
 
 }
 
-.loader-content{
+.loader-container{
 
     position:relative;
 
-    text-align:center;
-
     z-index:2;
+
+    text-align:center;
 
 }
 
-.loader-content h1{
+.loader-logo span{
 
     font-family:'Cinzel',serif;
 
     font-size:3rem;
 
-    letter-spacing:4px;
+    color:#e8fbff;
 
-    color:#dff8ff;
-
-    margin-bottom:15px;
+    letter-spacing:5px;
 
 }
 
-.loader-content p{
+.loader-bar{
 
-    color:#8ddfff;
+    width:260px;
+
+    height:5px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    margin:35px auto 20px;
+
+    overflow:hidden;
+
+}
+
+.loader-progress{
+
+    width:0;
+
+    height:100%;
+
+    background:#67d9ff;
+
+    border-radius:30px;
+
+}
+
+.loader-container p{
+
+    color:#9fdfff;
 
     letter-spacing:2px;
 
 }
 
-.loader-circle{
+/* ===========================
+   Background
+=========================== */
 
-    width:120px;
-
-    height:120px;
-
-    margin:auto;
-
-    margin-bottom:30px;
-
-    border:3px solid rgba(255,255,255,.1);
-
-    border-top:3px solid #67d9ff;
-
-    border-radius:50%;
-
-}
-
-/* ========================================= */
-/* Background */
-/* ========================================= */
-
-.bg-layer{
+.background{
 
     position:fixed;
 
     inset:0;
 
-    z-index:-20;
+    z-index:-100;
+
+    overflow:hidden;
 
 }
 
-.layer-1{
+.bg-image{
+
+    position:absolute;
+
+    inset:0;
 
     background:
     linear-gradient(
     180deg,
-    #061320 0%,
-    #081b2b 40%,
-    #061320 100%);
+    #07131f 0%,
+    #0b1f31 40%,
+    #07131f 100%);
 
 }
 
-.layer-2{
+.bg-overlay{
+
+    position:absolute;
+
+    inset:0;
 
     background:
     radial-gradient(circle,
-    rgba(93,212,255,.12),
+    rgba(103,217,255,.08),
     transparent 70%);
 
 }
+/* ===================================================
+   Part 2
+   Fog • Stars • Particles • Header
+=================================================== */
 
-.layer-3{
-
-    backdrop-filter:blur(5px);
-
-}
-/* ========================================= */
-/* Fog Layers */
-/* ========================================= */
+/* ===========================
+   Fog Layers
+=========================== */
 
 .fog{
 
-    position:fixed;
+    position:absolute;
 
     inset:0;
 
     pointer-events:none;
 
-    z-index:-15;
+    filter:blur(90px);
 
     opacity:.35;
 
-    filter:blur(90px);
-
 }
 
-.fog-1{
+.fog-one{
 
     background:
-    radial-gradient(circle at 20% 40%,
-    rgba(92,214,255,.18),
+    radial-gradient(circle at 25% 35%,
+    rgba(103,217,255,.18),
     transparent 45%);
 
 }
 
-.fog-2{
+.fog-two{
 
     background:
-    radial-gradient(circle at 80% 60%,
-    rgba(146,233,255,.12),
+    radial-gradient(circle at 80% 70%,
+    rgba(145,234,255,.12),
     transparent 50%);
 
 }
 
-.fog-3{
-
-    background:
-    radial-gradient(circle at 50% 90%,
-    rgba(78,188,255,.10),
-    transparent 55%);
-
-}
-
-/* ========================================= */
-/* Glow */
-/* ========================================= */
-
-.glow{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:-14;
-
-    background:
-    radial-gradient(circle at center,
-    rgba(95,215,255,.08),
-    transparent 60%);
-
-}
-
-/* ========================================= */
-/* Stars */
-/* ========================================= */
+/* ===========================
+   Stars
+=========================== */
 
 .stars{
 
-    position:fixed;
+    position:absolute;
 
     inset:0;
-
-    z-index:-13;
-
-    background-image:
-
-    radial-gradient(#ffffff 1px, transparent 1px),
-
-    radial-gradient(#8fdfff 1px, transparent 1px);
-
-    background-size:
-
-    120px 120px,
-
-    220px 220px;
-
-    background-position:
-
-    0 0,
-
-    60px 60px;
 
     opacity:.18;
 
+    background-image:
+
+        radial-gradient(#ffffff 1px,transparent 1px),
+
+        radial-gradient(#7bdfff 1px,transparent 1px);
+
+    background-size:
+
+        120px 120px,
+
+        220px 220px;
+
+    background-position:
+
+        0 0,
+
+        60px 60px;
+
 }
 
-/* ========================================= */
-/* Floating Particles */
-/* ========================================= */
+/* ===========================
+   Particles
+=========================== */
 
 .particles{
 
-    position:fixed;
+    position:absolute;
 
     inset:0;
-
-    pointer-events:none;
-
-    z-index:-12;
 
     overflow:hidden;
 
@@ -351,7 +327,7 @@ body{
 
     radial-gradient(circle,
 
-    rgba(96,218,255,.10),
+    rgba(103,217,255,.12),
 
     transparent 70%);
 
@@ -372,9 +348,10 @@ body{
     right:-150px;
 
 }
-/* ========================================= */
-/* Header */
-/* ========================================= */
+
+/* ===========================
+   Header
+=========================== */
 
 .header{
 
@@ -394,21 +371,21 @@ body{
 
     align-items:center;
 
-    z-index:1000;
+    backdrop-filter:blur(14px);
 
-    backdrop-filter:blur(12px);
-
-    background:rgba(8,25,38,.35);
+    background:rgba(7,19,31,.45);
 
     border-bottom:1px solid rgba(255,255,255,.08);
 
+    z-index:999;
+
 }
 
-/* ========================================= */
-/* Logo */
-/* ========================================= */
+/* ===========================
+   Logo
+=========================== */
 
-.logo{
+.logo span{
 
     font-family:'Cinzel',serif;
 
@@ -418,15 +395,15 @@ body{
 
     letter-spacing:3px;
 
-    color:#dff9ff;
+    color:#e9fcff;
 
 }
 
-/* ========================================= */
-/* Navigation */
-/* ========================================= */
+/* ===========================
+   Navigation
+=========================== */
 
-nav ul{
+.navbar ul{
 
     display:flex;
 
@@ -436,29 +413,29 @@ nav ul{
 
 }
 
-nav ul li a{
-
-    color:#ffffff;
+.navbar ul li a{
 
     text-decoration:none;
 
+    color:#ffffff;
+
     font-size:15px;
+
+    transition:.35s ease;
 
     letter-spacing:1px;
 
-    transition:.35s;
-
 }
 
-nav ul li a:hover{
+.navbar ul li a:hover{
 
-    color:#63d9ff;
+    color:#67d9ff;
 
 }
-
-/* ========================================= */
-/* Hero Section */
-/* ========================================= */
+/* ===================================================
+   Part 3
+   Hero Section
+=================================================== */
 
 .hero{
 
@@ -470,15 +447,15 @@ nav ul li a:hover{
 
     align-items:center;
 
-    padding:150px 8% 80px;
+    padding:160px 8% 100px;
 
     gap:60px;
 
 }
 
-/* ========================================= */
-/* Hero Left */
-/* ========================================= */
+/* ===========================
+   Hero Left
+=========================== */
 
 .hero-left{
 
@@ -486,48 +463,95 @@ nav ul li a:hover{
 
 }
 
-.small-title{
+.hero-subtitle{
 
-    color:#74dcff;
+    display:inline-block;
+
+    color:#67d9ff;
+
+    font-size:14px;
+
+    letter-spacing:5px;
 
     text-transform:uppercase;
 
-    letter-spacing:4px;
-
-    font-size:14px;
+    margin-bottom:20px;
 
 }
 
 .hero-left h1{
 
-    margin-top:25px;
-
     font-family:'Cinzel',serif;
 
-    font-size:4.5rem;
+    font-size:4.8rem;
 
     line-height:1.15;
 
     color:#ffffff;
 
+    margin-bottom:30px;
+
 }
 
 .hero-left p{
 
-    margin-top:25px;
-
     max-width:620px;
 
-    color:#cfeaf5;
-
-    line-height:1.9;
+    color:#d6eef9;
 
     font-size:17px;
 
+    line-height:2;
+
+    margin-bottom:40px;
+
 }
-/* ========================================= */
-/* Hero Right */
-/* ========================================= */
+
+/* ===========================
+   Button
+=========================== */
+
+.hero-buttons{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+#startBtn{
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#67d9ff;
+
+    color:#07131f;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+#startBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 0 35px rgba(103,217,255,.45);
+
+}
+
+/* ===========================
+   Hero Right
+=========================== */
 
 .hero-right{
 
@@ -543,67 +567,15 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Energy Circles */
-/* ========================================= */
+/* ===========================
+   Hero Card
+=========================== */
 
-.energy-circle{
+.hero-card{
 
-    position:absolute;
-
-    border-radius:50%;
-
-    border:1px solid rgba(99,217,255,.18);
-
-}
-
-.circle-1{
-
-    width:480px;
+    width:340px;
 
     height:480px;
-
-}
-
-.circle-2{
-
-    width:370px;
-
-    height:370px;
-
-}
-
-.circle-3{
-
-    width:260px;
-
-    height:260px;
-
-}
-
-.energy-ring{
-
-    position:absolute;
-
-    width:560px;
-
-    height:560px;
-
-    border-radius:50%;
-
-    border:2px solid rgba(255,255,255,.05);
-
-}
-
-/* ========================================= */
-/* Hero Frame */
-/* ========================================= */
-
-.hero-frame{
-
-    width:330px;
-
-    height:470px;
 
     border-radius:30px;
 
@@ -613,95 +585,85 @@ nav ul li a:hover{
 
     border:1px solid rgba(255,255,255,.08);
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
     position:relative;
 
     overflow:hidden;
 
 }
 
-/* ========================================= */
-/* Frame Glow */
-/* ========================================= */
+/* Glow */
 
-.frame-glow{
+.hero-glow{
 
     position:absolute;
 
     inset:0;
 
     background:
+
     radial-gradient(circle,
-    rgba(99,217,255,.18),
+
+    rgba(103,217,255,.15),
+
     transparent 70%);
 
 }
 
-/* ========================================= */
-/* Quote */
-/* ========================================= */
+/* Border */
 
-.quote{
+.hero-border{
 
-    position:relative;
+    position:absolute;
 
-    padding:30px;
+    inset:12px;
 
-    text-align:center;
+    border-radius:22px;
 
-    font-family:'Cinzel',serif;
-
-    font-size:1.3rem;
-
-    line-height:1.8;
-
-    color:#eefcff;
+    border:1px solid rgba(255,255,255,.08);
 
 }
 
-/* ========================================= */
-/* Hero Button */
-/* ========================================= */
+/* ===========================
+   Energy Circles
+=========================== */
 
-#startJourney{
+.energy-circle{
 
-    margin-top:40px;
+    position:absolute;
 
-    padding:15px 42px;
+    border-radius:50%;
 
-    border:none;
-
-    border-radius:50px;
-
-    background:#63d9ff;
-
-    color:#061320;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.35s;
+    border:1px solid rgba(103,217,255,.15);
 
 }
 
-#startJourney:hover{
+.circle-one{
 
-    transform:translateY(-5px);
+    width:520px;
 
-    box-shadow:0 0 30px rgba(99,217,255,.45);
+    height:520px;
 
 }
-/* ========================================= */
-/* Love Letter Section */
-/* ========================================= */
+
+.circle-two{
+
+    width:400px;
+
+    height:400px;
+
+}
+
+.circle-three{
+
+    width:280px;
+
+    height:280px;
+
+}
+/* ===================================================
+   Part 4
+   Love Letter Section
+=================================================== */
 
 .love-letter{
 
@@ -721,11 +683,11 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Section Header */
-/* ========================================= */
+/* ===========================
+   Section Heading
+=========================== */
 
-.section-header{
+.section-heading{
 
     text-align:center;
 
@@ -733,7 +695,7 @@ nav ul li a:hover{
 
 }
 
-.section-number{
+.section-heading span{
 
     display:inline-block;
 
@@ -741,7 +703,7 @@ nav ul li a:hover{
 
     font-size:14px;
 
-    letter-spacing:5px;
+    letter-spacing:6px;
 
     text-transform:uppercase;
 
@@ -749,11 +711,11 @@ nav ul li a:hover{
 
 }
 
-.section-header h2{
+.section-heading h2{
 
     font-family:'Cinzel',serif;
 
-    font-size:3rem;
+    font-size:3.2rem;
 
     color:#ffffff;
 
@@ -761,11 +723,11 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Letter Container */
-/* ========================================= */
+/* ===========================
+   Letter Wrapper
+=========================== */
 
-.letter-container{
+.letter-wrapper{
 
     width:100%;
 
@@ -777,15 +739,15 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Letter Paper */
-/* ========================================= */
+/* ===========================
+   Letter Paper
+=========================== */
 
 .letter-paper{
 
     width:100%;
 
-    max-width:900px;
+    max-width:950px;
 
     background:rgba(255,255,255,.05);
 
@@ -798,14 +760,13 @@ nav ul li a:hover{
     padding:70px;
 
     box-shadow:
-
-    0 0 35px rgba(103,217,255,.08);
+    0 0 40px rgba(103,217,255,.08);
 
 }
 
-/* ========================================= */
-/* Letter Heading */
-/* ========================================= */
+/* ===========================
+   Letter Title
+=========================== */
 
 .letter-paper h3{
 
@@ -819,42 +780,47 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Letter Paragraph */
-/* ========================================= */
+/* ===========================
+   Letter Paragraphs
+=========================== */
 
 .letter-paper p{
 
-    color:#d7edf8;
+    color:#d9eef8;
 
     font-size:17px;
 
     line-height:2.1;
 
-    margin-bottom:22px;
+    margin-bottom:24px;
+
+    text-align:justify;
 
 }
 
-/* ========================================= */
-/* Final Line */
-/* ========================================= */
+/* ===========================
+   Letter Ending
+=========================== */
 
 .letter-paper h4{
 
-    margin-top:40px;
-
-    font-family:'Cinzel',serif;
-
-    color:#67d9ff;
-
-    font-size:2rem;
+    margin-top:50px;
 
     text-align:center;
 
+    font-family:'Cinzel',serif;
+
+    font-size:2rem;
+
+    color:#67d9ff;
+
+    letter-spacing:2px;
+
 }
-/* ========================================= */
-/* Promise Section */
-/* ========================================= */
+/* ===================================================
+   Part 5
+   Promise Section
+=================================================== */
 
 .promise-section{
 
@@ -874,21 +840,31 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Promise Card */
-/* ========================================= */
+/* ===========================
+   Promise Wrapper
+=========================== */
+
+.promise-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* ===========================
+   Promise Card
+=========================== */
 
 .promise-card{
 
     width:100%;
 
-    max-width:900px;
-
-    position:relative;
-
-    padding:70px;
-
-    border-radius:30px;
+    max-width:950px;
 
     background:rgba(255,255,255,.04);
 
@@ -896,15 +872,24 @@ nav ul li a:hover{
 
     border:1px solid rgba(255,255,255,.08);
 
+    border-radius:30px;
+
+    padding:70px;
+
+    position:relative;
+
     overflow:hidden;
+
+    box-shadow:
+    0 0 40px rgba(103,217,255,.08);
 
 }
 
-/* ========================================= */
-/* Decorative Line */
-/* ========================================= */
+/* Top Glow Line */
 
-.promise-line{
+.promise-card::before{
+
+    content:"";
 
     position:absolute;
 
@@ -925,11 +910,11 @@ nav ul li a:hover{
 
 }
 
-/* ========================================= */
-/* Promise Content */
-/* ========================================= */
+/* ===========================
+   Promise Title
+=========================== */
 
-.promise-content h3{
+.promise-card h3{
 
     font-family:'Cinzel',serif;
 
@@ -941,25 +926,31 @@ nav ul li a:hover{
 
 }
 
-.promise-content p{
+/* ===========================
+   Promise Paragraph
+=========================== */
 
-    color:#dceef7;
+.promise-card p{
+
+    color:#d8edf8;
 
     font-size:17px;
 
     line-height:2.1;
 
-    margin-bottom:22px;
+    margin-bottom:24px;
+
+    text-align:justify;
 
 }
 
-/* ========================================= */
-/* Quote */
-/* ========================================= */
+/* ===========================
+   Quote
+=========================== */
 
-.promise-content blockquote{
+.promise-card blockquote{
 
-    margin:40px 0;
+    margin:45px 0;
 
     padding:25px;
 
@@ -973,17 +964,17 @@ nav ul li a:hover{
 
     font-size:1.3rem;
 
-    color:#eafcff;
+    color:#eefcff;
 
     line-height:1.8;
 
 }
 
-/* ========================================= */
-/* Final Promise */
-/* ========================================= */
+/* ===========================
+   Final Promise
+=========================== */
 
-.promise-content h4{
+.promise-card h4{
 
     margin-top:45px;
 
@@ -998,11 +989,18 @@ nav ul li a:hover{
     letter-spacing:2px;
 
 }
-/* ========================================= */
-/* Ending Section */
-/* ========================================= */
+/* ===================================================
+   Part 6
+   Ending Section + Footer
+=================================================== */
+
+/* ===========================
+   Ending Section
+=========================== */
 
 .ending-section{
+
+    position:relative;
 
     width:100%;
 
@@ -1018,7 +1016,22 @@ nav ul li a:hover{
 
     text-align:center;
 
-    position:relative;
+    overflow:hidden;
+
+}
+
+.ending-background{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(circle at center,
+    rgba(103,217,255,.10),
+    transparent 70%);
+
+    z-index:-3;
 
 }
 
@@ -1028,36 +1041,35 @@ nav ul li a:hover{
 
     inset:0;
 
-    background:
-    radial-gradient(circle,
-    rgba(103,217,255,.08),
-    transparent 70%);
+    backdrop-filter:blur(6px);
 
-    z-index:-1;
+    z-index:-2;
 
 }
 
-.ending-content{
+.ending-container{
 
     max-width:900px;
 
 }
 
-.ending-subtitle{
+.ending-small{
 
     display:block;
 
     color:#67d9ff;
 
-    letter-spacing:5px;
+    letter-spacing:6px;
 
     text-transform:uppercase;
+
+    font-size:14px;
 
     margin-bottom:25px;
 
 }
 
-.ending-content h2{
+.ending-container h2{
 
     font-family:'Cinzel',serif;
 
@@ -1071,7 +1083,7 @@ nav ul li a:hover{
 
 }
 
-.ending-content p{
+.ending-container p{
 
     color:#d7edf8;
 
@@ -1079,7 +1091,7 @@ nav ul li a:hover{
 
     line-height:2;
 
-    margin-bottom:22px;
+    margin-bottom:24px;
 
 }
 
@@ -1087,41 +1099,93 @@ nav ul li a:hover{
 
     margin:50px auto;
 
-    padding:25px;
+    max-width:700px;
 
-    max-width:650px;
-
-    border:1px solid rgba(255,255,255,.08);
+    padding:30px;
 
     border-radius:20px;
 
-    background:rgba(255,255,255,.04);
+    background:rgba(255,255,255,.05);
 
-    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
 
     font-family:'Cinzel',serif;
 
     font-size:1.4rem;
 
-    color:#ffffff;
+    color:#eefcff;
+
+    line-height:1.8;
 
 }
 
-/* ========================================= */
-/* Footer */
-/* ========================================= */
+.ending-container h3{
+
+    margin-top:50px;
+
+    font-family:'Cinzel',serif;
+
+    font-size:2.2rem;
+
+    color:#67d9ff;
+
+    line-height:1.6;
+
+}
+
+/* ===========================
+   Finish Button
+=========================== */
+
+#finishBtn{
+
+    margin-top:45px;
+
+    padding:16px 48px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#67d9ff;
+
+    color:#07131f;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s ease;
+
+}
+
+#finishBtn:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 0 40px rgba(103,217,255,.45);
+
+}
+
+/* ===========================
+   Footer
+=========================== */
 
 .footer{
 
-    padding:50px 8%;
+    padding:60px 8%;
 
     text-align:center;
 
+    background:rgba(5,15,25,.85);
+
     border-top:1px solid rgba(255,255,255,.08);
 
-    background:rgba(5,15,24,.75);
-
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(15px);
 
 }
 
@@ -1139,21 +1203,19 @@ nav ul li a:hover{
 
 .footer p{
 
-    color:#b8d8e8;
+    color:#cfe6f3;
 
-    line-height:1.8;
-
-    margin-bottom:12px;
+    line-height:1.9;
 
 }
 
 .footer-line{
 
-    width:120px;
+    width:140px;
 
     height:2px;
 
-    margin:25px auto;
+    margin:28px auto;
 
     background:#67d9ff;
 
@@ -1166,153 +1228,742 @@ nav ul li a:hover{
     letter-spacing:3px;
 
 }
-/* ========================================= */
-/* Floating Lights */
-/* ========================================= */
+/* ===================================================
+   Part 7
+   Premium Animations & Effects
+=================================================== */
 
-.floating-light{
+/* ===========================
+   Floating Animation
+=========================== */
 
-    position:fixed;
+.hero-card{
 
-    width:220px;
-
-    height:220px;
-
-    border-radius:50%;
-
-    filter:blur(90px);
-
-    opacity:.18;
-
-    pointer-events:none;
-
-    z-index:-5;
+    animation:floatCard 6s ease-in-out infinite;
 
 }
 
-.light-one{
+.energy-circle{
 
-    top:10%;
-
-    left:5%;
-
-    background:#5fd9ff;
+    animation:rotateCircle 20s linear infinite;
 
 }
 
-.light-two{
+.circle-two{
 
-    top:55%;
-
-    right:8%;
-
-    background:#7be4ff;
+    animation-duration:30s;
 
 }
 
-.light-three{
+.circle-three{
 
-    bottom:8%;
-
-    left:40%;
-
-    background:#3bbcff;
+    animation-duration:40s;
 
 }
 
-/* ========================================= */
-/* Cursor */
-/* ========================================= */
+/* ===========================
+   Glow Pulse
+=========================== */
 
-.cursor-dot{
+.hero-glow{
 
-    position:fixed;
-
-    width:8px;
-
-    height:8px;
-
-    border-radius:50%;
-
-    background:#67d9ff;
-
-    pointer-events:none;
-
-    z-index:9999;
+    animation:glowPulse 4s ease-in-out infinite;
 
 }
 
-.cursor-outline{
+/* ===========================
+   Buttons
+=========================== */
 
-    position:fixed;
+#startBtn,
+#finishBtn{
 
-    width:40px;
+    position:relative;
 
-    height:40px;
-
-    border:1px solid rgba(103,217,255,.6);
-
-    border-radius:50%;
-
-    pointer-events:none;
-
-    z-index:9998;
-
-    transition:transform .15s ease;
+    overflow:hidden;
 
 }
 
-/* ========================================= */
-/* Scroll To Top */
-/* ========================================= */
+#startBtn::before,
+#finishBtn::before{
 
-#scrollTop{
+    content:"";
 
-    position:fixed;
+    position:absolute;
 
-    right:30px;
+    top:0;
 
-    bottom:30px;
+    left:-120%;
 
-    width:55px;
+    width:120%;
 
-    height:55px;
+    height:100%;
 
-    border:none;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
 
-    border-radius:50%;
+    transition:.8s;
 
-    background:#67d9ff;
+}
 
-    color:#061320;
+#startBtn:hover::before,
+#finishBtn:hover::before{
 
-    font-size:22px;
+    left:120%;
 
-    cursor:pointer;
+}
 
-    display:flex;
+/* ===========================
+   Letter & Promise Hover
+=========================== */
 
-    justify-content:center;
+.letter-paper,
+.promise-card{
 
-    align-items:center;
+    transition:.4s ease;
 
-    box-shadow:0 0 25px rgba(103,217,255,.35);
+}
+
+.letter-paper:hover,
+.promise-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 50px rgba(103,217,255,.18);
+
+}
+
+/* ===========================
+   Quote Glow
+=========================== */
+
+.ending-quote,
+.promise-card blockquote{
 
     transition:.35s;
 
 }
 
-#scrollTop:hover{
+.ending-quote:hover,
+.promise-card blockquote:hover{
 
-    transform:translateY(-6px) scale(1.08);
-
-    box-shadow:0 0 40px rgba(103,217,255,.55);
+    box-shadow:0 0 35px rgba(103,217,255,.25);
 
 }
 
-/* ========================================= */
-/* Utility */
-/* ========================================= */
+/* ===========================
+   Keyframes
+=========================== */
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+@keyframes rotateCircle{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes glowPulse{
+
+    0%{
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.4;
+
+    }
+
+}
+/* ===================================================
+   Part 8
+   Responsive Design
+=================================================== */
+
+/* ---------- Large Tablets ---------- */
+
+@media (max-width:1200px){
+
+    .hero{
+
+        flex-direction:column;
+
+        justify-content:center;
+
+        text-align:center;
+
+        gap:80px;
+
+    }
+
+    .hero-left,
+    .hero-right{
+
+        width:100%;
+
+    }
+
+    .hero-left p{
+
+        margin:0 auto 40px;
+
+    }
+
+    .hero-buttons{
+
+        justify-content:center;
+
+    }
+
+}
+
+/* ---------- Tablets ---------- */
+
+@media (max-width:992px){
+
+    .header{
+
+        padding:20px 5%;
+
+    }
+
+    .navbar ul{
+
+        gap:20px;
+
+    }
+
+    .hero-left h1{
+
+        font-size:3.5rem;
+
+    }
+
+    .section-heading h2{
+
+        font-size:2.5rem;
+
+    }
+
+    .letter-paper,
+    .promise-card{
+
+        padding:50px;
+
+    }
+
+    .ending-container h2{
+
+        font-size:3rem;
+
+    }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+    .header{
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+    .navbar ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    .hero{
+
+        padding:150px 25px 80px;
+
+    }
+
+    .hero-left h1{
+
+        font-size:2.6rem;
+
+    }
+
+    .hero-left p{
+
+        font-size:15px;
+
+    }
+
+    .hero-card{
+
+        width:280px;
+
+        height:400px;
+
+    }
+
+    .circle-one{
+
+        width:380px;
+
+        height:380px;
+
+    }
+
+    .circle-two{
+
+        width:300px;
+
+        height:300px;
+
+    }
+
+    .circle-three{
+
+        width:220px;
+
+        height:220px;
+
+    }
+
+    .letter-paper,
+    .promise-card{
+
+        padding:35px;
+
+    }
+
+    .section-heading h2{
+
+        font-size:2rem;
+
+    }
+
+    .ending-container h2{
+
+        font-size:2.3rem;
+
+    }
+
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width:480px){
+
+    .hero-left h1{
+
+        font-size:2rem;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:12px;
+
+        letter-spacing:3px;
+
+    }
+
+    .letter-paper h3,
+    .promise-card h3{
+
+        font-size:1.6rem;
+
+    }
+
+    .letter-paper h4,
+    .promise-card h4{
+
+        font-size:1.6rem;
+
+    }
+
+    .ending-quote{
+
+        padding:20px;
+
+        font-size:1.1rem;
+
+    }
+
+    #startBtn,
+    #finishBtn{
+
+        width:100%;
+
+    }
+
+}
+/* ===================================================
+   Part 9
+   Premium Polish & Visual Effects
+=================================================== */
+
+/* ===========================
+   Glass Shine
+=========================== */
+
+.hero-card::after,
+.letter-paper::after,
+.promise-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-120%;
+
+    left:-50%;
+
+    width:40%;
+
+    height:250%;
+
+    transform:rotate(25deg);
+
+    background:linear-gradient(
+
+        to right,
+
+        transparent,
+
+        rgba(255,255,255,.08),
+
+        transparent
+
+    );
+
+    pointer-events:none;
+
+    transition:1.2s;
+
+}
+
+.hero-card:hover::after,
+.letter-paper:hover::after,
+.promise-card:hover::after{
+
+    left:140%;
+
+}
+
+/* ===========================
+   Section Fade Effect
+=========================== */
+
+.hero,
+.love-letter,
+.promise-section,
+.ending-section{
+
+    transition:opacity .6s ease,
+               transform .6s ease;
+
+}
+
+/* ===========================
+   Soft Borders
+=========================== */
+
+.hero-card,
+.letter-paper,
+.promise-card,
+.ending-quote{
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+   Better Paragraph Spacing
+=========================== */
+
+.hero-left p,
+.letter-paper p,
+.promise-card p,
+.ending-container p{
+
+    letter-spacing:.4px;
+
+}
+
+/* ===========================
+   Headings Glow
+=========================== */
+
+.hero-left h1,
+.section-heading h2,
+.ending-container h2{
+
+    text-shadow:
+
+        0 0 12px rgba(103,217,255,.12),
+
+        0 0 25px rgba(103,217,255,.08);
+
+}
+
+/* ===========================
+   Navbar Hover Underline
+=========================== */
+
+.navbar ul li a{
+
+    position:relative;
+
+}
+
+.navbar ul li a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#67d9ff;
+
+    transition:.35s;
+
+}
+
+.navbar ul li a:hover::after{
+
+    width:100%;
+
+}
+
+/* ===========================
+   Footer Glow
+=========================== */
+
+.footer{
+
+    box-shadow:
+
+        inset 0 1px 0 rgba(255,255,255,.05);
+
+}
+
+.footer-logo{
+
+    text-shadow:
+
+        0 0 18px rgba(103,217,255,.25);
+
+}
+/* ===================================================
+   Part 10
+   Final Animations & Utilities
+=================================================== */
+
+/* ===========================
+   Floating Background
+=========================== */
+
+@keyframes floatingFog{
+
+    0%{
+
+        transform:translateX(0px) translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateX(30px) translateY(-20px);
+
+    }
+
+    100%{
+
+        transform:translateX(0px) translateY(0px);
+
+    }
+
+}
+
+.fog-one{
+
+    animation:floatingFog 18s ease-in-out infinite;
+
+}
+
+.fog-two{
+
+    animation:floatingFog 24s ease-in-out infinite reverse;
+
+}
+
+/* ===========================
+   Stars Twinkle
+=========================== */
+
+@keyframes starsBlink{
+
+    0%{
+
+        opacity:.15;
+
+    }
+
+    50%{
+
+        opacity:.35;
+
+    }
+
+    100%{
+
+        opacity:.15;
+
+    }
+
+}
+
+.stars{
+
+    animation:starsBlink 8s linear infinite;
+
+}
+
+/* ===========================
+   Particle Glow
+=========================== */
+
+@keyframes particleGlow{
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:.20;
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+        opacity:.35;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:.20;
+
+    }
+
+}
+
+.particles::before,
+
+.particles::after{
+
+    animation:particleGlow 10s ease-in-out infinite;
+
+}
+
+/* ===========================
+   Fade Up Animation
+=========================== */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.hero-left,
+
+.hero-right,
+
+.section-heading,
+
+.letter-paper,
+
+.promise-card,
+
+.ending-container{
+
+    animation:fadeUp 1s ease forwards;
+
+}
+
+/* ===========================
+   Utility
+=========================== */
 
 img{
 
@@ -1333,171 +1984,15 @@ section{
     position:relative;
 
 }
-/* ========================================= */
-/* Responsive Design */
-/* ========================================= */
 
-@media (max-width:1200px){
+a{
 
-    .hero{
-
-        flex-direction:column;
-
-        text-align:center;
-
-        padding-top:180px;
-
-    }
-
-    .hero-left,
-    .hero-right{
-
-        width:100%;
-
-    }
-
-    .hero-left h1{
-
-        font-size:3.6rem;
-
-    }
-
-    .hero-frame{
-
-        margin-top:60px;
-
-    }
+    text-decoration:none;
 
 }
 
-@media (max-width:992px){
+ul{
 
-    .header{
-
-        padding:20px 6%;
-
-    }
-
-    nav ul{
-
-        gap:20px;
-
-    }
-
-    .section-header h2{
-
-        font-size:2.4rem;
-
-    }
-
-    .letter-paper,
-    .promise-card{
-
-        padding:45px;
-
-    }
+    list-style:none;
 
 }
-
-@media (max-width:768px){
-
-    .header{
-
-        flex-direction:column;
-
-        gap:20px;
-
-    }
-
-    nav ul{
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-    }
-
-    .hero-left h1{
-
-        font-size:2.8rem;
-
-    }
-
-    .hero-left p{
-
-        font-size:15px;
-
-    }
-
-    .hero-frame{
-
-        width:280px;
-
-        height:390px;
-
-    }
-
-    .section-header h2{
-
-        font-size:2rem;
-
-    }
-
-    .ending-content h2{
-
-        font-size:2.5rem;
-
-    }
-
-}
-
-@media (max-width:480px){
-
-    .hero{
-
-        padding:150px 25px 60px;
-
-    }
-
-    .letter-paper,
-    .promise-card{
-
-        padding:30px;
-
-    }
-
-    .hero-left h1{
-
-        font-size:2.2rem;
-
-    }
-
-    .section-header h2{
-
-        font-size:1.8rem;
-
-    }
-
-    .ending-content h2{
-
-        font-size:2rem;
-
-    }
-
-    #scrollTop{
-
-        width:45px;
-
-        height:45px;
-
-        right:15px;
-
-        bottom:15px;
-
-    }
-
-}
-
-/* ========================================= */
-/* End Of CSS */
-/* ========================================= */
