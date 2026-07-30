@@ -576,3 +576,166 @@ function createParticle() {
 /* Create particles continuously */
 
 setInterval(createParticle, 250);
+/* =========================================
+   Part 9
+   Finish Button Celebration
+=========================================*/
+
+if (finishBtn) {
+
+    finishBtn.addEventListener("click", () => {
+
+        /* Small celebration effect */
+
+        for (let i = 0; i < 25; i++) {
+
+            const spark = document.createElement("span");
+
+            spark.style.position = "fixed";
+            spark.style.left = (window.innerWidth / 2) + "px";
+            spark.style.top = (window.innerHeight / 2) + "px";
+            spark.style.width = "6px";
+            spark.style.height = "6px";
+            spark.style.borderRadius = "50%";
+            spark.style.background = "#67d9ff";
+            spark.style.pointerEvents = "none";
+            spark.style.zIndex = "999999";
+
+            document.body.appendChild(spark);
+
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 150 + Math.random() * 120;
+
+            spark.animate(
+
+                [
+                    {
+                        transform: "translate(0,0) scale(1)",
+                        opacity: 1
+                    },
+                    {
+                        transform:
+                        `translate(${Math.cos(angle) * distance}px,
+                        ${Math.sin(angle) * distance}px)
+                        scale(0)`,
+                        opacity: 0
+                    }
+
+                ],
+
+                {
+
+                    duration: 1200,
+                    easing: "ease-out"
+
+                }
+
+            );
+
+            setTimeout(() => {
+
+                spark.remove();
+
+            }, 1200);
+
+        }
+
+    });
+
+}
+
+/* =========================================
+   Navbar Active Link
+=========================================*/
+
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach((section) => {
+
+        const top = section.offsetTop - 120;
+        const height = section.offsetHeight;
+
+        if (window.scrollY >= top &&
+            window.scrollY < top + height) {
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach((link) => {
+
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === "#" + current) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+});
+/* =========================================
+   Part 10
+   Final Optimisation
+=========================================*/
+
+/* Prevent image dragging */
+
+document.querySelectorAll("img").forEach(img => {
+
+    img.setAttribute("draggable","false");
+
+});
+
+/* Disable double click text selection */
+
+document.addEventListener("mousedown",(e)=>{
+
+    if(e.detail > 1){
+
+        e.preventDefault();
+
+    }
+
+});
+
+/* Window Resize */
+
+window.addEventListener("resize",()=>{
+
+    revealOnScroll();
+
+});
+
+/* Initial Reveal */
+
+window.addEventListener("load",()=>{
+
+    revealOnScroll();
+
+});
+
+/* Welcome Console */
+
+console.clear();
+
+console.log("%cHappy Girlfriend Day 🤍",
+"color:#67d9ff;font-size:26px;font-weight:bold;");
+
+console.log("%cCreated with ❤️ using Wuthering Waves Theme",
+"color:white;font-size:15px;");
+
+console.log("%cWebsite by Faizan",
+"color:#67d9ff;font-size:15px;");
+
+/* Finished */
+
+console.log("%cWebsite Loaded Successfully ✔",
+"color:#00ff99;font-size:14px;");
