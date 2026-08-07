@@ -1,132 +1,105 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Kitty World — a beautiful interactive world created for people who love cats.">
+        content="A special little world made with love for Ali, a cat lover.">
 
-    <meta name="theme-color"
-          content="#17131b">
+    <title>For Ali ♡ — A Little World of Kitties</title>
 
-    <title>Kitty World | A World Full of Paws</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
-          rel="stylesheet">
-
-    <!-- Main stylesheet -->
+    <!-- Main CSS files -->
+    <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animation.css">
 </head>
 
 
 <body>
 
-<!-- =========================================================
-     PAGE LOADER
-========================================================= -->
+    <!-- =========================================
+         BACKGROUND LAYER
+    ========================================== -->
 
-<div class="page-loader" id="pageLoader">
+    <div class="site-background" aria-hidden="true">
 
-    <div class="loader-cat">
-        🐱
+        <div class="background-glow glow-one"></div>
+        <div class="background-glow glow-two"></div>
+
+        <div class="floating-paw paw-one">🐾</div>
+        <div class="floating-paw paw-two">🐾</div>
+        <div class="floating-paw paw-three">🐾</div>
+
     </div>
 
-    <div class="loader-text">
-        Preparing the kitty world...
-    </div>
-
-    <div class="loader-bar">
-        <span></span>
-    </div>
-
-</div>
 
 
-<!-- =========================================================
-     NAVIGATION
-========================================================= -->
+    <!-- =========================================
+         PAGE LOADER
+    ========================================== -->
 
-<header class="site-header" id="siteHeader">
+    <div class="page-loader" id="page-loader">
 
-    <div class="nav-container">
+        <div class="loader-content">
 
-        <a href="#home"
-           class="brand"
-           aria-label="Kitty World Home">
+            <div class="loader-cat">
+                🐱
+            </div>
 
-            <span class="brand-paw">🐾</span>
+            <p class="loader-text">
+                Preparing a little world...
+            </p>
 
-            <span class="brand-text">
-                Kitty<span>World</span>
+            <span class="loader-for">
+                Especially for Ali ♡
             </span>
 
-        </a>
+        </div>
+
+    </div>
 
 
-        <nav class="main-navigation"
-             id="mainNavigation"
-             aria-label="Main navigation">
 
-            <a href="#home" class="nav-link active">
-                Home
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <!-- LOGO -->
+
+            <a href="#home" class="logo">
+
+                <span class="logo-icon">
+                    🐱
+                </span>
+
+                <span class="logo-text">
+                    For Ali
+                </span>
+
+                <span class="logo-heart">
+                    ♡
+                </span>
+
             </a>
 
-            <a href="#discover" class="nav-link">
-                Discover
-            </a>
-
-            <a href="#breeds" class="nav-link">
-                Breeds
-            </a>
-
-            <a href="#gallery" class="nav-link">
-                Gallery
-            </a>
-
-            <a href="#facts" class="nav-link">
-                Facts
-            </a>
-
-            <a href="#about" class="nav-link">
-                About
-            </a>
-
-        </nav>
 
 
-        <div class="nav-actions">
+            <!-- MOBILE MENU BUTTON -->
 
             <button
-                class="nav-favourite"
-                id="favouriteButton"
-                type="button"
-                aria-label="Open favourite kitties">
-
-                ♡
-
-            </button>
-
-
-            <button
-                class="menu-button"
-                id="menuButton"
+                class="menu-toggle"
                 type="button"
                 aria-label="Open menu"
-                aria-expanded="false">
+                aria-expanded="false"
+            >
 
                 <span></span>
                 <span></span>
@@ -134,1430 +107,1405 @@
 
             </button>
 
-        </div>
 
-    </div>
 
-</header>
+            <!-- NAVIGATION LINKS -->
 
-
-
-<!-- =========================================================
-     MAIN CONTENT
-========================================================= -->
-
-<main>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section
-    class="hero-section"
-    id="home"
-    aria-label="Kitty World introduction">
-
-
-    <!-- Background layers -->
-
-    <div class="hero-background"></div>
-
-    <div class="hero-gradient"></div>
-
-    <div class="hero-noise"></div>
-
-
-    <!-- Decorative elements -->
-
-    <div class="hero-decoration paw-one">
-        🐾
-    </div>
-
-    <div class="hero-decoration paw-two">
-        🐾
-    </div>
-
-    <div class="hero-decoration paw-three">
-        🐾
-    </div>
-
-
-    <!-- Hero content -->
-
-    <div class="hero-container">
-
-        <div class="hero-content">
-
-
-            <div class="eyebrow">
-
-                <span class="eyebrow-line"></span>
-
-                <span>
-                    WELCOME TO KITTY WORLD
-                </span>
-
-            </div>
-
-
-            <h1 class="hero-title">
-
-                A little world
-                <br>
-
-                made for
-
-                <span class="title-highlight">
-                    curious paws.
-                </span>
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                Meet beautiful cats, discover fascinating
-                breeds, explore their personalities and
-                fall in love with the tiny creatures that
-                somehow manage to rule our entire world.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#discover"
-                    class="button button-primary">
-
-                    <span>
-                        Explore the world
-                    </span>
-
-                    <span class="button-arrow">
-                        →
-                    </span>
-
-                </a>
-
-
-                <a
-                    href="#facts"
-                    class="button button-ghost">
-
-                    <span class="play-icon">
-                        ▶
-                    </span>
-
-                    <span>
-                        Discover a fact
-                    </span>
-
-                </a>
-
-            </div>
-
-
-            <!-- Small stats -->
-
-            <div class="hero-stats">
-
-                <div class="hero-stat">
-
-                    <strong>
-                        50+
-                    </strong>
-
-                    <span>
-                        Cat facts
-                    </span>
-
-                </div>
-
-
-                <div class="stat-divider"></div>
-
-
-                <div class="hero-stat">
-
-                    <strong>
-                        20+
-                    </strong>
-
-                    <span>
-                        Breeds
-                    </span>
-
-                </div>
-
-
-                <div class="stat-divider"></div>
-
-
-                <div class="hero-stat">
-
-                    <strong>
-                        ∞
-                    </strong>
-
-                    <span>
-                        Cuteness
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- Hero visual -->
-
-        <div class="hero-visual">
-
-
-            <div class="hero-image-wrapper">
-
-                <div class="hero-image-glow"></div>
-
-
-                <div class="hero-image-frame">
-
-                    <img
-                        src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
-                        alt="Beautiful cat portrait"
-                        class="hero-cat-image"
-                    >
-
-                </div>
-
-
-                <!-- Floating information card -->
-
-                <div class="floating-card floating-card-top">
-
-                    <span class="floating-icon">
-                        ✦
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            Curious
-                        </strong>
-
-                        <small>
-                            by nature
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <div class="floating-card floating-card-bottom">
-
-                    <span class="floating-paw">
-                        🐾
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            Purrfect
-                        </strong>
-
-                        <small>
-                            little companion
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Decorative circle -->
-
-                <div class="hero-circle"></div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-
-    <!-- Scroll indicator -->
-
-    <a
-        href="#discover"
-        class="scroll-indicator"
-        aria-label="Scroll to discover">
-
-        <span>
-            Scroll to explore
-        </span>
-
-        <span class="scroll-line"></span>
-
-    </a>
-
-</section>
-
-
-
-<!-- =========================================================
-     DISCOVER SECTION
-========================================================= -->
-
-<section
-    class="discover-section section-padding"
-    id="discover">
-
-
-    <div class="section-container">
-
-
-        <div class="section-heading reveal">
-
-            <div class="section-label">
-
-                <span class="label-paw">
-                    🐾
-                </span>
-
-                DISCOVER
-
-            </div>
-
-
-            <h2>
-
-                Every kitty has
-                <em>a story.</em>
-
-            </h2>
-
-
-            <p>
-
-                From fearless explorers to professional
-                sleepers, every cat has something that
-                makes them completely unique.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Featured cat -->
-
-        <div class="featured-cat-card reveal">
-
-
-            <div class="featured-image">
-
-                <img
-                    src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
-                    alt="Featured adorable cat"
-                    loading="lazy"
-                >
-
-
-                <div class="image-overlay"></div>
-
-
-                <span class="image-badge">
-                    FEATURED KITTY
-                </span>
-
-            </div>
-
-
-            <div class="featured-content">
-
-                <span class="featured-number">
-                    01
-                </span>
-
-
-                <h3>
-                    The curious explorer
-                </h3>
-
-
-                <p>
-
-                    Some cats can turn a completely
-                    ordinary room into an entire
-                    adventure. A box becomes a castle,
-                    a curtain becomes a mountain and
-                    a tiny sound becomes a mystery.
-
-                </p>
-
-
-                <div class="feature-details">
-
-                    <div>
-
-                        <span>
-                            Personality
-                        </span>
-
-                        <strong>
-                            Curious
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Mood
-                        </span>
-
-                        <strong>
-                            Playful
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Favourite thing
-                        </span>
-
-                        <strong>
-                            Exploring
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    class="text-button"
-                    type="button"
-                    onclick="showKittyMessage('The Curious Explorer')">
-
-                    Meet this kitty
-
-                    <span>
-                        →
-                    </span>
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- Mini cards -->
-
-        <div class="mini-cat-grid">
-
-
-            <article class="mini-cat-card reveal">
-
-                <div class="mini-card-icon">
-                    ☁️
-                </div>
-
-                <div>
-
-                    <span>
-                        PERSONALITY
-                    </span>
-
-                    <h3>
-                        The sleepy one
-                    </h3>
-
-                    <p>
-                        Expert-level napping.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="mini-cat-card reveal">
-
-                <div class="mini-card-icon">
-                    ✨
-                </div>
-
-                <div>
-
-                    <span>
-                        PERSONALITY
-                    </span>
-
-                    <h3>
-                        The attention seeker
-                    </h3>
-
-                    <p>
-                        Always wants your attention.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="mini-cat-card reveal">
-
-                <div class="mini-card-icon">
-                    🌙
-                </div>
-
-                <div>
-
-                    <span>
-                        PERSONALITY
-                    </span>
-
-                    <h3>
-                        The night owl
-                    </h3>
-
-                    <p>
-                        Wide awake at 3 AM.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     BREEDS SECTION
-========================================================= -->
-
-<section
-    class="breeds-section section-padding"
-    id="breeds">
-
-
-    <div class="section-container">
-
-
-        <div class="section-heading section-heading-light reveal">
-
-            <div class="section-label">
-                <span>🐱</span>
-                CAT BREEDS
-            </div>
-
-
-            <h2>
-
-                Find your
-                <em>purrfect</em>
-                match.
-
-            </h2>
-
-
-            <p>
-
-                Every breed has its own appearance,
-                personality and little quirks.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="breed-grid">
-
-
-            <article class="breed-card reveal">
-
-                <div class="breed-number">
-                    01
-                </div>
-
-                <div class="breed-visual">
-                    🐈
-                </div>
-
-                <div class="breed-info">
-
-                    <span>
-                        ELEGANT
-                    </span>
-
-                    <h3>
-                        British Shorthair
-                    </h3>
-
-                    <p>
-                        Calm, affectionate and famously fluffy.
-                    </p>
-
-                    <button
-                        type="button"
-                        onclick="showKittyMessage('British Shorthair')">
-
-                        Explore breed →
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="breed-card reveal">
-
-                <div class="breed-number">
-                    02
-                </div>
-
-                <div class="breed-visual">
-                    🐱
-                </div>
-
-                <div class="breed-info">
-
-                    <span>
-                        PLAYFUL
-                    </span>
-
-                    <h3>
-                        Bengal
-                    </h3>
-
-                    <p>
-                        Energetic, intelligent and adventurous.
-                    </p>
-
-                    <button
-                        type="button"
-                        onclick="showKittyMessage('Bengal')">
-
-                        Explore breed →
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="breed-card reveal">
-
-                <div class="breed-number">
-                    03
-                </div>
-
-                <div class="breed-visual">
-                    😺
-                </div>
-
-                <div class="breed-info">
-
-                    <span>
-                        GENTLE
-                    </span>
-
-                    <h3>
-                        Ragdoll
-                    </h3>
-
-                    <p>
-                        Sweet, relaxed and wonderfully affectionate.
-                    </p>
-
-                    <button
-                        type="button"
-                        onclick="showKittyMessage('Ragdoll')">
-
-                        Explore breed →
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="breed-card reveal">
-
-                <div class="breed-number">
-                    04
-                </div>
-
-                <div class="breed-visual">
-                    🐈‍⬛
-                </div>
-
-                <div class="breed-info">
-
-                    <span>
-                        MYSTERIOUS
-                    </span>
-
-                    <h3>
-                        Bombay
-                    </h3>
-
-                    <p>
-                        Sleek, social and full of personality.
-                    </p>
-
-                    <button
-                        type="button"
-                        onclick="showKittyMessage('Bombay')">
-
-                        Explore breed →
-
-                    </button>
-
-                </div>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     GALLERY
-========================================================= -->
-
-<section
-    class="gallery-section section-padding"
-    id="gallery">
-
-
-    <div class="section-container">
-
-
-        <div class="section-heading reveal">
-
-            <div class="section-label">
-                📸 GALLERY
-            </div>
-
-
-            <h2>
-                Moments worth
-                <em>remembering.</em>
-            </h2>
-
-
-            <p>
-                A collection of tiny paws,
-                curious eyes and unforgettable moments.
-            </p>
-
-        </div>
-
-
-
-        <div class="gallery-grid">
-
-
-            <div class="gallery-item gallery-large reveal">
-
-                <img
-                    src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
-                    alt="Cute cat in gallery"
-                    loading="lazy"
-                >
-
-                <div class="gallery-caption">
-
-                    <span>
-                        01
-                    </span>
-
-                    <strong>
-                        Those eyes.
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item reveal">
-
-                <div class="gallery-placeholder">
-                    🐱
-                </div>
-
-                <div class="gallery-caption">
-
-                    <span>
-                        02
-                    </span>
-
-                    <strong>
-                        Tiny paws.
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item reveal">
-
-                <div class="gallery-placeholder">
-                    🐾
-                </div>
-
-                <div class="gallery-caption">
-
-                    <span>
-                        03
-                    </span>
-
-                    <strong>
-                        Big attitude.
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="gallery-item gallery-wide reveal">
-
-                <div class="gallery-placeholder">
-                    ✨
-                </div>
-
-                <div class="gallery-caption">
-
-                    <span>
-                        04
-                    </span>
-
-                    <strong>
-                        Pure kitty energy.
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CAT FACTS
-========================================================= -->
-
-<section
-    class="facts-section section-padding"
-    id="facts">
-
-
-    <div class="facts-background"></div>
-
-
-    <div class="section-container">
-
-
-        <div class="facts-layout">
-
-
-            <div class="facts-intro reveal">
-
-                <div class="section-label">
-                    🧠 DID YOU KNOW?
-                </div>
-
-
-                <h2>
-
-                    Kitties are
-                    <em>stranger</em>
-                    than you think.
-
-                </h2>
-
-
-                <p>
-
-                    Behind those adorable faces are
-                    some seriously fascinating creatures.
-
-                </p>
-
-
-                <button
-                    class="button button-primary"
-                    type="button"
-                    id="randomFactButton">
-
-                    Tell me something cool
-
-                    <span>
-                        ✦
-                    </span>
-
-                </button>
-
-            </div>
-
-
-
-            <div class="fact-display reveal"
-                 id="factDisplay">
-
-
-                <div class="fact-icon">
-                    🐾
-                </div>
-
-
-                <span class="fact-label">
-                    KITTY FACT
-                </span>
-
-
-                <p class="fact-text"
-                   id="factText">
-
-                    Cats spend a surprisingly large
-                    part of their day grooming themselves.
-
-                </p>
-
-
-                <div class="fact-footer">
-
-                    <span id="factNumber">
-                        FACT 01
-                    </span>
-
-                    <span>
-                        🐱
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     WHY CATS
-========================================================= -->
-
-<section
-    class="why-section section-padding">
-
-
-    <div class="section-container">
-
-
-        <div class="section-heading reveal">
-
-            <div class="section-label">
-                ❤️ WHY WE LOVE THEM
-            </div>
-
-
-            <h2>
-
-                Small creatures.
-                <br>
-                <em>Huge personalities.</em>
-
-            </h2>
-
-        </div>
-
-
-
-        <div class="why-grid">
-
-
-            <article class="why-card reveal">
-
-                <span class="why-icon">
-                    💤
-                </span>
-
-                <span class="why-number">
-                    01
-                </span>
-
-                <h3>
-                    Professional sleepers
-                </h3>
-
-                <p>
-                    Somehow they can turn almost
-                    any place into the perfect bed.
-                </p>
-
-            </article>
-
-
-
-            <article class="why-card reveal">
-
-                <span class="why-icon">
-                    🎭
-                </span>
-
-                <span class="why-number">
-                    02
-                </span>
-
-                <h3>
-                    Tiny drama queens
-                </h3>
-
-                <p>
-                    One closed door can become
-                    the greatest tragedy of their lives.
-                </p>
-
-            </article>
-
-
-
-            <article class="why-card reveal">
-
-                <span class="why-icon">
-                    🧠
-                </span>
-
-                <span class="why-number">
-                    03
-                </span>
-
-                <h3>
-                    Clever little minds
-                </h3>
-
-                <p>
-                    Curious, observant and always
-                    ready to investigate something.
-                </p>
-
-            </article>
-
-
-
-            <article class="why-card reveal">
-
-                <span class="why-icon">
-                    ❤️
-                </span>
-
-                <span class="why-number">
-                    04
-                </span>
-
-                <h3>
-                    Quiet companions
-                </h3>
-
-                <p>
-                    Sometimes simply having a kitty
-                    nearby makes everything feel better.
-                </p>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<section class="cta-section">
-
-
-    <div class="cta-background"></div>
-
-
-    <div class="cta-content reveal">
-
-        <span class="cta-paw">
-            🐾
-        </span>
-
-
-        <span class="section-label">
-            ONE LAST THING
-        </span>
-
-
-        <h2>
-
-            Never underestimate
-            <br>
-
-            the power of a
-
-            <em>kitty.</em>
-
-        </h2>
-
-
-        <p>
-
-            Because sometimes the smallest paws
-            leave the biggest footprints.
-
-        </p>
-
-
-        <a
-            href="#home"
-            class="button button-primary">
-
-            Back to the beginning
-
-            <span>
-                ↑
-            </span>
-
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     ABOUT
-========================================================= -->
-
-<section
-    class="about-section section-padding"
-    id="about">
-
-
-    <div class="section-container">
-
-
-        <div class="about-grid">
-
-
-            <div class="about-visual reveal">
-
-                <div class="about-circle">
-
-                    <span>
-                        🐱
-                    </span>
-
-                </div>
-
-
-                <div class="about-paw">
-                    🐾
-                </div>
-
-            </div>
-
-
-
-            <div class="about-content reveal">
-
-                <div class="section-label">
-                    ABOUT KITTY WORLD
-                </div>
-
-
-                <h2>
-
-                    Made with
-                    <em>curiosity.</em>
-
-                </h2>
-
-
-                <p>
-
-                    Kitty World is a little digital
-                    corner dedicated to everything
-                    that makes cats fascinating.
-
-                </p>
-
-
-                <p>
-
-                    Explore the pages, discover new
-                    breeds, learn random facts and
-                    enjoy a tiny escape into the world
-                    of cats.
-
-                </p>
-
-
-                <div class="about-signature">
-
-                    <span>
-                        🐾
-                    </span>
-
-                    <strong>
-                        Kitty World
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-</main>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="site-footer">
-
-
-    <div class="footer-container">
-
-
-        <div class="footer-main">
-
-
-            <a
-                href="#home"
-                class="brand footer-brand">
-
-                <span class="brand-paw">
-                    🐾
-                </span>
-
-                <span class="brand-text">
-                    Kitty<span>World</span>
-                </span>
-
-            </a>
-
-
-            <p>
-
-                A little corner of the internet
-                for people who love cats.
-
-            </p>
-
-        </div>
-
-
-
-        <div class="footer-links">
-
-            <div>
-
-                <span>
-                    EXPLORE
-                </span>
-
-                <a href="#discover">
-                    Discover
-                </a>
-
-                <a href="#breeds">
-                    Breeds
-                </a>
-
-                <a href="#gallery">
-                    Gallery
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <span>
-                    LEARN
-                </span>
-
-                <a href="#facts">
-                    Cat Facts
-                </a>
-
-                <a href="#about">
-                    About
-                </a>
+            <div class="nav-links">
 
                 <a href="#home">
                     Home
                 </a>
 
+                <a href="#kitties">
+                    Kitties
+                </a>
+
+                <a href="#memories">
+                    Memories
+                </a>
+
+                <a href="#letter">
+                    Letter
+                </a>
+
+                <a href="#surprise" class="nav-special">
+                    Surprise ✨
+                </a>
+
             </div>
 
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================================
+         MAIN WEBSITE
+    ========================================== -->
+
+    <main>
+
+
+        <!-- =====================================
+             HERO SECTION
+        ====================================== -->
+
+        <section class="hero-section" id="home">
+
+            <div class="hero-container">
+
+
+                <!-- HERO TEXT -->
+
+                <div class="hero-content">
+
+                    <span class="hero-eyebrow">
+                        MADE ESPECIALLY FOR ALI 🐾
+                    </span>
+
+
+                    <h1 class="hero-title">
+
+                        Hey Ali,
+
+                        <span>
+                            this little world
+                        </span>
+
+                        is yours. ♡
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        You love cats.
+
+                        So I didn't want to make you
+                        an ordinary website.
+
+                        I wanted to make a tiny world
+                        filled with the things you love.
+
+                        🐱🤍
+
+                    </p>
+
+
+                    <!-- HERO BUTTONS -->
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="#kitties"
+                            class="primary-button"
+                        >
+                            Explore the kitty world
+                            <span>→</span>
+                        </a>
+
+
+                        <a
+                            href="#letter"
+                            class="secondary-button"
+                        >
+                            There's something for you ♡
+                        </a>
+
+                    </div>
+
+
+                    <!-- SMALL NOTE -->
+
+                    <div class="hero-note">
+
+                        <span class="hero-note-paw">
+                            🐾
+                        </span>
+
+                        <span>
+                            Cuteness level: dangerously high
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     HERO CAT
+                ================================== -->
+
+                <div class="hero-visual">
+
+                    <div class="hero-image-wrapper">
+
+                        <div class="hero-image-glow"></div>
+
+
+                        <img
+                            class="hero-cat-image"
+                            src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                            alt="Cute kitten"
+                        >
+
+
+                        <!-- FLOATING CARD 1 -->
+
+                        <div class="hero-floating-card card-top">
+
+                            <span class="floating-card-icon">
+                                🐾
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Cat lover
+                                </strong>
+
+                                <small>
+                                    officially confirmed
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- FLOATING CARD 2 -->
+
+                        <div class="hero-floating-card card-bottom">
+
+                            <span class="floating-card-icon">
+                                ♡
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    Made for Ali
+                                </strong>
+
+                                <small>
+                                    with lots of care
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SCROLL INDICATOR -->
+
+            <div class="hero-scroll">
+
+                <span>
+                    Scroll to explore
+                </span>
+
+                <div class="scroll-line"></div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             INTRODUCTION SECTION
+        ====================================== -->
+
+        <section class="intro-section" id="kitties">
+
+            <div class="section-heading">
+
+                <span class="small-title">
+                    WELCOME, ALI
+                </span>
+
+
+                <h2>
+
+                    A little world
+
+                    <span>
+                        made of paws & memories.
+                    </span>
+
+                </h2>
+
+
+                <p>
+
+                    Every section of this website
+                    will have something special for you.
+
+                    And yes...
+
+                    there will be a LOT of cats. 🐱
+
+                </p>
+
+            </div>
+
+
+            <div class="intro-divider">
+
+                <span>
+                    🐾
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             KITTIES SECTION STARTS HERE
+             PART 2 WILL CONTINUE FROM HERE
+        ====================================== -->
+
+        <section class="kitties-section">
+
+            <div class="section-heading">
+
+                <span class="small-title">
+                    FIRST STOP
+                </span>
+
+
+                <h2>
+                    Meet your
+                    <span>
+                        little kitties.
+                    </span>
+                </h2>
+
+
+                <p>
+                    A few tiny faces waiting
+                    to make you smile.
+                </p>
+
+            </div>
+
+
+            <div class="kitty-grid">
+
+                <!-- Kitty cards will be added
+                     in Part 2 -->
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             KITTIES COLLECTION
+        ====================================== -->
+
+        <section class="kitty-collection-section">
+
+            <div class="kitty-collection-container">
+
+
+                <!-- SECTION INTRO -->
+
+                <div class="section-heading kitty-heading">
+
+                    <span class="small-title">
+                        FOR THE CAT LOVER
+                    </span>
+
+                    <h2>
+                        A few kitties
+                        <span>for your collection. 🐾</span>
+                    </h2>
+
+                    <p>
+                        Because one cute cat is never enough.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =================================
+                     KITTY CARD 01
+                ================================== -->
+
+                <article class="kitty-card">
+
+                    <div class="kitty-image-wrapper">
+
+                        <img
+                            src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                            alt="Cute kitten for Ali"
+                            class="kitty-image"
+                            loading="lazy"
+                        >
+
+                        <div class="kitty-image-overlay"></div>
+
+                        <span class="kitty-number">
+                            01
+                        </span>
+
+                        <span class="kitty-paw">
+                            🐾
+                        </span>
+
+                    </div>
+
+
+                    <div class="kitty-card-content">
+
+                        <span class="kitty-label">
+                            THE CUTE ONE
+                        </span>
+
+                        <h3>
+                            Little Fluffy Kitty
+                        </h3>
+
+                        <p>
+                            Just look at that face.
+                            Honestly, this one deserves
+                            its own little corner here.
+                        </p>
+
+                        <button
+                            class="kitty-button"
+                            type="button"
+                            data-kitty="cute"
+                        >
+                            Too adorable ♡
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================
+                     KITTY CARD 02
+                ================================== -->
+
+                <article class="kitty-card">
+
+                    <div class="kitty-image-wrapper">
+
+                        <img
+                            src="https://static.vecteezy.com/system/resources/thumbnails/026/653/971/small/ai-generated-ai-generative-face-frontal-cute-funny-cate-portrait-on-pink-background-happy-animal-pet-promotion-vibe-graphic-art-photo.jpg"
+                            alt="Happy cat for Ali"
+                            class="kitty-image"
+                            loading="lazy"
+                        >
+
+                        <div class="kitty-image-overlay"></div>
+
+                        <span class="kitty-number">
+                            02
+                        </span>
+
+                        <span class="kitty-paw">
+                            🐾
+                        </span>
+
+                    </div>
+
+
+                    <div class="kitty-card-content">
+
+                        <span class="kitty-label">
+                            THE HAPPY ONE
+                        </span>
+
+                        <h3>
+                            Pink Kitty
+                        </h3>
+
+                        <p>
+                            A tiny ball of happiness
+                            for the person who somehow
+                            makes cats even more adorable.
+                        </p>
+
+                        <button
+                            class="kitty-button"
+                            type="button"
+                            data-kitty="happy"
+                        >
+                            Made me smile ♡
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================
+                     KITTY CARD 03
+                ================================== -->
+
+                <article class="kitty-card">
+
+                    <div class="kitty-image-wrapper">
+
+                        <img
+                            src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                            alt="Adorable kitten"
+                            class="kitty-image"
+                            loading="lazy"
+                        >
+
+                        <div class="kitty-image-overlay"></div>
+
+                        <span class="kitty-number">
+                            03
+                        </span>
+
+                        <span class="kitty-paw">
+                            🐾
+                        </span>
+
+                    </div>
+
+
+                    <div class="kitty-card-content">
+
+                        <span class="kitty-label">
+                            THE SPECIAL ONE
+                        </span>
+
+                        <h3>
+                            Another Little Friend
+                        </h3>
+
+                        <p>
+                            Yes, we're adding another one.
+                            I already know you wouldn't
+                            complain about that.
+                        </p>
+
+                        <button
+                            class="kitty-button"
+                            type="button"
+                            data-kitty="special"
+                        >
+                            Keep this one ♡
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- =================================
+                     PERSONAL CAT MESSAGE
+                ================================== -->
+
+                <div class="cat-love-message">
+
+                    <div class="cat-love-icon">
+                        🐱
+                    </div>
+
+
+                    <div class="cat-love-content">
+
+                        <span class="small-title">
+                            A VERY IMPORTANT FACT
+                        </span>
+
+                        <h3>
+                            Ali + Cats =
+                            <span>unbeatable combination.</span>
+                        </h3>
+
+                        <p>
+                            So naturally, this website
+                            had to contain a ridiculous
+                            amount of kitty energy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LITTLE CAT FACT SECTION
+        ====================================== -->
+
+        <section class="cat-fact-section">
+
+            <div class="cat-fact-container">
+
+
+                <div class="cat-fact-visual">
+
+                    <div class="cat-fact-circle">
+
+                        <span>
+                            🐾
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cat-fact-content">
+
+                    <span class="small-title">
+                        RANDOM THOUGHT
+                    </span>
+
+                    <h2>
+                        If happiness had
+                        <span>a face...</span>
+                    </h2>
+
+                    <p>
+                        It would probably look like
+                        a sleepy little kitten.
+                    </p>
+
+                    <p>
+                        And since you love cats,
+                        I figured this belongs here.
+                    </p>
+
+
+                    <div class="cat-fact-signature">
+
+                        <span>
+                            For Ali
+                        </span>
+
+                        <span>
+                            ♡ 🐾
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             MEMORIES SECTION START
+             PART 3 WILL CONTINUE HERE
+        ====================================== -->
+
+        <section
+            class="memories-preview-section"
+            id="memories"
+        >
+
+            <div class="section-heading">
+
+                <span class="small-title">
+                    SOMETHING MORE PERSONAL
+                </span>
+
+                <h2>
+                    Little moments,
+                    <span>big memories. ♡</span>
+                </h2>
+
+                <p>
+                    This part will become our little
+                    memory corner.
+                </p>
+
+            </div>
+
+
+            <div class="memory-preview-grid">
+
+                <div class="memory-placeholder">
+                    <span>🐾</span>
+                    <p>
+                        Memory One
+                    </p>
+                </div>
+
+
+                <div class="memory-placeholder">
+                    <span>♡</span>
+                    <p>
+                        Memory Two
+                    </p>
+                </div>
+
+
+                <div class="memory-placeholder">
+                    <span>🐱</span>
+                    <p>
+                        Memory Three
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             PERSONAL MEMORY SECTION
+        ====================================== -->
+
+        <section class="memory-showcase-section">
+
+            <div class="memory-showcase-container">
+
+
+                <!-- LEFT SIDE -->
+
+                <div class="memory-showcase-content">
+
+                    <span class="small-title">
+                        OUR LITTLE CORNER
+                    </span>
+
+
+                    <h2>
+                        Some moments
+                        <span>deserve to stay.</span>
+                    </h2>
+
+
+                    <p>
+                        Not everything needs to be a huge
+                        memory. Sometimes a random message,
+                        a stupid joke, a late-night conversation,
+                        or simply being there is enough.
+                    </p>
+
+
+                    <p>
+                        So this little section is going to keep
+                        some of those moments in one place.
+                    </p>
+
+
+                    <div class="memory-counter">
+
+                        <div class="counter-item">
+
+                            <strong>
+                                01
+                            </strong>
+
+                            <span>
+                                Little moments
+                            </span>
+
+                        </div>
+
+
+                        <div class="counter-line"></div>
+
+
+                        <div class="counter-item">
+
+                            <strong>
+                                ∞
+                            </strong>
+
+                            <span>
+                                More to come
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RIGHT SIDE -->
+
+                <div class="memory-showcase-visual">
+
+                    <div class="memory-photo-card">
+
+                        <div class="memory-photo-inner">
+
+                            <img
+                                src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                                alt="Kitten representing a special memory"
+                                loading="lazy"
+                            >
+
+                            <div class="memory-photo-overlay">
+
+                                <span>
+                                    A little reminder
+                                </span>
+
+                                <strong>
+                                    Keep smiling, Ali. ♡
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="memory-card-paw">
+                            🐾
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ALI PERSONAL SECTION
+        ====================================== -->
+
+        <section class="ali-personal-section">
+
+            <div class="ali-personal-container">
+
+
+                <div class="ali-personal-badge">
+                    ✦ FOR ALI ✦
+                </div>
+
+
+                <h2>
+                    You made this website
+                    <span>worth making.</span>
+                </h2>
+
+
+                <p class="ali-personal-text">
+
+                    There are probably a million things
+                    I could have put here.
+
+                    But honestly, I just wanted this page
+                    to feel like something made specifically
+                    for you.
+
+                </p>
+
+
+                <div class="ali-personal-divider">
+
+                    <span></span>
+
+                    <i>♡</i>
+
+                    <span></span>
+
+                </div>
+
+
+                <p class="ali-personal-small">
+
+                    And yes...
+                    the cats are here because I know
+                    you love them. 🐱
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             CAT WALL
+        ====================================== -->
+
+        <section class="cat-wall-section">
+
+            <div class="section-heading">
+
+                <span class="small-title">
+                    MORE KITTIES
+                </span>
+
+
+                <h2>
+                    Because we definitely
+                    <span>need more cats.</span> 🐾
+                </h2>
+
+
+                <p>
+                    This wall will eventually become
+                    a whole collection of cute little faces.
+                </p>
+
+            </div>
+
+
+            <div class="cat-wall">
+
+
+                <div class="cat-wall-item cat-wall-large">
+
+                    <img
+                        src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                        alt="Cute kitten"
+                        loading="lazy"
+                    >
+
+                    <div class="cat-wall-caption">
+                        <span>01</span>
+                        <strong>Sleepy kitty</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="cat-wall-item">
+
+                    <img
+                        src="https://static.vecteezy.com/system/resources/thumbnails/026/653/971/small/ai-generated-ai-generative-face-frontal-cute-funny-cate-portrait-on-pink-background-happy-animal-pet-promotion-vibe-graphic-art-photo.jpg"
+                        alt="Happy cat"
+                        loading="lazy"
+                    >
+
+                    <div class="cat-wall-caption">
+                        <span>02</span>
+                        <strong>Happy kitty</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="cat-wall-item">
+
+                    <img
+                        src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                        alt="Adorable kitten"
+                        loading="lazy"
+                    >
+
+                    <div class="cat-wall-caption">
+                        <span>03</span>
+                        <strong>Fluffy kitty</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="cat-wall-item cat-wall-wide">
+
+                    <img
+                        src="https://www.warrenphotographic.co.uk/photography/cats/28718.jpg"
+                        alt="Cute cat"
+                        loading="lazy"
+                    >
+
+                    <div class="cat-wall-caption">
+                        <span>04</span>
+                        <strong>Another tiny friend 🐱</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LITTLE INTERACTION AREA
+        ====================================== -->
+
+        <section class="kitty-interaction-section">
+
+            <div class="kitty-interaction-container">
+
+                <div class="section-heading">
+
+                    <span class="small-title">
+                        ONE IMPORTANT QUESTION
+                    </span>
+
+
+                    <h2>
+                        Which kitty
+                        <span>wins your heart?</span>
+                    </h2>
+
+
+                    <p>
+                        Don't worry. There is no wrong answer.
+                        They're all cute.
+                    </p>
+
+                </div>
+
+
+                <div class="kitty-choice-area">
+
+
+                    <button
+                        class="kitty-choice"
+                        type="button"
+                        data-choice="one"
+                    >
+
+                        <span class="choice-number">
+                            01
+                        </span>
+
+                        <span class="choice-icon">
+                            🐱
+                        </span>
+
+                        <span class="choice-text">
+                            This one!
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="kitty-choice"
+                        type="button"
+                        data-choice="two"
+                    >
+
+                        <span class="choice-number">
+                            02
+                        </span>
+
+                        <span class="choice-icon">
+                            🐾
+                        </span>
+
+                        <span class="choice-text">
+                            No, THIS one!
+                        </span>
+
+                    </button>
+
+
+                    <button
+                        class="kitty-choice"
+                        type="button"
+                        data-choice="three"
+                    >
+
+                        <span class="choice-number">
+                            03
+                        </span>
+
+                        <span class="choice-icon">
+                            ♡
+                        </span>
+
+                        <span class="choice-text">
+                            I can't choose.
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="kitty-choice-result"
+                    id="kitty-choice-result"
+                    aria-live="polite"
+                >
+
+                    <span>
+                        🐾
+                    </span>
+
+                    <p>
+                        Choose a kitty...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             LETTER SECTION START
+             PART 4 WILL CONTINUE HERE
+        ====================================== -->
+
+        <section
+            class="letter-preview-section"
+            id="letter"
+        >
+
+            <div class="letter-preview-container">
+
+                <div class="letter-preview-icon">
+                    💌
+                </div>
+
+
+                <span class="small-title">
+                    THERE'S SOMETHING WAITING
+                </span>
+
+
+                <h2>
+                    A little letter
+                    <span>for you, Ali.</span>
+                </h2>
+
+
+                <p>
+                    Some things are easier to write
+                    than to say.
+                </p>
+
+
+                <a
+                    href="letter.html"
+                    class="letter-button"
+                >
+                    Open the letter
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </section>
+
+        ```html
+        <!-- =====================================
+             SURPRISE SECTION
+        ====================================== -->
+
+        <section
+            class="surprise-section"
+            id="surprise"
+        >
+
+            <div class="surprise-container">
+
+                <div class="surprise-decoration decoration-left">
+                    🐾
+                </div>
+
+                <div class="surprise-decoration decoration-right">
+                    🐾
+                </div>
+
+
+                <span class="small-title">
+                    ONE LAST THING...
+                </span>
+
+
+                <div class="surprise-icon">
+                    🎁
+                </div>
+
+
+                <h2>
+                    Ali, there's
+                    <span>a surprise.</span>
+                </h2>
+
+
+                <p>
+                    You made it this far...
+
+                    so I think you deserve
+                    to see what's waiting for you.
+                </p>
+
+
+                <a
+                    href="surprise.html"
+                    class="surprise-button"
+                >
+                    Open your surprise
+                    <span>♡</span>
+                </a>
+
+
+                <div class="surprise-note">
+
+                    <span>🐱</span>
+
+                    <span>
+                        Psst... don't tell the kitties.
+                    </span>
+
+                    <span>🐾</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FINAL MESSAGE
+        ====================================== -->
+
+        <section class="final-message-section">
+
+            <div class="final-message-container">
+
+
+                <div class="final-cat">
+
+                    <span class="cat-face">
+                        🐱
+                    </span>
+
+                    <span class="cat-heart">
+                        ♡
+                    </span>
+
+                </div>
+
+
+                <span class="small-title">
+                    BEFORE YOU GO
+                </span>
+
+
+                <h2>
+                    Thanks for visiting
+                    <span>your little world.</span>
+                </h2>
+
+
+                <p>
+                    I hope this tiny corner of the internet
+                    made you smile, even just a little.
+                </p>
+
+
+                <div class="final-signature">
+
+                    <span>
+                        Made especially for
+                    </span>
+
+                    <strong>
+                        Ali ♡
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="site-footer">
+
+            <div class="footer-container">
+
+
+                <!-- FOOTER BRAND -->
+
+                <div class="footer-brand">
+
+                    <a
+                        href="#home"
+                        class="footer-logo"
+                    >
+
+                        <span>
+                            🐱
+                        </span>
+
+                        <strong>
+                            For Ali
+                        </strong>
+
+                        <span>
+                            ♡
+                        </span>
+
+                    </a>
+
+
+                    <p>
+                        A tiny website filled with
+                        kitties, memories and little moments.
+                    </p>
+
+                </div>
+
+
+
+                <!-- FOOTER NAVIGATION -->
+
+                <div class="footer-navigation">
+
+                    <span class="footer-title">
+                        EXPLORE
+                    </span>
+
+
+                    <a href="#home">
+                        Home
+                    </a>
+
+                    <a href="#kitties">
+                        Kitties
+                    </a>
+
+                    <a href="#memories">
+                        Memories
+                    </a>
+
+                    <a href="#letter">
+                        Letter
+                    </a>
+
+                    <a href="#surprise">
+                        Surprise
+                    </a>
+
+                </div>
+
+
+
+                <!-- FOOTER MESSAGE -->
+
+                <div class="footer-message">
+
+                    <span class="footer-title">
+                        FOR THE RECORD
+                    </span>
+
+
+                    <p>
+                        Cats were absolutely necessary
+                        for this website.
+                    </p>
+
+
+                    <div class="footer-paws">
+                        🐾 🐾 🐾
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <p>
+                    Made with
+                    <span>♡</span>
+                    for Ali
+                </p>
+
+
+                <p>
+                    © 2026 — Kitty World
+                </p>
+
+            </div>
+
+        </footer>
+
+
+
+        <!-- =====================================
+             GLOBAL DECORATION
+        ====================================== -->
+
+        <div
+            class="floating-heart heart-one"
+            aria-hidden="true"
+        >
+            ♡
+        </div>
+
+        <div
+            class="floating-heart heart-two"
+            aria-hidden="true"
+        >
+            ♡
+        </div>
+
+        <div
+            class="floating-paw paw-four"
+            aria-hidden="true"
+        >
+            🐾
+        </div>
+
+        <div
+            class="floating-paw paw-five"
+            aria-hidden="true"
+        >
+            🐾
         </div>
 
 
-    </div>
+
+        <!-- =====================================
+             JAVASCRIPT FILES
+        ====================================== -->
+
+        <script src="loading.js"></script>
+        <script src="cursor.js"></script>
+        <script src="animation.js"></script>
+        <script src="confetti.js"></script>
+        <script src="script.js"></script>
 
 
-
-    <div class="footer-bottom">
-
-        <span>
-            © 2026 Kitty World
-        </span>
-
-        <span>
-            Made with 🐾 & ❤️
-        </span>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =========================================================
-     MODAL
-========================================================= -->
-
-<div
-    class="kitty-modal"
-    id="kittyModal"
-    aria-hidden="true">
-
-
-    <div
-        class="modal-backdrop"
-        id="modalBackdrop">
-    </div>
-
-
-    <div
-        class="modal-box"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modalTitle">
-
-
-        <button
-            class="modal-close"
-            id="modalClose"
-            type="button"
-            aria-label="Close">
-
-            ×
-
-        </button>
-
-
-        <div class="modal-cat">
-            🐱
-        </div>
-
-
-        <span>
-            KITTY WORLD
-        </span>
-
-
-        <h2 id="modalTitle">
-            Hello, kitty lover!
-        </h2>
-
-
-        <p id="modalMessage">
-
-            Every kitty has a little bit of magic.
-
-        </p>
-
-
-        <button
-            class="button button-primary"
-            id="modalOkay"
-            type="button">
-
-            Aww, okay 🐾
-
-        </button>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================================
-     SCRIPTS
-========================================================= -->
-
-<script src="script.js"></script>
-
-</body>
-</html>
-```
 
