@@ -1,1 +1,1574 @@
+/* =========================================================
+   RESPONSIVE.CSS — PART 1
+   LAPTOP + DESKTOP FOUNDATION
+   MOBILE NOT INCLUDED
+   ========================================================= */
 
+
+/* =========================================================
+   LARGE DESKTOP — 1600px+
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+    .container {
+        width: min(1250px, 90%);
+    }
+
+
+    .navbar {
+        width: min(1200px, 90%);
+
+        padding: 16px 24px;
+    }
+
+
+    .hero-content {
+        width: min(1000px, 90%);
+
+        padding: 70px 55px;
+    }
+
+
+    .content-grid {
+        gap: 30px;
+    }
+
+
+    .content-card {
+        padding: 34px;
+    }
+
+
+    footer {
+        width: min(1200px, 90%);
+    }
+
+}
+
+
+/* =========================================================
+   STANDARD DESKTOP — 1200px TO 1599px
+   ========================================================= */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+
+    .container {
+        width: min(1150px, 92%);
+    }
+
+
+    .navbar {
+        width: min(1100px, 92%);
+
+        padding: 14px 20px;
+    }
+
+
+    .hero-content {
+        width: min(900px, 92%);
+
+        padding: 58px 40px;
+    }
+
+
+    .content-grid {
+        gap: 24px;
+    }
+
+
+    .content-card {
+        padding: 30px;
+    }
+
+
+    footer {
+        width: min(1100px, 92%);
+    }
+
+}
+
+
+/* =========================================================
+   LAPTOP — 992px TO 1199px
+   ========================================================= */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+    .container {
+        width: 92%;
+    }
+
+
+    .navbar {
+        width: 92%;
+
+        padding: 13px 18px;
+
+        gap: 14px;
+    }
+
+
+    .logo {
+        font-size: 1.12rem;
+    }
+
+
+    .nav-links {
+        gap: 5px;
+    }
+
+
+    .nav-links a {
+        padding: 8px 11px;
+
+        font-size: 0.84rem;
+    }
+
+
+    .hero {
+        min-height: 78vh;
+
+        padding-top: 55px;
+    }
+
+
+    .hero-content {
+        width: 92%;
+
+        padding: 50px 35px;
+
+        border-radius: 30px;
+    }
+
+
+    .hero h1 {
+        font-size:
+            clamp(2.8rem, 5.5vw, 4.5rem);
+    }
+
+
+    .hero p {
+        max-width: 620px;
+
+        font-size: 1rem;
+    }
+
+
+    .content-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+
+    .content-card {
+        padding: 26px;
+    }
+
+
+    .page-title {
+        margin-bottom: 40px;
+    }
+
+
+    .quote-card {
+        width: min(780px, 92%);
+
+        padding: 30px;
+    }
+
+
+    footer {
+        width: 92%;
+
+        padding: 26px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP WIDTH CONTROL
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        min-width: 960px;
+    }
+
+
+    main {
+        width: 100%;
+    }
+
+
+    section {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CONTENT SPACING
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .section {
+        margin-top: 70px;
+
+        margin-bottom: 70px;
+    }
+
+
+    .content-grid {
+        width: 100%;
+    }
+
+
+    .quote-card {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION POLISH
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .navbar {
+        backdrop-filter:
+            blur(18px);
+
+        -webkit-backdrop-filter:
+            blur(18px);
+    }
+
+
+    .nav-links a {
+        white-space: nowrap;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP HERO POLISH
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero-content {
+        backdrop-filter:
+            blur(16px);
+
+        -webkit-backdrop-filter:
+            blur(16px);
+    }
+
+
+    .hero-actions {
+        min-height: 50px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP FOOTER
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    footer {
+        backdrop-filter:
+            blur(16px);
+
+        -webkit-backdrop-filter:
+            blur(16px);
+    }
+
+}
+/* =========================================================
+   RESPONSIVE.CSS — PART 2
+   LETTER + MEMORIES + SURPRISE
+   DESKTOP / LAPTOP ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   LETTER PAGE
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .letter-container {
+        width: min(900px, 90%);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding: 55px 65px;
+    }
+
+
+    .letter-content {
+        max-width: 780px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .letter-content p {
+        font-size: 1.02rem;
+
+        line-height: 1.9;
+
+        margin-bottom: 22px;
+    }
+
+
+    .letter-title {
+        margin-bottom: 35px;
+
+        text-align: center;
+    }
+
+
+    .letter-signature {
+        margin-top: 40px;
+
+        text-align: right;
+    }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP LETTER
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .letter-container {
+        width: min(980px, 88%);
+
+        padding: 65px 80px;
+    }
+
+
+    .letter-content {
+        max-width: 820px;
+    }
+
+
+    .letter-content p {
+        font-size: 1.06rem;
+
+        line-height: 2;
+    }
+
+}
+
+
+/* =========================================================
+   MEMORIES PAGE
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .memories-container {
+        width: min(1100px, 92%);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .memories-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 24px;
+    }
+
+
+    .memory-card {
+        min-height: 220px;
+
+        padding: 28px;
+    }
+
+
+    .memory-card h2,
+    .memory-card h3 {
+        margin-bottom: 12px;
+    }
+
+
+    .memory-card p {
+        line-height: 1.75;
+    }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP MEMORIES
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .memories-container {
+        width: min(1200px, 90%);
+    }
+
+
+    .memories-grid {
+        gap: 30px;
+    }
+
+
+    .memory-card {
+        min-height: 240px;
+
+        padding: 32px;
+    }
+
+}
+
+
+/* =========================================================
+   SURPRISE PAGE
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .surprise-container {
+        width: min(850px, 90%);
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding: 55px 60px;
+
+        text-align: center;
+    }
+
+
+    .surprise-title {
+        margin-bottom: 20px;
+    }
+
+
+    .surprise-message {
+        max-width: 700px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        line-height: 1.85;
+    }
+
+
+    .reveal-button {
+        margin-top: 30px;
+    }
+
+
+    .secret-message {
+        max-width: 700px;
+
+        margin: 30px auto 0;
+
+        line-height: 1.85;
+    }
+
+}
+
+
+/* =========================================================
+   LARGE DESKTOP SURPRISE
+   ========================================================= */
+
+@media (min-width: 1400px) {
+
+    .surprise-container {
+        width: min(950px, 88%);
+
+        padding: 70px 80px;
+    }
+
+
+    .surprise-message,
+    .secret-message {
+        max-width: 760px;
+
+        font-size: 1.05rem;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP TIMELINE
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .timeline {
+        width: min(900px, 90%);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .timeline-item {
+        padding-left: 35px;
+    }
+
+
+    .timeline-card {
+        padding: 28px 30px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP SECTION WIDTHS
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .about-section,
+    .letter-section,
+    .memories-section,
+    .surprise-section {
+        width: 100%;
+    }
+
+
+    .about-section > *,
+    .letter-section > *,
+    .memories-section > *,
+    .surprise-section > * {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP BUTTON SIZING
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero-actions .btn,
+    .reveal-button,
+    .surprise-container .btn {
+        min-width: 150px;
+
+        min-height: 46px;
+
+        padding-left: 22px;
+
+        padding-right: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP TEXT READABILITY
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .content-card p,
+    .memory-card p,
+    .timeline-card p {
+        max-width: 680px;
+    }
+
+
+    .content-card p {
+        line-height: 1.75;
+    }
+
+}
+/* =========================================================
+   RESPONSIVE.CSS — PART 3
+   DESKTOP POLISH + SPACING + CAT THEME
+   LAPTOP / PC ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   DESKTOP PAGE WRAPPER
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .page-wrapper {
+        width: 100%;
+
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+
+    .section {
+        width: min(1100px, 100%);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CONTENT CARD GRID
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .content-grid {
+        align-items: stretch;
+    }
+
+
+    .content-card {
+        height: 100%;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: flex-start;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CARD ICON ALIGNMENT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .cat-icon {
+        flex-shrink: 0;
+    }
+
+
+    .content-card h2,
+    .content-card h3 {
+        line-height: 1.3;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP NAVIGATION WIDTH
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .navbar {
+        min-height: 58px;
+    }
+
+
+    .nav-links {
+        margin-left: auto;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP HERO HEIGHT
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .hero {
+        min-height: 80vh;
+    }
+
+
+    .hero-content {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP HERO TEXT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero h1 {
+        line-height: 1.05;
+
+        letter-spacing: -0.025em;
+    }
+
+
+    .hero p {
+        line-height: 1.8;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP BUTTON EFFECT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero-actions {
+        gap: 16px;
+    }
+
+
+    .hero-actions .btn,
+    .reveal-button {
+        cursor: pointer;
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    .hero-actions .btn:hover,
+    .reveal-button:hover {
+        transform:
+            translateY(-3px);
+
+        box-shadow:
+            0 12px 28px
+            rgba(153, 61, 103, 0.18);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP GLASS EFFECT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .content-card,
+    .quote-card,
+    .letter-container,
+    .memory-card,
+    .surprise-container,
+    footer {
+        backdrop-filter:
+            blur(14px);
+
+        -webkit-backdrop-filter:
+            blur(14px);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CAT-PINK BORDER
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .content-card:hover,
+    .memory-card:hover,
+    .timeline-card:hover {
+        border-color:
+            rgba(245, 139, 181, 0.55);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP MEMORY CARDS
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .memory-card {
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+    }
+
+
+    .memory-icon {
+        margin-left: auto;
+
+        margin-right: auto;
+
+        margin-bottom: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP TIMELINE ALIGNMENT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .timeline-card {
+        width: 100%;
+    }
+
+
+    .timeline-item {
+        min-height: 90px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP LETTER TYPOGRAPHY
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .letter-content {
+        text-align: left;
+    }
+
+
+    .letter-content p {
+        text-align: left;
+
+        text-wrap: pretty;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP SURPRISE CONTENT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .surprise-container {
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .surprise-message {
+        text-align: center;
+    }
+
+
+    .secret-message {
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP FOOTER SPACING
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    footer {
+        margin-top: 60px;
+
+        margin-bottom: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY LARGE PC
+   ========================================================= */
+
+@media (min-width: 1800px) {
+
+    .container {
+        width: min(1350px, 88%);
+    }
+
+
+    .navbar {
+        width: min(1250px, 88%);
+    }
+
+
+    .section {
+        width: min(1250px, 100%);
+    }
+
+
+    .content-grid {
+        gap: 32px;
+    }
+
+
+    .hero-content {
+        width: min(1050px, 88%);
+    }
+
+}
+/* =========================================================
+   RESPONSIVE.CSS — PART 4
+   FINAL DESKTOP POLISH
+   LAPTOP + PC ONLY
+   ========================================================= */
+
+
+/* =========================================================
+   DESKTOP VERTICAL RHYTHM
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    header {
+        width: 100%;
+    }
+
+
+    main {
+        padding-top: 10px;
+    }
+
+
+    .section {
+        padding-top: 25px;
+
+        padding-bottom: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP PAGE TITLE SPACING
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .page-title h1 {
+        line-height: 1.1;
+    }
+
+
+    .page-title p {
+        line-height: 1.8;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CARD CONSISTENCY
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .content-card,
+    .memory-card {
+        box-sizing: border-box;
+    }
+
+
+    .content-card h2,
+    .content-card h3,
+    .memory-card h2,
+    .memory-card h3 {
+        line-height: 1.35;
+    }
+
+
+    .content-card p,
+    .memory-card p {
+        margin-top: 0;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP LETTER PAGE POLISH
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .letter-container {
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    .letter-content {
+        box-sizing: border-box;
+    }
+
+
+    .letter-content p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    .letter-signature {
+        line-height: 1.6;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP MEMORIES PAGE POLISH
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .memories-grid {
+        align-items: stretch;
+    }
+
+
+    .memory-card {
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    .memory-card p:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP SURPRISE PAGE POLISH
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .surprise-container {
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    .surprise-message p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    .secret-message p:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP BUTTON ALIGNMENT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero-actions {
+        width: 100%;
+    }
+
+
+    .hero-actions .btn {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        white-space: nowrap;
+    }
+
+
+    .reveal-button {
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        white-space: nowrap;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP SCROLLBAR
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    html {
+        scrollbar-width: thin;
+
+        scrollbar-color:
+            var(--pink-main)
+            rgba(255, 255, 255, 0.35);
+    }
+
+
+    body::-webkit-scrollbar {
+        width: 9px;
+    }
+
+
+    body::-webkit-scrollbar-track {
+        background:
+            rgba(255, 255, 255, 0.35);
+    }
+
+
+    body::-webkit-scrollbar-thumb {
+        background:
+            linear-gradient(
+                180deg,
+                var(--pink-light),
+                var(--pink-main)
+            );
+
+        border-radius: 999px;
+    }
+
+
+    body::-webkit-scrollbar-thumb:hover {
+        background:
+            var(--pink-dark);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP FOCUS STATES
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    a:focus-visible,
+    button:focus-visible {
+        outline:
+            3px solid
+            rgba(245, 139, 181, 0.55);
+
+        outline-offset: 4px;
+
+        border-radius: 8px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP SELECTION
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    ::selection {
+        background:
+            rgba(245, 139, 181, 0.35);
+
+        color:
+            var(--text-dark);
+    }
+
+}
+
+
+/* =========================================================
+   EXTRA LARGE SCREEN BALANCE
+   ========================================================= */
+
+@media (min-width: 1800px) {
+
+    .hero {
+        padding-top: 80px;
+
+        padding-bottom: 60px;
+    }
+
+
+    .section {
+        padding-top: 35px;
+
+        padding-bottom: 35px;
+    }
+
+
+    .page-title {
+        margin-bottom: 55px;
+    }
+
+
+    footer {
+        margin-top: 75px;
+
+        margin-bottom: 35px;
+    }
+
+}
+
+
+/* =========================================================
+   FINAL DESKTOP SAFETY
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    img {
+        max-width: 100%;
+
+        height: auto;
+    }
+
+
+    video {
+        max-width: 100%;
+
+        height: auto;
+    }
+
+
+    iframe {
+        max-width: 100%;
+    }
+
+}
+/* =========================================================
+   RESPONSIVE.CSS — PART 5
+   FINAL LAPTOP + PC FINISH
+   ========================================================= */
+
+
+/* =========================================================
+   DESKTOP CONTENT BALANCE
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .content-card {
+        min-height: 240px;
+
+        box-sizing: border-box;
+    }
+
+
+    .content-card p {
+        max-width: 100%;
+
+        line-height: 1.8;
+    }
+
+
+    .content-card + .content-card {
+        margin-top: 0;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP NAVBAR FINAL ALIGNMENT
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .navbar {
+        box-sizing: border-box;
+
+        isolation: isolate;
+    }
+
+
+    .logo {
+        flex-shrink: 0;
+    }
+
+
+    .nav-links {
+        flex-shrink: 0;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP HERO FINAL SPACING
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero-kicker {
+        margin-bottom: 20px;
+    }
+
+
+    .hero h1 {
+        margin-bottom: 0;
+    }
+
+
+    .hero-actions {
+        margin-top: 5px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP QUOTE CARD
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .quote-card {
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    .quote-card p {
+        max-width: 720px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        line-height: 1.85;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP DIVIDER
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .section-divider {
+        margin-top: 5px;
+
+        margin-bottom: 40px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP CAT DECORATION
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .paw-decoration {
+        margin-top: 30px;
+
+        margin-bottom: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP LETTER SIGNATURE
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .letter-signature {
+        padding-top: 10px;
+
+        padding-right: 15px;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP MEMORY GRID BALANCE
+   ========================================================= */
+
+@media (min-width: 1200px) {
+
+    .memory-card {
+        min-height: 250px;
+    }
+
+
+    .memories-grid {
+        grid-auto-rows: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP SURPRISE BUTTON
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .surprise-container .btn {
+        cursor: pointer;
+
+        user-select: none;
+    }
+
+
+    .surprise-container .btn:active {
+        transform:
+            translateY(1px);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP FOOTER FINAL
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    footer {
+        box-sizing: border-box;
+
+        overflow: hidden;
+    }
+
+
+    footer p {
+        line-height: 1.7;
+
+        margin-bottom: 0;
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP PAGE WIDTH SAFETY
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .container,
+    .section,
+    .page-wrapper,
+    .memories-container,
+    .timeline,
+    .letter-container,
+    .surprise-container {
+        box-sizing: border-box;
+    }
+
+}
+
+
+/* =========================================================
+   FINAL LARGE-SCREEN SPACING
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+    .content-grid {
+        gap: 28px;
+    }
+
+
+    .memories-grid {
+        gap: 28px;
+    }
+
+
+    .timeline {
+        width: min(950px, 90%);
+    }
+
+}
+
+
+/* =========================================================
+   DESKTOP ANTI-OVERFLOW
+   ========================================================= */
+
+@media (min-width: 992px) {
+
+    .hero,
+    .section,
+    .content-grid,
+    .memories-grid,
+    .timeline,
+    .letter-container,
+    .surprise-container {
+        max-width: 100%;
+    }
+
+}
