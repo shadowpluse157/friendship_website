@@ -1,1 +1,2151 @@
+/* =========================================================
+   ANIMATION.CSS — PART 1
+   GLOBAL + PAGE + FLOATING ANIMATIONS
+   ========================================================= */
 
+
+/* =========================================================
+   PAGE ENTER
+   ========================================================= */
+
+.page-enter {
+    animation:
+        pageEnter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   FADE UP
+   ========================================================= */
+
+.fade-up {
+    animation:
+        fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   FADE DOWN
+   ========================================================= */
+
+.fade-down {
+    animation:
+        fadeDown 0.8s ease both;
+}
+
+
+@keyframes fadeDown {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   SOFT SCALE
+   ========================================================= */
+
+.soft-scale {
+    animation:
+        softScale 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes softScale {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING EFFECT
+   ========================================================= */
+
+.float {
+    animation:
+        floating 4s ease-in-out infinite;
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-10px);
+    }
+
+}
+
+
+/* =========================================================
+   GENTLE HEART BEAT
+   ========================================================= */
+
+.heart-beat {
+    display: inline-block;
+
+    animation:
+        heartBeat 1.8s ease-in-out infinite;
+}
+
+
+@keyframes heartBeat {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    15% {
+        transform:
+            scale(1.08);
+    }
+
+    30% {
+        transform:
+            scale(1);
+    }
+
+    45% {
+        transform:
+            scale(1.06);
+    }
+
+}
+
+
+/* =========================================================
+   CAT BOUNCE
+   ========================================================= */
+
+.cat-bounce {
+    display: inline-block;
+
+    animation:
+        catBounce 2.5s ease-in-out infinite;
+}
+
+
+@keyframes catBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(2deg);
+    }
+
+}
+
+
+/* =========================================================
+   PAW WIGGLE
+   ========================================================= */
+
+.paw-wiggle {
+    display: inline-block;
+
+    transform-origin: 50% 90%;
+
+    animation:
+        pawWiggle 2.4s ease-in-out infinite;
+}
+
+
+@keyframes pawWiggle {
+
+    0%,
+    100% {
+        transform:
+            rotate(0deg);
+    }
+
+    25% {
+        transform:
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            rotate(5deg);
+    }
+
+    75% {
+        transform:
+            rotate(-4deg);
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING HEART
+   ========================================================= */
+
+.floating-heart {
+    position: fixed;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    color:
+        rgba(245, 139, 181, 0.55);
+
+    font-size: 1.2rem;
+
+    animation:
+        floatingHeart 6s ease-in-out infinite;
+}
+
+
+@keyframes floatingHeart {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.7);
+    }
+
+    20% {
+        opacity: 0.7;
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            scale(1);
+    }
+
+    80% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-70px)
+            scale(0.8);
+    }
+
+}
+
+
+/* =========================================================
+   GLASS CARD ENTRANCE
+   ========================================================= */
+
+.card-enter {
+    animation:
+        cardEnter 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   BUTTON PRESS
+   ========================================================= */
+
+.btn-press:active {
+    animation:
+        buttonPress 0.18s ease;
+}
+
+
+@keyframes buttonPress {
+
+    0% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(0.95);
+    }
+
+    100% {
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   SOFT GLOW
+   ========================================================= */
+
+.soft-glow {
+    animation:
+        softGlow 3s ease-in-out infinite;
+}
+
+
+@keyframes softGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 12px 35px
+            rgba(153, 61, 103, 0.14);
+    }
+
+    50% {
+        box-shadow:
+            0 16px 45px
+            rgba(245, 139, 181, 0.27);
+    }
+
+}
+
+
+/* =========================================================
+   DELAY HELPERS
+   ========================================================= */
+
+.delay-1 {
+    animation-delay: 0.10s;
+}
+
+
+.delay-2 {
+    animation-delay: 0.20s;
+}
+
+
+.delay-3 {
+    animation-delay: 0.30s;
+}
+
+
+.delay-4 {
+    animation-delay: 0.40s;
+}
+
+
+.delay-5 {
+    animation-delay: 0.50s;
+}
+
+
+.delay-6 {
+    animation-delay: 0.60s;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .page-enter,
+    .fade-up,
+    .fade-down,
+    .soft-scale,
+    .float,
+    .heart-beat,
+    .cat-bounce,
+    .paw-wiggle,
+    .floating-heart,
+    .card-enter,
+    .soft-glow {
+        animation: none;
+    }
+
+}
+/* =========================================================
+   ANIMATION.CSS — PART 2
+   HERO + NAVBAR + CARDS + LETTER EFFECTS
+   ========================================================= */
+
+
+/* =========================================================
+   NAVBAR SLIDE
+   ========================================================= */
+
+.navbar {
+    animation:
+        navSlide 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+
+@keyframes navSlide {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   LOGO CAT
+   ========================================================= */
+
+.logo::before {
+    display: inline-block;
+
+    animation:
+        logoCat 3s ease-in-out infinite;
+}
+
+
+@keyframes logoCat {
+
+    0%,
+    100% {
+        transform:
+            rotate(0deg);
+    }
+
+    45% {
+        transform:
+            rotate(-8deg);
+    }
+
+    55% {
+        transform:
+            rotate(8deg);
+    }
+
+}
+
+
+/* =========================================================
+   NAV LINK HOVER
+   ========================================================= */
+
+.nav-links a {
+    position: relative;
+}
+
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 4px;
+
+    width: 0;
+
+    height: 2px;
+
+    border-radius: 999px;
+
+    background:
+        var(--pink-main);
+
+    transform:
+        translateX(-50%);
+
+    transition:
+        width 0.25s ease;
+}
+
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 25px;
+}
+
+
+/* =========================================================
+   HERO KICKER
+   ========================================================= */
+
+.hero-kicker {
+    animation:
+        kickerAppear 0.8s ease 0.2s both;
+}
+
+
+@keyframes kickerAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-12px)
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.hero h1 {
+    animation:
+        heroTitle 1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+
+@keyframes heroTitle {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   HERO PARAGRAPH
+   ========================================================= */
+
+.hero p {
+    animation:
+        heroText 0.8s ease 0.55s both;
+}
+
+
+@keyframes heroText {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-actions {
+    animation:
+        heroActions 0.8s ease 0.7s both;
+}
+
+
+@keyframes heroActions {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   BUTTON SHINE
+   ========================================================= */
+
+.btn {
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 60%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.35),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.6s ease;
+
+    pointer-events: none;
+}
+
+
+.btn:hover::before {
+    left: 140%;
+}
+
+
+/* =========================================================
+   CONTENT CARDS STAGGER
+   ========================================================= */
+
+.content-card:nth-child(1) {
+    animation:
+        cardEnter 0.7s ease 0.10s both;
+}
+
+
+.content-card:nth-child(2) {
+    animation:
+        cardEnter 0.7s ease 0.20s both;
+}
+
+
+.content-card:nth-child(3) {
+    animation:
+        cardEnter 0.7s ease 0.30s both;
+}
+
+
+.content-card:nth-child(4) {
+    animation:
+        cardEnter 0.7s ease 0.40s both;
+}
+
+
+.content-card:nth-child(5) {
+    animation:
+        cardEnter 0.7s ease 0.50s both;
+}
+
+
+.content-card:nth-child(6) {
+    animation:
+        cardEnter 0.7s ease 0.60s both;
+}
+
+
+/* =========================================================
+   CARD CAT ICON
+   ========================================================= */
+
+.content-card .cat-icon {
+    transition:
+        transform 0.3s ease;
+}
+
+
+.content-card:hover .cat-icon {
+    transform:
+        translateY(-3px)
+        rotate(-3deg)
+        scale(1.04);
+}
+
+
+/* =========================================================
+   PAGE HEADER ANIMATION
+   ========================================================= */
+
+.page-header {
+    animation:
+        pageHeaderAppear 0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+@keyframes pageHeaderAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   LETTER PAPER
+   ========================================================= */
+
+.letter-container {
+    animation:
+        letterAppear 0.9s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        0.15s
+        both;
+}
+
+
+@keyframes letterAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   LETTER PARAGRAPHS
+   ========================================================= */
+
+.letter-content p {
+    animation:
+        paragraphAppear 0.65s ease both;
+}
+
+
+.letter-content p:nth-child(1) {
+    animation-delay: 0.25s;
+}
+
+
+.letter-content p:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+
+.letter-content p:nth-child(3) {
+    animation-delay: 0.45s;
+}
+
+
+.letter-content p:nth-child(4) {
+    animation-delay: 0.55s;
+}
+
+
+.letter-content p:nth-child(5) {
+    animation-delay: 0.65s;
+}
+
+
+@keyframes paragraphAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   LETTER SIGNATURE
+   ========================================================= */
+
+.letter-signature {
+    animation:
+        signatureAppear 0.8s ease 0.8s both;
+}
+
+
+@keyframes signatureAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   TIMELINE ITEMS
+   ========================================================= */
+
+.timeline-item {
+    animation:
+        timelineAppear 0.7s ease both;
+}
+
+
+.timeline-item:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+
+.timeline-item:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+
+.timeline-item:nth-child(3) {
+    animation-delay: 0.30s;
+}
+
+
+.timeline-item:nth-child(4) {
+    animation-delay: 0.40s;
+}
+
+
+.timeline-item:nth-child(5) {
+    animation-delay: 0.50s;
+}
+
+
+@keyframes timelineAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateX(0);
+    }
+
+}
+
+
+/* =========================================================
+   MEMORY CARDS
+   ========================================================= */
+
+.memory-card {
+    animation:
+        memoryAppear 0.7s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+.memory-card:nth-child(1) {
+    animation-delay: 0.10s;
+}
+
+
+.memory-card:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+
+.memory-card:nth-child(3) {
+    animation-delay: 0.30s;
+}
+
+
+.memory-card:nth-child(4) {
+    animation-delay: 0.40s;
+}
+
+
+.memory-card:nth-child(5) {
+    animation-delay: 0.50s;
+}
+
+
+.memory-card:nth-child(6) {
+    animation-delay: 0.60s;
+}
+
+
+@keyframes memoryAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   SURPRISE CONTAINER
+   ========================================================= */
+
+.surprise-container {
+    animation:
+        surpriseAppear 1s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+@keyframes surpriseAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL BOX
+   ========================================================= */
+
+.reveal-box {
+    animation:
+        revealBox 0.7s ease both;
+}
+
+
+@keyframes revealBox {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE ANIMATION CONTROL
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .floating-heart {
+        font-size: 1rem;
+    }
+
+
+    .hero h1 {
+        animation-duration: 0.7s;
+    }
+
+
+    .content-card,
+    .memory-card {
+        animation-duration: 0.55s;
+    }
+
+}
+/* =========================================================
+   ANIMATION.CSS — PART 3
+   SURPRISE + HEARTS + SPARKLES + SPECIAL EFFECTS
+   ========================================================= */
+
+
+/* =========================================================
+   SURPRISE TITLE
+   ========================================================= */
+
+.surprise-title {
+    animation:
+        surpriseTitle 1s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        0.2s
+        both;
+}
+
+
+@keyframes surpriseTitle {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   SURPRISE MESSAGE
+   ========================================================= */
+
+.surprise-message {
+    animation:
+        messageAppear 0.9s
+        ease
+        0.45s
+        both;
+}
+
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL BUTTON
+   ========================================================= */
+
+.reveal-button {
+    position: relative;
+
+    animation:
+        revealButton 0.8s
+        ease
+        0.65s
+        both;
+}
+
+
+@keyframes revealButton {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+
+}
+
+
+.reveal-button:hover {
+    transform:
+        translateY(-3px)
+        scale(1.03);
+}
+
+
+/* =========================================================
+   REVEAL BUTTON PULSE
+   ========================================================= */
+
+.reveal-button::after {
+    content: "";
+
+    position: absolute;
+
+    inset: -5px;
+
+    border-radius: inherit;
+
+    border:
+        2px solid
+        rgba(245, 139, 181, 0.35);
+
+    opacity: 0;
+
+    transform:
+        scale(0.92);
+
+    animation:
+        buttonPulse 2.5s
+        ease-out
+        infinite;
+
+    pointer-events: none;
+}
+
+
+@keyframes buttonPulse {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.92);
+    }
+
+    25% {
+        opacity: 0.8;
+    }
+
+    70% {
+        opacity: 0;
+
+        transform:
+            scale(1.12);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            scale(1.12);
+    }
+
+}
+
+
+/* =========================================================
+   SECRET MESSAGE REVEAL
+   ========================================================= */
+
+.secret-message {
+    animation:
+        secretReveal 0.9s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+
+@keyframes secretReveal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+
+        filter:
+            blur(5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        filter:
+            blur(0);
+    }
+
+}
+
+
+/* =========================================================
+   SPARKLE
+   ========================================================= */
+
+.sparkle {
+    display: inline-block;
+
+    animation:
+        sparkle 2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes sparkle {
+
+    0%,
+    100% {
+        opacity: 0.45;
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            scale(1.15)
+            rotate(12deg);
+    }
+
+}
+
+
+/* =========================================================
+   SPARKLE VARIATIONS
+   ========================================================= */
+
+.sparkle:nth-child(2) {
+    animation-delay: 0.35s;
+}
+
+
+.sparkle:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+
+.sparkle:nth-child(4) {
+    animation-delay: 1.05s;
+}
+
+
+/* =========================================================
+   FLOATING HEARTS
+   ========================================================= */
+
+.heart-float {
+    position: absolute;
+
+    pointer-events: none;
+
+    animation:
+        heartFloat 5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes heartFloat {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.7)
+            rotate(-8deg);
+    }
+
+    20% {
+        opacity: 0.75;
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            scale(1)
+            rotate(5deg);
+    }
+
+    80% {
+        opacity: 0.65;
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateY(-55px)
+            scale(0.8)
+            rotate(-5deg);
+    }
+
+}
+
+
+/* =========================================================
+   HEART VARIATIONS
+   ========================================================= */
+
+.heart-float:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+
+.heart-float:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+
+.heart-float:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+
+.heart-float:nth-child(5) {
+    animation-delay: 3.2s;
+}
+
+
+/* =========================================================
+   CAT PAW LOADING
+   ========================================================= */
+
+.paw-loading {
+    display: inline-flex;
+
+    gap: 5px;
+
+    align-items: center;
+}
+
+
+.paw-loading span {
+    display: inline-block;
+
+    animation:
+        pawLoading 1.2s
+        ease-in-out
+        infinite;
+}
+
+
+.paw-loading span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+
+.paw-loading span:nth-child(3) {
+    animation-delay: 0.30s;
+}
+
+
+@keyframes pawLoading {
+
+    0%,
+    100% {
+        opacity: 0.35;
+
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translateY(-6px);
+    }
+
+}
+
+
+/* =========================================================
+   GENTLE SHIMMER
+   ========================================================= */
+
+.shimmer {
+    background:
+        linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255, 255, 255, 0.55) 45%,
+            transparent 70%
+        );
+
+    background-size:
+        250% 100%;
+
+    animation:
+        shimmerMove 3.5s
+        linear
+        infinite;
+}
+
+
+@keyframes shimmerMove {
+
+    from {
+        background-position:
+            200% 0;
+    }
+
+    to {
+        background-position:
+            -200% 0;
+    }
+
+}
+
+
+/* =========================================================
+   MEMORY HEART ICON
+   ========================================================= */
+
+.memory-heart {
+    display: inline-block;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.memory-card:hover .memory-heart {
+    animation:
+        memoryHeart 0.7s
+        ease-in-out;
+}
+
+
+@keyframes memoryHeart {
+
+    0% {
+        transform:
+            scale(1);
+    }
+
+    40% {
+        transform:
+            scale(1.25)
+            rotate(-8deg);
+    }
+
+    70% {
+        transform:
+            scale(0.95)
+            rotate(5deg);
+    }
+
+    100% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+
+}
+
+
+/* =========================================================
+   QUOTE CARD EFFECT
+   ========================================================= */
+
+.quote-card {
+    animation:
+        quoteAppear 0.8s
+        ease
+        both;
+}
+
+
+@keyframes quoteAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================================================
+   DIVIDER GLOW
+   ========================================================= */
+
+.section-divider {
+    animation:
+        dividerGlow 3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes dividerGlow {
+
+    0%,
+    100% {
+        opacity: 0.65;
+    }
+
+    50% {
+        opacity: 1;
+
+        filter:
+            drop-shadow(
+                0 0 7px
+                rgba(245, 139, 181, 0.55)
+            );
+    }
+
+}
+
+
+/* =========================================================
+   FOOTER HEART
+   ========================================================= */
+
+footer .heart {
+    display: inline-block;
+
+    animation:
+        footerHeart 2s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes footerHeart {
+
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .surprise-title,
+    .surprise-message,
+    .reveal-button,
+    .secret-message,
+    .sparkle,
+    .heart-float,
+    .paw-loading span,
+    .shimmer,
+    .quote-card,
+    .section-divider,
+    footer .heart {
+        animation: none;
+    }
+
+}
+/* =========================================================
+   ANIMATION.CSS — PART 4
+   PAGE TRANSITIONS + SPECIAL POLISH + FINAL CLEANUP
+   ========================================================= */
+
+
+/* =========================================================
+   SMOOTH PAGE CONTENT
+   ========================================================= */
+
+main {
+    animation:
+        mainAppear 0.7s ease both;
+}
+
+
+@keyframes mainAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   PAGE TITLE UNDERLINE
+   ========================================================= */
+
+.page-title h1 {
+    position: relative;
+
+    display: inline-block;
+}
+
+
+.page-title h1::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -10px;
+
+    width: 0;
+
+    height: 3px;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--pink-light),
+            var(--pink-main),
+            var(--pink-light)
+        );
+
+    transform:
+        translateX(-50%);
+
+    animation:
+        titleUnderline 1s
+        ease
+        0.5s
+        forwards;
+}
+
+
+@keyframes titleUnderline {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 70%;
+    }
+
+}
+
+
+/* =========================================================
+   CAT ICON HOVER
+   ========================================================= */
+
+.cat-icon {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.cat-icon:hover {
+    transform:
+        translateY(-5px)
+        rotate(-4deg);
+
+    box-shadow:
+        0 12px 28px
+        rgba(245, 139, 181, 0.25);
+}
+
+
+/* =========================================================
+   BADGE FLOAT
+   ========================================================= */
+
+.badge {
+    animation:
+        badgeFloat 3s ease-in-out infinite;
+}
+
+
+@keyframes badgeFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-3px);
+    }
+
+}
+
+
+/* =========================================================
+   SPECIAL BOX GLOW
+   ========================================================= */
+
+.special-box {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+.special-box:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(245, 139, 181, 0.20);
+}
+
+
+/* =========================================================
+   SOFT PANEL HOVER
+   ========================================================= */
+
+.soft-panel {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.soft-panel:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(153, 61, 103, 0.12);
+}
+
+
+/* =========================================================
+   LETTER HIGHLIGHT
+   ========================================================= */
+
+.letter-content .highlight {
+    transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.letter-content .highlight:hover {
+    background:
+        rgba(255, 194, 218, 0.90);
+
+    box-shadow:
+        0 4px 14px
+        rgba(245, 139, 181, 0.16);
+}
+
+
+/* =========================================================
+   TIMELINE CARD HOVER
+   ========================================================= */
+
+.timeline-card {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.timeline-card:hover {
+    transform:
+        translateX(5px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(153, 61, 103, 0.16);
+}
+
+
+/* =========================================================
+   TIMELINE PAW
+   ========================================================= */
+
+.timeline-item::before {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+.timeline-item:hover::before {
+    transform:
+        scale(1.08)
+        rotate(-5deg);
+
+    box-shadow:
+        0 8px 22px
+        rgba(245, 139, 181, 0.25);
+}
+
+
+/* =========================================================
+   MEMORY ICON
+   ========================================================= */
+
+.memory-card .memory-icon {
+    display: inline-block;
+
+    transition:
+        transform 0.3s ease;
+}
+
+
+.memory-card:hover .memory-icon {
+    transform:
+        translateY(-5px)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   SURPRISE CONTAINER GLOW
+   ========================================================= */
+
+.surprise-container {
+    animation:
+        surpriseGlow 5s ease-in-out infinite;
+}
+
+
+@keyframes surpriseGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 20px 55px
+            rgba(153, 61, 103, 0.16);
+    }
+
+    50% {
+        box-shadow:
+            0 22px 65px
+            rgba(245, 139, 181, 0.25);
+    }
+
+}
+
+
+/* =========================================================
+   QUOTE MARK
+   ========================================================= */
+
+.quote-card::before {
+    content: "“";
+
+    display: block;
+
+    height: 25px;
+
+    color:
+        var(--pink-main);
+
+    font-size: 3rem;
+
+    line-height: 1;
+
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   FOOTER ENTRANCE
+   ========================================================= */
+
+footer {
+    animation:
+        footerAppear 0.8s ease both;
+}
+
+
+@keyframes footerAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+   ========================================================= */
+
+.cat-image {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.cat-image:hover {
+    transform:
+        scale(1.015);
+
+    box-shadow:
+        0 18px 40px
+        rgba(153, 61, 103, 0.20);
+}
+
+
+/* =========================================================
+   MOBILE PERFORMANCE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .surprise-container {
+        animation:
+            none;
+    }
+
+
+    .badge {
+        animation:
+            none;
+    }
+
+
+    .soft-panel:hover,
+    .special-box:hover,
+    .timeline-card:hover {
+        transform:
+            none;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    main,
+    .page-title h1::after,
+    .badge,
+    .surprise-container,
+    footer {
+        animation: none;
+    }
+
+
+    .cat-icon,
+    .special-box,
+    .soft-panel,
+    .timeline-card,
+    .cat-image {
+        transition: none;
+    }
+
+}
