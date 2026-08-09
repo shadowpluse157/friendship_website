@@ -3104,7 +3104,7 @@
     }
 
 }
-```css
+
 /* =========================================================
    STYLE.CSS — PART 3
    PREMIUM EFFECTS + DECORATIONS + SCROLLBAR
@@ -3769,7 +3769,8 @@
     }
 
 }
-```css
+
+
 /* =========================================================
    STYLE.CSS — PART 4
    FINAL PREMIUM POLISH + RESPONSIVE BASE + UTILITIES
@@ -4441,5 +4442,494 @@ select {
 
 /* =========================================================
    END OF STYLE.CSS — PART 4
+   ========================================================= */
+
+/* =========================================================
+   STYLE.CSS — PART 5
+   FINAL PREMIUM POLISH
+   ========================================================= */
+
+
+/* =========================================================
+   PREMIUM TEXT GRADIENT
+   ========================================================= */
+
+.gradient-text {
+    background:
+        linear-gradient(
+            135deg,
+            var(--pink-main),
+            var(--pink-dark)
+        );
+
+    -webkit-background-clip:
+        text;
+
+    background-clip:
+        text;
+
+    -webkit-text-fill-color:
+        transparent;
+
+    color:
+        transparent;
+}
+
+
+/* =========================================================
+   SOFT GLOW
+   ========================================================= */
+
+.soft-glow {
+    box-shadow:
+        0 0 0 1px
+            rgba(255, 255, 255, 0.75),
+        0 18px 50px
+            rgba(201, 79, 131, 0.16);
+}
+
+
+/* =========================================================
+   PREMIUM SHADOW
+   ========================================================= */
+
+.premium-shadow {
+    box-shadow:
+        0 20px 55px
+        rgba(180, 76, 120, 0.18);
+}
+
+
+/* =========================================================
+   PINK GLOW BORDER
+   ========================================================= */
+
+.pink-glow-border {
+    border:
+        1px solid
+        rgba(217, 91, 139, 0.22);
+
+    box-shadow:
+        0 0 0 1px
+            rgba(255, 255, 255, 0.45),
+        0 15px 40px
+            rgba(217, 91, 139, 0.14);
+}
+
+
+/* =========================================================
+   PREMIUM HOVER LIFT
+   ========================================================= */
+
+.hover-lift {
+    transition:
+        transform 0.30s ease,
+        box-shadow 0.30s ease;
+}
+
+
+.hover-lift:hover {
+    transform:
+        translateY(-8px);
+
+    box-shadow:
+        0 22px 50px
+        rgba(180, 76, 120, 0.18);
+}
+
+
+/* =========================================================
+   IMAGE FRAME
+   ========================================================= */
+
+.image-frame {
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        var(--radius-md);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.90);
+
+    box-shadow:
+        var(--shadow-soft);
+}
+
+
+.image-frame img {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        cover;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.image-frame:hover img {
+    transform:
+        scale(1.045);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+   ========================================================= */
+
+.image-frame::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(180, 76, 120, 0.14)
+        );
+
+    opacity:
+        0;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+
+.image-frame:hover::after {
+    opacity:
+        1;
+}
+
+
+/* =========================================================
+   PREMIUM LINE
+   ========================================================= */
+
+.premium-line {
+    width:
+        min(300px, 70%);
+
+    height:
+        2px;
+
+    margin:
+        28px auto;
+
+    border-radius:
+        999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--pink-main),
+            transparent
+        );
+}
+
+
+/* =========================================================
+   DECORATIVE HEART
+   ========================================================= */
+
+.decorative-heart {
+    display:
+        inline-block;
+
+    color:
+        var(--pink-main);
+
+    animation:
+        softHeartbeat 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PREMIUM LIST
+   ========================================================= */
+
+.premium-list {
+    display:
+        grid;
+
+    gap:
+        12px;
+
+    padding:
+        0;
+
+    margin:
+        20px 0;
+
+    list-style:
+        none;
+}
+
+
+.premium-list li {
+    position:
+        relative;
+
+    padding:
+        13px 16px 13px 42px;
+
+    border:
+        1px solid
+        rgba(201, 79, 131, 0.08);
+
+    border-radius:
+        14px;
+
+    background:
+        rgba(255, 255, 255, 0.56);
+
+    color:
+        var(--text-dark);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.premium-list li::before {
+    content:
+        "♡";
+
+    position:
+        absolute;
+
+    left:
+        16px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    color:
+        var(--pink-main);
+
+    font-size:
+        1.15rem;
+
+    font-weight:
+        700;
+}
+
+
+.premium-list li:hover {
+    transform:
+        translateX(5px);
+
+    background:
+        rgba(255, 224, 238, 0.68);
+}
+
+
+/* =========================================================
+   PREMIUM QUOTE
+   ========================================================= */
+
+.premium-quote {
+    position:
+        relative;
+
+    padding:
+        30px 35px;
+
+    margin:
+        30px auto;
+
+    max-width:
+        780px;
+
+    text-align:
+        center;
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        rgba(255, 255, 255, 0.70);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.90);
+
+    box-shadow:
+        var(--shadow-soft);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+}
+
+
+.premium-quote::before {
+    content:
+        "“";
+
+    position:
+        absolute;
+
+    left:
+        20px;
+
+    top:
+        4px;
+
+    color:
+        rgba(217, 91, 139, 0.18);
+
+    font-size:
+        5rem;
+
+    line-height:
+        1;
+}
+
+
+.premium-quote p {
+    margin:
+        0;
+
+    color:
+        var(--text-dark);
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   SPACING UTILITIES
+   ========================================================= */
+
+.mt-small {
+    margin-top:
+        12px;
+}
+
+
+.mt-medium {
+    margin-top:
+        24px;
+}
+
+
+.mt-large {
+    margin-top:
+        45px;
+}
+
+
+.mb-small {
+    margin-bottom:
+        12px;
+}
+
+
+.mb-medium {
+    margin-bottom:
+        24px;
+}
+
+
+.mb-large {
+    margin-bottom:
+        45px;
+}
+
+
+/* =========================================================
+   PREMIUM OPACITY
+   ========================================================= */
+
+.opacity-soft {
+    opacity:
+        0.78;
+}
+
+
+.opacity-muted {
+    opacity:
+        0.62;
+}
+
+
+/* =========================================================
+   DESKTOP SAFETY
+   ========================================================= */
+
+@media (min-width: 769px) {
+
+    .desktop-only {
+        display:
+            block;
+    }
+
+    .mobile-only {
+        display:
+            none !important;
+    }
+
+}
+
+
+/* =========================================================
+   FINAL ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}
+
+
+/* =========================================================
+   STYLE.CSS COMPLETE
    ========================================================= */
 
