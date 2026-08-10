@@ -1,1 +1,508 @@
+/* =========================================================
+   KITTIES — LITTLE WORLD
+   variables.css
+   Premium Kitty Theme
+   ========================================================= */
 
+:root {
+
+    /* =====================================================
+       BRAND / THEME COLORS
+       ===================================================== */
+
+    --color-bg: #120d12;
+    --color-bg-soft: #1a1118;
+    --color-bg-card: rgba(28, 18, 26, 0.78);
+
+    --color-surface: rgba(255, 248, 250, 0.075);
+    --color-surface-hover: rgba(255, 248, 250, 0.12);
+
+    --color-white: #fff9fb;
+    --color-text: #f8e9ee;
+    --color-text-soft: #d9c2ca;
+    --color-text-muted: #aa929b;
+
+    --color-pink: #f39ab5;
+    --color-pink-light: #ffc4d3;
+    --color-pink-dark: #c96889;
+
+    --color-rose: #d86b8d;
+    --color-rose-light: #f6afc2;
+    --color-rose-dark: #9f4768;
+
+    --color-blush: #ffe1e8;
+    --color-cream: #fff4e9;
+
+    --color-accent: #f4a6bd;
+    --color-accent-soft: rgba(244, 166, 189, 0.18);
+
+    --color-gold: #e7c58b;
+    --color-gold-soft: rgba(231, 197, 139, 0.18);
+
+    --color-success: #9ed8b0;
+    --color-danger: #e8899e;
+
+
+    /* =====================================================
+       BACKGROUND
+       ===================================================== */
+
+    --page-background-image:
+        linear-gradient(
+            135deg,
+            rgba(18, 13, 18, 0.82),
+            rgba(34, 18, 27, 0.70),
+            rgba(18, 13, 18, 0.88)
+        ),
+        url("https://images.unsplash.com/photo-1710497693691-3505885231e5?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+    --page-background-position: center;
+    --page-background-size: cover;
+    --page-background-attachment: fixed;
+
+    --overlay-dark: rgba(13, 8, 12, 0.62);
+    --overlay-soft: rgba(20, 11, 17, 0.38);
+
+
+    /* =====================================================
+       GRADIENTS
+       ===================================================== */
+
+    --gradient-primary:
+        linear-gradient(
+            135deg,
+            #f6afc2 0%,
+            #df789b 50%,
+            #b9577b 100%
+        );
+
+    --gradient-soft:
+        linear-gradient(
+            135deg,
+            rgba(255, 196, 211, 0.16),
+            rgba(216, 107, 141, 0.08)
+        );
+
+    --gradient-card:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.105),
+            rgba(255, 255, 255, 0.035)
+        );
+
+    --gradient-dark:
+        linear-gradient(
+            145deg,
+            #24151f,
+            #130d13
+        );
+
+    --gradient-gold:
+        linear-gradient(
+            135deg,
+            #f7dfae,
+            #d8ae65
+        );
+
+
+    /* =====================================================
+       TYPOGRAPHY
+       ===================================================== */
+
+    --font-display:
+        "Cormorant Garamond",
+        Georgia,
+        serif;
+
+    --font-heading:
+        "Playfair Display",
+        Georgia,
+        serif;
+
+    --font-body:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    --font-script:
+        "Allura",
+        "Dancing Script",
+        cursive;
+
+    --font-size-xs: 0.72rem;
+    --font-size-sm: 0.86rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.15rem;
+    --font-size-xl: 1.45rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.8rem;
+    --font-size-4xl: 4rem;
+    --font-size-hero: clamp(3.2rem, 8vw, 7rem);
+
+    --line-height-tight: 1.05;
+    --line-height-heading: 1.15;
+    --line-height-body: 1.75;
+
+
+    /* =====================================================
+       LETTER / ROMANTIC TEXT COLORS
+       ===================================================== */
+
+    --letter-heading: #ffd1dc;
+    --letter-text: #f7e7eb;
+    --letter-soft: #d8bdc6;
+
+    --letter-highlight: #ffabc2;
+    --letter-signature: #f5b0c5;
+
+    --letter-paper:
+        linear-gradient(
+            145deg,
+            rgba(255, 239, 244, 0.095),
+            rgba(255, 220, 231, 0.035)
+        );
+
+    --letter-border: rgba(255, 187, 207, 0.20);
+
+
+    /* =====================================================
+       SPACING
+       ===================================================== */
+
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+
+    /* =====================================================
+       LAYOUT
+       ===================================================== */
+
+    --container-width: 1200px;
+    --container-wide: 1400px;
+
+    --page-padding: clamp(1rem, 4vw, 4rem);
+
+    --section-padding:
+        clamp(4rem, 9vw, 8rem)
+        var(--page-padding);
+
+
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
+
+    --nav-height: 78px;
+
+    --nav-background:
+        rgba(14, 9, 13, 0.72);
+
+    --nav-background-scrolled:
+        rgba(14, 8, 12, 0.92);
+
+    --nav-border:
+        1px solid rgba(255, 192, 210, 0.12);
+
+    --nav-blur: 20px;
+
+    --nav-link-color: #ead6dc;
+    --nav-link-hover: #ffb8ca;
+    --nav-link-active: #ffc4d3;
+
+
+    /* =====================================================
+       CARDS
+       ===================================================== */
+
+    --card-background:
+        rgba(30, 18, 27, 0.68);
+
+    --card-background-strong:
+        rgba(28, 16, 24, 0.86);
+
+    --card-border:
+        1px solid rgba(255, 205, 218, 0.13);
+
+    --card-border-hover:
+        1px solid rgba(255, 180, 202, 0.32);
+
+    --card-radius: 24px;
+    --card-radius-small: 16px;
+
+    --card-padding: clamp(1.25rem, 3vw, 2rem);
+
+    --card-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.28);
+
+    --card-shadow-hover:
+        0 28px 80px rgba(0, 0, 0, 0.40);
+
+
+    /* =====================================================
+       GLASS EFFECT
+       ===================================================== */
+
+    --glass-background:
+        rgba(255, 255, 255, 0.065);
+
+    --glass-border:
+        rgba(255, 255, 255, 0.12);
+
+    --glass-blur: 18px;
+
+    --glass-shadow:
+        0 18px 60px rgba(0, 0, 0, 0.28);
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    --button-primary-background:
+        var(--gradient-primary);
+
+    --button-primary-color:
+        #24121b;
+
+    --button-secondary-background:
+        rgba(255, 255, 255, 0.065);
+
+    --button-secondary-color:
+        var(--color-text);
+
+    --button-border:
+        rgba(255, 191, 208, 0.20);
+
+    --button-radius: 999px;
+
+    --button-padding-y: 0.9rem;
+    --button-padding-x: 1.5rem;
+
+    --button-shadow:
+        0 10px 30px rgba(216, 107, 141, 0.20);
+
+    --button-shadow-hover:
+        0 16px 40px rgba(216, 107, 141, 0.32);
+
+
+    /* =====================================================
+       KITTEN / DECORATIVE ELEMENTS
+       ===================================================== */
+
+    --kitty-pink: #f6a8bf;
+    --kitty-ear: #ef91ae;
+    --kitty-nose: #d76b8d;
+    --kitty-eye: #2b1823;
+
+    --paw-color:
+        rgba(255, 184, 204, 0.14);
+
+    --paw-color-strong:
+        rgba(255, 184, 204, 0.24);
+
+    --heart-color:
+        rgba(244, 143, 174, 0.82);
+
+
+    /* =====================================================
+       BORDERS
+       ===================================================== */
+
+    --border-subtle:
+        rgba(255, 255, 255, 0.08);
+
+    --border-soft:
+        rgba(255, 190, 209, 0.15);
+
+    --border-medium:
+        rgba(255, 178, 202, 0.24);
+
+    --border-accent:
+        rgba(243, 154, 181, 0.42);
+
+
+    /* =====================================================
+       SHADOWS
+       ===================================================== */
+
+    --shadow-xs:
+        0 4px 12px rgba(0, 0, 0, 0.16);
+
+    --shadow-sm:
+        0 8px 24px rgba(0, 0, 0, 0.20);
+
+    --shadow-md:
+        0 16px 40px rgba(0, 0, 0, 0.26);
+
+    --shadow-lg:
+        0 25px 70px rgba(0, 0, 0, 0.34);
+
+    --shadow-pink:
+        0 15px 45px rgba(216, 107, 141, 0.18);
+
+    --shadow-glow:
+        0 0 45px rgba(243, 154, 181, 0.16);
+
+
+    /* =====================================================
+       BORDER RADIUS
+       ===================================================== */
+
+    --radius-xs: 6px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-2xl: 42px;
+    --radius-pill: 999px;
+
+
+    /* =====================================================
+       TRANSITIONS
+       ===================================================== */
+
+    --transition-fast:
+        160ms ease;
+
+    --transition-normal:
+        280ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    --transition-smooth:
+        420ms cubic-bezier(0.22, 1, 0.36, 1);
+
+    --transition-slow:
+        700ms cubic-bezier(0.22, 1, 0.36, 1);
+
+
+    /* =====================================================
+       Z-INDEX SYSTEM
+       ===================================================== */
+
+    --z-background: -10;
+    --z-base: 1;
+    --z-content: 10;
+    --z-decoration: 20;
+    --z-header: 100;
+    --z-modal: 500;
+    --z-loader: 1000;
+
+
+    /* =====================================================
+       RESPONSIVE BREAKPOINTS
+       ===================================================== */
+
+    --breakpoint-xs: 360px;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1440px;
+
+
+    /* =====================================================
+       PAGE-SPECIFIC COLORS
+       ===================================================== */
+
+    /* Home */
+    --home-accent: #f4a6bd;
+
+    /* Letter */
+    --letter-accent: #ffc1d2;
+
+    /* About */
+    --about-accent: #e7c58b;
+
+    /* Memories */
+    --memories-accent: #f3a4bd;
+
+    /* Surprise */
+    --surprise-accent: #ffb0c8;
+
+
+    /* =====================================================
+       ACCESSIBILITY
+       ===================================================== */
+
+    --focus-ring:
+        0 0 0 3px rgba(244, 166, 189, 0.28);
+
+    --selection-background:
+        rgba(244, 166, 189, 0.32);
+
+    --selection-color:
+        #fff8fa;
+
+
+    /* =====================================================
+       CONTENT WIDTHS
+       ===================================================== */
+
+    --text-width:
+        720px;
+
+    --letter-width:
+        820px;
+
+    --narrow-width:
+        560px;
+
+
+    /* =====================================================
+       IMAGE / MEDIA
+       ===================================================== */
+
+    --image-radius:
+        22px;
+
+    --image-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.34);
+
+    --image-overlay:
+        linear-gradient(
+            to top,
+            rgba(12, 7, 11, 0.78),
+            rgba(12, 7, 11, 0.08)
+        );
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    --mobile-nav-height: 68px;
+
+    --mobile-card-radius: 18px;
+
+    --mobile-page-padding: 1rem;
+
+
+    /* =====================================================
+       SPECIAL EFFECTS
+       ===================================================== */
+
+    --shine:
+        linear-gradient(
+            110deg,
+            transparent 20%,
+            rgba(255, 255, 255, 0.12) 45%,
+            transparent 70%
+        );
+
+    --pink-glow:
+        0 0 35px rgba(243, 154, 181, 0.18);
+
+    --gold-glow:
+        0 0 30px rgba(231, 197, 139, 0.14);
+
+]
