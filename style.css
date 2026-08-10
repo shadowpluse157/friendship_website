@@ -1,1 +1,4507 @@
 
+/* =========================================================
+   KITTIES — PREMIUM MASTER STYLESHEET
+   style.css
+   ========================================================= */
+
+
+/* =========================================================
+   01 — RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #f8eef2;
+    background: #17131a;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+ul,
+ol {
+    list-style: none;
+}
+
+
+::selection {
+    color: #fff;
+    background: rgba(205, 142, 166, 0.55);
+}
+
+
+/* =========================================================
+   02 — GLOBAL VARIABLES
+   ========================================================= */
+
+:root {
+
+    --kitty-bg:
+        #17131a;
+
+    --kitty-bg-soft:
+        #211a22;
+
+    --kitty-bg-card:
+        rgba(31, 24, 33, 0.82);
+
+    --kitty-bg-card-strong:
+        rgba(24, 19, 27, 0.94);
+
+    --kitty-pink:
+        #d89caf;
+
+    --kitty-pink-soft:
+        #e9bdcc;
+
+    --kitty-rose:
+        #b86f88;
+
+    --kitty-cream:
+        #f8eef2;
+
+    --kitty-text:
+        #f4e9ed;
+
+    --kitty-muted:
+        #bcaeb5;
+
+    --kitty-faint:
+        #867982;
+
+    --kitty-line:
+        rgba(238, 201, 215, 0.13);
+
+    --kitty-line-strong:
+        rgba(238, 201, 215, 0.25);
+
+    --kitty-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.42);
+
+    --kitty-radius:
+        28px;
+
+    --kitty-radius-small:
+        16px;
+
+    --kitty-width:
+        1180px;
+
+    --kitty-transition:
+        350ms cubic-bezier(.2, .8, .2, 1);
+
+}
+
+
+/* =========================================================
+   03 — GLOBAL BACKGROUND
+   ========================================================= */
+
+body {
+    position: relative;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18, 14, 20, 0.86),
+            rgba(23, 18, 25, 0.96)
+        );
+}
+
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -10;
+    pointer-events: none;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.018) 1px,
+            transparent 1px
+        );
+
+    background-size: 80px 80px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 85%
+        );
+}
+
+
+/* =========================================================
+   04 — KITTY BACKGROUND
+   ========================================================= */
+
+.site-background,
+.home-background,
+.surprise-background,
+.memories-background,
+.letter-background,
+.about-background {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -9;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(15, 11, 17, 0.60),
+            rgba(22, 16, 23, 0.84)
+        ),
+        url(
+            "https://images.unsplash.com/photo-1710497693691-3505885231e5?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        );
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transform: scale(1.03);
+
+    filter: saturate(0.72) contrast(1.04);
+
+}
+
+
+.site-vignette,
+.surprise-vignette {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -8;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            transparent 0%,
+            rgba(15, 10, 17, 0.16) 45%,
+            rgba(12, 9, 14, 0.78) 100%
+        );
+
+}
+
+
+/* =========================================================
+   05 — CONTAINER
+   ========================================================= */
+
+.container,
+.section-inner,
+.nav-inner,
+.footer-inner {
+
+    width: min(
+        calc(100% - 48px),
+        var(--kitty-width)
+    );
+
+    margin-inline: auto;
+
+}
+
+
+/* =========================================================
+   06 — HEADER
+   ========================================================= */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    padding: 18px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(17, 13, 19, 0.91),
+            rgba(17, 13, 19, 0.58)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.055);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+}
+
+
+.nav-inner {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+/* =========================================================
+   07 — LOGO
+   ========================================================= */
+
+.site-logo {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 1.25rem;
+
+    letter-spacing: 0.03em;
+
+    white-space: nowrap;
+
+}
+
+
+.logo-paw,
+.footer-paw {
+
+    color: var(--kitty-pink);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(216, 156, 175, 0.35)
+        );
+
+}
+
+
+.logo-dot,
+.footer-dot {
+
+    color: var(--kitty-pink);
+
+}
+
+
+.logo-text {
+    color: var(--kitty-cream);
+}
+
+
+/* =========================================================
+   08 — NAVIGATION
+   ========================================================= */
+
+.main-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+}
+
+
+.nav-link {
+
+    position: relative;
+
+    padding: 10px 13px;
+
+    color: #c7bac1;
+
+    font-size: 0.82rem;
+
+    letter-spacing: 0.05em;
+
+    transition:
+        color var(--kitty-transition),
+        background var(--kitty-transition);
+
+    border-radius: 999px;
+
+}
+
+
+.nav-link:hover,
+.nav-link.active {
+
+    color: #fff;
+
+    background:
+        rgba(216, 156, 175, 0.09);
+
+}
+
+
+.nav-link.active::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 4px;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: var(--kitty-pink);
+
+    transform: translateX(-50%);
+
+    box-shadow:
+        0 0 12px
+        rgba(216, 156, 175, 0.75);
+
+}
+
+
+/* =========================================================
+   09 — GLOBAL BUTTON
+   ========================================================= */
+
+.kitty-button,
+.primary-button,
+.final-reveal-button,
+.memory-door-button {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    min-height: 52px;
+
+    padding: 0 25px;
+
+    border:
+        1px solid
+        rgba(237, 190, 207, 0.25);
+
+    border-radius: 999px;
+
+    color: #fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(216, 156, 175, 0.23),
+            rgba(166, 98, 122, 0.12)
+        );
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform var(--kitty-transition),
+        border-color var(--kitty-transition),
+        background var(--kitty-transition),
+        box-shadow var(--kitty-transition);
+
+}
+
+
+.kitty-button:hover,
+.primary-button:hover,
+.final-reveal-button:hover,
+.memory-door-button:hover {
+
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(237, 190, 207, 0.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(216, 156, 175, 0.34),
+            rgba(166, 98, 122, 0.19)
+        );
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(216, 156, 175, 0.08);
+
+}
+
+
+/* =========================================================
+   10 — KICKER
+   ========================================================= */
+
+.surprise-kicker,
+.memory-kicker,
+.hidden-note-label,
+.clue-label {
+
+    display: block;
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-size:
+        0.67rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.22em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   11 — SECTION HEADING
+   ========================================================= */
+
+.surprise-section-heading,
+.connection-heading,
+.explore-heading {
+
+    max-width: 720px;
+
+    margin-inline: auto;
+
+    text-align: center;
+
+}
+
+
+.surprise-section-heading h2,
+.connection-heading h2,
+.explore-heading h2 {
+
+    margin-top: 15px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(2.2rem, 5vw, 4rem);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.035em;
+
+}
+
+
+.surprise-section-heading p,
+.connection-heading p,
+.explore-heading p {
+
+    max-width: 600px;
+
+    margin:
+        20px auto 0;
+
+    color:
+        var(--kitty-muted);
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   12 — SURPRISE HERO
+   ========================================================= */
+
+.surprise-hero {
+
+    position: relative;
+
+    min-height: 900px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding:
+        150px 24px 110px;
+
+    text-align: center;
+
+}
+
+
+.surprise-hero-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(900px, 100%);
+
+}
+
+
+/* =========================================================
+   13 — STATUS
+   ========================================================= */
+
+.surprise-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.14);
+
+    border-radius: 999px;
+
+    color:
+        #bcaeb5;
+
+    background:
+        rgba(19, 14, 21, 0.46);
+
+    backdrop-filter:
+        blur(12px);
+
+    font-size:
+        0.62rem;
+
+    letter-spacing:
+        0.18em;
+
+}
+
+
+.status-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        var(--kitty-pink);
+
+    box-shadow:
+        0 0 14px
+        rgba(216, 156, 175, 0.9);
+
+}
+
+
+/* =========================================================
+   14 — KITTY SYMBOL
+   ========================================================= */
+
+.surprise-kitty-symbol {
+
+    position: relative;
+
+    width: 190px;
+    height: 190px;
+
+    margin:
+        40px auto 30px;
+
+}
+
+
+.kitty-halo {
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216, 156, 175, 0.18),
+            transparent 68%
+        );
+
+    filter: blur(3px);
+
+}
+
+
+.kitty-face {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 108px;
+    height: 88px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.22);
+
+    border-radius:
+        48% 48% 45% 45%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(52, 40, 51, 0.94),
+            rgba(27, 21, 30, 0.97)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.kitty-ear {
+
+    position: absolute;
+
+    top: -24px;
+
+    width: 45px;
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.22);
+
+    background:
+        #332732;
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.kitty-ear.left {
+    left: 8px;
+}
+
+
+.kitty-ear.right {
+    right: 8px;
+}
+
+
+.kitty-eyes {
+
+    position: absolute;
+
+    top: 34px;
+    left: 50%;
+
+    display: flex;
+
+    gap: 30px;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.kitty-eyes span {
+
+    width: 7px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background:
+        var(--kitty-pink-soft);
+
+    box-shadow:
+        0 0 12px
+        rgba(233, 189, 204, 0.6);
+
+}
+
+
+.kitty-nose {
+
+    position: absolute;
+
+    top: 50px;
+    left: 50%;
+
+    color:
+        var(--kitty-pink);
+
+    font-size:
+        0.7rem;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.kitty-mouth {
+
+    position: absolute;
+
+    top: 57px;
+    left: 50%;
+
+    color:
+        var(--kitty-muted);
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+/* =========================================================
+   15 — SURPRISE TITLE
+   ========================================================= */
+
+.surprise-title {
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size:
+        clamp(3.3rem, 8vw, 7.5rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        0.94;
+
+    letter-spacing:
+        -0.055em;
+
+}
+
+
+.surprise-title span {
+
+    display: block;
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-style:
+        italic;
+
+}
+
+
+.surprise-description {
+
+    max-width:
+        650px;
+
+    margin:
+        32px auto 0;
+
+    color:
+        #c4b6bd;
+
+    font-size:
+        1.02rem;
+
+    line-height:
+        1.9;
+
+}
+
+
+/* =========================================================
+   16 — DIVIDERS
+   ========================================================= */
+
+.surprise-divider,
+.real-surprise-divider,
+.note-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    margin:
+        34px auto;
+
+}
+
+
+.surprise-divider span,
+.real-surprise-divider span,
+.note-divider span {
+
+    width:
+        min(150px, 25vw);
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--kitty-line-strong)
+        );
+
+}
+
+
+.surprise-divider span:last-child,
+.real-surprise-divider span:last-child,
+.note-divider span:last-child {
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--kitty-line-strong),
+            transparent
+        );
+
+}
+
+
+.surprise-divider b,
+.real-surprise-divider b,
+.note-divider b {
+
+    color:
+        var(--kitty-pink);
+
+    font-weight: 400;
+
+}
+
+
+/* =========================================================
+   17 — REVEAL HINT
+   ========================================================= */
+
+.reveal-hint {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 35px;
+
+}
+
+
+.hint-icon {
+
+    color:
+        var(--kitty-pink);
+
+    opacity:
+        0.7;
+
+}
+
+
+.hint-copy {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.hint-copy small {
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.6rem;
+
+    letter-spacing:
+        0.2em;
+
+}
+
+
+.hint-copy strong {
+
+    color:
+        var(--kitty-text);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-weight:
+        400;
+
+}
+
+
+/* =========================================================
+   18 — INTRO CARD
+   ========================================================= */
+
+.surprise-intro-section {
+
+    position: relative;
+
+    padding:
+        100px 24px;
+
+}
+
+
+.surprise-intro-card {
+
+    position: relative;
+
+    width:
+        min(980px, 100%);
+
+    margin:
+        0 auto;
+
+    padding:
+        clamp(40px, 7vw, 80px);
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(49, 37, 49, 0.82),
+            rgba(25, 19, 28, 0.91)
+        );
+
+    box-shadow:
+        var(--kitty-shadow);
+
+    backdrop-filter:
+        blur(20px);
+
+}
+
+
+.intro-card-glow {
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    top: -180px;
+    right: -100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216, 156, 175, 0.10);
+
+    filter: blur(70px);
+
+}
+
+
+.intro-card-number {
+
+    position: absolute;
+
+    top: 35px;
+    right: 42px;
+
+    color:
+        rgba(233, 189, 204, 0.17);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        4rem;
+
+}
+
+
+.intro-card-content {
+
+    position: relative;
+
+    max-width:
+        650px;
+
+}
+
+
+.intro-card-content h2 {
+
+    margin-top: 15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2.2rem, 5vw, 4.3rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        1.05;
+
+}
+
+
+.intro-card-content p {
+
+    margin-top:
+        22px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.9;
+
+}
+
+
+.intro-card-signature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 34px;
+
+}
+
+
+.intro-card-signature > span {
+
+    font-size:
+        1.7rem;
+
+}
+
+
+.intro-card-signature small {
+
+    display: block;
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.58rem;
+
+    letter-spacing:
+        0.18em;
+
+}
+
+
+.intro-card-signature strong {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-weight:
+        400;
+
+}
+
+
+/* =========================================================
+   19 — CLUES
+   ========================================================= */
+
+.surprise-clues-section {
+
+    padding:
+        110px 24px;
+
+}
+
+
+.clues-grid {
+
+    width:
+        min(1100px, 100%);
+
+    margin:
+        55px auto 0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap:
+        20px;
+
+}
+
+
+.clue-card {
+
+    position:
+        relative;
+
+    min-height:
+        350px;
+
+    padding:
+        38px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        var(--kitty-radius-small);
+
+    background:
+        rgba(28, 21, 30, 0.78);
+
+    transition:
+        transform var(--kitty-transition),
+        border-color var(--kitty-transition),
+        background var(--kitty-transition);
+
+}
+
+
+.clue-card:hover {
+
+    transform:
+        translateY(-8px);
+
+    border-color:
+        var(--kitty-line-strong);
+
+    background:
+        rgba(42, 31, 43, 0.86);
+
+}
+
+
+.clue-number {
+
+    position:
+        absolute;
+
+    top:
+        24px;
+
+    right:
+        28px;
+
+    color:
+        rgba(233, 189, 204, 0.14);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        2.5rem;
+
+}
+
+
+.clue-icon {
+
+    width:
+        54px;
+
+    height:
+        54px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        16px;
+
+    color:
+        var(--kitty-pink);
+
+    background:
+        rgba(216, 156, 175, 0.08);
+
+    font-size:
+        1.35rem;
+
+}
+
+
+.clue-label {
+
+    margin-top:
+        28px;
+
+}
+
+
+.clue-card h3 {
+
+    margin-top:
+        12px;
+
+    color:
+        var(--kitty-text);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.8rem;
+
+    font-weight:
+        400;
+
+}
+
+
+.clue-card p {
+
+    margin-top:
+        14px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.75;
+
+}
+
+
+.clue-paw {
+
+    position:
+        absolute;
+
+    right:
+        30px;
+
+    bottom:
+        25px;
+
+    color:
+        var(--kitty-pink);
+
+    opacity:
+        0.18;
+
+    font-size:
+        2.2rem;
+
+}
+
+
+/* =========================================================
+   20 — SECRET PATH
+   ========================================================= */
+
+.secret-path-section {
+
+    padding:
+        80px 24px 130px;
+
+}
+
+
+.secret-path-card {
+
+    width:
+        min(850px, 100%);
+
+    margin:
+        auto;
+
+    padding:
+        55px 30px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        rgba(24, 18, 27, 0.82);
+
+    box-shadow:
+        var(--kitty-shadow);
+
+}
+
+
+.secret-path-top {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        15px;
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+.secret-path-label {
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.63rem;
+
+    letter-spacing:
+        0.2em;
+
+}
+
+
+.secret-path-card h2 {
+
+    margin-top:
+        20px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2rem, 4vw, 3.5rem);
+
+    font-weight:
+        400;
+
+}
+
+
+.secret-path-card p {
+
+    margin-top:
+        15px;
+
+    color:
+        var(--kitty-muted);
+
+}
+
+
+.paw-path {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        clamp(15px, 4vw, 42px);
+
+    margin-top:
+        45px;
+
+}
+
+
+.path-paw {
+
+    color:
+        var(--kitty-pink);
+
+    font-size:
+        1.35rem;
+
+    opacity:
+        0.65;
+
+    transform:
+        rotate(-15deg);
+
+}
+
+
+.path-paw:nth-child(even) {
+
+    transform:
+        rotate(18deg);
+
+}
+
+
+/* =========================================================
+   21 — HIDDEN NOTE
+   ========================================================= */
+
+.hidden-note-section {
+
+    padding:
+        120px 24px 90px;
+
+}
+
+
+.hidden-note-wrapper {
+
+    position:
+        relative;
+
+    width:
+        min(900px, 100%);
+
+    margin:
+        auto;
+
+}
+
+
+.hidden-note-shadow {
+
+    position:
+        absolute;
+
+    inset:
+        14px -10px -12px;
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        rgba(0, 0, 0, 0.32);
+
+    filter:
+        blur(18px);
+
+}
+
+
+.hidden-note-card {
+
+    position:
+        relative;
+
+    padding:
+        clamp(40px, 7vw, 75px);
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.17);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(54, 42, 51, 0.94),
+            rgba(29, 22, 31, 0.97)
+        );
+
+    box-shadow:
+        var(--kitty-shadow);
+
+}
+
+
+.note-tape {
+
+    position:
+        absolute;
+
+    top:
+        -12px;
+
+    left:
+        50%;
+
+    padding:
+        8px 15px;
+
+    border-radius:
+        6px;
+
+    color:
+        #d9c1ca;
+
+    background:
+        rgba(216, 156, 175, 0.23);
+
+    font-size:
+        0.85rem;
+
+    transform:
+        translateX(-50%) rotate(-3deg);
+
+}
+
+
+.note-corner {
+
+    position:
+        absolute;
+
+    top:
+        28px;
+
+    right:
+        30px;
+
+    color:
+        rgba(216, 156, 175, 0.3);
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.hidden-note-card h2 {
+
+    max-width:
+        720px;
+
+    margin-top:
+        16px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2.3rem, 5vw, 4.6rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        1.05;
+
+}
+
+
+.hidden-note-card p {
+
+    max-width:
+        690px;
+
+    margin-top:
+        20px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.9;
+
+}
+
+
+.note-emphasis {
+
+    color:
+        var(--kitty-pink-soft) !important;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.15rem;
+
+}
+
+
+.note-signature {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    margin-top:
+        35px;
+
+    padding-top:
+        20px;
+
+    border-top:
+        1px solid
+        var(--kitty-line);
+
+}
+
+
+.note-signature span {
+
+    color:
+        var(--kitty-faint);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+}
+
+
+.note-signature strong {
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+/* =========================================================
+   22 — SECRET QUESTION
+   ========================================================= */
+
+.secret-question-section {
+
+    padding:
+        100px 24px;
+
+    text-align:
+        center;
+
+}
+
+
+.secret-question-inner {
+
+    width:
+        min(800px, 100%);
+
+    margin:
+        auto;
+
+}
+
+
+.secret-question-inner h2 {
+
+    margin-top:
+        15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2.5rem, 6vw, 5rem);
+
+    font-weight:
+        400;
+
+}
+
+
+.secret-question-inner > p {
+
+    margin-top:
+        18px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.8;
+
+}
+
+
+.question-buttons {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        14px;
+
+    margin-top:
+        35px;
+
+}
+
+
+.secret-answer-btn {
+
+    min-width:
+        190px;
+
+    min-height:
+        62px;
+
+    padding:
+        0 25px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        12px;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        999px;
+
+    color:
+        var(--kitty-text);
+
+    background:
+        rgba(31, 24, 33, 0.82);
+
+    transition:
+        transform var(--kitty-transition),
+        border-color var(--kitty-transition),
+        background var(--kitty-transition);
+
+}
+
+
+.secret-answer-btn:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        var(--kitty-line-strong);
+
+    background:
+        rgba(53, 39, 51, 0.92);
+
+}
+
+
+.yes-answer {
+
+    border-color:
+        rgba(216, 156, 175, 0.3);
+
+}
+
+
+.secret-response {
+
+    max-width:
+        500px;
+
+    margin:
+        28px auto 0;
+
+    padding:
+        20px;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        var(--kitty-radius-small);
+
+    opacity:
+        0;
+
+    transform:
+        translateY(8px);
+
+    transition:
+        opacity 400ms ease,
+        transform 400ms ease;
+
+}
+
+
+.secret-response.show {
+
+    opacity:
+        1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+.response-cat {
+
+    display:
+        block;
+
+    color:
+        var(--kitty-pink);
+
+    font-size:
+        1.8rem;
+
+}
+
+
+.secret-response p {
+
+    margin-top:
+        8px;
+
+    color:
+        var(--kitty-muted);
+
+}
+
+
+/* =========================================================
+   23 — SECRET BOX
+   ========================================================= */
+
+.secret-box-section {
+
+    padding:
+        100px 24px;
+
+    text-align:
+        center;
+
+}
+
+
+.secret-box-heading h2 {
+
+    margin-top:
+        15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2.3rem, 5vw, 4.5rem);
+
+    font-weight:
+        400;
+
+}
+
+
+.secret-box-heading p {
+
+    margin-top:
+        15px;
+
+    color:
+        var(--kitty-muted);
+
+}
+
+
+.secret-box-area {
+
+    position:
+        relative;
+
+    min-height:
+        390px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+}
+
+
+.box-glow {
+
+    position:
+        absolute;
+
+    width:
+        280px;
+
+    height:
+        280px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(216, 156, 175, 0.10);
+
+    filter:
+        blur(55px);
+
+}
+
+
+.kitty-secret-box {
+
+    position:
+        relative;
+
+    width:
+        180px;
+
+    height:
+        150px;
+
+    background:
+        transparent;
+
+    transition:
+        transform 600ms cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.kitty-secret-box:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.03);
+
+}
+
+
+.box-body {
+
+    position:
+        absolute;
+
+    left:
+        10px;
+
+    bottom:
+        0;
+
+    width:
+        160px;
+
+    height:
+        110px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.25);
+
+    border-radius:
+        8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #6d4657,
+            #3a2735
+        );
+
+    box-shadow:
+        0 30px 55px rgba(0,0,0,0.42);
+
+}
+
+
+.box-lid {
+
+    position:
+        absolute;
+
+    left:
+        2px;
+
+    bottom:
+        92px;
+
+    z-index:
+        2;
+
+    width:
+        176px;
+
+    height:
+        38px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.3);
+
+    border-radius:
+        8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #84556a,
+            #4c3041
+        );
+
+    transform-origin:
+        bottom center;
+
+    transition:
+        transform 650ms cubic-bezier(.2,.8,.2,1);
+
+}
+
+
+.kitty-secret-box.opened .box-lid {
+
+    transform:
+        rotate(-22deg)
+        translate(-16px, -16px);
+
+}
+
+
+.box-lid-paw {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    color:
+        rgba(255,255,255,0.7);
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.box-ribbon {
+
+    position:
+        absolute;
+
+    background:
+        rgba(239, 194, 210, 0.34);
+
+}
+
+
+.box-ribbon.vertical {
+
+    top:
+        0;
+
+    left:
+        50%;
+
+    width:
+        18px;
+
+    height:
+        100%;
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.box-ribbon.horizontal {
+
+    left:
+        0;
+
+    top:
+        42%;
+
+    width:
+        100%;
+
+    height:
+        18px;
+
+}
+
+
+.box-lock {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    color:
+        #f0c9d5;
+
+    font-size:
+        1.2rem;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.box-hint {
+
+    position:
+        relative;
+
+    margin-top:
+        30px;
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.65rem;
+
+    letter-spacing:
+        0.18em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   24 — BOX MESSAGE
+   ========================================================= */
+
+.box-message-section {
+
+    max-height:
+        0;
+
+    overflow:
+        hidden;
+
+    opacity:
+        0;
+
+    transition:
+        max-height 900ms ease,
+        opacity 500ms ease;
+
+}
+
+
+.box-message-section.visible {
+
+    max-height:
+        650px;
+
+    opacity:
+        1;
+
+}
+
+
+.box-message-card {
+
+    width:
+        min(700px, calc(100% - 48px));
+
+    margin:
+        20px auto 100px;
+
+    padding:
+        60px 30px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid
+        var(--kitty-line-strong);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(50, 37, 49, 0.92),
+            rgba(24, 18, 27, 0.96)
+        );
+
+    box-shadow:
+        var(--kitty-shadow);
+
+}
+
+
+.box-message-cat {
+
+    color:
+        var(--kitty-pink);
+
+    font-size:
+        2rem;
+
+}
+
+
+.box-message-card h2 {
+
+    margin-top:
+        18px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        3rem;
+
+    font-weight:
+        400;
+
+}
+
+
+.box-message-card p {
+
+    margin-top:
+        15px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.8;
+
+}
+
+
+.box-message-emphasis {
+
+    display:
+        block;
+
+    margin-top:
+        22px;
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.15rem;
+
+    font-weight:
+        400;
+
+}
+
+
+.box-message-paws {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        20px;
+
+    margin-top:
+        30px;
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+/* =========================================================
+   25 — CONNECTION TIMELINE
+   ========================================================= */
+
+.memory-surprise-connection {
+
+    padding:
+        120px 24px;
+
+}
+
+
+.connection-timeline {
+
+    width:
+        min(780px, 100%);
+
+    margin:
+        60px auto 0;
+
+}
+
+
+.connection-item {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        55px 1fr;
+
+    gap:
+        20px;
+
+}
+
+
+.connection-dot {
+
+    width:
+        55px;
+
+    height:
+        55px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        var(--kitty-line-strong);
+
+    border-radius:
+        50%;
+
+    color:
+        var(--kitty-pink);
+
+    background:
+        rgba(38, 28, 39, 0.92);
+
+}
+
+
+.connection-content {
+
+    padding:
+        5px 0 35px;
+
+}
+
+
+.connection-content small {
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.6rem;
+
+    letter-spacing:
+        0.2em;
+
+}
+
+
+.connection-content h3 {
+
+    margin-top:
+        8px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.8rem;
+
+    font-weight:
+        400;
+
+}
+
+
+.connection-content p {
+
+    max-width:
+        580px;
+
+    margin-top:
+        10px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.75;
+
+}
+
+
+.connection-line {
+
+    width:
+        1px;
+
+    height:
+        45px;
+
+    margin-left:
+        27px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--kitty-line-strong),
+            transparent
+        );
+
+}
+
+
+/* =========================================================
+   26 — PREMIUM QUOTE
+   ========================================================= */
+
+.premium-quote-section {
+
+    padding:
+        80px 24px 120px;
+
+}
+
+
+.premium-quote-card {
+
+    position:
+        relative;
+
+    width:
+        min(850px, 100%);
+
+    margin:
+        auto;
+
+    padding:
+        clamp(45px, 8vw, 90px);
+
+    text-align:
+        center;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216, 156, 175, 0.09),
+            transparent 65%
+        ),
+        rgba(28, 21, 30, 0.82);
+
+}
+
+
+.quote-mark {
+
+    position:
+        absolute;
+
+    top:
+        12px;
+
+    left:
+        30px;
+
+    color:
+        rgba(216, 156, 175, 0.13);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        8rem;
+
+}
+
+
+.premium-quote-card blockquote {
+
+    position:
+        relative;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(1.8rem, 4vw, 3.2rem);
+
+    line-height:
+        1.3;
+
+    font-weight:
+        400;
+
+    font-style:
+        italic;
+
+    color:
+        #eadce1;
+
+}
+
+
+.quote-bottom {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        15px;
+
+    margin-top:
+        35px;
+
+}
+
+
+.quote-bottom span {
+
+    width:
+        80px;
+
+    height:
+        1px;
+
+    background:
+        var(--kitty-line);
+
+}
+
+
+.quote-bottom div {
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+/* =========================================================
+   27 — FINAL REVEAL TEASER
+   ========================================================= */
+
+.final-reveal-teaser {
+
+    padding:
+        100px 24px;
+
+    text-align:
+        center;
+
+}
+
+
+.final-reveal-inner {
+
+    width:
+        min(800px, 100%);
+
+    margin:
+        auto;
+
+}
+
+
+.final-reveal-inner h2 {
+
+    margin-top:
+        15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2.4rem, 6vw, 5rem);
+
+    font-weight:
+        400;
+
+}
+
+
+.final-reveal-inner > p {
+
+    margin-top:
+        18px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.8;
+
+}
+
+
+.final-door-visual {
+
+    position:
+        relative;
+
+    height:
+        260px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+}
+
+
+.door-glow {
+
+    position:
+        absolute;
+
+    width:
+        210px;
+
+    height:
+        210px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(216, 156, 175, 0.13);
+
+    filter:
+        blur(50px);
+
+}
+
+
+.mini-door {
+
+    position:
+        relative;
+
+    width:
+        130px;
+
+    height:
+        170px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        10px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.22);
+
+    border-radius:
+        70px 70px 8px 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4a3343,
+            #231b27
+        );
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,0.45);
+
+}
+
+
+.door-cat {
+
+    font-size:
+        1.6rem;
+
+}
+
+
+.door-heart {
+
+    color:
+        var(--kitty-pink);
+
+    font-size:
+        1.3rem;
+
+}
+
+
+.door-paw {
+
+    color:
+        var(--kitty-muted);
+
+    font-size:
+        0.85rem;
+
+}
+
+
+.final-door-hint {
+
+    color:
+        var(--kitty-pink-soft) !important;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+}
+
+
+/* =========================================================
+   28 — FINAL REVEAL BUTTON
+   ========================================================= */
+
+.reveal-button-section {
+
+    padding:
+        60px 24px 130px;
+
+}
+
+
+.reveal-button-card {
+
+    width:
+        min(700px, 100%);
+
+    margin:
+        auto;
+
+    padding:
+        60px 30px;
+
+    text-align:
+        center;
+
+    border:
+        1px solid
+        rgba(216, 156, 175, 0.18);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(47, 34, 46, 0.9),
+            rgba(22, 17, 25, 0.96)
+        );
+
+}
+
+
+.reveal-button-paws {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        25px;
+
+    margin-bottom:
+        25px;
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+.reveal-button-card h2 {
+
+    margin-top:
+        15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2rem, 5vw, 3.6rem);
+
+    font-weight:
+        400;
+
+}
+
+
+.reveal-button-card p {
+
+    margin-top:
+        14px;
+
+    color:
+        var(--kitty-muted);
+
+}
+
+
+.final-reveal-button {
+
+    margin-top:
+        30px;
+
+}
+
+
+/* =========================================================
+   29 — ULTIMATE SURPRISE
+   ========================================================= */
+
+.ultimate-surprise-section {
+
+    position:
+        relative;
+
+    padding:
+        160px 24px;
+
+    overflow:
+        hidden;
+
+    text-align:
+        center;
+
+}
+
+
+.ultimate-surprise-bg-glow {
+
+    position:
+        absolute;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    width:
+        650px;
+
+    height:
+        650px;
+
+    border-radius:
+        50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216, 156, 175, 0.13),
+            transparent 68%
+        );
+
+    transform:
+        translate(-50%, -50%);
+
+    filter:
+        blur(20px);
+
+}
+
+
+.ultimate-surprise-inner {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    width:
+        min(850px, 100%);
+
+    margin:
+        auto;
+
+}
+
+
+.ultimate-cat {
+
+    margin-bottom:
+        35px;
+
+}
+
+
+.ultimate-cat-face {
+
+    position:
+        relative;
+
+    width:
+        110px;
+
+    height:
+        90px;
+
+    margin:
+        auto;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.22);
+
+    border-radius:
+        48%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #443144,
+            #211923
+        );
+
+}
+
+
+.ultimate-ear {
+
+    position:
+        absolute;
+
+    top:
+        -24px;
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    border:
+        1px solid
+        rgba(238, 201, 215, 0.18);
+
+    background:
+        #39283a;
+
+    transform:
+        rotate(45deg);
+
+}
+
+
+.ultimate-ear.left {
+    left: 10px;
+}
+
+
+.ultimate-ear.right {
+    right: 10px;
+}
+
+
+.ultimate-eye {
+
+    position:
+        absolute;
+
+    top:
+        36px;
+
+    width:
+        7px;
+
+    height:
+        10px;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--kitty-pink-soft);
+
+    box-shadow:
+        0 0 14px
+        rgba(233,189,204,0.55);
+
+}
+
+
+.ultimate-eye.left {
+    left: 36px;
+}
+
+
+.ultimate-eye.right {
+    right: 36px;
+}
+
+
+.ultimate-nose {
+
+    position:
+        absolute;
+
+    top:
+        51px;
+
+    left:
+        50%;
+
+    color:
+        var(--kitty-pink);
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.ultimate-mouth {
+
+    position:
+        absolute;
+
+    top:
+        59px;
+
+    left:
+        50%;
+
+    color:
+        var(--kitty-muted);
+
+    transform:
+        translateX(-50%);
+
+}
+
+
+.ultimate-title {
+
+    margin-top:
+        15px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(3.5rem, 8vw, 7rem);
+
+    font-weight:
+        400;
+
+    line-height:
+        0.95;
+
+    letter-spacing:
+        -0.055em;
+
+}
+
+
+.ultimate-title span {
+
+    display:
+        block;
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-style:
+        italic;
+
+}
+
+
+.ultimate-text {
+
+    max-width:
+        680px;
+
+    margin:
+        35px auto 0;
+
+    color:
+        #d0c2c8;
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.95;
+
+}
+
+
+.ultimate-text.secondary {
+
+    margin-top:
+        10px;
+
+}
+
+
+.ultimate-signature {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    margin-top:
+        45px;
+
+    color:
+        var(--kitty-faint);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+}
+
+
+.ultimate-signature strong {
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-size:
+        1.2rem;
+
+    font-weight:
+        400;
+
+}
+
+
+/* =========================================================
+   30 — FINAL KITTY CARD
+   ========================================================= */
+
+.final-kitty-card-section {
+
+    padding:
+        60px 24px 120px;
+
+}
+
+
+.final-kitty-card {
+
+    position:
+        relative;
+
+    width:
+        min(900px, 100%);
+
+    min-height:
+        420px;
+
+    margin:
+        auto;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #362636,
+            #1e1721
+        );
+
+    box-shadow:
+        var(--kitty-shadow);
+
+}
+
+
+.final-card-pattern {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    opacity:
+        0.16;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(233,189,204,0.5) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        28px 28px;
+
+}
+
+
+.final-card-content {
+
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    padding:
+        55px 25px;
+
+    text-align:
+        center;
+
+}
+
+
+.final-card-label {
+
+    color:
+        var(--kitty-pink-soft);
+
+    font-size:
+        0.65rem;
+
+    letter-spacing:
+        0.2em;
+
+}
+
+
+.final-card-cat {
+
+    margin:
+        22px 0;
+
+    color:
+        var(--kitty-pink);
+
+    font-size:
+        2rem;
+
+}
+
+
+.final-card-content h2 {
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(2rem, 5vw, 4rem);
+
+    font-weight:
+        400;
+
+}
+
+
+.final-card-content p {
+
+    margin-top:
+        16px;
+
+    color:
+        var(--kitty-muted);
+
+    line-height:
+        1.8;
+
+}
+
+
+.final-card-paws {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    gap:
+        22px;
+
+    margin-top:
+        28px;
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+/* =========================================================
+   31 — EXPLORE AGAIN
+   ========================================================= */
+
+.explore-again-section {
+
+    padding:
+        100px 24px 120px;
+
+}
+
+
+.explore-grid {
+
+    width:
+        min(1000px, 100%);
+
+    margin:
+        55px auto 0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap:
+        15px;
+
+}
+
+
+.explore-card {
+
+    position:
+        relative;
+
+    min-height:
+        220px;
+
+    padding:
+        25px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        flex-end;
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        20px;
+
+    background:
+        rgba(29, 22, 31, 0.8);
+
+    transition:
+        transform var(--kitty-transition),
+        border-color var(--kitty-transition),
+        background var(--kitty-transition);
+
+}
+
+
+.explore-card:hover,
+.explore-card.featured {
+
+    border-color:
+        rgba(216, 156, 175, 0.3);
+
+}
+
+
+.explore-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    background:
+        rgba(45, 33, 45, 0.9);
+
+}
+
+
+.explore-icon {
+
+    position:
+        absolute;
+
+    top:
+        25px;
+
+    left:
+        25px;
+
+    font-size:
+        1.5rem;
+
+}
+
+
+.explore-small {
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.57rem;
+
+    letter-spacing:
+        0.18em;
+
+}
+
+
+.explore-card strong {
+
+    margin-top:
+        7px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.5rem;
+
+    font-weight:
+        400;
+
+}
+
+
+.explore-arrow {
+
+    position:
+        absolute;
+
+    right:
+        22px;
+
+    bottom:
+        22px;
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+/* =========================================================
+   32 — FINAL PAW TRAIL
+   ========================================================= */
+
+.final-paw-trail-section {
+
+    padding:
+        30px 24px 100px;
+
+    text-align:
+        center;
+
+}
+
+
+.final-paw-trail {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        16px;
+
+}
+
+
+.final-paw-trail span {
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+.final-paw-trail i {
+
+    width:
+        35px;
+
+    height:
+        1px;
+
+    background:
+        var(--kitty-line);
+
+}
+
+
+.final-paw-trail-section p {
+
+    margin-top:
+        20px;
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.6rem;
+
+    letter-spacing:
+        0.18em;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+/* =========================================================
+   33 — FOOTER
+   ========================================================= */
+
+.site-footer {
+
+    padding:
+        70px 24px 30px;
+
+    border-top:
+        1px solid
+        var(--kitty-line);
+
+    background:
+        rgba(14, 11, 16, 0.72);
+
+}
+
+
+.footer-inner {
+
+    text-align:
+        center;
+
+}
+
+
+.footer-brand {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.3rem;
+
+}
+
+
+.footer-tagline {
+
+    margin-top:
+        12px;
+
+    color:
+        var(--kitty-faint);
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:
+        italic;
+
+}
+
+
+.footer-links {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        22px;
+
+    margin-top:
+        30px;
+
+}
+
+
+.footer-links a {
+
+    color:
+        var(--kitty-muted);
+
+    font-size:
+        0.72rem;
+
+    transition:
+        color var(--kitty-transition);
+
+}
+
+
+.footer-links a:hover,
+.footer-links a.current-page {
+
+    color:
+        var(--kitty-pink-soft);
+
+}
+
+
+.footer-paw-line {
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    margin:
+        30px auto;
+
+}
+
+
+.footer-paw-line span {
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+.footer-paw-line span:nth-child(even) {
+
+    width:
+        35px;
+
+    height:
+        1px;
+
+    background:
+        var(--kitty-line);
+
+}
+
+
+.footer-bottom {
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+    padding-top:
+        22px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.04);
+
+    color:
+        var(--kitty-faint);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+.footer-heart {
+
+    color:
+        var(--kitty-pink);
+
+}
+
+
+.footer-bottom a:hover {
+
+    color:
+        var(--kitty-pink-soft);
+
+}
+
+
+/* =========================================================
+   34 — MEMORIES / ABOUT / LETTER CARD BASE
+   ========================================================= */
+
+.memories-page main,
+.letter-page main,
+.about-page main {
+
+    position:
+        relative;
+
+}
+
+
+.memories-page section,
+.letter-page section,
+.about-page section {
+
+    position:
+        relative;
+
+}
+
+
+/* =========================================================
+   35 — LETTER PREMIUM BASE
+   ========================================================= */
+
+.letter-page {
+
+    color:
+        #f3e6eb;
+
+}
+
+
+.letter-page .letter-content,
+.letter-page .letter-card,
+.letter-page .love-letter {
+
+    color:
+        #eadde2;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+}
+
+
+.letter-page .letter-content p,
+.letter-page .letter-card p,
+.letter-page .love-letter p {
+
+    color:
+        #d7c6cd;
+
+    line-height:
+        2;
+
+}
+
+
+.letter-page .letter-heading,
+.letter-page h1,
+.letter-page h2 {
+
+    color:
+        #f7e8ee;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-weight:
+        400;
+
+}
+
+
+.letter-page .letter-accent,
+.letter-page .heart,
+.letter-page .signature {
+
+    color:
+        var(--kitty-pink-soft);
+
+}
+
+
+/* =========================================================
+   36 — GLOBAL CARD
+   ========================================================= */
+
+.premium-card {
+
+    border:
+        1px solid
+        var(--kitty-line);
+
+    border-radius:
+        var(--kitty-radius);
+
+    background:
+        rgba(29, 22, 31, 0.78);
+
+    box-shadow:
+        var(--kitty-shadow);
+
+    backdrop-filter:
+        blur(18px);
+
+}
+
+
+/* =========================================================
+   37 — HOVER GLOW
+   ========================================================= */
+
+.glow-hover {
+
+    transition:
+        box-shadow var(--kitty-transition),
+        border-color var(--kitty-transition),
+        transform var(--kitty-transition);
+
+}
+
+
+.glow-hover:hover {
+
+    transform:
+        translateY(-5px);
+
+    border-color:
+        var(--kitty-line-strong);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.42),
+        0 0 40px rgba(216,156,175,0.06);
+
+}
+
+
+/* =========================================================
+   38 — SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+
+    width:
+        9px;
+
+}
+
+
+::-webkit-scrollbar-track {
+
+    background:
+        #151117;
+
+}
+
+
+::-webkit-scrollbar-thumb {
+
+    border:
+        2px solid
+        #151117;
+
+    border-radius:
+        999px;
+
+    background:
+        #624653;
+
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+
+    background:
+        #8a5e70;
+
+}
+
+
+/* =========================================================
+   39 — MOBILE BASE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+
+    .container,
+    .section-inner,
+    .nav-inner,
+    .footer-inner {
+
+        width:
+            min(
+                calc(100% - 30px),
+                var(--kitty-width)
+            );
+
+    }
+
+
+    .site-header {
+
+        padding:
+            14px 0;
+
+    }
+
+
+    .nav-inner {
+
+        gap:
+            15px;
+
+    }
+
+
+    .main-nav {
+
+        gap:
+            2px;
+
+        overflow-x:
+            auto;
+
+        scrollbar-width:
+            none;
+
+    }
+
+
+    .main-nav::-webkit-scrollbar {
+
+        display:
+            none;
+
+    }
+
+
+    .nav-link {
+
+        padding:
+            8px 9px;
+
+        font-size:
+            0.65rem;
+
+    }
+
+
+    .site-logo {
+
+        font-size:
+            1rem;
+
+    }
+
+
+    .surprise-hero {
+
+        min-height:
+            760px;
+
+        padding:
+            130px 18px 80px;
+
+    }
+
+
+    .surprise-description {
+
+        font-size:
+            0.92rem;
+
+        line-height:
+            1.75;
+
+    }
+
+
+    .reveal-hint {
+
+        gap:
+            10px;
+
+    }
+
+
+    .clues-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .clue-card {
+
+        min-height:
+            300px;
+
+    }
+
+
+    .question-buttons {
+
+        flex-direction:
+            column;
+
+        align-items:
+            stretch;
+
+    }
+
+
+    .secret-answer-btn {
+
+        width:
+            100%;
+
+    }
+
+
+    .explore-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .footer-bottom {
+
+        flex-direction:
+            column;
+
+    }
+
+}
+
+
+/* =========================================================
+   40 — VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+
+    html {
+        font-size:
+            15px;
+    }
+
+
+    .surprise-kitty-symbol {
+
+        transform:
+            scale(0.86);
+
+        margin-block:
+            20px;
+
+    }
+
+
+    .surprise-title {
+
+        font-size:
+            3rem;
+
+    }
+
+
+    .intro-card-number {
+
+        display:
+            none;
+
+    }
+
+
+    .surprise-intro-card,
+    .hidden-note-card {
+
+        padding:
+            35px 24px;
+
+    }
+
+
+    .explore-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .explore-card {
+
+        min-height:
+            180px;
+
+    }
+
+
+    .ultimate-surprise-section {
+
+        padding:
+            110px 20px;
+
+    }
+
+
+    .final-kitty-card {
+
+        min-height:
+            360px;
+
+    }
+
+
+}
+
+
+/* =========================================================
+   41 — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}
+
+
+/* =========================================================
+   END OF STYLE.CSS
+   ========================================================= */
+
