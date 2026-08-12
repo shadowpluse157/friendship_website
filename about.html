@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About | Kitties Little World 🐾</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f7efe8"
+    >
 
     <meta
         name="description"
-        content="A little closer look at the story behind Kitties Little World."
+        content="The story behind our little kitty world — two places, two lives, one connection."
     >
 
-    <!-- ================================================
-         CSS
-         ================================================ -->
+    <title>
+        About Us | Kitties Little World 🐾
+    </title>
 
-    <link rel="stylesheet" href="variables.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="stylesheet" href="animation.css">
 
-    <!-- ================================================
+    <!-- ==================================================
          FONTS
-         ================================================ -->
+         ================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet"
     >
+
+
+    <!-- ==================================================
+         CSS
+         ================================================== -->
+
+    <link rel="stylesheet" href="variables.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="responsive.css">
+
+    <link rel="stylesheet" href="animation.css">
 
 </head>
 
@@ -48,43 +70,49 @@
         aria-hidden="true"
     ></div>
 
+
     <div
         class="background-overlay"
         aria-hidden="true"
     ></div>
 
 
+
     <!-- ==================================================
-         DECORATIVE KITTY DETAILS
+         DECORATIVE KITTY ELEMENTS
          ================================================== -->
 
     <div
-        class="kitty-decoration kitty-decoration--top-left"
+        class="floating-paw floating-paw--one"
         aria-hidden="true"
     >
         🐾
     </div>
 
+
     <div
-        class="kitty-decoration kitty-decoration--top-right"
+        class="floating-paw floating-paw--two"
         aria-hidden="true"
     >
         ♡
     </div>
 
+
     <div
-        class="kitty-decoration kitty-decoration--bottom-left"
+        class="floating-paw floating-paw--three"
         aria-hidden="true"
     >
         ✦
     </div>
 
+
     <div
-        class="kitty-decoration kitty-decoration--bottom-right"
+        class="floating-paw floating-paw--four"
         aria-hidden="true"
     >
         🐾
     </div>
+
 
 
     <!-- ==================================================
@@ -92,6 +120,7 @@
          ================================================== -->
 
     <div class="site-wrapper">
+
 
 
         <!-- ==================================================
@@ -106,27 +135,35 @@
             >
 
 
-                <!-- BRAND -->
-
                 <a
                     href="index.html"
                     class="brand"
+                    aria-label="Kitties Little World Home"
                 >
 
                     <span class="brand-symbol">
                         🐱
                     </span>
 
-                    <span class="brand-name">
-                        Kitties Little World
+
+                    <span class="brand-text">
+
+                        <span class="brand-name">
+                            Kitties Little World
+                        </span>
+
+                        <span class="brand-tagline">
+                            two places • one little world
+                        </span>
+
                     </span>
 
                 </a>
 
 
-                <!-- DESKTOP NAVIGATION -->
 
                 <div class="navigation-links">
+
 
                     <a
                         href="index.html"
@@ -135,12 +172,14 @@
                         Home
                     </a>
 
+
                     <a
                         href="about.html"
                         class="navigation-link navigation-link--active"
                     >
                         About
                     </a>
+
 
                     <a
                         href="letter.html"
@@ -149,12 +188,14 @@
                         Letter
                     </a>
 
+
                     <a
                         href="memories.html"
                         class="navigation-link"
                     >
                         Memories
                     </a>
+
 
                     <a
                         href="surprise.html"
@@ -163,14 +204,14 @@
                         Surprise
                     </a>
 
+
                 </div>
 
 
-                <!-- MOBILE MENU -->
 
                 <button
-                    class="mobile-menu-button"
                     type="button"
+                    class="mobile-menu-button"
                     aria-label="Open navigation menu"
                     aria-expanded="false"
                 >
@@ -180,6 +221,7 @@
                     <span></span>
 
                 </button>
+
 
             </nav>
 
@@ -194,6 +236,7 @@
         <main class="about-main">
 
 
+
             <!-- ==================================================
                  ABOUT HERO
                  ================================================== -->
@@ -204,144 +247,139 @@
                 <div class="about-hero-content">
 
 
-                    <!-- SMALL LABEL -->
+                    <div class="hero-kicker">
 
-                    <div class="hero-label">
 
-                        <span class="hero-label-line"></span>
+                        <span class="hero-kicker-line"></span>
 
-                        <span class="hero-label-text">
-                            A little story behind this place
+
+                        <span class="hero-kicker-text">
+                            THE STORY BEHIND THIS LITTLE PLACE
                         </span>
 
-                        <span class="hero-label-line"></span>
+
+                        <span class="hero-kicker-line"></span>
+
 
                     </div>
 
 
-                    <!-- MAIN HEADING -->
 
                     <h1 class="hero-title">
 
-                        About
-                        <span>Our Little World</span>
+                        Why we made
+                        <span class="hero-title-accent">
+                            this little world.
+                        </span>
 
                     </h1>
 
 
-                    <!-- INTRO PARAGRAPH -->
 
                     <p class="hero-description">
 
-                        Every little world has a reason for existing.
-                        This one began with something simple — a love
-                        for cute kitties, tiny details and the kind of
-                        moments that deserve to be remembered.
+                        Because sometimes a normal conversation
+                        isn't enough to hold all the little things
+                        you want someone to know.
 
                     </p>
 
 
-                    <!-- SECOND PARAGRAPH -->
 
-                    <p class="hero-description hero-description--secondary">
+                    <p class="hero-description hero-description--soft">
 
-                        Instead of putting everything into one place,
-                        this website turns those thoughts into a small
-                        journey, with every page revealing another part
-                        of the story.
+                        So we made a place for them.
 
                     </p>
 
 
-                    <!-- KITTY MARK -->
 
-                    <div class="about-hero-mark">
+                    <div class="about-hero-paws">
 
                         <span>🐾</span>
 
-                        <span class="about-hero-mark-line"></span>
-
-                        <span>🐱</span>
-
-                        <span class="about-hero-mark-line"></span>
+                        <span class="about-hero-line"></span>
 
                         <span>♡</span>
 
+                        <span class="about-hero-line"></span>
+
+                        <span>🐾</span>
+
                     </div>
+
 
                 </div>
 
 
 
-                <!-- ==================================================
-                     HERO CARD
-                     ================================================== -->
+                <!-- HERO STORY CARD -->
 
-                <div class="about-hero-card-wrapper">
-
-                    <div class="about-hero-card">
+                <div class="about-hero-card">
 
 
-                        <div class="about-card-header">
-
-                            <span class="about-card-label">
-                                A LITTLE PLACE
-                            </span>
-
-                            <span class="about-card-paw">
-                                🐾
-                            </span>
-
-                        </div>
+                    <div class="about-card-top">
 
 
-                        <div class="about-card-kitty">
-                            🐱
-                        </div>
+                        <span>
+                            OUR STORY
+                        </span>
 
 
-                        <h2>
-                            Why a kitty world?
-                        </h2>
+                        <span>
+                            🐾
+                        </span>
 
-
-                        <p>
-
-                            Because kitties have a funny way of
-                            making everything feel a little softer,
-                            calmer and happier.
-
-                        </p>
-
-
-                        <div class="about-card-divider">
-                            <span></span>
-                            ♡
-                            <span></span>
-                        </div>
-
-
-                        <p class="about-card-small">
-
-                            So every page carries a little piece
-                            of that same feeling.
-
-                        </p>
-
-
-                        <div class="about-card-footer">
-
-                            <span>
-                                🐾
-                            </span>
-
-                            <span>
-                                Kitties Little World
-                            </span>
-
-                        </div>
 
                     </div>
+
+
+
+                    <div class="about-card-kitty">
+                        🐱
+                    </div>
+
+
+
+                    <h2>
+                        Two lives.
+                        Two places.
+                        One connection.
+                    </h2>
+
+
+
+                    <p>
+
+                        One side of this story is in
+                        Dubai 🇦🇪.
+
+                        The other is in Pakistan 🇵🇰.
+
+                    </p>
+
+
+
+                    <div class="about-card-divider">
+
+                        <span></span>
+
+                        ♡
+
+                        <span></span>
+
+                    </div>
+
+
+
+                    <p class="about-card-small">
+
+                        And somewhere between those
+                        two places, we built our own
+                        little corner.
+
+                    </p>
+
 
                 </div>
 
@@ -351,47 +389,363 @@
 
 
             <!-- ==================================================
-                 ABOUT INTRODUCTION
+                 THE DISTANCE
                  ================================================== -->
 
-            <section class="about-introduction">
+            <section class="about-distance-section">
 
 
-                <div class="section-heading">
+                <div class="section-heading section-heading--center">
+
 
                     <span class="section-kicker">
-                        THE IDEA
+                        THE LONG-DISTANCE PART
                     </span>
 
+
                     <h2>
-                        More than just a website
+                        Different places,
+                        different schedules.
                     </h2>
+
+
+                    <p class="section-subtitle">
+
+                        But distance isn't the only thing
+                        that defines us.
+
+                    </p>
+
 
                 </div>
 
 
-                <div class="about-introduction-text">
+
+                <div class="about-distance-grid">
 
 
-                    <p>
+                    <!-- DUBAI -->
 
-                        This isn't meant to feel like a normal
-                        collection of web pages. The idea is to make
-                        the experience feel calm, personal and
-                        slightly playful — almost like opening a
-                        tiny box filled with handwritten notes.
-
-                    </p>
+                    <article class="about-location-card">
 
 
-                    <p>
+                        <div class="location-card-icon">
+                            🇦🇪
+                        </div>
 
-                        That's why the kitty theme stays present
-                        throughout the whole journey. The colours,
-                        little paws, cards, spacing and animations
-                        will all belong to the same visual world.
 
-                    </p>
+                        <span class="location-card-label">
+                            ONE SIDE
+                        </span>
+
+
+                        <h3>
+                            Dubai
+                        </h3>
+
+
+                        <p>
+
+                            A different place,
+                            a different routine,
+                            a different part of the day.
+
+                        </p>
+
+
+                        <div class="location-card-paw">
+                            🐾
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- CONNECTION -->
+
+                    <article class="about-connection-card">
+
+
+                        <div class="about-connection-icon">
+                            🐱
+                        </div>
+
+
+                        <span class="location-card-label">
+                            BETWEEN US
+                        </span>
+
+
+                        <h3>
+                            The little connection
+                        </h3>
+
+
+                        <p>
+
+                            Messages, conversations,
+                            random jokes, tiny updates
+                            and those moments where
+                            we make time for each other.
+
+                        </p>
+
+
+                        <div class="connection-paw-row">
+
+                            <span>🐾</span>
+
+                            <span>♡</span>
+
+                            <span>🐾</span>
+
+                        </div>
+
+
+                    </article>
+
+
+
+                    <!-- PAKISTAN -->
+
+                    <article class="about-location-card">
+
+
+                        <div class="location-card-icon">
+                            🇵🇰
+                        </div>
+
+
+                        <span class="location-card-label">
+                            THE OTHER SIDE
+                        </span>
+
+
+                        <h3>
+                            Pakistan
+                        </h3>
+
+
+                        <p>
+
+                            Another place,
+                            another routine,
+                            another busy day.
+
+                        </p>
+
+
+                        <div class="location-card-paw">
+                            🐾
+                        </div>
+
+
+                    </article>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 WHAT MAKES IT WORK
+                 ================================================== -->
+
+            <section class="about-works-section">
+
+
+                <div class="about-works-card">
+
+
+                    <div class="about-works-kitty">
+                        🐱
+                    </div>
+
+
+                    <div class="about-works-content">
+
+
+                        <span class="section-kicker">
+                            WHAT MAKES IT SPECIAL
+                        </span>
+
+
+                        <h2>
+                            We don't need
+                            unlimited time.
+                        </h2>
+
+
+                        <p>
+
+                            We both have our own work,
+                            responsibilities and things
+                            happening around us.
+
+                        </p>
+
+
+                        <p>
+
+                            So sometimes we can't talk
+                            whenever we want.
+
+                        </p>
+
+
+                        <p class="about-works-highlight">
+
+                            But when we do have time,
+                            we make it count.
+
+                        </p>
+
+
+                        <p>
+
+                            That's one of the things I
+                            appreciate about this connection.
+
+                            It's not about being available
+                            every second.
+
+                            It's about still wanting to
+                            find a little space for each other
+                            in a busy day.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 OUR LITTLE RULES
+                 ================================================== -->
+
+            <section class="about-rules-section">
+
+
+                <div class="section-heading section-heading--center">
+
+
+                    <span class="section-kicker">
+                        OUR LITTLE RULEBOOK
+                    </span>
+
+
+                    <h2>
+                        Completely unofficial rules.
+                    </h2>
+
+
+                </div>
+
+
+
+                <div class="about-rules-grid">
+
+
+                    <article class="about-rule-card">
+
+                        <span class="rule-number">
+                            01
+                        </span>
+
+                        <span class="rule-icon">
+                            💬
+                        </span>
+
+                        <h3>
+                            Send the random message.
+                        </h3>
+
+                        <p>
+                            Even if it makes absolutely
+                            no sense.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="about-rule-card">
+
+                        <span class="rule-number">
+                            02
+                        </span>
+
+                        <span class="rule-icon">
+                            🐱
+                        </span>
+
+                        <h3>
+                            Send the kitty.
+                        </h3>
+
+                        <p>
+                            This rule requires
+                            zero explanation.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="about-rule-card">
+
+                        <span class="rule-number">
+                            03
+                        </span>
+
+                        <span class="rule-icon">
+                            🤍
+                        </span>
+
+                        <h3>
+                            Be honest.
+                        </h3>
+
+                        <p>
+                            A real connection needs
+                            real conversations.
+                        </p>
+
+                    </article>
+
+
+
+                    <article class="about-rule-card">
+
+                        <span class="rule-number">
+                            04
+                        </span>
+
+                        <span class="rule-icon">
+                            🌙
+                        </span>
+
+                        <h3>
+                            Make time when you can.
+                        </h3>
+
+                        <p>
+                            Little moments matter,
+                            especially across distance.
+                        </p>
+
+                    </article>
 
 
                 </div>
@@ -399,326 +753,318 @@
 
             </section>
                         <!-- ==================================================
-                 WHAT MAKES THIS WORLD SPECIAL
+                 THE LITTLE THINGS
                  ================================================== -->
 
-            <section class="about-values">
+            <section class="about-little-things-section">
+
 
                 <div class="section-heading section-heading--center">
 
+
                     <span class="section-kicker">
-                        THE LITTLE DETAILS
+                        THE LITTLE THINGS
                     </span>
 
+
                     <h2>
-                        What makes this world feel special?
+                        Maybe the small things
+                        are actually the big things.
                     </h2>
+
 
                     <p class="section-subtitle">
 
-                        It's the tiny details that make a simple
-                        idea feel like something worth keeping.
+                        A connection isn't always built from
+                        huge moments.
+
+                        Sometimes it's built one tiny moment
+                        at a time.
 
                     </p>
 
+
                 </div>
 
 
-                <!-- ==================================================
-                     VALUE CARDS
-                     ================================================== -->
 
-                <div class="about-values-grid">
+                <div class="little-things-grid">
 
 
-                    <!-- CARD 01 -->
+                    <!-- ITEM 01 -->
 
-                    <article class="about-value-card">
+                    <article class="little-thing-card">
 
-                        <div class="about-value-number">
+
+                        <div class="little-thing-icon">
+                            💬
+                        </div>
+
+
+                        <span class="little-thing-number">
                             01
-                        </div>
+                        </span>
 
-                        <div class="about-value-icon">
-                            🐾
-                        </div>
 
                         <h3>
-                            Little Things
+                            The random messages
                         </h3>
+
 
                         <p>
 
-                            A small message, a funny conversation,
-                            a random moment or even a tiny joke can
-                            become something memorable when it
-                            means something to you.
+                            Those messages that appear out of
+                            nowhere and somehow become the
+                            nicest part of the day.
 
                         </p>
 
-                        <div class="about-value-footer">
-                            <span></span>
+
+                        <span class="little-thing-paw">
                             🐾
-                        </div>
+                        </span>
+
 
                     </article>
 
 
-                    <!-- CARD 02 -->
 
-                    <article class="about-value-card">
+                    <!-- ITEM 02 -->
 
-                        <div class="about-value-number">
+                    <article class="little-thing-card">
+
+
+                        <div class="little-thing-icon">
+                            😂
+                        </div>
+
+
+                        <span class="little-thing-number">
                             02
-                        </div>
+                        </span>
 
-                        <div class="about-value-icon">
-                            🎀
-                        </div>
 
                         <h3>
-                            Soft Moments
+                            The stupid jokes
                         </h3>
+
 
                         <p>
 
-                            This world is designed around a softer
-                            feeling — gentle colours, comfortable
-                            spacing and little kitty details that
-                            make every section feel calm.
+                            The jokes that probably wouldn't
+                            make sense to anyone else.
+
+                            Somehow, they're funny to us.
 
                         </p>
 
-                        <div class="about-value-footer">
-                            <span></span>
-                            🎀
-                        </div>
+
+                        <span class="little-thing-paw">
+                            🐾
+                        </span>
+
 
                     </article>
 
 
-                    <!-- CARD 03 -->
 
-                    <article class="about-value-card">
+                    <!-- ITEM 03 -->
 
-                        <div class="about-value-number">
+                    <article class="little-thing-card">
+
+
+                        <div class="little-thing-icon">
+                            🌙
+                        </div>
+
+
+                        <span class="little-thing-number">
                             03
-                        </div>
+                        </span>
 
-                        <div class="about-value-icon">
-                            ✨
-                        </div>
 
                         <h3>
-                            Tiny Surprises
+                            The quiet moments
                         </h3>
+
 
                         <p>
 
-                            Not everything needs to be shown at
-                            once. Some of the nicest moments are
-                            the ones that slowly reveal themselves
-                            as you continue exploring.
+                            Sometimes there isn't even anything
+                            important to say.
+
+                            Just being there is enough.
 
                         </p>
 
-                        <div class="about-value-footer">
-                            <span></span>
-                            ✨
+
+                        <span class="little-thing-paw">
+                            🐾
+                        </span>
+
+
+                    </article>
+
+
+
+                    <!-- ITEM 04 -->
+
+                    <article class="little-thing-card">
+
+
+                        <div class="little-thing-icon">
+                            🐱
                         </div>
+
+
+                        <span class="little-thing-number">
+                            04
+                        </span>
+
+
+                        <h3>
+                            The kitty obsession
+                        </h3>
+
+
+                        <p>
+
+                            Two people who already like cats
+                            probably didn't need another reason
+                            to send each other kitty pictures.
+
+                        </p>
+
+
+                        <span class="little-thing-paw">
+                            🐾
+                        </span>
+
 
                     </article>
 
 
                 </div>
+
 
             </section>
 
 
 
             <!-- ==================================================
-                 STORY SECTION
+                 OUR CONNECTION
                  ================================================== -->
 
-            <section class="about-story">
+            <section class="about-connection-story-section">
 
 
-                <div class="about-story-card">
+                <div class="about-story-layout">
 
 
-                    <!-- LEFT SIDE -->
-
-                    <div class="about-story-content">
-
-                        <span class="section-kicker">
-                            THE STORY
-                        </span>
-
-
-                        <h2>
-                            Why are there
-                            different pages?
-                        </h2>
-
-
-                        <p>
-
-                            Because one page can never properly
-                            hold every thought, every memory and
-                            every little detail.
-
-                        </p>
-
-
-                        <p>
-
-                            So the website is divided into small
-                            chapters. The Home page starts the
-                            journey, About explains the little world,
-                            the Letter gives space to personal words,
-                            Memories keeps the moments together and
-                            Surprise saves something special for the
-                            very end.
-
-                        </p>
-
-
-                        <p>
-
-                            Each chapter is intentionally separated
-                            so the next page feels like discovering
-                            another little part of the same story.
-
-                        </p>
-
-
-                        <div class="about-story-signature">
-
-                            <span class="signature-paw">
-                                🐾
-                            </span>
-
-                            <span class="signature-line"></span>
-
-                            <span class="signature-text">
-                                One page at a time
-                            </span>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <!-- RIGHT SIDE -->
+                    <!-- STORY VISUAL -->
 
                     <div class="about-story-visual">
 
 
-                        <div class="story-orbit story-orbit--outer">
+                        <div class="story-orbit story-orbit--outer"></div>
+
+                        <div class="story-orbit story-orbit--inner"></div>
+
+
+                        <div class="story-center-card">
+
+
+                            <span class="story-center-paw">
+                                🐾
+                            </span>
+
+
+                            <div class="story-center-kitty">
+                                🐱
+                            </div>
+
+
+                            <span class="story-center-heart">
+                                ♡
+                            </span>
+
+
                         </div>
 
-                        <div class="story-orbit story-orbit--inner">
-                        </div>
+
+                    </div>
 
 
-                        <div class="story-kitty">
 
-                            <span class="story-kitty-face">
+                    <!-- STORY CONTENT -->
+
+                    <div class="about-story-content">
+
+
+                        <span class="section-kicker">
+                            OUR CONNECTION
+                        </span>
+
+
+                        <h2>
+                            It isn't about
+                            being together every minute.
+                        </h2>
+
+
+                        <p>
+
+                            Long distance means learning that
+                            someone can still be an important
+                            part of your day without physically
+                            being beside you.
+
+                        </p>
+
+
+                        <p>
+
+                            There are days when both of us are
+                            completely caught up in our own work.
+
+                            And that's okay.
+
+                        </p>
+
+
+                        <p>
+
+                            The nice part is that even with
+                            everything going on, we still find
+                            those little openings where we can
+                            talk, laugh, check on each other or
+                            simply share something random.
+
+                        </p>
+
+
+                        <div class="story-highlight">
+
+
+                            <span class="story-highlight-icon">
                                 🐱
                             </span>
 
-                            <span class="story-kitty-paw story-kitty-paw--left">
-                                🐾
-                            </span>
 
-                            <span class="story-kitty-paw story-kitty-paw--right">
-                                🐾
-                            </span>
+                            <p>
+
+                                <strong>
+                                    The distance is real.
+                                </strong>
+
+                                But so is the effort we make
+                                to stay connected.
+
+                            </p>
+
 
                         </div>
 
-
-                        <div class="story-floating-card story-floating-card--one">
-
-                            <span>
-                                🐾
-                            </span>
-
-                            <small>
-                                Home
-                            </small>
-
-                        </div>
-
-
-                        <div class="story-floating-card story-floating-card--two">
-
-                            <span>
-                                💌
-                            </span>
-
-                            <small>
-                                Letter
-                            </small>
-
-                        </div>
-
-
-                        <div class="story-floating-card story-floating-card--three">
-
-                            <span>
-                                🎁
-                            </span>
-
-                            <small>
-                                Surprise
-                            </small>
-
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 KITTY QUOTE
-                 ================================================== -->
-
-            <section class="about-quote-section">
-
-
-                <div class="about-quote-card">
-
-
-                    <div class="about-quote-mark">
-                        “
-                    </div>
-
-
-                    <blockquote>
-
-                        The smallest moments can become
-                        the biggest memories.
-
-                    </blockquote>
-
-
-                    <div class="about-quote-bottom">
-
-                        <span class="quote-line"></span>
-
-                        <span>
-                            🐱
-                        </span>
-
-                        <span class="quote-line"></span>
 
                     </div>
 
@@ -731,62 +1077,220 @@
 
 
             <!-- ==================================================
-                 PAGE JOURNEY
+                 TWO TIMEZONES / TWO ROUTINES
                  ================================================== -->
 
-            <section class="about-journey">
+            <section class="about-routines-section">
 
 
                 <div class="section-heading section-heading--center">
 
+
                     <span class="section-kicker">
-                        WHERE WE GO NEXT
+                        TWO ROUTINES
                     </span>
 
+
                     <h2>
-                        The story is only getting started.
+                        Our days don't always look the same.
                     </h2>
+
 
                     <p class="section-subtitle">
 
-                        There's another page waiting just ahead.
+                        And honestly, that's part of
+                        what makes this story ours.
 
                     </p>
+
 
                 </div>
 
 
-                <div class="about-next-preview">
+
+                <div class="routine-comparison">
 
 
-                    <div class="about-next-preview-icon">
-                        💌
+                    <!-- SIDE A -->
+
+                    <div class="routine-card">
+
+
+                        <div class="routine-card-header">
+
+
+                            <span class="routine-flag">
+                                🇦🇪
+                            </span>
+
+
+                            <div>
+
+                                <span class="routine-label">
+                                    ONE SIDE
+                                </span>
+
+                                <h3>
+                                    Dubai
+                                </h3>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="routine-line">
+
+
+                            <span class="routine-dot"></span>
+
+
+                            <span>
+                                Work & responsibilities
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="routine-line">
+
+
+                            <span class="routine-dot"></span>
+
+
+                            <span>
+                                Busy parts of the day
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="routine-line">
+
+
+                            <span class="routine-dot"></span>
+
+
+                            <span>
+                                Finding a little free time
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="routine-paw">
+                            🐾
+                        </div>
+
+
                     </div>
 
 
-                    <div class="about-next-preview-content">
 
-                        <span>
-                            NEXT
+                    <!-- CENTER -->
+
+                    <div class="routine-center">
+
+
+                        <span class="routine-center-kitty">
+                            🐱
                         </span>
 
-                        <h3>
-                            A Letter
-                        </h3>
 
-                        <p>
+                        <span class="routine-center-text">
+                            and somehow...
+                        </span>
 
-                            The next page is a more personal
-                            chapter, with plenty of space for
-                            your own words.
 
-                        </p>
+                        <span class="routine-center-heart">
+                            ♡
+                        </span>
+
 
                     </div>
 
 
-                    <div class="about-next-preview-paw">
-                        🐾
+
+                    <!-- SIDE B -->
+
+                    <div class="routine-card">
+
+
+                        <div class="routine-card-header">
+
+
+                            <span class="routine-flag">
+                                🇵🇰
+                            </span>
+
+
+                            <div>
+
+                                <span class="routine-label">
+                                    THE OTHER SIDE
+                                </span>
+
+                                <h3>
+                                    Pakistan
+                                </h3>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="routine-line">
+
+
+                            <span class="routine-dot"></span>
+
+
+                            <span>
+                                Work & responsibilities
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="routine-line">
+
+
+                            <span class="routine-dot"></span>
+
+
+                            <span>
+                                Busy parts of the day
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="routine-line">
+
+
+                            <span class="routine-dot"></span>
+
+
+                            <span>
+                                Finding a little free time
+                            </span>
+
+
+                        </div>
+
+
+                        <div class="routine-paw">
+                            🐾
+                        </div>
+
+
                     </div>
 
 
@@ -798,144 +1302,409 @@
 
 
             <!-- ==================================================
-                 NEXT PAGE CTA
+                 WHAT I WANT THIS WORLD TO FEEL LIKE
                  ================================================== -->
 
-            <section class="next-page-section">
-
-                <div class="next-page-card">
+            <section class="about-feeling-section">
 
 
-                    <div class="next-page-card-decoration">
-                        💌
+                <div class="about-feeling-card">
+
+
+                    <div class="about-feeling-top">
+
+
+                        <span class="section-kicker">
+                            THE FEELING
+                        </span>
+
+
+                        <span class="about-feeling-paw">
+                            🐾
+                        </span>
+
+
                     </div>
 
 
-                    <span class="section-kicker">
-                        NEXT CHAPTER
-                    </span>
-
-
                     <h2>
-                        Ready for the letter?
+                        I wanted this place to feel
+                        like a tiny room that belongs to us.
                     </h2>
 
 
                     <p>
 
-                        Continue to the next page and discover
-                        the longest and most personal chapter
-                        of this little kitty journey.
+                        Somewhere soft.
+
+                        Somewhere cute.
+
+                        Somewhere a little silly.
+
+                        Somewhere full of tiny kitty details.
 
                     </p>
+
+
+                    <p>
+
+                        A place where the distance between
+                        Dubai and Pakistan doesn't feel like
+                        the first thing you notice.
+
+                    </p>
+
+
+                    <p class="about-feeling-highlight">
+
+                        Instead, you notice us.
+
+                    </p>
+
+
+                    <div class="about-feeling-bottom">
+
+
+                        <span>🐱</span>
+
+                        <span>🐾</span>
+
+                        <span>♡</span>
+
+                        <span>🐾</span>
+
+                        <span>🐱</span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 THE NEXT CHAPTER
+                 ================================================== -->
+
+            <section class="about-next-chapter-section">
+
+
+                <div class="about-next-chapter-card">
+
+
+                    <div class="next-chapter-kitty">
+                        🐱
+                    </div>
+
+
+                    <span class="section-kicker">
+                        THE NEXT CHAPTER
+                    </span>
+
+
+                    <h2>
+                        Some things are easier
+                        to say in a letter.
+                    </h2>
+
+
+                    <p>
+
+                        So the next page isn't just another
+                        section of the website.
+
+                        It's where the words get a little
+                        longer, a little softer and a lot
+                        more personal.
+
+                    </p>
+
+
+                    <div class="next-chapter-divider">
+
+
+                        <span></span>
+
+                        🐾
+
+                        <span></span>
+
+                        ♡
+
+                        <span></span>
+
+                    </div>
 
 
                     <a
                         href="letter.html"
-                        class="next-page-button"
-                        aria-label="Continue to the Letter page"
+                        class="premium-button premium-button--primary"
                     >
 
-                        <span class="next-page-button-kitty">
-                            🐱
+
+                        <span class="button-kitty">
+                            💌
                         </span>
 
-                        <span class="next-page-button-text">
+
+                        <span>
                             Continue to Letter
                         </span>
 
-                        <span class="next-page-button-arrow">
+
+                        <span class="button-arrow">
                             →
                         </span>
+
 
                     </a>
 
 
-                    <div class="next-page-progress">
-
-                        <span class="progress-step">
-                            01
-                        </span>
-
-                        <span class="progress-line"></span>
-
-                        <span class="progress-step progress-step--active">
-                            02
-                        </span>
-
-                        <span class="progress-line"></span>
-
-                        <span class="progress-step">
-                            03
-                        </span>
-
-                        <span class="progress-line"></span>
-
-                        <span class="progress-step">
-                            04
-                        </span>
-
-                        <span class="progress-line"></span>
-
-                        <span class="progress-step">
-                            05
-                        </span>
-
-                    </div>
-
-
-                    <p class="next-page-caption">
-                        Home • About • Letter • Memories • Surprise
-                    </p>
-
-
                 </div>
+
 
             </section>
                         <!-- ==================================================
-                 FINAL ABOUT NOTE
+                 FINAL ABOUT MESSAGE
                  ================================================== -->
 
-            <section class="about-final-note">
+            <section class="about-final-section">
 
-                <div class="about-final-note-card">
 
-                    <div class="about-final-note-kitty">
+                <div class="about-final-card">
+
+
+                    <div class="about-final-kitty">
                         🐱
                     </div>
 
+
                     <span class="section-kicker">
-                        ONE LAST THING
+                        BEFORE THE LETTER
                     </span>
 
+
                     <h2>
-                        Keep following the paws.
+                        And that's what this little
+                        world is really about.
                     </h2>
+
 
                     <p>
 
-                        This page was only the introduction.
-                        The next chapters are where the little
-                        details become more personal, the memories
-                        become more meaningful and the final surprise
-                        gets closer.
+                        Not perfect schedules.
+
+                        Not talking every second.
+
+                        Not pretending distance doesn't exist.
 
                     </p>
 
-                    <div class="about-final-paws">
 
-                        <span>🐾</span>
-                        <span>♡</span>
-                        <span>🐾</span>
+                    <p>
+
+                        It's simply two people living their
+                        own lives, doing their own things,
+                        and still choosing to make a little
+                        space for each other.
+
+                    </p>
+
+
+                    <p class="about-final-highlight">
+
+                        A little effort.
+                        A little patience.
+                        A lot of tiny moments. 🐾
+
+                    </p>
+
+
+                    <div class="about-final-divider">
+
+                        <span></span>
+
+                        🐾
+
+                        <span></span>
+
+                        ♡
+
+                        <span></span>
+
+                        🐾
+
+                        <span></span>
 
                     </div>
 
+
+                    <p class="about-final-caption">
+
+                        Dubai 🇦🇪
+                        <span>×</span>
+                        Pakistan 🇵🇰
+
+                    </p>
+
+
                 </div>
+
 
             </section>
 
 
+
+            <!-- ==================================================
+                 NEXT PAGE — LETTER
+                 ================================================== -->
+
+            <section class="about-letter-transition">
+
+
+                <div class="about-letter-transition-card">
+
+
+                    <div class="transition-floating-paw transition-floating-paw--one">
+                        🐾
+                    </div>
+
+
+                    <div class="transition-floating-paw transition-floating-paw--two">
+                        🐾
+                    </div>
+
+
+
+                    <div class="transition-kitty">
+                        💌
+                    </div>
+
+
+
+                    <span class="section-kicker">
+                        NEXT PAGE
+                    </span>
+
+
+                    <h2>
+                        There's something
+                        I want to tell you.
+                    </h2>
+
+
+                    <p>
+
+                        The next page is a little different.
+
+                        It's longer.
+
+                        Softer.
+
+                        More personal.
+
+                        And it's filled with words
+                        that deserve their own space.
+
+                    </p>
+
+
+                    <p class="transition-small-text">
+
+                        So whenever you're ready...
+
+                    </p>
+
+
+
+                    <!-- NEXT PAGE BUTTON -->
+
+                    <a
+                        href="letter.html"
+                        class="premium-button premium-button--primary premium-button--large"
+                        aria-label="Continue to the letter"
+                    >
+
+
+                        <span class="button-kitty">
+                            🐱
+                        </span>
+
+
+                        <span>
+                            Open the Letter
+                        </span>
+
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+
+
+                    </a>
+
+
+
+                    <!-- PAGE PROGRESS -->
+
+                    <div class="page-progress">
+
+
+                        <span class="page-progress-item page-progress-item--completed">
+                            <span>✓</span>
+                            Home
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item page-progress-item--active">
+                            <span>🐾</span>
+                            About
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item">
+                            Letter
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item">
+                            Memories
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item">
+                            Surprise
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
         </main>
+
 
 
         <!-- ==================================================
@@ -944,20 +1713,33 @@
 
         <footer class="site-footer">
 
+
             <div class="footer-inner">
 
 
                 <div class="footer-brand">
 
+
                     <span class="footer-kitty">
                         🐱
                     </span>
 
-                    <span>
-                        Kitties Little World
-                    </span>
+
+                    <div class="footer-brand-text">
+
+                        <strong>
+                            Kitties Little World
+                        </strong>
+
+                        <span>
+                            two places • one little world
+                        </span>
+
+                    </div>
+
 
                 </div>
+
 
 
                 <div class="footer-paw-divider">
@@ -965,59 +1747,84 @@
                 </div>
 
 
+
                 <p class="footer-text">
 
-                    A tiny kitty world filled with little moments.
+                    Made for the little moments
+                    that distance can't erase.
 
                 </p>
 
 
-                <!-- FOOTER NAVIGATION -->
 
-                <div class="footer-navigation">
+                <nav
+                    class="footer-navigation"
+                    aria-label="Footer navigation"
+                >
 
-                    <a href="index.html">
+
+                    <a
+                        href="index.html"
+                        class="footer-link"
+                    >
                         Home
                     </a>
 
+
                     <a
                         href="about.html"
-                        class="footer-link--active"
+                        class="footer-link footer-link--active"
                     >
                         About
                     </a>
 
-                    <a href="letter.html">
+
+                    <a
+                        href="letter.html"
+                        class="footer-link"
+                    >
                         Letter
                     </a>
 
-                    <a href="memories.html">
+
+                    <a
+                        href="memories.html"
+                        class="footer-link"
+                    >
                         Memories
                     </a>
 
-                    <a href="surprise.html">
+
+                    <a
+                        href="surprise.html"
+                        class="footer-link"
+                    >
                         Surprise
                     </a>
 
-                </div>
+
+                </nav>
 
 
-                <!-- FOOTER BOTTOM -->
 
                 <div class="footer-bottom">
 
-                    <span>
-                        Made with 🐾
-                    </span>
 
                     <span>
-                        © 2026 Kitties Little World
+                        🐾 Kitties Little World
                     </span>
+
+
+                    <span>
+                        Made with care • 2026
+                    </span>
+
 
                 </div>
 
 
             </div>
+
 
         </footer>
 
@@ -1025,11 +1832,20 @@
     </div>
 
 
+
     <!-- ==================================================
          JAVASCRIPT
          ================================================== -->
 
+    <script src="loading.js"></script>
+
+    <script src="cursor.js"></script>
+
+    <script src="animation.js"></script>
+
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
