@@ -1,24 +1,37 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>About — Kitties</title>
+    <title>About | Kitties Little World 🐾</title>
 
     <meta
         name="description"
-        content="The little story behind Kitties — A Little World."
+        content="A little closer look at the story behind Kitties Little World."
     >
 
+    <!-- ================================================
+         CSS
+         ================================================ -->
+
+    <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animation.css">
+
+    <!-- ================================================
+         FONTS
+         ================================================ -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
 </head>
 
@@ -26,446 +39,233 @@
 <body class="about-page">
 
 
-    <!-- =========================================
-         ABOUT PAGE
-         PART 1 — INTRO
-    ========================================== -->
-
+    <!-- ==================================================
+         BACKGROUND
+         ================================================== -->
 
     <div
-        class="about-background"
+        class="page-background"
         aria-hidden="true"
     ></div>
 
     <div
-        class="about-overlay"
+        class="background-overlay"
         aria-hidden="true"
     ></div>
 
 
+    <!-- ==================================================
+         DECORATIVE KITTY DETAILS
+         ================================================== -->
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
+    <div
+        class="kitty-decoration kitty-decoration--top-left"
+        aria-hidden="true"
+    >
+        🐾
+    </div>
 
-    <header class="site-header about-header">
+    <div
+        class="kitty-decoration kitty-decoration--top-right"
+        aria-hidden="true"
+    >
+        ♡
+    </div>
 
-        <div class="nav-inner">
+    <div
+        class="kitty-decoration kitty-decoration--bottom-left"
+        aria-hidden="true"
+    >
+        ✦
+    </div>
 
-
-            <a
-                href="index.html"
-                class="site-logo"
-            >
-
-                <span class="logo-paw">
-                    🐾
-                </span>
-
-                <span class="logo-text">
-                    Kitties
-                </span>
-
-                <span class="logo-dot">
-                    .
-                </span>
-
-            </a>
+    <div
+        class="kitty-decoration kitty-decoration--bottom-right"
+        aria-hidden="true"
+    >
+        🐾
+    </div>
 
 
+    <!-- ==================================================
+         SITE WRAPPER
+         ================================================== -->
+
+    <div class="site-wrapper">
+
+
+        <!-- ==================================================
+             NAVIGATION
+             ================================================== -->
+
+        <header class="site-header">
 
             <nav
-                class="main-nav"
+                class="main-navigation"
                 aria-label="Main navigation"
             >
 
+
+                <!-- BRAND -->
+
                 <a
                     href="index.html"
-                    class="nav-link"
+                    class="brand"
                 >
-                    Home
+
+                    <span class="brand-symbol">
+                        🐱
+                    </span>
+
+                    <span class="brand-name">
+                        Kitties Little World
+                    </span>
+
                 </a>
 
 
-                <a
-                    href="letter.html"
-                    class="nav-link"
+                <!-- DESKTOP NAVIGATION -->
+
+                <div class="navigation-links">
+
+                    <a
+                        href="index.html"
+                        class="navigation-link"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="about.html"
+                        class="navigation-link navigation-link--active"
+                    >
+                        About
+                    </a>
+
+                    <a
+                        href="letter.html"
+                        class="navigation-link"
+                    >
+                        Letter
+                    </a>
+
+                    <a
+                        href="memories.html"
+                        class="navigation-link"
+                    >
+                        Memories
+                    </a>
+
+                    <a
+                        href="surprise.html"
+                        class="navigation-link"
+                    >
+                        Surprise
+                    </a>
+
+                </div>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="mobile-menu-button"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
                 >
-                    Letter
-                </a>
 
+                    <span></span>
+                    <span></span>
+                    <span></span>
 
-                <a
-                    href="memories.html"
-                    class="nav-link"
-                >
-                    Memories
-                </a>
-
-
-                <a
-                    href="surprise.html"
-                    class="nav-link"
-                >
-                    Surprise
-                </a>
-
-
-                <a
-                    href="about.html"
-                    class="nav-link active"
-                >
-                    About
-                </a>
+                </button>
 
             </nav>
 
-
-        </div>
-
-    </header>
+        </header>
 
 
 
-    <!-- =========================================
-         ABOUT HERO
-    ========================================== -->
+        <!-- ==================================================
+             MAIN
+             ================================================== -->
 
-    <main>
-
-
-        <section class="about-hero">
+        <main class="about-main">
 
 
-            <div class="about-hero-inner">
+            <!-- ==================================================
+                 ABOUT HERO
+                 ================================================== -->
+
+            <section class="about-hero">
 
 
-                <div class="about-paw-symbol">
-                    🐾
-                </div>
+                <div class="about-hero-content">
 
 
-                <span class="about-eyebrow">
-                    BEHIND THE LITTLE WORLD
-                </span>
+                    <!-- SMALL LABEL -->
 
+                    <div class="hero-label">
 
-                <h1 class="about-title">
+                        <span class="hero-label-line"></span>
 
-                    Why does this
-                    <span>place exist?</span>
-
-                </h1>
-
-
-                <p class="about-intro">
-
-                    Because sometimes a simple idea
-                    deserves its own little universe.
-
-                </p>
-
-
-                <div class="about-scroll">
-
-                    <span>
-                        discover the story
-                    </span>
-
-                    <span>
-                        ↓
-                    </span>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             THE IDEA
-        ========================================== -->
-
-        <section class="about-story-section">
-
-
-            <div class="about-story-grid">
-
-
-                <!-- LEFT -->
-
-                <div class="about-story-heading">
-
-
-                    <span class="about-kicker">
-                        🐱 THE IDEA
-                    </span>
-
-
-                    <h2>
-                        It was never
-                        supposed to be
-                        just a website.
-                    </h2>
-
-
-                </div>
-
-
-
-                <!-- RIGHT -->
-
-                <div class="about-story-text">
-
-
-                    <p>
-                        Kitties started with something
-                        incredibly simple:
-                    </p>
-
-
-                    <div class="about-big-quote">
-
-                        <span>
-                            🐾
+                        <span class="hero-label-text">
+                            A little story behind this place
                         </span>
 
-                        <strong>
-                            "We both love cats."
-                        </strong>
+                        <span class="hero-label-line"></span>
 
                     </div>
 
 
-                    <p>
-                        And somehow that tiny detail
-                        became the beginning of an entire
-                        little world.
+                    <!-- MAIN HEADING -->
+
+                    <h1 class="hero-title">
+
+                        About
+                        <span>Our Little World</span>
+
+                    </h1>
+
+
+                    <!-- INTRO PARAGRAPH -->
+
+                    <p class="hero-description">
+
+                        Every little world has a reason for existing.
+                        This one began with something simple — a love
+                        for cute kitties, tiny details and the kind of
+                        moments that deserve to be remembered.
+
                     </p>
 
 
-                    <p>
-                        Instead of making another ordinary
-                        webpage, this place was imagined as
-                        somewhere you could wander through.
+                    <!-- SECOND PARAGRAPH -->
+
+                    <p class="hero-description hero-description--secondary">
+
+                        Instead of putting everything into one place,
+                        this website turns those thoughts into a small
+                        journey, with every page revealing another part
+                        of the story.
+
                     </p>
 
 
-                    <p>
-                        A home page to welcome you.
-                        A letter for the words that deserve
-                        more space.
-                        Memories for the moments worth keeping.
-                        A surprise for the unexpected.
-                    </p>
+                    <!-- KITTY MARK -->
 
+                    <div class="about-hero-mark">
 
-                    <p>
-                        And this page?
+                        <span>🐾</span>
 
-                        This one simply explains
-                        why all of it exists.
-                    </p>
+                        <span class="about-hero-mark-line"></span>
 
+                        <span>🐱</span>
 
-                </div>
+                        <span class="about-hero-mark-line"></span>
 
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             WHAT KITTIES MEANS
-        ========================================== -->
-
-        <section class="about-meaning-section">
-
-
-            <div class="about-section-heading">
-
-
-                <span class="about-kicker">
-                    🐾 WHAT IT MEANS
-                </span>
-
-
-                <h2>
-                    A small place
-                    for big little feelings.
-                </h2>
-
-
-                <p>
-                    Nothing here needs to be complicated.
-                </p>
-
-
-            </div>
-
-
-
-            <div class="about-meaning-grid">
-
-
-                <article class="about-meaning-card">
-
-                    <span class="meaning-icon">
-                        🐱
-                    </span>
-
-                    <span class="meaning-number">
-                        01
-                    </span>
-
-                    <h3>
-                        Comfort
-                    </h3>
-
-                    <p>
-                        A soft little corner to visit
-                        whenever you want something
-                        familiar.
-                    </p>
-
-                </article>
-
-
-
-                <article class="about-meaning-card">
-
-                    <span class="meaning-icon">
-                        ♡
-                    </span>
-
-                    <span class="meaning-number">
-                        02
-                    </span>
-
-                    <h3>
-                        Connection
-                    </h3>
-
-                    <p>
-                        A collection of words and moments
-                        connected by one simple thing:
-                        caring about each other.
-                    </p>
-
-                </article>
-
-
-
-                <article class="about-meaning-card">
-
-                    <span class="meaning-icon">
-                        ✦
-                    </span>
-
-                    <span class="meaning-number">
-                        03
-                    </span>
-
-                    <h3>
-                        Memories
-                    </h3>
-
-                    <p>
-                        Little moments don't have to be
-                        huge to become worth remembering.
-                    </p>
-
-                </article>
-
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             PART 1 ENDS HERE
-
-             DO NOT ADD:
-             </main>
-             </body>
-             </html>
-
-             ABOUT PART 2 WILL CONTINUE BELOW.
-        ========================================== -->
-
-        <!-- =========================================
-             ABOUT PAGE
-             PART 2 — THE HEART OF THE WORLD
-        ========================================== -->
-
-
-        <!-- =========================================
-             WHY CATS
-        ========================================== -->
-
-        <section class="about-cats-section">
-
-
-            <div class="about-cats-intro">
-
-
-                <span class="about-kicker">
-                    🐾 THE KITTIES PART
-                </span>
-
-
-                <h2>
-                    Why are there
-                    cats everywhere?
-                </h2>
-
-
-                <p>
-                    Honestly...
-
-                    because they belong here.
-                </p>
-
-
-            </div>
-
-
-
-            <div class="about-cat-story">
-
-
-                <div class="cat-story-visual">
-
-                    <div class="cat-orbit">
-
-                        <span class="orbit-paw paw-one">
-                            🐾
-                        </span>
-
-                        <span class="orbit-paw paw-two">
-                            🐾
-                        </span>
-
-                        <span class="orbit-paw paw-three">
-                            🐾
-                        </span>
-
-                        <div class="cat-center">
-
-                            ฅ^•ﻌ•^ฅ
-
-                        </div>
+                        <span>♡</span>
 
                     </div>
 
@@ -473,943 +273,763 @@
 
 
 
-                <div class="cat-story-content">
+                <!-- ==================================================
+                     HERO CARD
+                     ================================================== -->
+
+                <div class="about-hero-card-wrapper">
+
+                    <div class="about-hero-card">
 
 
-                    <span class="story-small-label">
-                        A VERY SERIOUS EXPLANATION
-                    </span>
+                        <div class="about-card-header">
 
-
-                    <h3>
-                        Because cats understand
-                        the assignment.
-                    </h3>
-
-
-                    <p>
-                        They're soft, chaotic, curious,
-                        dramatic and somehow capable of
-                        making an ordinary moment feel
-                        special.
-                    </p>
-
-
-                    <p>
-                        That felt like the perfect energy
-                        for this little world.
-                    </p>
-
-
-                    <div class="cat-fact">
-
-                        <span>
-                            🐱
-                        </span>
-
-                        <p>
-                            Cute enough to make you smile.
-                            Chaotic enough to keep things
-                            interesting.
-                        </p>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             WHY THIS WAS MADE
-        ========================================== -->
-
-        <section class="about-made-section">
-
-
-            <div class="about-made-grid">
-
-
-                <div class="about-made-heading">
-
-
-                    <span class="about-kicker">
-                        ✦ THE REASON
-                    </span>
-
-
-                    <h2>
-                        Made for
-                        one special person.
-                    </h2>
-
-
-                </div>
-
-
-
-                <div class="about-made-content">
-
-
-                    <p>
-                        This world wasn't made because
-                        another website was needed.
-                    </p>
-
-
-                    <p>
-                        It was made because sometimes
-                        you meet someone who becomes
-                        important enough that a normal
-                        message doesn't quite feel like
-                        enough.
-                    </p>
-
-
-                    <p>
-                        So instead of saying everything
-                        in one conversation, this little
-                        world gives every feeling its own
-                        place.
-                    </p>
-
-
-                    <div class="made-note">
-
-
-                        <span class="made-note-icon">
-                            🐾
-                        </span>
-
-
-                        <div>
-
-                            <span>
-                                THE SIMPLE IDEA
+                            <span class="about-card-label">
+                                A LITTLE PLACE
                             </span>
 
-                            <strong>
-                                Make something
-                                they can keep.
-                            </strong>
+                            <span class="about-card-paw">
+                                🐾
+                            </span>
 
                         </div>
 
 
+                        <div class="about-card-kitty">
+                            🐱
+                        </div>
+
+
+                        <h2>
+                            Why a kitty world?
+                        </h2>
+
+
+                        <p>
+
+                            Because kitties have a funny way of
+                            making everything feel a little softer,
+                            calmer and happier.
+
+                        </p>
+
+
+                        <div class="about-card-divider">
+                            <span></span>
+                            ♡
+                            <span></span>
+                        </div>
+
+
+                        <p class="about-card-small">
+
+                            So every page carries a little piece
+                            of that same feeling.
+
+                        </p>
+
+
+                        <div class="about-card-footer">
+
+                            <span>
+                                🐾
+                            </span>
+
+                            <span>
+                                Kitties Little World
+                            </span>
+
+                        </div>
+
                     </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 ABOUT INTRODUCTION
+                 ================================================== -->
+
+            <section class="about-introduction">
+
+
+                <div class="section-heading">
+
+                    <span class="section-kicker">
+                        THE IDEA
+                    </span>
+
+                    <h2>
+                        More than just a website
+                    </h2>
+
+                </div>
+
+
+                <div class="about-introduction-text">
+
+
+                    <p>
+
+                        This isn't meant to feel like a normal
+                        collection of web pages. The idea is to make
+                        the experience feel calm, personal and
+                        slightly playful — almost like opening a
+                        tiny box filled with handwritten notes.
+
+                    </p>
+
+
+                    <p>
+
+                        That's why the kitty theme stays present
+                        throughout the whole journey. The colours,
+                        little paws, cards, spacing and animations
+                        will all belong to the same visual world.
+
+                    </p>
 
 
                 </div>
 
 
-            </div>
+            </section>
+                        <!-- ==================================================
+                 WHAT MAKES THIS WORLD SPECIAL
+                 ================================================== -->
 
+            <section class="about-values">
 
-        </section>
+                <div class="section-heading section-heading--center">
 
-
-
-        <!-- =========================================
-             THE FIVE PAGES
-        ========================================== -->
-
-        <section class="about-pages-section">
-
-
-            <div class="about-section-heading">
-
-
-                <span class="about-kicker">
-                    🐾 THE LITTLE JOURNEY
-                </span>
-
-
-                <h2>
-                    Five pages.
-                    One little world.
-                </h2>
-
-
-                <p>
-                    Each page has its own reason for being here.
-                </p>
-
-
-            </div>
-
-
-
-            <div class="about-pages-grid">
-
-
-                <!-- HOME -->
-
-                <a
-                    href="index.html"
-                    class="about-page-card"
-                >
-
-                    <span class="page-card-number">
-                        01
+                    <span class="section-kicker">
+                        THE LITTLE DETAILS
                     </span>
 
+                    <h2>
+                        What makes this world feel special?
+                    </h2>
 
-                    <span class="page-card-icon">
-                        🏠
-                    </span>
+                    <p class="section-subtitle">
+
+                        It's the tiny details that make a simple
+                        idea feel like something worth keeping.
+
+                    </p>
+
+                </div>
 
 
-                    <div class="page-card-content">
+                <!-- ==================================================
+                     VALUE CARDS
+                     ================================================== -->
 
-                        <span>
-                            START HERE
-                        </span>
+                <div class="about-values-grid">
+
+
+                    <!-- CARD 01 -->
+
+                    <article class="about-value-card">
+
+                        <div class="about-value-number">
+                            01
+                        </div>
+
+                        <div class="about-value-icon">
+                            🐾
+                        </div>
 
                         <h3>
-                            Home
+                            Little Things
                         </h3>
 
                         <p>
-                            The front door to
-                            the little kitty world.
+
+                            A small message, a funny conversation,
+                            a random moment or even a tiny joke can
+                            become something memorable when it
+                            means something to you.
+
                         </p>
 
-                    </div>
+                        <div class="about-value-footer">
+                            <span></span>
+                            🐾
+                        </div>
+
+                    </article>
 
 
-                    <span class="page-card-arrow">
-                        →
-                    </span>
+                    <!-- CARD 02 -->
 
-                </a>
+                    <article class="about-value-card">
 
+                        <div class="about-value-number">
+                            02
+                        </div>
 
-
-                <!-- LETTER -->
-
-                <a
-                    href="letter.html"
-                    class="about-page-card"
-                >
-
-                    <span class="page-card-number">
-                        02
-                    </span>
-
-
-                    <span class="page-card-icon">
-                        💌
-                    </span>
-
-
-                    <div class="page-card-content">
-
-                        <span>
-                            WORDS
-                        </span>
+                        <div class="about-value-icon">
+                            🎀
+                        </div>
 
                         <h3>
-                            Letter
+                            Soft Moments
                         </h3>
 
                         <p>
-                            A longer place for
-                            the things worth saying.
+
+                            This world is designed around a softer
+                            feeling — gentle colours, comfortable
+                            spacing and little kitty details that
+                            make every section feel calm.
+
                         </p>
 
-                    </div>
+                        <div class="about-value-footer">
+                            <span></span>
+                            🎀
+                        </div>
+
+                    </article>
 
 
-                    <span class="page-card-arrow">
-                        →
-                    </span>
+                    <!-- CARD 03 -->
 
-                </a>
+                    <article class="about-value-card">
 
+                        <div class="about-value-number">
+                            03
+                        </div>
 
-
-                <!-- MEMORIES -->
-
-                <a
-                    href="memories.html"
-                    class="about-page-card"
-                >
-
-                    <span class="page-card-number">
-                        03
-                    </span>
-
-
-                    <span class="page-card-icon">
-                        ✦
-                    </span>
-
-
-                    <div class="page-card-content">
-
-                        <span>
-                            MOMENTS
-                        </span>
+                        <div class="about-value-icon">
+                            ✨
+                        </div>
 
                         <h3>
-                            Memories
+                            Tiny Surprises
                         </h3>
 
                         <p>
-                            Little moments that
-                            deserve a place to stay.
+
+                            Not everything needs to be shown at
+                            once. Some of the nicest moments are
+                            the ones that slowly reveal themselves
+                            as you continue exploring.
+
                         </p>
 
-                    </div>
+                        <div class="about-value-footer">
+                            <span></span>
+                            ✨
+                        </div>
+
+                    </article>
 
 
-                    <span class="page-card-arrow">
-                        →
-                    </span>
+                </div>
 
-                </a>
-
-
-
-                <!-- SURPRISE -->
-
-                <a
-                    href="surprise.html"
-                    class="about-page-card"
-                >
-
-                    <span class="page-card-number">
-                        04
-                    </span>
-
-
-                    <span class="page-card-icon">
-                        🎁
-                    </span>
-
-
-                    <div class="page-card-content">
-
-                        <span>
-                            SOMETHING WAITING
-                        </span>
-
-                        <h3>
-                            Surprise
-                        </h3>
-
-                        <p>
-                            A little unexpected
-                            corner of the world.
-                        </p>
-
-                    </div>
-
-
-                    <span class="page-card-arrow">
-                        →
-                    </span>
-
-                </a>
+            </section>
 
 
 
-                <!-- ABOUT -->
+            <!-- ==================================================
+                 STORY SECTION
+                 ================================================== -->
 
-                <a
-                    href="about.html"
-                    class="about-page-card current"
-                >
-
-                    <span class="page-card-number">
-                        05
-                    </span>
+            <section class="about-story">
 
 
-                    <span class="page-card-icon">
-                        🐾
-                    </span>
+                <div class="about-story-card">
 
 
-                    <div class="page-card-content">
+                    <!-- LEFT SIDE -->
 
-                        <span>
+                    <div class="about-story-content">
+
+                        <span class="section-kicker">
                             THE STORY
                         </span>
 
+
+                        <h2>
+                            Why are there
+                            different pages?
+                        </h2>
+
+
+                        <p>
+
+                            Because one page can never properly
+                            hold every thought, every memory and
+                            every little detail.
+
+                        </p>
+
+
+                        <p>
+
+                            So the website is divided into small
+                            chapters. The Home page starts the
+                            journey, About explains the little world,
+                            the Letter gives space to personal words,
+                            Memories keeps the moments together and
+                            Surprise saves something special for the
+                            very end.
+
+                        </p>
+
+
+                        <p>
+
+                            Each chapter is intentionally separated
+                            so the next page feels like discovering
+                            another little part of the same story.
+
+                        </p>
+
+
+                        <div class="about-story-signature">
+
+                            <span class="signature-paw">
+                                🐾
+                            </span>
+
+                            <span class="signature-line"></span>
+
+                            <span class="signature-text">
+                                One page at a time
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RIGHT SIDE -->
+
+                    <div class="about-story-visual">
+
+
+                        <div class="story-orbit story-orbit--outer">
+                        </div>
+
+                        <div class="story-orbit story-orbit--inner">
+                        </div>
+
+
+                        <div class="story-kitty">
+
+                            <span class="story-kitty-face">
+                                🐱
+                            </span>
+
+                            <span class="story-kitty-paw story-kitty-paw--left">
+                                🐾
+                            </span>
+
+                            <span class="story-kitty-paw story-kitty-paw--right">
+                                🐾
+                            </span>
+
+                        </div>
+
+
+                        <div class="story-floating-card story-floating-card--one">
+
+                            <span>
+                                🐾
+                            </span>
+
+                            <small>
+                                Home
+                            </small>
+
+                        </div>
+
+
+                        <div class="story-floating-card story-floating-card--two">
+
+                            <span>
+                                💌
+                            </span>
+
+                            <small>
+                                Letter
+                            </small>
+
+                        </div>
+
+
+                        <div class="story-floating-card story-floating-card--three">
+
+                            <span>
+                                🎁
+                            </span>
+
+                            <small>
+                                Surprise
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 KITTY QUOTE
+                 ================================================== -->
+
+            <section class="about-quote-section">
+
+
+                <div class="about-quote-card">
+
+
+                    <div class="about-quote-mark">
+                        “
+                    </div>
+
+
+                    <blockquote>
+
+                        The smallest moments can become
+                        the biggest memories.
+
+                    </blockquote>
+
+
+                    <div class="about-quote-bottom">
+
+                        <span class="quote-line"></span>
+
+                        <span>
+                            🐱
+                        </span>
+
+                        <span class="quote-line"></span>
+
+                    </div>
+
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 PAGE JOURNEY
+                 ================================================== -->
+
+            <section class="about-journey">
+
+
+                <div class="section-heading section-heading--center">
+
+                    <span class="section-kicker">
+                        WHERE WE GO NEXT
+                    </span>
+
+                    <h2>
+                        The story is only getting started.
+                    </h2>
+
+                    <p class="section-subtitle">
+
+                        There's another page waiting just ahead.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-next-preview">
+
+
+                    <div class="about-next-preview-icon">
+                        💌
+                    </div>
+
+
+                    <div class="about-next-preview-content">
+
+                        <span>
+                            NEXT
+                        </span>
+
                         <h3>
-                            About
+                            A Letter
                         </h3>
 
                         <p>
-                            Why this little world
-                            exists in the first place.
+
+                            The next page is a more personal
+                            chapter, with plenty of space for
+                            your own words.
+
                         </p>
 
                     </div>
 
 
-                    <span class="page-card-arrow">
-                        →
-                    </span>
-
-                </a>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             A LITTLE MESSAGE
-        ========================================== -->
-
-        <section class="about-message-section">
-
-
-            <div class="about-message-card">
-
-
-                <div class="message-decoration top-left">
-                    🐾
-                </div>
-
-
-                <div class="message-decoration top-right">
-                    ♡
-                </div>
-
-
-                <div class="message-decoration bottom-left">
-                    ♡
-                </div>
-
-
-                <div class="message-decoration bottom-right">
-                    🐾
-                </div>
-
-
-
-                <span class="message-kicker">
-                    ONE LAST LITTLE THOUGHT
-                </span>
-
-
-                <h2>
-                    The best little worlds
-                    are made from little things.
-                </h2>
-
-
-                <p>
-                    A conversation.
-                    A laugh.
-                    A shared interest.
-                    A silly joke.
-                    A favourite animal.
-                    A person you didn't expect
-                    to become important.
-                </p>
-
-
-                <p>
-                    Put enough of those little things
-                    together...
-                </p>
-
-
-                <div class="message-final-line">
-
-                    <span>
-                        🐱
-                    </span>
-
-                    <strong>
-                        and suddenly,
-                        you have a world.
-                    </strong>
-
-                    <span>
+                    <div class="about-next-preview-paw">
                         🐾
-                    </span>
+                    </div>
+
 
                 </div>
 
 
-            </div>
-
-
-        </section>
+            </section>
 
 
 
-        <!-- =========================================
-             PART 2 ENDS HERE
+            <!-- ==================================================
+                 NEXT PAGE CTA
+                 ================================================== -->
 
-             DO NOT ADD:
-             </main>
-             </body>
-             </html>
+            <section class="next-page-section">
 
-             ABOUT PART 3 WILL CONTINUE BELOW.
-        ========================================== -->
-
-        <!-- =========================================
-             ABOUT PAGE
-             PART 3 — THE FINAL CHAPTER
-        ========================================== -->
+                <div class="next-page-card">
 
 
-        <!-- =========================================
-             THE LITTLE THINGS
-        ========================================== -->
-
-        <section class="about-little-things-section">
+                    <div class="next-page-card-decoration">
+                        💌
+                    </div>
 
 
-            <div class="about-little-things-inner">
-
-
-                <div class="little-things-heading">
-
-                    <span class="about-kicker">
-                        🐾 THE LITTLE THINGS
+                    <span class="section-kicker">
+                        NEXT CHAPTER
                     </span>
 
 
                     <h2>
-                        Maybe that's what
-                        makes this special.
+                        Ready for the letter?
                     </h2>
 
-                </div>
+
+                    <p>
+
+                        Continue to the next page and discover
+                        the longest and most personal chapter
+                        of this little kitty journey.
+
+                    </p>
 
 
+                    <a
+                        href="letter.html"
+                        class="next-page-button"
+                        aria-label="Continue to the Letter page"
+                    >
 
-                <div class="little-things-list">
-
-
-                    <div class="little-thing">
-
-                        <span class="little-thing-icon">
-                            ☁
-                        </span>
-
-                        <div>
-
-                            <span>
-                                01
-                            </span>
-
-                            <h3>
-                                Random conversations
-                            </h3>
-
-                            <p>
-                                The ones that start with absolutely
-                                nothing and somehow become the
-                                conversations you remember.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="little-thing">
-
-                        <span class="little-thing-icon">
-                            ✦
-                        </span>
-
-                        <div>
-
-                            <span>
-                                02
-                            </span>
-
-                            <h3>
-                                Tiny reasons to smile
-                            </h3>
-
-                            <p>
-                                A funny message, a silly kitty,
-                                an unexpected joke or simply
-                                seeing someone's name appear.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="little-thing">
-
-                        <span class="little-thing-icon">
-                            ♡
-                        </span>
-
-                        <div>
-
-                            <span>
-                                03
-                            </span>
-
-                            <h3>
-                                The things we remember
-                            </h3>
-
-                            <p>
-                                Not every memory needs to be
-                                extraordinary. Sometimes the
-                                smallest ones stay the longest.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="little-thing">
-
-                        <span class="little-thing-icon">
+                        <span class="next-page-button-kitty">
                             🐱
                         </span>
 
-                        <div>
+                        <span class="next-page-button-text">
+                            Continue to Letter
+                        </span>
 
-                            <span>
-                                04
-                            </span>
+                        <span class="next-page-button-arrow">
+                            →
+                        </span>
 
-                            <h3>
-                                And, obviously, cats
-                            </h3>
+                    </a>
 
-                            <p>
-                                Because every serious little world
-                                needs at least one tiny creature
-                                walking around like it owns the place.
-                            </p>
 
-                        </div>
+                    <div class="next-page-progress">
+
+                        <span class="progress-step">
+                            01
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step progress-step--active">
+                            02
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step">
+                            03
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step">
+                            04
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step">
+                            05
+                        </span>
 
                     </div>
 
 
-                </div>
+                    <p class="next-page-caption">
+                        Home • About • Letter • Memories • Surprise
+                    </p>
 
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             KITTY PHILOSOPHY
-        ========================================== -->
-
-        <section class="kitty-philosophy-section">
-
-
-            <div class="philosophy-card">
-
-
-                <div class="philosophy-cat">
-
-                    <div class="cat-glow"></div>
-
-                    <span>
-                        ฅ^•ﻌ•^ฅ
-                    </span>
 
                 </div>
 
+            </section>
+                        <!-- ==================================================
+                 FINAL ABOUT NOTE
+                 ================================================== -->
 
-                <div class="philosophy-content">
+            <section class="about-final-note">
 
+                <div class="about-final-note-card">
 
-                    <span class="about-kicker">
-                        THE KITTIES PHILOSOPHY
+                    <div class="about-final-note-kitty">
+                        🐱
+                    </div>
+
+                    <span class="section-kicker">
+                        ONE LAST THING
                     </span>
-
 
                     <h2>
-                        Soft things can still
-                        mean something big.
+                        Keep following the paws.
                     </h2>
 
-
                     <p>
-                        This world doesn't need to be loud
-                        to be meaningful.
+
+                        This page was only the introduction.
+                        The next chapters are where the little
+                        details become more personal, the memories
+                        become more meaningful and the final surprise
+                        gets closer.
+
                     </p>
 
+                    <div class="about-final-paws">
 
-                    <p>
-                        It can simply be soft.
-                        A little warm.
-                        A little silly.
-                        A little chaotic.
-                        And full of things that make someone
-                        smile when they least expect it.
-                    </p>
-
-
-                    <div class="philosophy-rule">
-
-                        <span></span>
-
-                        <b>🐾</b>
-
-                        <span></span>
+                        <span>🐾</span>
+                        <span>♡</span>
+                        <span>🐾</span>
 
                     </div>
 
-
-                    <p class="philosophy-final">
-                        That's the kind of world
-                        this was meant to be.
-                    </p>
-
-
                 </div>
 
-
-            </div>
-
-
-        </section>
+            </section>
 
 
-
-        <!-- =========================================
-             FINAL ABOUT MESSAGE
-        ========================================== -->
-
-        <section class="about-final-section">
+        </main>
 
 
-            <div class="about-final-inner">
+        <!-- ==================================================
+             FOOTER
+             ================================================== -->
+
+        <footer class="site-footer">
+
+            <div class="footer-inner">
 
 
-                <div class="final-paw">
+                <div class="footer-brand">
 
-                    🐾
-
-                </div>
-
-
-                <span class="about-kicker">
-                    THANK YOU FOR VISITING
-                </span>
-
-
-                <h2>
-                    Welcome to
-                    <span>Kitties.</span>
-                </h2>
-
-
-                <p>
-                    A tiny corner of the internet
-                    built around cats, memories,
-                    smiles and someone who matters.
-                </p>
-
-
-                <div class="final-cat-line">
-
-                    <span>🐱</span>
-
-                    <span>♡</span>
-
-                    <span>🐾</span>
-
-                    <span>♡</span>
-
-                    <span>🐱</span>
-
-                </div>
-
-
-                <p class="final-small-text">
-                    Wherever you go from here,
-                    I hope you carry a little happiness
-                    with you.
-                </p>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================================
-             PAGE NAVIGATION
-        ========================================== -->
-
-        <section class="about-next-section">
-
-
-            <div class="about-next-card">
-
-
-                <div class="next-card-text">
-
-                    <span>
-                        READY FOR THE NEXT PAGE?
+                    <span class="footer-kitty">
+                        🐱
                     </span>
 
-
-                    <h3>
-                        Let's open the memories.
-                    </h3>
-
-
-                    <p>
-                        Because the little moments
-                        deserve their own place too.
-                    </p>
+                    <span>
+                        Kitties Little World
+                    </span>
 
                 </div>
 
 
-                <a
-                    href="memories.html"
-                    class="next-page-button"
-                >
+                <div class="footer-paw-divider">
+                    🐾
+                </div>
 
-                    <span>
+
+                <p class="footer-text">
+
+                    A tiny kitty world filled with little moments.
+
+                </p>
+
+
+                <!-- FOOTER NAVIGATION -->
+
+                <div class="footer-navigation">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a
+                        href="about.html"
+                        class="footer-link--active"
+                    >
+                        About
+                    </a>
+
+                    <a href="letter.html">
+                        Letter
+                    </a>
+
+                    <a href="memories.html">
                         Memories
+                    </a>
+
+                    <a href="surprise.html">
+                        Surprise
+                    </a>
+
+                </div>
+
+
+                <!-- FOOTER BOTTOM -->
+
+                <div class="footer-bottom">
+
+                    <span>
+                        Made with 🐾
                     </span>
 
                     <span>
-                        →
+                        © 2026 Kitties Little World
                     </span>
 
-                </a>
+                </div>
 
 
             </div>
 
-
-        </section>
-
+        </footer>
 
 
-    </main>
+    </div>
 
 
-
-    <!-- =========================================
-         ABOUT FOOTER
-    ========================================== -->
-
-    <footer class="site-footer about-footer">
-
-
-        <div class="footer-inner">
-
-
-            <div class="footer-brand">
-
-
-                <span class="footer-paw">
-                    🐾
-                </span>
-
-
-                <span>
-                    Kitties
-                </span>
-
-
-            </div>
-
-
-
-            <p>
-                A little world made from little things.
-            </p>
-
-
-
-            <div class="footer-links">
-
-
-                <a href="index.html">
-                    Home
-                </a>
-
-
-                <a href="letter.html">
-                    Letter
-                </a>
-
-
-                <a href="memories.html">
-                    Memories
-                </a>
-
-
-                <a href="surprise.html">
-                    Surprise
-                </a>
-
-
-            </div>
-
-
-            <div class="footer-bottom">
-
-
-                <span>
-                    Made with
-                    <span class="footer-heart">♡</span>
-                    &amp; 🐾
-                </span>
-
-
-                <a href="#top">
-                    Back to top ↑
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-    </footer>
-
-
-
-    <!-- =========================================
-         ABOUT PAGE COMPLETE
-    ========================================== -->
+    <!-- ==================================================
+         JAVASCRIPT
+         ================================================== -->
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
-
