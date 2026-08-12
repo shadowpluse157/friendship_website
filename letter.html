@@ -1,7 +1,5 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -11,14 +9,39 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>A Little Letter — Kitties</title>
+    <title>Letter | Kitties Little World 🐾</title>
 
     <meta
         name="description"
-        content="A little letter written with love, kitty magic and countless tiny memories."
+        content="A little letter from one heart to another, wrapped in a tiny kitty world."
     >
 
+    <!-- ==================================================
+         STYLES
+         ================================================== -->
+
+    <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="animation.css">
+
+
+    <!-- ==================================================
+         FONTS
+         ================================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
 </head>
 
@@ -26,1442 +49,1835 @@
 <body class="letter-page">
 
 
-    <!-- =========================================
-         LETTER PAGE
-         PART 1 — INTRODUCTION
-    ========================================== -->
-
+    <!-- ==================================================
+         BACKGROUND
+         ================================================== -->
 
     <div
-        class="letter-background"
+        class="page-background"
         aria-hidden="true"
     ></div>
 
     <div
-        class="letter-overlay"
+        class="background-overlay"
         aria-hidden="true"
     ></div>
 
 
+    <!-- ==================================================
+         DECORATIVE KITTY DETAILS
+         ================================================== -->
 
-    <!-- =========================================
-         NAVIGATION
-    ========================================== -->
+    <div
+        class="kitty-decoration kitty-decoration--top-left"
+        aria-hidden="true"
+    >
+        🐾
+    </div>
 
-    <header class="site-header letter-header">
+    <div
+        class="kitty-decoration kitty-decoration--top-right"
+        aria-hidden="true"
+    >
+        ♡
+    </div>
 
-        <div class="nav-inner">
+    <div
+        class="kitty-decoration kitty-decoration--bottom-left"
+        aria-hidden="true"
+    >
+        ✦
+    </div>
+
+    <div
+        class="kitty-decoration kitty-decoration--bottom-right"
+        aria-hidden="true"
+    >
+        🐾
+    </div>
 
 
-            <a
-                href="index.html"
-                class="site-logo"
-            >
 
-                <span class="logo-paw">🐾</span>
+    <!-- ==================================================
+         SITE WRAPPER
+         ================================================== -->
 
-                <span class="logo-text">
-                    Kitties
-                </span>
-
-                <span class="logo-dot">
-                    .
-                </span>
-
-            </a>
+    <div class="site-wrapper">
 
 
+        <!-- ==================================================
+             NAVIGATION
+             ================================================== -->
+
+        <header class="site-header">
 
             <nav
-                class="main-nav"
+                class="main-navigation"
                 aria-label="Main navigation"
             >
 
+
+                <!-- BRAND -->
+
                 <a
                     href="index.html"
-                    class="nav-link"
+                    class="brand"
                 >
-                    Home
+
+                    <span class="brand-symbol">
+                        🐱
+                    </span>
+
+                    <span class="brand-name">
+                        Kitties Little World
+                    </span>
+
                 </a>
 
-                <a
-                    href="letter.html"
-                    class="nav-link active"
-                >
-                    Letter
-                </a>
 
-                <a
-                    href="memories.html"
-                    class="nav-link"
-                >
-                    Memories
-                </a>
+                <!-- NAVIGATION -->
 
-                <a
-                    href="surprise.html"
-                    class="nav-link"
-                >
-                    Surprise
-                </a>
+                <div class="navigation-links">
 
-                <a
-                    href="about.html"
-                    class="nav-link"
+                    <a
+                        href="index.html"
+                        class="navigation-link"
+                    >
+                        Home
+                    </a>
+
+                    <a
+                        href="about.html"
+                        class="navigation-link"
+                    >
+                        About
+                    </a>
+
+                    <a
+                        href="letter.html"
+                        class="navigation-link navigation-link--active"
+                    >
+                        Letter
+                    </a>
+
+                    <a
+                        href="memories.html"
+                        class="navigation-link"
+                    >
+                        Memories
+                    </a>
+
+                    <a
+                        href="surprise.html"
+                        class="navigation-link"
+                    >
+                        Surprise
+                    </a>
+
+                </div>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    class="mobile-menu-button"
+                    type="button"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
                 >
-                    About
-                </a>
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
 
             </nav>
 
-
-        </div>
-
-    </header>
+        </header>
 
 
 
-    <!-- =========================================
-         LETTER HERO
-    ========================================== -->
+        <!-- ==================================================
+             MAIN
+             ================================================== -->
 
-    <main>
-
-
-        <section class="letter-hero">
+        <main class="letter-main">
 
 
-            <div class="letter-hero-inner">
+            <!-- ==================================================
+                 LETTER HERO
+                 ================================================== -->
+
+            <section class="letter-hero">
 
 
-                <div class="letter-kitty-symbol">
+                <div class="letter-hero-content">
 
-                    <span>🐾</span>
+
+                    <div class="hero-label">
+
+                        <span class="hero-label-line"></span>
+
+                        <span class="hero-label-text">
+                            A letter from the heart
+                        </span>
+
+                        <span class="hero-label-line"></span>
+
+                    </div>
+
+
+                    <h1 class="hero-title">
+
+                        For
+                        <span>Ali</span>
+
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Some things are too special to squeeze
+                        into a short message. So this time,
+                        I wanted to give my words a little more
+                        room.
+
+                    </p>
+
+
+                    <div class="letter-hero-mark">
+
+                        <span>🐾</span>
+
+                        <span class="letter-hero-mark-line"></span>
+
+                        <span>♡</span>
+
+                        <span class="letter-hero-mark-line"></span>
+
+                        <span>🐾</span>
+
+                    </div>
 
                 </div>
 
 
 
-                <span class="letter-eyebrow">
+                <!-- ==================================================
+                     LETTER ENVELOPE CARD
+                     ================================================== -->
 
-                    A LETTER FROM MY LITTLE WORLD
+                <div class="letter-envelope-wrapper">
 
-                </span>
-
-
-
-                <h1 class="letter-title">
-
-                    For you,
-                    <span>Ali.</span>
-
-                </h1>
+                    <div class="letter-envelope-card">
 
 
+                        <div class="envelope-top">
 
-                <p class="letter-intro">
+                            <span class="envelope-label">
+                                PERSONAL LETTER
+                            </span>
 
-                    I could have written a normal message.
+                            <span class="envelope-paw">
+                                🐾
+                            </span>
 
-                    <br>
-
-                    But you deserve a whole page.
-
-                    <br><br>
-
-                    So I made you one.
-
-                </p>
+                        </div>
 
 
-
-                <div class="letter-scroll-mark">
-
-                    <span>🐾</span>
-
-                    <span>
-                        keep reading
-                    </span>
-
-                    <span>↓</span>
-
-                </div>
+                        <div class="envelope-kitty">
+                            🐱
+                        </div>
 
 
-            </div>
+                        <div class="envelope-heart">
+                            ♡
+                        </div>
 
 
-        </section>
+                        <h2>
+                            Open this slowly.
+                        </h2>
 
 
+                        <p>
 
-        <!-- =========================================
-             LETTER CARD
-        ========================================== -->
+                            No need to rush through it.
+                            Every little paragraph has a reason
+                            for being here.
 
-        <section class="letter-section">
-
-
-            <div class="letter-paper">
+                        </p>
 
 
-                <!-- PAPER HEADER -->
+                        <div class="envelope-divider">
 
-                <div class="letter-paper-header">
+                            <span></span>
 
-                    <span>
-                        A LITTLE NOTE
-                    </span>
+                            🐾
 
-                    <span>
-                        🐾
-                    </span>
+                            <span></span>
+
+                        </div>
+
+
+                        <p class="envelope-small">
+
+                            Written especially for you.
+
+                        </p>
+
+
+                    </div>
 
                 </div>
 
 
-
-                <!-- DATE / SMALL DETAIL -->
-
-                <div class="letter-meta">
-
-                    <span>
-                        written with a little kitty magic
-                    </span>
-
-                    <span>
-                        ♡
-                    </span>
-
-                </div>
+            </section>
 
 
 
-                <!-- OPENING -->
+            <!-- ==================================================
+                 LETTER INTRO
+                 ================================================== -->
 
-                <div class="letter-body">
-
-
-                    <p class="letter-greeting">
-
-                        Dear Ali,
-
-                    </p>
+            <section class="letter-introduction">
 
 
-
-                    <p>
-
-                        I honestly don't know where to start,
-                        because somehow a simple little message
-                        can never explain everything I feel
-                        when I think about you.
-
-                    </p>
+                <div class="letter-paper">
 
 
+                    <div class="letter-paper-header">
 
-                    <p>
+                        <span>
+                            Dear Ali,
+                        </span>
 
-                        You became one of those people who can
-                        turn an ordinary day into something I
-                        actually want to remember.
+                        <span class="letter-date">
+                            With a little extra love
+                        </span>
 
-                    </p>
-
-
-
-                    <p>
-
-                        And maybe that's why I wanted to make
-                        this little world for you.
-
-                        Not because it had to be perfect.
-
-                        But because I wanted there to be
-                        something that says:
-
-                    </p>
+                    </div>
 
 
+                    <div class="letter-paper-content">
 
-                    <div class="letter-highlight">
 
-                        <span class="highlight-paw">
+                        <p>
+
+                            I don't really know where to begin,
+                            because whenever I try to put everything
+                            I feel into words, it somehow feels like
+                            there are still a hundred things left
+                            unsaid.
+
+                        </p>
+
+
+                        <p>
+
+                            But maybe that's okay.
+
+                            Maybe a letter doesn't have to explain
+                            everything perfectly. Maybe it just needs
+                            to be honest.
+
+                        </p>
+
+
+                        <p>
+
+                            So here I am, writing this little piece
+                            of my heart and hoping that when you read
+                            it, you can feel the meaning behind the
+                            words instead of only reading them.
+
+                        </p>
+
+
+                        <p>
+
+                            And yes, I know this whole website is
+                            filled with kitties. 🐱
+
+                            But honestly, that felt right.
+
+                            Something about kitties being soft,
+                            slightly silly, comforting and impossible
+                            not to smile at made them the perfect
+                            little theme for this place.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="letter-paper-signature">
+
+                        <span>
                             🐾
                         </span>
 
                         <span>
-
-                            "You matter to me."
-
+                            Yours,
                         </span>
 
                     </div>
 
 
-
-                    <p>
-
-                        I know life gets busy.
-
-                        There are projects, responsibilities,
-                        work, random things that suddenly need
-                        your attention and days when everything
-                        feels like too much.
-
-                    </p>
-
-
-
-                    <p>
-
-                        I've never wanted to be another thing
-                        you have to worry about.
-
-                        I just like hearing from you.
-
-                        Even a tiny message.
-
-                        Even something completely random.
-
-                        Somehow, the smallest things from you
-                        can mean a lot to me.
-
-                    </p>
-
-
-
-                    <p>
-
-                        And yes...
-
-                        I know I can be a little dramatic
-                        sometimes. 😭
-
-                        But that's part of the fun, isn't it?
-
-                    </p>
-
-
-
-                    <p>
-
-                        Somewhere between the random
-                        conversations, the jokes, the teasing,
-                        the cute moments and all those tiny
-                        conversations we probably wouldn't
-                        explain to anyone else...
-
-                        you became someone really special to me.
-
-                    </p>
-
-
-
-                    <!-- SMALL PAW DIVIDER -->
-
-                    <div class="letter-divider">
-
-                        <span>🐾</span>
-
-                        <span>♡</span>
-
-                        <span>🐾</span>
-
-                    </div>
-
-
-
-                    <p class="letter-closing-line">
-
-                        And this is only the beginning
-                        of the letter.
-
-                    </p>
-
-
                 </div>
 
-
-            </div>
-
-
-        </section>
-
-
-        <!-- =========================================
-             PART 1 ENDS HERE
-
-             DO NOT ADD:
-             </main>
-             </body>
-             </html>
-
-             MORE LETTER CONTENT WILL COME BELOW.
-        ========================================== -->
-
-        <!-- =========================================
-             LETTER PAGE
-             PART 2 — THE THINGS I LIKE ABOUT YOU
-        ========================================== -->
-
-        <section class="letter-things-section">
-
-
-            <div class="letter-section-heading">
-
-                <span class="letter-section-kicker">
-                    🐾 LITTLE THINGS
-                </span>
-
-                <h2>
-                    Things about you
-                    that I quietly adore.
-                </h2>
-
-                <p>
-                    Maybe you don't notice all of them,
-                    but I do.
-                </p>
-
-            </div>
+            </section>
 
 
 
-            <!-- =====================================
-                 PERSONAL NOTES GRID
-            ====================================== -->
+            <!-- ==================================================
+                 FIRST HEART SECTION
+                 ================================================== -->
 
-            <div class="letter-things-grid">
-
-
-                <article class="letter-thing-card">
-
-                    <span class="thing-number">
-                        01
-                    </span>
-
-                    <span class="thing-icon">
-                        🐱
-                    </span>
-
-                    <h3>
-                        Your cute side
-                    </h3>
-
-                    <p>
-                        You somehow manage to be adorable
-                        without even trying. And honestly,
-                        sometimes I wonder if you know
-                        the effect you have on me.
-                    </p>
-
-                </article>
+            <section class="letter-heart-section">
 
 
-
-                <article class="letter-thing-card">
-
-                    <span class="thing-number">
-                        02
-                    </span>
-
-                    <span class="thing-icon">
-                        💬
-                    </span>
-
-                    <h3>
-                        Our random conversations
-                    </h3>
-
-                    <p>
-                        From completely random topics to
-                        teasing each other for no reason,
-                        somehow even the most ordinary
-                        conversations become memorable.
-                    </p>
-
-                </article>
+                <div class="letter-heart-card">
 
 
-
-                <article class="letter-thing-card">
-
-                    <span class="thing-number">
-                        03
-                    </span>
-
-                    <span class="thing-icon">
-                        🐾
-                    </span>
-
-                    <h3>
-                        The kitty connection
-                    </h3>
-
-                    <p>
-                        Maybe this whole kitty world was
-                        inevitable. We both like cats,
-                        so obviously our little universe
-                        needed paws everywhere.
-                    </p>
-
-                </article>
-
-
-
-                <article class="letter-thing-card">
-
-                    <span class="thing-number">
-                        04
-                    </span>
-
-                    <span class="thing-icon">
+                    <div class="letter-heart-icon">
                         ♡
-                    </span>
-
-                    <h3>
-                        The way you understand me
-                    </h3>
-
-                    <p>
-                        Even when life gets complicated,
-                        being understood by someone makes
-                        everything feel a little lighter.
-                    </p>
-
-                </article>
-
-
-
-                <article class="letter-thing-card">
-
-                    <span class="thing-number">
-                        05
-                    </span>
-
-                    <span class="thing-icon">
-                        ✦
-                    </span>
-
-                    <h3>
-                        Your little surprises
-                    </h3>
-
-                    <p>
-                        Sometimes it's just a message,
-                        a joke or a tiny moment I didn't
-                        expect. Those are the things that
-                        stay in my mind.
-                    </p>
-
-                </article>
-
-
-
-                <article class="letter-thing-card">
-
-                    <span class="thing-number">
-                        06
-                    </span>
-
-                    <span class="thing-icon">
-                        😭
-                    </span>
-
-                    <h3>
-                        Even your teasing
-                    </h3>
-
-                    <p>
-                        I complain about it,
-                        pretend to be annoyed,
-                        and then secretly enjoy it anyway.
-                    </p>
-
-                </article>
-
-
-            </div>
-
-
-
-            <!-- =====================================
-                 FLIRTING / CUTE NOTE
-            ====================================== -->
-
-            <div class="letter-flirty-card">
-
-
-                <div class="flirty-paw">
-
-                    🐾
-
-                </div>
-
-
-                <div class="flirty-content">
-
-                    <span class="flirty-label">
-                        A VERY IMPORTANT OBSERVATION
-                    </span>
-
-
-                    <h3>
-                        You should probably stop
-                        being this cute.
-                    </h3>
-
-
-                    <p>
-                        Actually...
-
-                        don't.
-
-                        I think I've gotten
-                        way too used to it.
-                    </p>
-
-                </div>
-
-
-                <div class="flirty-heart">
-                    ♡
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =====================================
-                 DEEPER LETTER
-            ====================================== -->
-
-            <div class="letter-deeper">
-
-
-                <div class="deeper-label">
-                    SOMETHING I REALLY WANT YOU TO KNOW
-                </div>
-
-
-                <h2>
-                    I'm glad our paths crossed.
-                </h2>
-
-
-                <p>
-                    Out of all the people we could have
-                    met, somehow our conversations found
-                    their way to each other.
-                </p>
-
-
-                <p>
-                    And I don't take that for granted.
-                </p>
-
-
-                <p>
-                    I don't know what every tomorrow will
-                    look like, and I don't want to pretend
-                    that I can predict everything.
-                </p>
-
-
-                <p>
-                    But I do know that right now,
-                    having you in my life is something
-                    I'm genuinely grateful for.
-                </p>
-
-
-                <p>
-                    So whenever you see this little page,
-                    I hope you remember that somewhere
-                    behind all the jokes, teasing and
-                    ridiculous kitty energy...
-                </p>
-
-
-                <div class="deeper-highlight">
-
-                    <span>🐾</span>
-
-                    <strong>
-                        someone really cares about you.
-                    </strong>
-
-                    <span>♡</span>
-
-                </div>
-
-
-            </div>
-
-
-
-        <!-- =========================================
-             PART 2 ENDS HERE
-
-             DO NOT ADD:
-             </main>
-             </body>
-             </html>
-
-             PART 3 WILL CONTINUE BELOW.
-        ========================================== -->
-
-          
-        <!-- =========================================
-             LETTER PAGE
-             PART 3 — FUTURE WISHES
-        ========================================== -->
-
-        <section class="future-section">
-
-
-            <div class="future-heading">
-
-                <span class="future-kicker">
-                    🐾 FOR THE DAYS AHEAD
-                </span>
-
-                <h2>
-                    A few wishes
-                    for your future.
-                </h2>
-
-                <p>
-                    Not promises about everything that will
-                    happen — just little hopes from someone
-                    who genuinely wants good things for you.
-                </p>
-
-            </div>
-
-
-
-            <!-- =====================================
-                 FUTURE WISHES
-            ====================================== -->
-
-            <div class="future-wishes">
-
-
-                <article class="future-wish">
-
-                    <div class="wish-number">
-                        01
                     </div>
 
-                    <div class="wish-icon">
-                        🌙
-                    </div>
 
-                    <div class="wish-content">
+                    <span class="section-kicker">
+                        SOMETHING I WANT YOU TO KNOW
+                    </span>
 
-                        <span>
-                            I HOPE
-                        </span>
 
-                        <h3>
-                            You always have peaceful nights.
-                        </h3>
+                    <h2>
+                        You became important
+                        without even trying.
+                    </h2>
+
+
+                    <div class="letter-heart-text">
+
 
                         <p>
-                            I hope that after all the busy days,
-                            projects and responsibilities,
-                            you always get a little time to
-                            breathe, relax and simply be yourself.
+
+                            That's probably one of the sweetest
+                            things about it.
+
                         </p>
 
-                    </div>
-
-                </article>
-
-
-
-                <article class="future-wish">
-
-                    <div class="wish-number">
-                        02
-                    </div>
-
-                    <div class="wish-icon">
-                        ✨
-                    </div>
-
-                    <div class="wish-content">
-
-                        <span>
-                            I HOPE
-                        </span>
-
-                        <h3>
-                            You achieve the things you dream about.
-                        </h3>
 
                         <p>
-                            Whatever future you choose,
-                            I hope you get the opportunities,
-                            courage and confidence to make
-                            those dreams real.
+
+                            There wasn't some dramatic moment where
+                            everything suddenly changed. It was
+                            little things.
+
+                            Conversations.
+
+                            Random messages.
+
+                            Laughing at completely stupid things.
+
+                            Waiting for a reply.
+
+                            Remembering tiny details.
+
                         </p>
 
-                    </div>
-
-                </article>
-
-
-
-                <article class="future-wish">
-
-                    <div class="wish-number">
-                        03
-                    </div>
-
-                    <div class="wish-icon">
-                        🌷
-                    </div>
-
-                    <div class="wish-content">
-
-                        <span>
-                            I HOPE
-                        </span>
-
-                        <h3>
-                            You never forget how special you are.
-                        </h3>
 
                         <p>
-                            On the days when you doubt yourself,
-                            I hope something reminds you that
-                            you are appreciated, cared about
-                            and worth knowing.
+
+                            And somewhere between all those ordinary
+                            moments, you became someone whose presence
+                            started to matter a little more than I
+                            expected.
+
                         </p>
 
+
+                        <p>
+
+                            Someone I look forward to hearing from.
+
+                            Someone whose messages can change the
+                            mood of an ordinary day.
+
+                            Someone who can make me smile just by
+                            appearing on my screen.
+
+                        </p>
+
+
                     </div>
 
-                </article>
 
+                    <div class="letter-heart-footer">
 
+                        <span class="heart-footer-line"></span>
 
-                <article class="future-wish">
-
-                    <div class="wish-number">
-                        04
-                    </div>
-
-                    <div class="wish-icon">
                         🐱
+
+                        <span class="heart-footer-line"></span>
+
                     </div>
 
-                    <div class="wish-content">
 
-                        <span>
-                            I HOPE
+                </div>
+
+            </section>
+                        <!-- ==================================================
+                 LOVE & APPRECIATION
+                 ================================================== -->
+
+            <section class="letter-appreciation">
+
+                <div class="letter-section-heading">
+
+                    <span class="section-kicker">
+                        THE THINGS I ADMIRE
+                    </span>
+
+                    <h2>
+                        There are so many little things
+                        about you that I adore.
+                    </h2>
+
+                </div>
+
+
+                <div class="letter-appreciation-grid">
+
+
+                    <article class="letter-appreciation-card">
+
+                        <span class="letter-card-icon">
+                            🐱
                         </span>
 
                         <h3>
-                            There are always cats in your future.
+                            Your little reactions
                         </h3>
 
                         <p>
-                            Okay, this one is obviously important.
 
-                            More fluffy cats.
-                            More tiny paws.
-                            More ridiculous kitty pictures.
+                            The way you react to things, the random
+                            little expressions, the silly moments —
+                            somehow they always manage to make you
+                            even more adorable.
 
-                            This is non-negotiable.
                         </p>
 
-                    </div>
+                    </article>
 
-                </article>
 
+                    <article class="letter-appreciation-card">
 
-            </div>
-
-
-
-            <!-- =====================================
-                 IF I COULD GIVE YOU SOMETHING
-            ====================================== -->
-
-            <div class="gift-section">
-
-
-                <div class="gift-symbol">
-                    ♡
-                </div>
-
-
-                <span class="gift-kicker">
-                    IF I COULD GIVE YOU ONE THING
-                </span>
-
-
-                <h2>
-                    I wouldn't give you
-                    something expensive.
-                </h2>
-
-
-                <p>
-                    I'd give you a way to see yourself
-                    the way the people who care about you
-                    see you.
-                </p>
-
-
-                <p>
-                    Someone worth laughing with.
-                    Someone worth remembering.
-                    Someone whose presence can make
-                    an ordinary day feel different.
-                </p>
-
-
-                <div class="gift-highlight">
-
-                    <span>🐾</span>
-
-                    <span>
-                        You deserve to know your own worth.
-                    </span>
-
-                    <span>🐾</span>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =====================================
-                 LITTLE FUTURE SCENE
-            ====================================== -->
-
-            <div class="future-scene">
-
-
-                <div class="scene-top">
-
-                    <span>
-                        MAYBE ONE DAY
-                    </span>
-
-                    <span>
-                        🐾
-                    </span>
-
-                </div>
-
-
-                <div class="scene-content">
-
-
-                    <div class="scene-paw">
-
-                        ฅ^•ﻌ•^ฅ
-
-                    </div>
-
-
-                    <h3>
-                        We'll look back at
-                        these little moments.
-                    </h3>
-
-
-                    <p>
-                        Maybe we'll laugh at the random
-                        things we used to say.
-
-                        Maybe we'll remember the silly
-                        conversations.
-
-                        Maybe we'll wonder why we put
-                        so many paws everywhere.
-                    </p>
-
-
-                    <p>
-                        And honestly...
-
-                        I hope we have a lot more
-                        memories to look back on.
-                    </p>
-
-
-                </div>
-
-
-                <div class="scene-bottom">
-
-                    <span>♡</span>
-
-                    <span>
-                        one little moment at a time
-                    </span>
-
-                    <span>♡</span>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- =====================================
-                 THE SIMPLE WISH
-            ====================================== -->
-
-            <div class="simple-wish">
-
-
-                <span class="simple-wish-paw">
-                    🐾
-                </span>
-
-
-                <div>
-
-                    <span class="simple-wish-label">
-                        MY SIMPLE WISH
-                    </span>
-
-
-                    <h3>
-                        Stay happy.
-                    </h3>
-
-
-                    <p>
-                        Keep smiling.
-                        Keep being you.
-                        Keep loving the little things.
-
-                        And whenever life gets difficult,
-                        remember that difficult days
-                        don't last forever.
-                    </p>
-
-                </div>
-
-
-                <span class="simple-wish-heart">
-                    ♡
-                </span>
-
-
-            </div>
-
-
-
-        <!-- =========================================
-             PART 3 ENDS HERE
-
-             DO NOT ADD:
-             </main>
-             </body>
-             </html>
-
-             PART 4 WILL BE THE FINAL LETTER ENDING.
-        ========================================== -->
-
-        <!-- =========================================
-             LETTER PAGE
-             PART 4 — PROMISES & FINAL LETTER
-        ========================================== -->
-
-        <section class="promise-section">
-
-
-            <!-- =====================================
-                 PROMISE INTRO
-            ====================================== -->
-
-            <div class="promise-heading">
-
-                <span class="promise-kicker">
-                    🐾 A FEW LITTLE PROMISES
-                </span>
-
-
-                <h2>
-                    Nothing dramatic.
-                    Just things I mean.
-                </h2>
-
-
-                <p>
-                    I can't promise that every day will be
-                    perfect. But I can promise to keep the
-                    little things genuine.
-                </p>
-
-            </div>
-
-
-
-            <!-- =====================================
-                 PROMISE CARDS
-            ====================================== -->
-
-            <div class="promise-grid">
-
-
-                <article class="promise-card">
-
-                    <span class="promise-number">
-                        01
-                    </span>
-
-                    <span class="promise-icon">
-                        🤍
-                    </span>
-
-                    <h3>
-                        I'll listen.
-                    </h3>
-
-                    <p>
-                        When you want to talk, I'll try to
-                        actually listen instead of turning
-                        everything into a joke.
-                    </p>
-
-                </article>
-
-
-
-                <article class="promise-card">
-
-                    <span class="promise-number">
-                        02
-                    </span>
-
-                    <span class="promise-icon">
-                        🐾
-                    </span>
-
-                    <h3>
-                        I'll respect your space.
-                    </h3>
-
-                    <p>
-                        Your work, your responsibilities,
-                        your time and your own little world
-                        will always matter too.
-                    </p>
-
-                </article>
-
-
-
-                <article class="promise-card">
-
-                    <span class="promise-number">
-                        03
-                    </span>
-
-                    <span class="promise-icon">
-                        ✨
-                    </span>
-
-                    <h3>
-                        I'll celebrate your wins.
-                    </h3>
-
-                    <p>
-                        Big achievement or tiny victory,
-                        I hope I get to be one of the people
-                        cheering for you.
-                    </p>
-
-                </article>
-
-
-
-                <article class="promise-card">
-
-                    <span class="promise-number">
-                        04
-                    </span>
-
-                    <span class="promise-icon">
-                        🐱
-                    </span>
-
-                    <h3>
-                        I'll keep the kitty energy.
-                    </h3>
-
-                    <p>
-                        Because a serious relationship with
-                        cats is clearly one of the most
-                        important responsibilities in life.
-                    </p>
-
-                </article>
-
-
-            </div>
-
-
-
-            <!-- =====================================
-                 FINAL LETTER
-            ====================================== -->
-
-            <div class="final-letter">
-
-
-                <div class="final-letter-top">
-
-                    <span>
-                        ONE LAST THING
-                    </span>
-
-                    <span>
-                        🐾
-                    </span>
-
-                </div>
-
-
-
-                <div class="final-letter-body">
-
-
-                    <p class="final-greeting">
-                        Ali,
-                    </p>
-
-
-                    <p>
-                        If you ever wonder why I made an entire
-                        little website instead of just sending
-                        you a message, this is probably the
-                        simplest answer I can give:
-                    </p>
-
-
-                    <div class="final-quote">
-
-                        <span class="quote-mark">
-                            “
+                        <span class="letter-card-icon">
+                            🤍
                         </span>
+
+                        <h3>
+                            Your presence
+                        </h3>
 
                         <p>
-                            Some people are worth
-                            making a little extra effort for.
+
+                            Even when we aren't saying anything
+                            particularly important, having you
+                            around can still make an ordinary
+                            moment feel different.
+
                         </p>
 
-                        <span class="quote-mark">
-                            ”
+                    </article>
+
+
+                    <article class="letter-appreciation-card">
+
+                        <span class="letter-card-icon">
+                            ✨
+                        </span>
+
+                        <h3>
+                            The way you make me smile
+                        </h3>
+
+                        <p>
+
+                            Sometimes one message from you is
+                            enough to completely change the mood
+                            of my day. I don't think you realise
+                            how powerful that little effect is.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 ROMANTIC LETTER SECTION
+                 ================================================== -->
+
+            <section class="letter-romantic-section">
+
+                <div class="letter-romantic-card">
+
+
+                    <div class="romantic-card-top">
+
+                        <span>
+                            🐾
+                        </span>
+
+                        <span>
+                            A LITTLE CONFESSION
+                        </span>
+
+                        <span>
+                            🐾
                         </span>
 
                     </div>
 
 
-                    <p>
-                        You're one of those people for me.
-                    </p>
+                    <h2>
+                        You are dangerously cute, you know that? 🤭
+                    </h2>
 
 
-                    <p>
-                        I appreciate the conversations,
-                        the jokes, the teasing, the random
-                        moments and even the little things
-                        that probably seem completely normal
-                        to you.
-                    </p>
+                    <div class="romantic-text">
 
 
-                    <p>
-                        They aren't completely normal to me.
-                        They're pieces of a story I genuinely
-                        like having.
-                    </p>
+                        <p>
+
+                            I swear sometimes you don't even have
+                            to do anything.
+
+                            You can simply exist and somehow my
+                            brain goes:
+
+                            <strong>
+                                "Yep. Still adorable."
+                            </strong>
+
+                        </p>
 
 
-                    <p>
-                        So whenever you come back to this page,
-                        I hope it doesn't feel like just another
-                        website.
-                    </p>
+                        <p>
+
+                            And then I try to act normal about it,
+                            which obviously doesn't work very well. 😭
+
+                        </p>
 
 
-                    <p>
-                        I hope it feels like a tiny reminder
-                        that someone thought:
+                        <p>
 
-                    </p>
+                            If being cute was illegal, I genuinely
+                            think you'd have a very serious problem
+                            by now.
+
+                        </p>
 
 
-                    <div class="final-highlight">
+                        <p>
 
-                        <span>🐾</span>
+                            And before you start smiling at this,
+                            yes — I'm blaming the kitties for making
+                            me this soft. 🐱
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="romantic-signature">
+
+                        <span>
+                            🐱
+                        </span>
+
+                        <span class="romantic-signature-line"></span>
+
+                        <span>
+                            🤍
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 DEEP EMOTIONAL SECTION
+                 ================================================== -->
+
+            <section class="letter-emotional-section">
+
+
+                <div class="letter-emotional-layout">
+
+
+                    <div class="emotional-side-card">
+
+                        <div class="emotional-side-kitty">
+                            🐱
+                        </div>
+
+                        <span>
+                            REMEMBER THIS
+                        </span>
 
                         <strong>
-                            “Let's make something beautiful
-                            for Ali.”
+                            You matter.
                         </strong>
+
+                        <p>
+                            More than you probably realise.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="emotional-main-card">
+
+                        <span class="section-kicker">
+                            FROM MY HEART
+                        </span>
+
+
+                        <h2>
+                            I hope you always know
+                            how much you mean to me.
+                        </h2>
+
+
+                        <p>
+
+                            I don't want this letter to only be
+                            cute. I want it to be honest too.
+
+                        </p>
+
+
+                        <p>
+
+                            There will be days when everything feels
+                            easy and there will probably be days when
+                            life becomes stressful, confusing or
+                            exhausting.
+
+                        </p>
+
+
+                        <p>
+
+                            On those difficult days, I hope you never
+                            feel like you have to pretend that
+                            everything is perfect.
+
+                            You can be tired.
+
+                            You can have a bad day.
+
+                            You can be quiet.
+
+                            You can need some space.
+
+                        </p>
+
+
+                        <p>
+
+                            None of those things make you less
+                            important.
+
+                        </p>
+
+
+                        <p>
+
+                            And if you ever forget how special you
+                            are, I hope this little website can remind
+                            you that somewhere in this tiny kitty
+                            corner of the internet, there are words
+                            written especially with you in mind.
+
+                        </p>
+
+
+                        <div class="emotional-bottom">
+
+                            <span>🐾</span>
+
+                            <span class="emotional-line"></span>
+
+                            <span>♡</span>
+
+                            <span class="emotional-line"></span>
+
+                            <span>🐾</span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FLIRTY LITTLE CORNER
+                 ================================================== -->
+
+            <section class="letter-flirty-section">
+
+
+                <div class="letter-flirty-heading">
+
+                    <span class="section-kicker">
+                        OKAY... ONE FLIRTY PART 🤭
+                    </span>
+
+                    <h2>
+                        Don't blame me.
+                        You made me write this.
+                    </h2>
+
+                </div>
+
+
+                <div class="flirty-boxes">
+
+
+                    <div class="flirty-box">
+
+                        <span>🐱</span>
+
+                        <p>
+                            Stop being so cute.
+                        </p>
+
+                        <small>
+                            It's becoming unfair.
+                        </small>
+
+                    </div>
+
+
+                    <div class="flirty-box">
+
+                        <span>🤭</span>
+
+                        <p>
+                            Why are you this adorable?
+                        </p>
+
+                        <small>
+                            I'm trying to concentrate here.
+                        </small>
+
+                    </div>
+
+
+                    <div class="flirty-box">
 
                         <span>♡</span>
 
+                        <p>
+                            If I keep smiling at my screen,
+                            I'm blaming you.
+                        </p>
+
+                        <small>
+                            Completely your fault.
+                        </small>
+
                     </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FUTURE WISHES
+                 ================================================== -->
+
+            <section class="letter-future-section">
+
+
+                <div class="letter-section-heading">
+
+                    <span class="section-kicker">
+                        A FEW FUTURE WISHES
+                    </span>
+
+                    <h2>
+                        Things I hope we get to experience.
+                    </h2>
+
+                    <p>
+
+                        Not promises about exactly how life will
+                        turn out — just little hopes I'd love to
+                        carry forward.
+
+                    </p>
+
+                </div>
+
+
+                <div class="future-wishes-grid">
+
+
+                    <article class="future-wish-card">
+
+                        <span>
+                            🌙
+                        </span>
+
+                        <h3>
+                            Late-night conversations
+                        </h3>
+
+                        <p>
+
+                            I hope there are plenty more nights where
+                            we forget what time it is because we're
+                            busy talking about completely random things.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="future-wish-card">
+
+                        <span>
+                            ☕
+                        </span>
+
+                        <h3>
+                            Peaceful days
+                        </h3>
+
+                        <p>
+
+                            I hope life gives you many peaceful days
+                            where you can simply relax, smile and feel
+                            proud of how far you've come.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="future-wish-card">
+
+                        <span>
+                            ✈️
+                        </span>
+
+                        <h3>
+                            New experiences
+                        </h3>
+
+                        <p>
+
+                            New places, new memories, new stories,
+                            unexpected adventures and lots of moments
+                            we'll eventually look back on and laugh
+                            about.
+
+                        </p>
+
+                    </article>
+
+
+                    <article class="future-wish-card">
+
+                        <span>
+                            🐾
+                        </span>
+
+                        <h3>
+                            More kitty moments
+                        </h3>
+
+                        <p>
+
+                            Obviously this one is mandatory.
+                            A future without enough kitty content
+                            simply isn't acceptable. 🐱
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FUTURE DREAM
+                 ================================================== -->
+
+            <section class="letter-dream-section">
+
+
+                <div class="letter-dream-card">
+
+
+                    <div class="dream-decoration dream-decoration--one">
+                        ✦
+                    </div>
+
+                    <div class="dream-decoration dream-decoration--two">
+                        🐾
+                    </div>
+
+
+                    <span class="section-kicker">
+                        SOMEDAY
+                    </span>
+
+
+                    <h2>
+                        I hope we look back at this
+                        and smile.
+                    </h2>
 
 
                     <p>
-                        And that's exactly what this little
-                        kitty world is.
+
+                        Maybe one day we'll look back at this little
+                        website and laugh about how ridiculously
+                        much effort went into making a kitty world.
+
                     </p>
 
 
-                    <p class="final-soft-line">
-                        A small place made with a lot of care.
+                    <p>
+
+                        And maybe we'll remember all the little
+                        conversations, the silly jokes, the awkward
+                        moments, the good days and everything in
+                        between.
+
                     </p>
 
 
-                </div>
+                    <p>
+
+                        That's one of my favourite thoughts about
+                        the future — not knowing exactly what it
+                        will look like, but knowing there are still
+                        so many moments waiting to happen.
+
+                    </p>
 
 
+                    <div class="dream-footer">
 
-                <!-- =================================
-                     SIGNATURE
-                ================================== -->
+                        <span>🐱</span>
 
-                <div class="letter-signature">
+                        <span class="dream-line"></span>
 
+                        <span>♡</span>
 
-                    <div class="signature-paw-large">
-                        🐾
-                    </div>
+                        <span class="dream-line"></span>
 
+                        <span>🐾</span>
 
-                    <div class="signature-text">
-
-                        <span>
-                            With lots of care,
-                        </span>
-
-
-                        <strong>
-                            Your favourite
-                            kitty person
-                        </strong>
-
-
-                        <span>
-                            ♡
-                        </span>
-
-                    </div>
-
-
-                    <div class="signature-paw-large">
-                        🐾
                     </div>
 
 
                 </div>
 
-
-            </div>
-
+            </section>
 
 
-            <!-- =====================================
-                 FINAL KITTY MESSAGE
-            ====================================== -->
 
-            <div class="final-kitty-message">
+            <!-- ==================================================
+                 PROMISES INTRODUCTION
+                 ================================================== -->
 
-
-                <span class="final-kitty-face">
-                    ฅ^•ﻌ•^ฅ
-                </span>
+            <section class="letter-promises-intro">
 
 
-                <div>
+                <div class="letter-promises-card">
 
-                    <span>
-                        LETTER COMPLETE
+
+                    <div class="promises-kitty">
+                        🐱
+                    </div>
+
+
+                    <span class="section-kicker">
+                        LITTLE PROMISES
                     </span>
 
-                    <h3>
-                        Now go look at the memories.
-                    </h3>
+
+                    <h2>
+                        Things I genuinely want
+                        to remember.
+                    </h2>
+
+
+                    <p>
+
+                        These aren't dramatic promises about
+                        controlling the future.
+
+                        They're simple reminders about how I want
+                        to treat the person I care about.
+
+                    </p>
+
+
+                    <div class="promises-paw-row">
+
+                        <span>🐾</span>
+                        <span>🐾</span>
+                        <span>🐾</span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+                        <!-- ==================================================
+                 PROMISES
+                 ================================================== -->
+
+            <section class="letter-promises-section">
+
+                <div class="letter-section-heading">
+
+                    <span class="section-kicker">
+                        MY PROMISES
+                    </span>
+
+                    <h2>
+                        A few things I want
+                        to promise you.
+                    </h2>
+
+                    <p>
+
+                        Simple promises. Honest ones.
+                        The kind that matter more than
+                        perfectly written words.
+
+                    </p>
 
                 </div>
 
 
-                <a
-                    href="memories.html"
-                    class="final-kitty-button"
-                >
-                    🐾 →
-                </a>
+                <div class="promises-grid">
+
+
+                    <!-- PROMISE 01 -->
+
+                    <article class="promise-card">
+
+                        <div class="promise-number">
+                            01
+                        </div>
+
+                        <div class="promise-icon">
+                            🤍
+                        </div>
+
+                        <h3>
+                            I'll listen.
+                        </h3>
+
+                        <p>
+
+                            When you have something to say,
+                            I'll try to listen instead of simply
+                            waiting for my turn to speak.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- PROMISE 02 -->
+
+                    <article class="promise-card">
+
+                        <div class="promise-number">
+                            02
+                        </div>
+
+                        <div class="promise-icon">
+                            🐾
+                        </div>
+
+                        <h3>
+                            I'll respect your space.
+                        </h3>
+
+                        <p>
+
+                            Caring about someone also means
+                            understanding that they sometimes
+                            need their own time, their own space
+                            and their own quiet moments.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- PROMISE 03 -->
+
+                    <article class="promise-card">
+
+                        <div class="promise-number">
+                            03
+                        </div>
+
+                        <div class="promise-icon">
+                            🌙
+                        </div>
+
+                        <h3>
+                            I'll be honest with you.
+                        </h3>
+
+                        <p>
+
+                            Even when something is difficult to
+                            explain, I'll always value honesty
+                            instead of pretending everything is
+                            fine.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- PROMISE 04 -->
+
+                    <article class="promise-card">
+
+                        <div class="promise-number">
+                            04
+                        </div>
+
+                        <div class="promise-icon">
+                            ✨
+                        </div>
+
+                        <h3>
+                            I'll appreciate the little things.
+                        </h3>
+
+                        <p>
+
+                            The random messages, silly jokes,
+                            tiny updates and unexpected moments
+                            deserve to be appreciated too.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- PROMISE 05 -->
+
+                    <article class="promise-card">
+
+                        <div class="promise-number">
+                            05
+                        </div>
+
+                        <div class="promise-icon">
+                            🐱
+                        </div>
+
+                        <h3>
+                            I'll keep the kitty spirit alive.
+                        </h3>
+
+                        <p>
+
+                            This one is absolutely non-negotiable.
+                            There will always be room for cats,
+                            paws and ridiculous amounts of cuteness.
+
+                        </p>
+
+                    </article>
+
+
+                    <!-- PROMISE 06 -->
+
+                    <article class="promise-card">
+
+                        <div class="promise-number">
+                            06
+                        </div>
+
+                        <div class="promise-icon">
+                            ♡
+                        </div>
+
+                        <h3>
+                            I'll keep choosing kindness.
+                        </h3>
+
+                        <p>
+
+                            No matter how busy life becomes,
+                            kindness should never become something
+                            we forget about.
+
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FUTURE WISHES — PERSONAL
+                 ================================================== -->
+
+            <section class="letter-future-personal">
+
+                <div class="future-personal-card">
+
+
+                    <div class="future-personal-header">
+
+                        <span class="section-kicker">
+                            FOR THE FUTURE
+                        </span>
+
+                        <div class="future-personal-kitty">
+                            🐱
+                        </div>
+
+                    </div>
+
+
+                    <h2>
+                        I don't need to know
+                        everything about tomorrow.
+                    </h2>
+
+
+                    <div class="future-personal-text">
+
+
+                        <p>
+
+                            I just hope tomorrow has reasons for
+                            you to smile.
+
+                        </p>
+
+
+                        <p>
+
+                            I hope you get the things you've been
+                            working for.
+
+                            I hope your dreams become plans,
+                            your plans become memories and your
+                            memories become stories you are proud
+                            to tell.
+
+                        </p>
+
+
+                        <p>
+
+                            I hope you get peaceful mornings,
+                            exciting days, comfortable evenings
+                            and people around you who genuinely
+                            appreciate you.
+
+                        </p>
+
+
+                        <p>
+
+                            And if life ever becomes difficult,
+                            I hope you remember that difficult
+                            chapters are still chapters — not
+                            the whole story.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="future-personal-divider">
+
+                        <span></span>
+
+                        🐾
+
+                        <span></span>
+
+                    </div>
+
+
+                    <p class="future-personal-final">
+
+                        Whatever the future looks like,
+                        I hope it gives you plenty of reasons
+                        to be happy.
+
+                    </p>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 THE SOFTEST PART
+                 ================================================== -->
+
+            <section class="letter-soft-section">
+
+
+                <div class="letter-soft-card">
+
+
+                    <div class="soft-floating-paw soft-floating-paw--one">
+                        🐾
+                    </div>
+
+                    <div class="soft-floating-paw soft-floating-paw--two">
+                        ♡
+                    </div>
+
+
+                    <span class="section-kicker">
+                        ONE MORE THING
+                    </span>
+
+
+                    <h2>
+                        If you ever wonder
+                        whether I care...
+                    </h2>
+
+
+                    <div class="soft-letter-content">
+
+
+                        <p>
+
+                            Look at all these words.
+
+                        </p>
+
+
+                        <p>
+
+                            I could have written a tiny message.
+                            I could have said something simple
+                            and moved on.
+
+                        </p>
+
+
+                        <p>
+
+                            Instead, I sat here building an entire
+                            little kitty world and filling it with
+                            words for you.
+
+                        </p>
+
+
+                        <p>
+
+                            So I think that answers the question
+                            pretty well. 🐱
+
+                        </p>
+
+
+                        <p class="soft-emphasis">
+
+                            You matter to me.
+
+                        </p>
+
+
+                    </div>
+
+
+                    <div class="soft-kitty-divider">
+
+                        <span>🐱</span>
+
+                        <span class="soft-divider-line"></span>
+
+                        <span>🤍</span>
+
+                        <span class="soft-divider-line"></span>
+
+                        <span>🐾</span>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 FINAL LETTER
+                 ================================================== -->
+
+            <section class="letter-final-section">
+
+
+                <div class="letter-final-paper">
+
+
+                    <div class="final-paper-top">
+
+                        <span>
+                            🐾
+                        </span>
+
+                        <span>
+                            END OF THE LETTER
+                        </span>
+
+                        <span>
+                            🐾
+                        </span>
+
+                    </div>
+
+
+                    <h2>
+                        Dear Ali,
+                    </h2>
+
+
+                    <p>
+
+                        If you've actually made it this far,
+                        then congratulations — you have officially
+                        survived one extremely long letter. 😭🐱
+
+                    </p>
+
+
+                    <p>
+
+                        But honestly, I hope you didn't just read
+                        the words.
+
+                        I hope you felt the thought behind them.
+
+                    </p>
+
+
+                    <p>
+
+                        Every section was written because I wanted
+                        this little website to feel like something
+                        more than just another webpage.
+
+                    </p>
+
+
+                    <p>
+
+                        I wanted it to feel like a small place you
+                        could visit and immediately know:
+
+                        <em>
+                            "Someone made this with me in mind."
+                        </em>
+
+                    </p>
+
+
+                    <p>
+
+                        And yes, I know I probably got a little
+                        carried away with the kitties.
+
+                    </p>
+
+
+                    <p class="final-cute-line">
+
+                        But can you really complain when they're
+                        this cute? 🤭🐱
+
+                    </p>
+
+
+                    <div class="final-signature">
+
+
+                        <span class="final-signature-line"></span>
+
+
+                        <div class="final-signature-content">
+
+                            <span>
+                                With lots of care,
+                            </span>
+
+                            <strong>
+                                Your favourite kitty-person 🐾
+                            </strong>
+
+                        </div>
+
+
+                        <span class="final-signature-line"></span>
+
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ==================================================
+                 NEXT PAGE CTA
+                 ================================================== -->
+
+            <section class="next-page-section">
+
+
+                <div class="next-page-card">
+
+
+                    <div class="next-page-card-decoration">
+                        🐾
+                    </div>
+
+
+                    <span class="section-kicker">
+                        NEXT CHAPTER
+                    </span>
+
+
+                    <h2>
+                        Ready for the memories?
+                    </h2>
+
+
+                    <p>
+
+                        The letter ends here, but the little
+                        journey doesn't. The next page keeps the
+                        moments that made this world worth creating.
+
+                    </p>
+
+
+                    <a
+                        href="memories.html"
+                        class="next-page-button"
+                        aria-label="Continue to the Memories page"
+                    >
+
+                        <span class="next-page-button-kitty">
+                            🐱
+                        </span>
+
+                        <span class="next-page-button-text">
+                            Continue to Memories
+                        </span>
+
+                        <span class="next-page-button-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <div class="next-page-progress">
+
+                        <span class="progress-step">
+                            01
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step">
+                            02
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step progress-step--active">
+                            03
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step">
+                            04
+                        </span>
+
+                        <span class="progress-line"></span>
+
+                        <span class="progress-step">
+                            05
+                        </span>
+
+                    </div>
+
+
+                    <p class="next-page-caption">
+                        Home • About • Letter • Memories • Surprise
+                    </p>
+
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- ==================================================
+             FOOTER
+             ================================================== -->
+
+        <footer class="site-footer">
+
+            <div class="footer-inner">
+
+
+                <div class="footer-brand">
+
+                    <span class="footer-kitty">
+                        🐱
+                    </span>
+
+                    <span>
+                        Kitties Little World
+                    </span>
+
+                </div>
+
+
+                <div class="footer-paw-divider">
+                    🐾
+                </div>
+
+
+                <p class="footer-text">
+                    A tiny kitty world filled with little moments.
+                </p>
+
+
+                <div class="footer-navigation">
+
+                    <a href="index.html">
+                        Home
+                    </a>
+
+                    <a href="about.html">
+                        About
+                    </a>
+
+                    <a
+                        href="letter.html"
+                        class="footer-link--active"
+                    >
+                        Letter
+                    </a>
+
+                    <a href="memories.html">
+                        Memories
+                    </a>
+
+                    <a href="surprise.html">
+                        Surprise
+                    </a>
+
+                </div>
+
+
+                <div class="footer-bottom">
+
+                    <span>
+                        Made with 🐾
+                    </span>
+
+                    <span>
+                        © 2026 Kitties Little World
+                    </span>
+
+                </div>
 
 
             </div>
-
-
-        </section>
-
-
-
-        <!-- =====================================
-             LETTER FOOTER
-        ====================================== -->
-
-        <footer class="letter-footer">
-
-
-            <div class="letter-footer-paws">
-
-                <span>🐾</span>
-
-                <span>♡</span>
-
-                <span>🐾</span>
-
-            </div>
-
-
-            <p>
-                Kitties — A Little World
-            </p>
-
-
-            <a href="index.html">
-                ← Back to the little world
-            </a>
-
 
         </footer>
 
 
-    </main>
+    </div>
 
 
 
-    <!-- =========================================
-         LETTER PAGE COMPLETE
-    ========================================== -->
+    <!-- ==================================================
+         JAVASCRIPT
+         ================================================== -->
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
