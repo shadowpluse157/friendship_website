@@ -1,268 +1,200 @@
+
 /* =========================================================
-   KITTIES — LITTLE WORLD
-   variables.css
-   Premium Kitty Theme
+   KITTIES LITTLE WORLD
+   VARIABLES.CSS
+   PREMIUM PEACH GOMA / KITTY THEME
    ========================================================= */
 
 :root {
 
     /* =====================================================
-       BRAND / THEME COLORS
-       ===================================================== */
-
-    --color-bg: #120d12;
-    --color-bg-soft: #1a1118;
-    --color-bg-card: rgba(28, 18, 26, 0.78);
-
-    --color-surface: rgba(255, 248, 250, 0.075);
-    --color-surface-hover: rgba(255, 248, 250, 0.12);
-
-    --color-white: #fff9fb;
-    --color-text: #f8e9ee;
-    --color-text-soft: #d9c2ca;
-    --color-text-muted: #aa929b;
-
-    --color-pink: #f39ab5;
-    --color-pink-light: #ffc4d3;
-    --color-pink-dark: #c96889;
-
-    --color-rose: #d86b8d;
-    --color-rose-light: #f6afc2;
-    --color-rose-dark: #9f4768;
-
-    --color-blush: #ffe1e8;
-    --color-cream: #fff4e9;
-
-    --color-accent: #f4a6bd;
-    --color-accent-soft: rgba(244, 166, 189, 0.18);
-
-    --color-gold: #e7c58b;
-    --color-gold-soft: rgba(231, 197, 139, 0.18);
-
-    --color-success: #9ed8b0;
-    --color-danger: #e8899e;
-
-
-    /* =====================================================
        BACKGROUND
        ===================================================== */
 
-    --page-background-image:
-        linear-gradient(
-            135deg,
-            rgba(18, 13, 18, 0.82),
-            rgba(34, 18, 27, 0.70),
-            rgba(18, 13, 18, 0.88)
-        ),
-        url("https://images.unsplash.com/photo-1710497693691-3505885231e5?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    --background-base: #fff4f5;
 
-    --page-background-position: center;
-    --page-background-size: cover;
-    --page-background-attachment: fixed;
+    --background-soft: #ffe9ed;
 
-    --overlay-dark: rgba(13, 8, 12, 0.62);
-    --overlay-soft: rgba(20, 11, 17, 0.38);
+    --background-deep: #fbd5dc;
 
+    --kitty-background-image:
+        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
 
-    /* =====================================================
-       GRADIENTS
-       ===================================================== */
+    /*
+       GIF ko soft repeat pattern ki tarah use karenge.
+       Content ke peeche readability ke liye overlay bhi hai.
+    */
 
-    --gradient-primary:
-        linear-gradient(
-            135deg,
-            #f6afc2 0%,
-            #df789b 50%,
-            #b9577b 100%
-        );
+    --background-size: 420px auto;
 
-    --gradient-soft:
-        linear-gradient(
-            135deg,
-            rgba(255, 196, 211, 0.16),
-            rgba(216, 107, 141, 0.08)
-        );
+    --background-position: center;
 
-    --gradient-card:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.105),
-            rgba(255, 255, 255, 0.035)
-        );
-
-    --gradient-dark:
-        linear-gradient(
-            145deg,
-            #24151f,
-            #130d13
-        );
-
-    --gradient-gold:
-        linear-gradient(
-            135deg,
-            #f7dfae,
-            #d8ae65
-        );
+    --background-overlay:
+        rgba(255, 246, 247, 0.76);
 
 
     /* =====================================================
-       TYPOGRAPHY
+       SURFACES
        ===================================================== */
 
-    --font-display:
-        "Cormorant Garamond",
-        Georgia,
-        serif;
+    --surface:
+        rgba(255, 252, 252, 0.91);
 
-    --font-heading:
-        "Playfair Display",
-        Georgia,
-        serif;
+    --surface-solid:
+        #fffdfd;
 
-    --font-body:
-        "Inter",
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    --surface-muted:
+        rgba(255, 235, 239, 0.78);
 
-    --font-script:
-        "Allura",
-        "Dancing Script",
-        cursive;
+    --surface-highlight:
+        #ffecef;
 
-    --font-size-xs: 0.72rem;
-    --font-size-sm: 0.86rem;
-    --font-size-md: 1rem;
-    --font-size-lg: 1.15rem;
-    --font-size-xl: 1.45rem;
-    --font-size-2xl: 2rem;
-    --font-size-3xl: 2.8rem;
-    --font-size-4xl: 4rem;
-    --font-size-hero: clamp(3.2rem, 8vw, 7rem);
-
-    --line-height-tight: 1.05;
-    --line-height-heading: 1.15;
-    --line-height-body: 1.75;
-
-
-    /* =====================================================
-       LETTER / ROMANTIC TEXT COLORS
-       ===================================================== */
-
-    --letter-heading: #ffd1dc;
-    --letter-text: #f7e7eb;
-    --letter-soft: #d8bdc6;
-
-    --letter-highlight: #ffabc2;
-    --letter-signature: #f5b0c5;
-
-    --letter-paper:
-        linear-gradient(
-            145deg,
-            rgba(255, 239, 244, 0.095),
-            rgba(255, 220, 231, 0.035)
-        );
-
-    --letter-border: rgba(255, 187, 207, 0.20);
-
-
-    /* =====================================================
-       SPACING
-       ===================================================== */
-
-    --space-1: 0.25rem;
-    --space-2: 0.5rem;
-    --space-3: 0.75rem;
-    --space-4: 1rem;
-    --space-5: 1.25rem;
-    --space-6: 1.5rem;
-    --space-8: 2rem;
-    --space-10: 2.5rem;
-    --space-12: 3rem;
-    --space-16: 4rem;
-    --space-20: 5rem;
-    --space-24: 6rem;
-    --space-32: 8rem;
-
-
-    /* =====================================================
-       LAYOUT
-       ===================================================== */
-
-    --container-width: 1200px;
-    --container-wide: 1400px;
-
-    --page-padding: clamp(1rem, 4vw, 4rem);
-
-    --section-padding:
-        clamp(4rem, 9vw, 8rem)
-        var(--page-padding);
-
-
-    /* =====================================================
-       NAVIGATION
-       ===================================================== */
-
-    --nav-height: 78px;
-
-    --nav-background:
-        rgba(14, 9, 13, 0.72);
-
-    --nav-background-scrolled:
-        rgba(14, 8, 12, 0.92);
-
-    --nav-border:
-        1px solid rgba(255, 192, 210, 0.12);
-
-    --nav-blur: 20px;
-
-    --nav-link-color: #ead6dc;
-    --nav-link-hover: #ffb8ca;
-    --nav-link-active: #ffc4d3;
-
-
-    /* =====================================================
-       CARDS
-       ===================================================== */
-
-    --card-background:
-        rgba(30, 18, 27, 0.68);
-
-    --card-background-strong:
-        rgba(28, 16, 24, 0.86);
-
-    --card-border:
-        1px solid rgba(255, 205, 218, 0.13);
-
-    --card-border-hover:
-        1px solid rgba(255, 180, 202, 0.32);
-
-    --card-radius: 24px;
-    --card-radius-small: 16px;
-
-    --card-padding: clamp(1.25rem, 3vw, 2rem);
-
-    --card-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.28);
-
-    --card-shadow-hover:
-        0 28px 80px rgba(0, 0, 0, 0.40);
-
-
-    /* =====================================================
-       GLASS EFFECT
-       ===================================================== */
+    --surface-hover:
+        rgba(244, 165, 181, 0.16);
 
     --glass-background:
-        rgba(255, 255, 255, 0.065);
+        rgba(255, 251, 252, 0.78);
 
-    --glass-border:
-        rgba(255, 255, 255, 0.12);
+    --header-background:
+        rgba(255, 249, 250, 0.84);
 
-    --glass-blur: 18px;
+    --footer-background:
+        rgba(255, 235, 239, 0.88);
 
-    --glass-shadow:
-        0 18px 60px rgba(0, 0, 0, 0.28);
+
+    /* =====================================================
+       TEXT
+       Dark enough to stay readable over pink/peach GIF
+       ===================================================== */
+
+    --text-primary:
+        #402d34;
+
+    --text-secondary:
+        #684f58;
+
+    --text-muted:
+        #92767f;
+
+    --text-light:
+        #b79ba4;
+
+
+    /* =====================================================
+       PREMIUM PINK / PEACH ACCENTS
+       ===================================================== */
+
+    --accent:
+        #e98fa6;
+
+    --accent-dark:
+        #c45e78;
+
+    --accent-soft:
+        #ffe0e7;
+
+    --accent-border:
+        rgba(196, 94, 120, 0.25);
+
+
+    /* =====================================================
+       BORDERS
+       ===================================================== */
+
+    --border-soft:
+        rgba(143, 83, 101, 0.13);
+
+    --border-medium:
+        rgba(143, 83, 101, 0.20);
+
+    --border-strong:
+        rgba(143, 83, 101, 0.30);
+
+
+    /* =====================================================
+       LETTER / PAPER
+       ===================================================== */
+
+    --letter-paper-background:
+        #fffafa;
+
+    --letter-paper-border:
+        rgba(143, 83, 101, 0.20);
+
+    --letter-paper-inner-border:
+        rgba(143, 83, 101, 0.11);
+
+    --letter-heading:
+        #704552;
+
+    --letter-text:
+        #604852;
+
+    --letter-card-background:
+        rgba(255, 231, 237, 0.75);
+
+    --letter-card-border:
+        rgba(196, 94, 120, 0.18);
+
+    --paper-tape:
+        rgba(236, 168, 181, 0.72);
+
+
+    /* =====================================================
+       MEMORY / SCRAPBOOK
+       ===================================================== */
+
+    --scrapbook-background:
+        #fff9fa;
+
+    --scrapbook-border:
+        rgba(143, 83, 101, 0.16);
+
+
+    /* =====================================================
+       GIFT / SURPRISE
+       ===================================================== */
+
+    --gift-stage-background:
+        rgba(255, 241, 245, 0.86);
+
+    --gift-body-background:
+        #e98fa6;
+
+    --gift-lid-background:
+        #f1a9ba;
+
+    --gift-ribbon:
+        #c45e78;
+
+    --gift-ribbon-dark:
+        #a94863;
+
+    --gift-border:
+        rgba(139, 67, 86, 0.24);
+
+    --gift-shine:
+        rgba(255, 255, 255, 0.30);
+
+    --gift-shadow:
+        rgba(111, 56, 72, 0.18);
+
+
+    /* =====================================================
+       KITTY COLORS
+       ===================================================== */
+
+    --kitty-fur:
+        #f7d7dc;
+
+    --kitty-outline:
+        #a76b79;
+
+    --kitty-face-detail:
+        #63444d;
+
+    --kitty-blush:
+        #ed91a7;
 
 
     /* =====================================================
@@ -270,102 +202,71 @@
        ===================================================== */
 
     --button-primary-background:
-        var(--gradient-primary);
+        #c45e78;
 
-    --button-primary-color:
-        #24121b;
+    --button-primary-text:
+        #ffffff;
 
     --button-secondary-background:
-        rgba(255, 255, 255, 0.065);
-
-    --button-secondary-color:
-        var(--color-text);
-
-    --button-border:
-        rgba(255, 191, 208, 0.20);
-
-    --button-radius: 999px;
-
-    --button-padding-y: 0.9rem;
-    --button-padding-x: 1.5rem;
-
-    --button-shadow:
-        0 10px 30px rgba(216, 107, 141, 0.20);
-
-    --button-shadow-hover:
-        0 16px 40px rgba(216, 107, 141, 0.32);
+        rgba(255, 255, 255, 0.88);
 
 
     /* =====================================================
-       KITTEN / DECORATIVE ELEMENTS
+       FOCUS
        ===================================================== */
 
-    --kitty-pink: #f6a8bf;
-    --kitty-ear: #ef91ae;
-    --kitty-nose: #d76b8d;
-    --kitty-eye: #2b1823;
-
-    --paw-color:
-        rgba(255, 184, 204, 0.14);
-
-    --paw-color-strong:
-        rgba(255, 184, 204, 0.24);
-
-    --heart-color:
-        rgba(244, 143, 174, 0.82);
+    --focus-ring:
+        rgba(196, 94, 120, 0.42);
 
 
     /* =====================================================
-       BORDERS
+       CONTENT
        ===================================================== */
 
-    --border-subtle:
-        rgba(255, 255, 255, 0.08);
+    --content-width:
+        1320px;
 
-    --border-soft:
-        rgba(255, 190, 209, 0.15);
 
-    --border-medium:
-        rgba(255, 178, 202, 0.24);
+    /* =====================================================
+       RADIUS
+       ===================================================== */
 
-    --border-accent:
-        rgba(243, 154, 181, 0.42);
+    --radius-small:
+        9px;
+
+    --radius-medium:
+        17px;
+
+    --radius-large:
+        28px;
+
+    --radius-paper:
+        9px;
 
 
     /* =====================================================
        SHADOWS
        ===================================================== */
 
-    --shadow-xs:
-        0 4px 12px rgba(0, 0, 0, 0.16);
+    --shadow-small:
+        0 8px 24px
+        rgba(105, 55, 70, 0.08);
 
-    --shadow-sm:
-        0 8px 24px rgba(0, 0, 0, 0.20);
+    --shadow-card:
+        0 18px 55px
+        rgba(105, 55, 70, 0.11);
 
-    --shadow-md:
-        0 16px 40px rgba(0, 0, 0, 0.26);
+    --shadow-paper:
+        0 25px 70px
+        rgba(105, 55, 70, 0.15);
 
-    --shadow-lg:
-        0 25px 70px rgba(0, 0, 0, 0.34);
+    --shadow-button:
+        0 10px 27px
+        rgba(196, 94, 120, 0.22);
 
-    --shadow-pink:
-        0 15px 45px rgba(216, 107, 141, 0.18);
-
-    --shadow-glow:
-        0 0 45px rgba(243, 154, 181, 0.16);
-
-
-    /* =====================================================
-       BORDER RADIUS
-       ===================================================== */
-
-    --radius-xs: 6px;
-    --radius-sm: 10px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-xl: 32px;
-    --radius-2xl: 42px;
-    --radius-pill: 999px;
+    --shadow-button-hover:
+        0 16px 38px
+        rgba(196, 94, 120, 0.30);
 
 
     /* =====================================================
@@ -373,136 +274,584 @@
        ===================================================== */
 
     --transition-fast:
-        160ms ease;
+        180ms ease;
 
-    --transition-normal:
-        280ms cubic-bezier(0.22, 1, 0.36, 1);
-
-    --transition-smooth:
-        420ms cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-medium:
+        450ms ease;
 
     --transition-slow:
-        700ms cubic-bezier(0.22, 1, 0.36, 1);
+        800ms cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
 
 
     /* =====================================================
-       Z-INDEX SYSTEM
+       DECORATION
        ===================================================== */
 
-    --z-background: -10;
-    --z-base: 1;
-    --z-content: 10;
-    --z-decoration: 20;
-    --z-header: 100;
-    --z-modal: 500;
-    --z-loader: 1000;
+    --floating-decoration-size:
+        22px;
+
+    --floating-decoration-opacity:
+        0.20;
 
 
     /* =====================================================
-       RESPONSIVE BREAKPOINTS
+       Z-INDEX
        ===================================================== */
 
-    --breakpoint-xs: 360px;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
-    --breakpoint-2xl: 1440px;
+    --z-background:
+        -10;
 
+    --z-overlay:
+        -9;
+
+    --z-content:
+        1;
+
+    --z-header:
+        100;
+
+    --z-modal:
+        1000;
+}
+
+
+/* =========================================================
+   CENTER EVERYTHING
+   ========================================================= */
+
+/*
+   Main cards/content should remain centered.
+   No intentional left/right text decoration.
+*/
+
+main,
+section,
+.section-heading,
+.home-hero-content,
+.home-hero-card-wrapper,
+.distance-message-card,
+.home-final-card,
+.home-navigation-card,
+.home-next-card {
+    text-align: center;
+}
+
+
+/* =========================================================
+   REMOVE SIDE DECORATION
+   ========================================================= */
+
+.floating-paw,
+.home-final-paw {
+    display: none;
+}
+
+
+/* =========================================================
+   OPTIONAL WARM THEME
+   ========================================================= */
+
+[data-theme="warm"] {
+
+    --background-base:
+        #fff2f4;
+
+    --background-soft:
+        #ffe5ea;
+
+    --accent:
+        #e589a0;
+
+    --accent-dark:
+        #bf5872;
+
+    --accent-soft:
+        #ffdce4;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+    background:
+        var(--accent);
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline:
+        3px solid
+        var(--focus-ring);
+
+    outline-offset:
+        4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}
+```
+# variables.css — Premium Kitty Theme
+
+```css
+/* =========================================================
+   KITTIES LITTLE WORLD
+   VARIABLES.CSS
+   PREMIUM PEACH GOMA / KITTY THEME
+   ========================================================= */
+
+:root {
 
     /* =====================================================
-       PAGE-SPECIFIC COLORS
+       BACKGROUND
        ===================================================== */
 
-    /* Home */
-    --home-accent: #f4a6bd;
+    --background-base: #fff4f5;
 
-    /* Letter */
-    --letter-accent: #ffc1d2;
+    --background-soft: #ffe9ed;
 
-    /* About */
-    --about-accent: #e7c58b;
+    --background-deep: #fbd5dc;
 
-    /* Memories */
-    --memories-accent: #f3a4bd;
+    --kitty-background-image:
+        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
 
-    /* Surprise */
-    --surprise-accent: #ffb0c8;
+    /*
+       GIF ko soft repeat pattern ki tarah use karenge.
+       Content ke peeche readability ke liye overlay bhi hai.
+    */
+
+    --background-size: 420px auto;
+
+    --background-position: center;
+
+    --background-overlay:
+        rgba(255, 246, 247, 0.76);
 
 
     /* =====================================================
-       ACCESSIBILITY
+       SURFACES
+       ===================================================== */
+
+    --surface:
+        rgba(255, 252, 252, 0.91);
+
+    --surface-solid:
+        #fffdfd;
+
+    --surface-muted:
+        rgba(255, 235, 239, 0.78);
+
+    --surface-highlight:
+        #ffecef;
+
+    --surface-hover:
+        rgba(244, 165, 181, 0.16);
+
+    --glass-background:
+        rgba(255, 251, 252, 0.78);
+
+    --header-background:
+        rgba(255, 249, 250, 0.84);
+
+    --footer-background:
+        rgba(255, 235, 239, 0.88);
+
+
+    /* =====================================================
+       TEXT
+       Dark enough to stay readable over pink/peach GIF
+       ===================================================== */
+
+    --text-primary:
+        #402d34;
+
+    --text-secondary:
+        #684f58;
+
+    --text-muted:
+        #92767f;
+
+    --text-light:
+        #b79ba4;
+
+
+    /* =====================================================
+       PREMIUM PINK / PEACH ACCENTS
+       ===================================================== */
+
+    --accent:
+        #e98fa6;
+
+    --accent-dark:
+        #c45e78;
+
+    --accent-soft:
+        #ffe0e7;
+
+    --accent-border:
+        rgba(196, 94, 120, 0.25);
+
+
+    /* =====================================================
+       BORDERS
+       ===================================================== */
+
+    --border-soft:
+        rgba(143, 83, 101, 0.13);
+
+    --border-medium:
+        rgba(143, 83, 101, 0.20);
+
+    --border-strong:
+        rgba(143, 83, 101, 0.30);
+
+
+    /* =====================================================
+       LETTER / PAPER
+       ===================================================== */
+
+    --letter-paper-background:
+        #fffafa;
+
+    --letter-paper-border:
+        rgba(143, 83, 101, 0.20);
+
+    --letter-paper-inner-border:
+        rgba(143, 83, 101, 0.11);
+
+    --letter-heading:
+        #704552;
+
+    --letter-text:
+        #604852;
+
+    --letter-card-background:
+        rgba(255, 231, 237, 0.75);
+
+    --letter-card-border:
+        rgba(196, 94, 120, 0.18);
+
+    --paper-tape:
+        rgba(236, 168, 181, 0.72);
+
+
+    /* =====================================================
+       MEMORY / SCRAPBOOK
+       ===================================================== */
+
+    --scrapbook-background:
+        #fff9fa;
+
+    --scrapbook-border:
+        rgba(143, 83, 101, 0.16);
+
+
+    /* =====================================================
+       GIFT / SURPRISE
+       ===================================================== */
+
+    --gift-stage-background:
+        rgba(255, 241, 245, 0.86);
+
+    --gift-body-background:
+        #e98fa6;
+
+    --gift-lid-background:
+        #f1a9ba;
+
+    --gift-ribbon:
+        #c45e78;
+
+    --gift-ribbon-dark:
+        #a94863;
+
+    --gift-border:
+        rgba(139, 67, 86, 0.24);
+
+    --gift-shine:
+        rgba(255, 255, 255, 0.30);
+
+    --gift-shadow:
+        rgba(111, 56, 72, 0.18);
+
+
+    /* =====================================================
+       KITTY COLORS
+       ===================================================== */
+
+    --kitty-fur:
+        #f7d7dc;
+
+    --kitty-outline:
+        #a76b79;
+
+    --kitty-face-detail:
+        #63444d;
+
+    --kitty-blush:
+        #ed91a7;
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    --button-primary-background:
+        #c45e78;
+
+    --button-primary-text:
+        #ffffff;
+
+    --button-secondary-background:
+        rgba(255, 255, 255, 0.88);
+
+
+    /* =====================================================
+       FOCUS
        ===================================================== */
 
     --focus-ring:
-        0 0 0 3px rgba(244, 166, 189, 0.28);
-
-    --selection-background:
-        rgba(244, 166, 189, 0.32);
-
-    --selection-color:
-        #fff8fa;
+        rgba(196, 94, 120, 0.42);
 
 
     /* =====================================================
-       CONTENT WIDTHS
+       CONTENT
        ===================================================== */
 
-    --text-width:
-        720px;
-
-    --letter-width:
-        820px;
-
-    --narrow-width:
-        560px;
+    --content-width:
+        1320px;
 
 
     /* =====================================================
-       IMAGE / MEDIA
+       RADIUS
        ===================================================== */
 
-    --image-radius:
+    --radius-small:
+        9px;
+
+    --radius-medium:
+        17px;
+
+    --radius-large:
+        28px;
+
+    --radius-paper:
+        9px;
+
+
+    /* =====================================================
+       SHADOWS
+       ===================================================== */
+
+    --shadow-small:
+        0 8px 24px
+        rgba(105, 55, 70, 0.08);
+
+    --shadow-card:
+        0 18px 55px
+        rgba(105, 55, 70, 0.11);
+
+    --shadow-paper:
+        0 25px 70px
+        rgba(105, 55, 70, 0.15);
+
+    --shadow-button:
+        0 10px 27px
+        rgba(196, 94, 120, 0.22);
+
+    --shadow-button-hover:
+        0 16px 38px
+        rgba(196, 94, 120, 0.30);
+
+
+    /* =====================================================
+       TRANSITIONS
+       ===================================================== */
+
+    --transition-fast:
+        180ms ease;
+
+    --transition-medium:
+        450ms ease;
+
+    --transition-slow:
+        800ms cubic-bezier(
+            0.22,
+            1,
+            0.36,
+            1
+        );
+
+
+    /* =====================================================
+       DECORATION
+       ===================================================== */
+
+    --floating-decoration-size:
         22px;
 
-    --image-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.34);
-
-    --image-overlay:
-        linear-gradient(
-            to top,
-            rgba(12, 7, 11, 0.78),
-            rgba(12, 7, 11, 0.08)
-        );
+    --floating-decoration-opacity:
+        0.20;
 
 
     /* =====================================================
-       MOBILE
+       Z-INDEX
        ===================================================== */
 
-    --mobile-nav-height: 68px;
+    --z-background:
+        -10;
 
-    --mobile-card-radius: 18px;
+    --z-overlay:
+        -9;
 
-    --mobile-page-padding: 1rem;
+    --z-content:
+        1;
+
+    --z-header:
+        100;
+
+    --z-modal:
+        1000;
+}
 
 
-    /* =====================================================
-       SPECIAL EFFECTS
-       ===================================================== */
+/* =========================================================
+   CENTER EVERYTHING
+   ========================================================= */
 
-    --shine:
-        linear-gradient(
-            110deg,
-            transparent 20%,
-            rgba(255, 255, 255, 0.12) 45%,
-            transparent 70%
-        );
+/*
+   Main cards/content should remain centered.
+   No intentional left/right text decoration.
+*/
 
-    --pink-glow:
-        0 0 35px rgba(243, 154, 181, 0.18);
+main,
+section,
+.section-heading,
+.home-hero-content,
+.home-hero-card-wrapper,
+.distance-message-card,
+.home-final-card,
+.home-navigation-card,
+.home-next-card {
+    text-align: center;
+}
 
-    --gold-glow:
-        0 0 30px rgba(231, 197, 139, 0.14);
 
-]
+/* =========================================================
+   REMOVE SIDE DECORATION
+   ========================================================= */
+
+.floating-paw,
+.home-final-paw {
+    display: none;
+}
+
+
+/* =========================================================
+   OPTIONAL WARM THEME
+   ========================================================= */
+
+[data-theme="warm"] {
+
+    --background-base:
+        #fff2f4;
+
+    --background-soft:
+        #ffe5ea;
+
+    --accent:
+        #e589a0;
+
+    --accent-dark:
+        #bf5872;
+
+    --accent-soft:
+        #ffdce4;
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+    background:
+        var(--accent);
+
+    color:
+        #ffffff;
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline:
+        3px solid
+        var(--focus-ring);
+
+    outline-offset:
+        4px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+}
