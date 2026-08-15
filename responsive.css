@@ -1,4 +1,3 @@
-
 /* =========================================================
    KITTIES LITTLE WORLD
    RESPONSIVE.CSS
@@ -43,6 +42,15 @@
         margin:
             0 auto;
     }
+
+    .content-container,
+    .page-container {
+        width:
+            min(
+                calc(100% - 60px),
+                var(--container-width)
+            );
+    }
 }
 
 
@@ -51,6 +59,14 @@
    ========================================================= */
 
 @media (max-width: 850px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    .content-container,
+    .page-container {
+        width:
+            calc(100% - 40px);
+    }
 
     /* ---------- HEADER ---------- */
 
@@ -116,6 +132,33 @@
     }
 
 
+    /* ---------- GENERAL PAGE CONTENT ---------- */
+
+    .page-hero,
+    .about-hero,
+    .letter-hero,
+    .memories-hero,
+    .surprise-hero {
+        min-height:
+            auto;
+
+        padding:
+            70px 0;
+    }
+
+    .page-content,
+    .about-content,
+    .letter-content,
+    .memories-content,
+    .surprise-content {
+        max-width:
+            760px;
+
+        margin:
+            0 auto;
+    }
+
+
     /* ---------- INTRO ---------- */
 
     .home-introduction {
@@ -162,6 +205,49 @@
         margin-top:
             40px;
     }
+
+
+    /* ---------- LETTER ---------- */
+
+    .letter-card,
+    .letter-paper,
+    .letter-container {
+        padding:
+            45px 38px;
+    }
+
+
+    /* ---------- MEMORIES ---------- */
+
+    .memories-grid,
+    .memory-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:
+            18px;
+    }
+
+
+    /* ---------- SURPRISE ---------- */
+
+    .surprise-gift {
+        max-width:
+            390px;
+
+        margin:
+            0 auto;
+    }
+
+    .surprise-paper,
+    .future-paper,
+    .promise-paper {
+        max-width:
+            720px;
+
+        margin:
+            0 auto;
+    }
 }
 
 
@@ -170,6 +256,17 @@
    ========================================================= */
 
 @media (max-width: 680px) {
+
+    /* ---------- GLOBAL ---------- */
+
+    .content-container,
+    .page-container {
+        width:
+            calc(100% - 30px);
+    }
+
+
+    /* ---------- HEADER ---------- */
 
     .site-header {
         padding:
@@ -279,6 +376,22 @@
     }
 
 
+    /* ---------- ALL PAGE HEROES ---------- */
+
+    .page-hero,
+    .about-hero,
+    .letter-hero,
+    .memories-hero,
+    .surprise-hero {
+        width:
+            calc(100% - 30px);
+
+        padding:
+            55px 0
+            60px;
+    }
+
+
     /* ---------- HERO ---------- */
 
     .home-hero {
@@ -345,6 +458,34 @@
 
         font-size:
             51px;
+    }
+
+
+    /* ---------- PAGE HEADINGS ---------- */
+
+    .page-title,
+    .about-title,
+    .letter-title,
+    .memories-title,
+    .surprise-title {
+        font-size:
+            clamp(
+                38px,
+                12vw,
+                58px
+            );
+    }
+
+    .page-subtitle,
+    .about-subtitle,
+    .letter-subtitle,
+    .memories-subtitle,
+    .surprise-subtitle {
+        font-size:
+            12px;
+
+        line-height:
+            1.8;
     }
 
 
@@ -467,6 +608,128 @@
     }
 
 
+    /* ---------- NORMAL CONTENT CARDS ---------- */
+
+    .page-card,
+    .content-card,
+    .about-card,
+    .letter-card,
+    .memory-card,
+    .surprise-card {
+        width:
+            100%;
+
+        padding:
+            30px 22px;
+
+        border-radius:
+            var(--radius-card);
+    }
+
+
+    /* ---------- TEXT ---------- */
+
+    .page-content p,
+    .about-content p,
+    .letter-content p,
+    .memories-content p,
+    .surprise-content p {
+        font-size:
+            12px;
+
+        line-height:
+            1.9;
+    }
+
+
+    /* ---------- LETTER ---------- */
+
+    .letter-card,
+    .letter-paper,
+    .letter-container {
+        padding:
+            32px 22px;
+    }
+
+    .letter-card h2,
+    .letter-paper h2,
+    .letter-container h2 {
+        font-size:
+            clamp(
+                27px,
+                8vw,
+                40px
+            );
+    }
+
+
+    /* ---------- MEMORIES ---------- */
+
+    .memories-grid,
+    .memory-grid {
+        grid-template-columns:
+            1fr;
+
+        gap:
+            15px;
+    }
+
+    .memory-card {
+        min-height:
+            auto;
+    }
+
+    .memory-image {
+        width:
+            100%;
+    }
+
+
+    /* ---------- SURPRISE ---------- */
+
+    .surprise-gift,
+    .gift-container {
+        width:
+            min(
+                100%,
+                320px
+            );
+
+        margin:
+            0 auto;
+    }
+
+    .surprise-paper,
+    .future-paper,
+    .promise-paper {
+        width:
+            100%;
+
+        padding:
+            30px 22px;
+    }
+
+    .surprise-paper h2,
+    .future-paper h2,
+    .promise-paper h2 {
+        font-size:
+            clamp(
+                27px,
+                8vw,
+                40px
+            );
+    }
+
+    .kitty-holder,
+    .surprise-kitty {
+        max-width:
+            220px;
+
+        margin:
+            0 auto;
+    }
+
+
     /* ---------- FINAL CARDS ---------- */
 
     .home-final-card,
@@ -495,6 +758,20 @@
 
         line-height:
             1.8;
+    }
+
+
+    /* ---------- BUTTONS ---------- */
+
+    .premium-button {
+        max-width:
+            100%;
+
+        min-height:
+            46px;
+
+        padding:
+            0 20px;
     }
 
     .premium-button--large {
@@ -562,6 +839,9 @@
 
         gap:
             6px;
+
+        text-align:
+            center;
     }
 }
 
@@ -571,6 +851,8 @@
    ========================================================= */
 
 @media (max-width: 430px) {
+
+    /* ---------- HEADER ---------- */
 
     .brand-symbol {
         width:
@@ -643,6 +925,32 @@
     }
 
 
+    /* ---------- OTHER PAGES ---------- */
+
+    .page-hero,
+    .about-hero,
+    .letter-hero,
+    .memories-hero,
+    .surprise-hero {
+        padding:
+            45px 0
+            50px;
+    }
+
+    .page-title,
+    .about-title,
+    .letter-title,
+    .memories-title,
+    .surprise-title {
+        font-size:
+            clamp(
+                35px,
+                13vw,
+                52px
+            );
+    }
+
+
     /* ---------- INTRO ---------- */
 
     .home-introduction {
@@ -688,6 +996,43 @@
 
         border-radius:
             23px;
+    }
+
+
+    /* ---------- LETTER ---------- */
+
+    .letter-card,
+    .letter-paper,
+    .letter-container {
+        padding:
+            28px 18px;
+    }
+
+
+    /* ---------- MEMORY ---------- */
+
+    .memory-card {
+        padding:
+            22px 17px;
+    }
+
+
+    /* ---------- SURPRISE ---------- */
+
+    .surprise-gift,
+    .gift-container {
+        width:
+            min(
+                100%,
+                290px
+            );
+    }
+
+    .surprise-paper,
+    .future-paper,
+    .promise-paper {
+        padding:
+            26px 18px;
     }
 
 
@@ -748,7 +1093,18 @@
     .distance-message-section,
     .home-final-section,
     .home-navigation-section,
-    .home-next-section {
+    .home-next-section,
+    .page-hero,
+    .about-hero,
+    .letter-hero,
+    .memories-hero,
+    .surprise-hero {
+        width:
+            calc(100% - 20px);
+    }
+
+    .content-container,
+    .page-container {
         width:
             calc(100% - 20px);
     }
@@ -763,13 +1119,68 @@
             29px;
     }
 
+    .page-title,
+    .about-title,
+    .letter-title,
+    .memories-title,
+    .surprise-title {
+        font-size:
+            34px;
+    }
+
     .home-hero-card,
     .intro-feature-card,
     .journey-card,
     .home-final-card,
     .home-navigation-card,
-    .home-next-card {
+    .home-next-card,
+    .page-card,
+    .content-card,
+    .about-card,
+    .letter-card,
+    .memory-card,
+    .surprise-card {
         border-radius:
             20px;
+    }
+
+    .premium-button {
+        font-size:
+            10px;
+
+        padding:
+            0 15px;
+    }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-height: 500px) and (max-width: 850px) {
+
+    .home-hero,
+    .page-hero,
+    .about-hero,
+    .letter-hero,
+    .memories-hero,
+    .surprise-hero {
+        padding-top:
+            35px;
+
+        padding-bottom:
+            45px;
+    }
+
+    .home-hero-card-kitty {
+        width:
+            75px;
+
+        height:
+            75px;
+
+        font-size:
+            38px;
     }
 }
