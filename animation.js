@@ -1,402 +1,393 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    ANIMATION.JS
-   SURPRISE PAGE EXPERIENCE
+   Premium Page Animations
    ========================================================= */
 
-(() => {
-    "use strict";
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* =====================================================
+       PAGE ENTER
+       ===================================================== */
+
+    document.body.classList.add("page-enter");
 
 
     /* =====================================================
-       DOM READY
+       REVEAL OBSERVER
+       Automatically reveals elements when they enter view
        ===================================================== */
 
-    document.addEventListener("DOMContentLoaded", () => {
+    const revealElements = document.querySelectorAll(
+        ".reveal, .intro-feature-card, .journey-card, " +
+        ".distance-message-card, .home-final-card, " +
+        ".home-navigation-card, .home-next-card"
+    );
 
-        initGiftExperience();
-        initScrollReveal();
+    if ("IntersectionObserver" in window) {
+
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach((entry) => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    entry.target.classList.add("is-visible");
+
+                    observer.unobserve(entry.target);
+                });
+
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -40px 0px"
+            }
+        );
+
+        revealElements.forEach((element) => {
+
+            if (!element.classList.contains("reveal")) {
+                element.classList.add("reveal");
+            }
+
+            revealObserver.observe(element);
+
+        });
+
+    } else {
+
+        revealElements.forEach((element) => {
+            element.classList.add("is-visible");
+        });
+
+    }
+
+
+    /* =====================================================
+       STAGGER CARD ANIMATIONS
+       ===================================================== */
+
+    const cardGroups = [
+        ".intro-feature-card",
+        ".journey-card"
+    ];
+
+    cardGroups.forEach((selector) => {
+
+        const cards = document.querySelectorAll(selector);
+
+        cards.forEach((card, index) => {
+
+            card.style.setProperty(
+                "--animation-delay",
+                `${index * 0.08}s`
+            );
+
+            card.classList.add("stagger-card");
+
+        });
 
     });
 
 
     /* =====================================================
-       GIFT EXPERIENCE
+       SECTION HEADING OBSERVER
        ===================================================== */
 
-    function initGiftExperience() {
+    const headings = document.querySelectorAll(
+        ".section-heading"
+    );
 
-        const giftBox =
-            document.getElementById("giftBox");
+    if ("IntersectionObserver" in window) {
 
-        const giftStage =
-            document.getElementById("giftStage");
+        const headingObserver = new IntersectionObserver(
+            (entries, observer) => {
 
-        const giftMessage =
-            document.getElementById("giftMessage");
+                entries.forEach((entry) => {
 
-        const giftClickHint =
-            document.getElementById("giftClickHint");
-
-        const surpriseKitty =
-            document.getElementById("surpriseKitty");
-
-        const kittyPaper =
-            document.getElementById("kittyPaper");
-
-        const surpriseContent =
-            document.getElementById("surpriseContent");
-
-
-        /*
-         * If this isn't the surprise page,
-         * safely stop here.
-         */
-
-        if (!giftBox || !giftStage) {
-            return;
-        }
-
-
-        /*
-         * Prevent the animation from
-         * being triggered more than once.
-         */
-
-        let opened = false;
-
-
-        giftBox.addEventListener(
-            "click",
-            () => {
-
-                if (opened) {
-                    return;
-                }
-
-                opened = true;
-
-
-                /* -----------------------------------------
-                   ACCESSIBILITY
-                   ----------------------------------------- */
-
-                giftBox.setAttribute(
-                    "aria-expanded",
-                    "true"
-                );
-
-
-                if (surpriseKitty) {
-
-                    surpriseKitty.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
-
-                }
-
-
-                /* -----------------------------------------
-                   STEP 1
-                   OPEN GIFT
-                   ----------------------------------------- */
-
-                giftStage.classList.add(
-                    "gift-opening"
-                );
-
-
-                giftBox.classList.add(
-                    "gift-opening"
-                );
-
-
-                if (giftMessage) {
-
-                    giftMessage.classList.add(
-                        "gift-message-hidden"
-                    );
-
-                }
-
-
-                if (giftClickHint) {
-
-                    giftClickHint.classList.add(
-                        "gift-hint-hidden"
-                    );
-
-                }
-
-
-                /*
-                 * Give the gift opening animation
-                 * enough time to finish.
-                 */
-
-                setTimeout(() => {
-
-                    giftStage.classList.remove(
-                        "gift-opening"
-                    );
-
-
-                    giftBox.classList.remove(
-                        "gift-opening"
-                    );
-
-
-                    giftBox.classList.add(
-                        "gift-opened"
-                    );
-
-
-                    /* -------------------------------------
-                       STEP 2
-                       SHOW KITTY
-                       ------------------------------------- */
-
-                    setTimeout(() => {
-
-                        if (!surpriseKitty) {
-                            return;
-                        }
-
-
-                        surpriseKitty.classList.add(
-                            "kitty-revealed"
-                        );
-
-
-                        /*
-                         * Tell CSS that the kitty
-                         * has appeared.
-                         */
-
-                        giftStage.classList.add(
-                            "kitty-visible"
-                        );
-
-
-                    }, 250);
-
-
-                }, 700);
-
-
-                /* -----------------------------------------
-                   STEP 3
-                   REVEAL PAPER
-                   ----------------------------------------- */
-
-                setTimeout(() => {
-
-                    if (!kittyPaper) {
+                    if (!entry.isIntersecting) {
                         return;
                     }
 
-
-                    kittyPaper.classList.add(
-                        "paper-revealed"
+                    entry.target.classList.add(
+                        "heading-visible"
                     );
 
+                    observer.unobserve(entry.target);
 
-                }, 1550);
+                });
 
-
-                /* -----------------------------------------
-                   STEP 4
-                   SHOW CONTENT
-                   ----------------------------------------- */
-
-                setTimeout(() => {
-
-                    if (!surpriseContent) {
-                        return;
-                    }
-
-
-                    surpriseContent.classList.add(
-                        "surprise-content-visible"
-                    );
-
-
-                }, 2100);
-
-
-                /* -----------------------------------------
-                   STEP 5
-                   SCROLL TO CONTENT
-                   ----------------------------------------- */
-
-                setTimeout(() => {
-
-                    if (!surpriseContent) {
-                        return;
-                    }
-
-
-                    surpriseContent.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-
-
-                }, 2350);
-
-
-                /* -----------------------------------------
-                   OPTIONAL CONFETTI
-                   ----------------------------------------- */
-
-                setTimeout(() => {
-
-                    triggerSurpriseConfetti();
-
-                }, 900);
-
+            },
+            {
+                threshold: 0.2
             }
         );
+
+        headings.forEach((heading) => {
+            headingObserver.observe(heading);
+        });
+
+    } else {
+
+        headings.forEach((heading) => {
+            heading.classList.add("heading-visible");
+        });
 
     }
 
 
     /* =====================================================
-       CONFETTI HELPER
+       PREMIUM 3D CARD TILT
+       Desktop only
        ===================================================== */
 
-    function triggerSurpriseConfetti() {
+    const tiltCards = document.querySelectorAll(
+        ".intro-feature-card, " +
+        ".journey-card, " +
+        ".home-hero-card, " +
+        ".home-final-card, " +
+        ".home-navigation-card, " +
+        ".home-next-card"
+    );
 
-        /*
-         * confetti.js may expose a global
-         * confetti function.
-         *
-         * If it isn't available, simply
-         * do nothing.
-         */
+    const canHover = window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+    ).matches;
 
-        if (
-            typeof window.confetti !==
-            "function"
-        ) {
-            return;
-        }
+    if (canHover) {
 
+        tiltCards.forEach((card) => {
 
-        try {
+            card.addEventListener("mousemove", (event) => {
 
-            window.confetti({
-                particleCount: 45,
-                spread: 65,
-                origin: {
-                    x: 0.5,
-                    y: 0.55
-                }
+                const rect = card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+                const rotateX =
+                    ((y - centerY) / centerY) * -2.5;
+
+                const rotateY =
+                    ((x - centerX) / centerX) * 2.5;
+
+                card.style.setProperty(
+                    "--tilt-x",
+                    `${rotateX}deg`
+                );
+
+                card.style.setProperty(
+                    "--tilt-y",
+                    `${rotateY}deg`
+                );
+
+                card.classList.add("is-tilting");
+
             });
 
-        } catch (error) {
 
-            /*
-             * Never allow confetti errors
-             * to break the surprise animation.
-             */
+            card.addEventListener("mouseleave", () => {
 
-            console.warn(
-                "Confetti could not start.",
-                error
-            );
+                card.style.setProperty(
+                    "--tilt-x",
+                    "0deg"
+                );
 
-        }
+                card.style.setProperty(
+                    "--tilt-y",
+                    "0deg"
+                );
+
+                card.classList.remove("is-tilting");
+
+            });
+
+        });
 
     }
 
 
     /* =====================================================
-       SCROLL REVEAL
+       BUTTON PRESS EFFECT
        ===================================================== */
 
-    function initScrollReveal() {
+    const buttons = document.querySelectorAll(
+        ".premium-button"
+    );
 
-        const revealElements =
-            document.querySelectorAll(
-                ".surprise-wish-card, " +
-                ".promise-card, " +
-                ".surprise-paper-preview, " +
-                ".surprise-final-message"
+    buttons.forEach((button) => {
+
+        button.addEventListener("pointerdown", () => {
+            button.classList.add("button-pressed");
+        });
+
+        button.addEventListener("pointerup", () => {
+            button.classList.remove("button-pressed");
+        });
+
+        button.addEventListener("pointercancel", () => {
+            button.classList.remove("button-pressed");
+        });
+
+        button.addEventListener("pointerleave", () => {
+            button.classList.remove("button-pressed");
+        });
+
+    });
+
+
+    /* =====================================================
+       NEXT PAGE BUTTON
+       Smooth transition before navigation
+       ===================================================== */
+
+    const nextButtons = document.querySelectorAll(
+        "[data-next-page], .next-page-button"
+    );
+
+    nextButtons.forEach((button) => {
+
+        button.addEventListener("click", (event) => {
+
+            const destination =
+                button.getAttribute("href") ||
+                button.dataset.nextPage;
+
+            if (!destination) {
+                return;
+            }
+
+            event.preventDefault();
+
+            document.body.classList.add(
+                "page-leaving"
             );
 
+            setTimeout(() => {
 
-        if (!revealElements.length) {
-            return;
-        }
+                window.location.href =
+                    destination;
+
+            }, 450);
+
+        });
+
+    });
 
 
-        /*
-         * Older browsers / fallback.
-         */
+    /* =====================================================
+       KITTY HOVER / TOUCH FEEDBACK
+       ===================================================== */
 
-        if (
-            !("IntersectionObserver" in window)
-        ) {
+    const kitties = document.querySelectorAll(
+        ".kitty-float, " +
+        ".kitty-bob, " +
+        ".distance-message-kitty, " +
+        ".home-hero-card-kitty"
+    );
 
-            revealElements.forEach(
-                element => {
+    kitties.forEach((kitty) => {
 
-                    element.classList.add(
-                        "is-visible"
+        kitty.addEventListener("mouseenter", () => {
+            kitty.classList.add("kitty-active");
+        });
+
+        kitty.addEventListener("mouseleave", () => {
+            kitty.classList.remove("kitty-active");
+        });
+
+    });
+
+
+    /* =====================================================
+       HEART FLOAT RANDOM DELAY
+       ===================================================== */
+
+    const floatingHearts = document.querySelectorAll(
+        ".heart-float"
+    );
+
+    floatingHearts.forEach((heart, index) => {
+
+        const delay =
+            (index * 0.35) % 2.5;
+
+        heart.style.animationDelay =
+            `${delay}s`;
+
+    });
+
+
+    /* =====================================================
+       PARALLAX EFFECT
+       Very subtle premium movement
+       ===================================================== */
+
+    const parallaxElements = document.querySelectorAll(
+        "[data-parallax]"
+    );
+
+    if (
+        parallaxElements.length &&
+        !window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+
+        let ticking = false;
+
+        const updateParallax = () => {
+
+            const scrollY =
+                window.scrollY;
+
+            parallaxElements.forEach((element) => {
+
+                const speed =
+                    parseFloat(
+                        element.dataset.parallax
+                    ) || 0.08;
+
+                const movement =
+                    scrollY * speed;
+
+                element.style.transform =
+                    `translate3d(0, ${movement}px, 0)`;
+
+            });
+
+            ticking = false;
+        };
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (!ticking) {
+
+                    window.requestAnimationFrame(
+                        updateParallax
                     );
 
+                    ticking = true;
                 }
-            );
 
-            return;
-        }
-
-
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                !entry.isIntersecting
-                            ) {
-                                return;
-                            }
-
-
-                            entry.target.classList.add(
-                                "is-visible"
-                            );
-
-
-                            observer.unobserve(
-                                entry.target
-                            );
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.12,
-
-                    rootMargin:
-                        "0px 0px -40px 0px"
-                }
-            );
-
-
-        revealElements.forEach(
-            element => {
-
-                observer.observe(
-                    element
-                );
-
+            },
+            {
+                passive: true
             }
         );
 
@@ -404,25 +395,26 @@
 
 
     /* =====================================================
-       PUBLIC API
+       SCROLL TOP ON PAGE LOAD
        ===================================================== */
 
-    window.KittiesAnimation = {
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
 
-        openGift() {
-
-            const giftBox =
-                document.getElementById(
-                    "giftBox"
-                );
-
-            if (giftBox) {
-                giftBox.click();
-            }
-
-        }
-
-    };
+    window.scrollTo(0, 0);
 
 
-})();
+    /* =====================================================
+       PAGE READY
+       ===================================================== */
+
+    requestAnimationFrame(() => {
+
+        document.body.classList.add(
+            "animations-ready"
+        );
+
+    });
+
+});
