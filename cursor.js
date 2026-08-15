@@ -1,29 +1,54 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    CURSOR.JS
-   PREMIUM KITTY / PAW CURSOR
+   Premium Kitty Cursor
    ========================================================= */
 
-(() => {
-    "use strict";
+"use strict";
 
-    /* =====================================================
-       TOUCH DEVICE CHECK
-       ===================================================== */
 
-    const isTouchDevice =
-        window.matchMedia(
-            "(hover: none), (pointer: coarse)"
-        ).matches;
+/* =========================================================
+   CURSOR INITIALIZATION
+   ========================================================= */
 
-    if (isTouchDevice) {
+document.addEventListener("DOMContentLoaded", () => {
+
+    initKittyCursor();
+
+});
+
+
+/* =========================================================
+   MAIN CURSOR
+   ========================================================= */
+
+function initKittyCursor() {
+
+    /*
+     * Custom cursor is only useful on devices
+     * that actually have a fine pointer.
+     */
+
+    const finePointer =
+        window.matchMedia("(pointer: fine)");
+
+    if (!finePointer.matches) {
         return;
     }
 
 
-    /* =====================================================
-       CREATE CUSTOM CURSOR
-       ===================================================== */
+    /* Prevent duplicate cursor */
+
+    if (
+        document.querySelector(
+            ".kitty-cursor"
+        )
+    ) {
+        return;
+    }
+
+
+    /* Create cursor */
 
     const cursor =
         document.createElement("div");
@@ -37,24 +62,46 @@
     );
 
 
-    cursor.innerHTML = `
-        <span class="kitty-cursor-main">
-            🐾
-        </span>
+    /* Inner glow */
 
-        <span class="kitty-cursor-ring"></span>
-    `;
+    const cursorGlow =
+        document.createElement("span");
+
+    cursorGlow.className =
+        "kitty-cursor-glow";
 
 
-    document.body.appendChild(cursor);
+    /* Kitty face */
+
+    const cursorFace =
+        document.createElement("span");
+
+    cursorFace.className =
+        "kitty-cursor-face";
+
+    cursorFace.textContent =
+        "🐾";
+
+
+    cursor.appendChild(
+        cursorGlow
+    );
+
+    cursor.appendChild(
+        cursorFace
+    );
+
+    document.body.appendChild(
+        cursor
+    );
 
 
     /* =====================================================
        CURSOR POSITION
        ===================================================== */
 
-    let mouseX = -100;
-    let mouseY = -100;
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
 
     let currentX = mouseX;
     let currentY = mouseY;
@@ -70,6 +117,10 @@
             mouseY =
                 event.clientY;
 
+            cursor.classList.add(
+                "is-visible"
+            );
+
         },
         {
             passive: true
@@ -78,7 +129,7 @@
 
 
     /* =====================================================
-       SMOOTH CURSOR MOTION
+       SMOOTH MOVEMENT
        ===================================================== */
 
     function animateCursor() {
@@ -89,17 +140,12 @@
         currentY +=
             (mouseY - currentY) * 0.18;
 
-
         cursor.style.transform =
-            `
-            translate3d(
+            `translate3d(
                 ${currentX}px,
                 ${currentY}px,
                 0
-            )
-            translate(-50%, -50%)
-            `;
-
+            ) translate(-50%, -50%)`;
 
         requestAnimationFrame(
             animateCursor
@@ -107,79 +153,7 @@
 
     }
 
-
     animateCursor();
-
-
-    /* =====================================================
-       INTERACTIVE ELEMENTS
-       ===================================================== */
-
-    const interactiveSelector = `
-        a,
-        button,
-        input,
-        textarea,
-        select,
-        [role="button"],
-        .premium-button,
-        .journey-card,
-        .intro-feature-card
-    `;
-
-
-    function activateCursor() {
-
-        cursor.classList.add(
-            "is-hovering"
-        );
-
-    }
-
-
-    function deactivateCursor() {
-
-        cursor.classList.remove(
-            "is-hovering"
-        );
-
-    }
-
-
-    document.addEventListener(
-        "mouseover",
-        event => {
-
-            const target =
-                event.target.closest(
-                    interactiveSelector
-                );
-
-
-            if (target) {
-                activateCursor();
-            }
-
-        }
-    );
-
-
-    document.addEventListener(
-        "mouseout",
-        event => {
-
-            const target =
-                event.target.closest(
-                    interactiveSelector
-                );
-
-
-            if (target) {
-                deactivateCursor();
-            }
-
-        }
-    );
 
 
     /* =====================================================
@@ -211,95 +185,78 @@
 
 
     /* =====================================================
-       PAW TRAIL
+       INTERACTIVE ELEMENTS
        ===================================================== */
 
-    let lastTrailTime = 0;
-
-    const TRAIL_DELAY = 90;
+    const interactiveSelector =
+        [
+            "a",
+            "button",
+            "input",
+            "textarea",
+            "select",
+            ".premium-button",
+            ".mobile-menu-button",
+            ".intro-feature-card",
+            ".journey-card",
+            ".home-final-card",
+            ".home-navigation-card",
+            ".home-next-card"
+        ].join(",");
 
 
     document.addEventListener(
-        "mousemove",
+        "mouseover",
         event => {
 
-            const now =
-                performance.now();
+            const target =
+                event.target.closest(
+                    interactiveSelector
+                );
 
-
-            if (
-                now - lastTrailTime <
-                TRAIL_DELAY
-            ) {
+            if (!target) {
                 return;
             }
 
-
-            lastTrailTime = now;
-
-
-            createPawTrail(
-                event.clientX,
-                event.clientY
+            cursor.classList.add(
+                "is-hovering"
             );
 
-        },
-        {
-            passive: true
         }
     );
 
 
-    function createPawTrail(
-        x,
-        y
-    ) {
+    document.addEventListener(
+        "mouseout",
+        event => {
 
-        const paw =
-            document.createElement(
-                "span"
+            const target =
+                event.target.closest(
+                    interactiveSelector
+                );
+
+            if (!target) {
+                return;
+            }
+
+            cursor.classList.remove(
+                "is-hovering"
             );
 
-
-        paw.className =
-            "kitty-paw-trail";
-
-
-        paw.textContent =
-            "🐾";
-
-
-        paw.style.left =
-            `${x}px`;
-
-        paw.style.top =
-            `${y}px`;
-
-
-        document.body.appendChild(
-            paw
-        );
-
-
-        setTimeout(() => {
-
-            paw.remove();
-
-        }, 650);
-
-    }
+        }
+    );
 
 
     /* =====================================================
-       HIDE CUSTOM CURSOR WHEN LEAVING WINDOW
+       LEAVE WINDOW
        ===================================================== */
 
     document.addEventListener(
         "mouseleave",
         () => {
 
-            cursor.classList.add(
-                "is-hidden"
+            cursor.classList.remove(
+                "is-visible"
             );
 
         }
@@ -310,8 +267,8 @@
         "mouseenter",
         () => {
 
-            cursor.classList.remove(
-                "is-hidden"
+            cursor.classList.add(
+                "is-visible"
             );
 
         }
@@ -319,23 +276,11 @@
 
 
     /* =====================================================
-       PUBLIC API
+       POINTER CHANGE
        ===================================================== */
 
-    window.KittiesCursor = {
+    document.documentElement.classList.add(
+        "has-kitty-cursor"
+    );
 
-        enable() {
-            cursor.classList.remove(
-                "is-hidden"
-            );
-        },
-
-        disable() {
-            cursor.classList.add(
-                "is-hidden"
-            );
-        }
-
-    };
-
-})();
+}
