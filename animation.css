@@ -1,19 +1,19 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    ANIMATION.CSS
-   PAGE + GIFT + KITTY + PAPER ANIMATIONS
+   Premium 3D / Cute Kitty Animations
    ========================================================= */
 
 
 /* =========================================================
-   PAGE ENTRY
+   PAGE LOAD
    ========================================================= */
 
-body {
+.page-enter {
     animation:
         pageEnter
-        900ms
-        cubic-bezier(.22, 1, .36, 1)
+        0.9s
+        cubic-bezier(0.22, 1, 0.36, 1)
         both;
 }
 
@@ -21,8 +21,8 @@ body {
     from {
         opacity: 0;
         transform:
-            translateY(18px)
-            scale(.985);
+            translateY(24px)
+            scale(0.985);
     }
 
     to {
@@ -35,29 +35,79 @@ body {
 
 
 /* =========================================================
-   HEADER
+   FADE / REVEAL
    ========================================================= */
 
-.site-header {
+.reveal {
+    opacity: 0;
+    transform:
+        translateY(28px);
     animation:
-        headerDrop
-        800ms
-        cubic-bezier(.22, 1, .36, 1)
-        both;
+        revealUp
+        0.9s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
 }
 
-@keyframes headerDrop {
-    from {
-        opacity: 0;
-        transform:
-            translateY(-100%);
-    }
-
+@keyframes revealUp {
     to {
         opacity: 1;
         transform:
             translateY(0);
     }
+}
+
+.fade-in {
+    animation:
+        fadeIn
+        0.8s
+        ease
+        both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   STAGGERED CONTENT
+   ========================================================= */
+
+.stagger-1 {
+    animation-delay:
+        0.08s;
+}
+
+.stagger-2 {
+    animation-delay:
+        0.16s;
+}
+
+.stagger-3 {
+    animation-delay:
+        0.24s;
+}
+
+.stagger-4 {
+    animation-delay:
+        0.32s;
+}
+
+.stagger-5 {
+    animation-delay:
+        0.40s;
+}
+
+.stagger-6 {
+    animation-delay:
+        0.48s;
 }
 
 
@@ -65,311 +115,97 @@ body {
    HERO
    ========================================================= */
 
-.surprise-hero-content {
+.home-hero-content {
     animation:
-        surpriseHeroReveal
+        heroContent
         1s
-        180ms
-        cubic-bezier(.22, 1, .36, 1)
+        cubic-bezier(0.22, 1, 0.36, 1)
         both;
 }
 
-@keyframes surpriseHeroReveal {
+@keyframes heroContent {
     from {
         opacity: 0;
         transform:
-            translateY(30px);
+            translateX(-30px);
     }
 
     to {
         opacity: 1;
         transform:
-            translateY(0);
+            translateX(0);
+    }
+}
+
+.home-hero-card-wrapper {
+    animation:
+        heroCard
+        1.1s
+        0.15s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+@keyframes heroCard {
+    from {
+        opacity: 0;
+        transform:
+            translateX(35px)
+            rotate(3deg)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateX(0)
+            rotate(0)
+            scale(1);
     }
 }
 
 
 /* =========================================================
-   GIFT MESSAGE
+   FLOATING KITTY
    ========================================================= */
 
-.gift-message {
-    transition:
-        opacity .45s ease,
-        transform .55s cubic-bezier(.22, 1, .36, 1);
-}
-
-.gift-message-hidden {
-    opacity: 0;
-    transform:
-        translateY(-15px)
-        scale(.96);
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   GIFT BOX
-   ========================================================= */
-
-.gift-box {
-    transform-origin:
-        center bottom;
-
-    will-change:
-        transform;
-}
-
-
-/* Small idle movement */
-
-.gift-box:not(.gift-opening):not(.gift-opened) {
+.kitty-float {
     animation:
-        giftIdle
-        3s
+        kittyFloat
+        4s
         ease-in-out
         infinite;
 }
 
-@keyframes giftIdle {
+@keyframes kittyFloat {
     0%,
     100% {
         transform:
-            translateY(0);
+            translateY(0)
+            rotate(0deg);
     }
 
     50% {
         transform:
-            translateY(-5px);
-    }
-}
-
-
-/* =========================================================
-   GIFT OPENING
-   ========================================================= */
-
-.gift-box.gift-opening {
-    animation:
-        giftOpen
-        700ms
-        cubic-bezier(.22, 1, .36, 1)
-        forwards;
-}
-
-@keyframes giftOpen {
-    0% {
-        transform:
-            translateY(0)
-            scale(1)
-            rotateZ(0);
-    }
-
-    25% {
-        transform:
-            translateY(-7px)
-            scale(1.02)
-            rotateZ(-1deg);
-    }
-
-    55% {
-        transform:
-            translateY(-12px)
-            scale(1.035)
-            rotateZ(1deg);
-    }
-
-    100% {
-        transform:
-            translateY(0)
-            scale(1)
-            rotateZ(0);
-    }
-}
-
-
-/* =========================================================
-   OPENED GIFT
-   ========================================================= */
-
-.gift-box.gift-opened {
-    animation:
-        giftOpened
-        500ms
-        ease-out
-        forwards;
-}
-
-@keyframes giftOpened {
-    from {
-        transform:
-            scale(1);
-    }
-
-    to {
-        transform:
-            scale(.94);
-    }
-}
-
-
-/* =========================================================
-   GIFT LID
-   ========================================================= */
-
-.gift-box.gift-opening .gift-lid,
-.gift-box.gift-opened .gift-lid {
-    transform-origin:
-        center bottom;
-
-    animation:
-        lidOpen
-        700ms
-        cubic-bezier(.22, 1, .36, 1)
-        forwards;
-}
-
-@keyframes lidOpen {
-    0% {
-        transform:
-            translateY(0)
-            rotateX(0)
-            rotateZ(0);
-    }
-
-    45% {
-        transform:
-            translateY(-18px)
-            rotateX(28deg)
-            rotateZ(-3deg);
-    }
-
-    100% {
-        transform:
-            translateY(-34px)
-            rotateX(48deg)
-            rotateZ(-5deg);
-    }
-}
-
-
-/* =========================================================
-   GIFT BOW
-   ========================================================= */
-
-.gift-box.gift-opening .gift-bow,
-.gift-box.gift-opened .gift-bow {
-    animation:
-        bowOpen
-        650ms
-        cubic-bezier(.22, 1, .36, 1)
-        forwards;
-}
-
-@keyframes bowOpen {
-    0% {
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-    45% {
-        transform:
             translateY(-10px)
-            scale(1.05);
-    }
-
-    100% {
-        transform:
-            translateY(-27px)
-            scale(.92);
-        opacity: .9;
+            rotate(1deg);
     }
 }
 
 
 /* =========================================================
-   GIFT HINT
+   SOFT BOB
    ========================================================= */
 
-.gift-click-hint {
-    transition:
-        opacity .4s ease,
-        transform .4s ease;
-}
-
-.gift-hint-hidden {
-    opacity: 0;
-    transform:
-        translateY(8px);
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   GIFT STAGE AFTER OPENING
-   ========================================================= */
-
-.gift-stage.kitty-visible {
-    isolation: isolate;
-}
-
-
-/* =========================================================
-   KITTY REVEAL
-   ========================================================= */
-
-.surprise-kitty-reveal {
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transform:
-        translateY(35px)
-        scale(.82);
-
-    transform-origin:
-        center bottom;
-
-    transition:
-        opacity .65s ease,
-        visibility .65s ease,
-        transform .75s cubic-bezier(.22, 1, .36, 1);
-}
-
-
-/* JS adds this */
-
-.surprise-kitty-reveal.kitty-revealed {
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-/* =========================================================
-   KITTY FLOAT
-   ========================================================= */
-
-.surprise-kitty-reveal.kitty-revealed
-.surprise-kitty {
+.kitty-bob {
     animation:
-        surpriseKittyFloat
-        3.8s
+        kittyBob
+        3.5s
         ease-in-out
-        1s
         infinite;
 }
 
-@keyframes surpriseKittyFloat {
+@keyframes kittyBob {
     0%,
     100% {
         transform:
@@ -384,540 +220,111 @@ body {
 
 
 /* =========================================================
-   KITTY EARS
+   HEART FLOAT
    ========================================================= */
 
-.surprise-kitty-reveal.kitty-revealed
-.kitty-ear--left {
+.heart-float {
     animation:
-        earLeft
-        1s
-        ease-out
-        both;
-}
-
-.surprise-kitty-reveal.kitty-revealed
-.kitty-ear--right {
-    animation:
-        earRight
-        1s
-        ease-out
-        both;
-}
-
-@keyframes earLeft {
-    from {
-        transform:
-            rotate(-18deg)
-            scale(.9);
-    }
-
-    to {
-        transform:
-            rotate(0)
-            scale(1);
-    }
-}
-
-@keyframes earRight {
-    from {
-        transform:
-            rotate(18deg)
-            scale(.9);
-    }
-
-    to {
-        transform:
-            rotate(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   KITTY FACE
-   ========================================================= */
-
-.surprise-kitty-reveal.kitty-revealed
-.kitty-face {
-    animation:
-        kittyFaceReveal
-        600ms
-        250ms
-        ease-out
-        both;
-}
-
-@keyframes kittyFaceReveal {
-    from {
-        opacity: 0;
-        transform:
-            scale(.88);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   KITTY PAWS
-   ========================================================= */
-
-.surprise-kitty-reveal.kitty-revealed
-.kitty-paw {
-    animation:
-        pawAppear
-        650ms
-        350ms
-        cubic-bezier(.22, 1, .36, 1)
-        both;
-}
-
-@keyframes pawAppear {
-    from {
-        opacity: 0;
-        transform:
-            translateY(15px)
-            scale(.8);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   PAPER
-   ========================================================= */
-
-.kitty-paper {
-    opacity: 0;
-
-    visibility: hidden;
-
-    transform:
-        translateY(20px)
-        scale(.88)
-        rotate(-2deg);
-
-    transform-origin:
-        center center;
-
-    transition:
-        opacity .65s ease,
-        visibility .65s ease,
-        transform .75s cubic-bezier(.22, 1, .36, 1);
-}
-
-
-/* JS adds this */
-
-.kitty-paper.paper-revealed {
-    opacity: 1;
-
-    visibility: visible;
-
-    transform:
-        translateY(0)
-        scale(1)
-        rotate(0);
-}
-
-
-/* =========================================================
-   PAPER TAPE
-   ========================================================= */
-
-.kitty-paper.paper-revealed
-.kitty-paper-tape {
-    animation:
-        tapeDrop
-        500ms
-        350ms
-        ease-out
-        both;
-}
-
-@keyframes tapeDrop {
-    from {
-        opacity: 0;
-        transform:
-            translateY(-8px)
-            rotate(-4deg);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-}
-
-
-/* =========================================================
-   PAPER TEXT
-   ========================================================= */
-
-.kitty-paper.paper-revealed
-.kitty-paper-label,
-.kitty-paper.paper-revealed h2,
-.kitty-paper.paper-revealed p,
-.kitty-paper.paper-revealed
-.kitty-paper-divider {
-    animation:
-        paperTextReveal
-        600ms
-        450ms
-        ease-out
-        both;
-}
-
-@keyframes paperTextReveal {
-    from {
-        opacity: 0;
-        transform:
-            translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-
-
-/* =========================================================
-   PAPER PAW
-   ========================================================= */
-
-.kitty-paper.paper-revealed
-.kitty-paper-paw {
-    animation:
-        paperPaw
-        650ms
-        550ms
-        cubic-bezier(.22, 1, .36, 1)
-        both;
-}
-
-@keyframes paperPaw {
-    from {
-        opacity: 0;
-        transform:
-            translateX(-10px)
-            rotate(-8deg);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateX(0)
-            rotate(0);
-    }
-}
-
-
-/* =========================================================
-   SURPRISE CONTENT
-   ========================================================= */
-
-.surprise-content-section {
-    opacity: 0;
-
-    transform:
-        translateY(30px);
-
-    transition:
-        opacity .8s ease,
-        transform .9s cubic-bezier(.22, 1, .36, 1);
-}
-
-
-/* JS adds this */
-
-.surprise-content-section
-.surprise-content-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/*
- * Important:
- * animation.js puts the class directly
- * on #surpriseContent.
- */
-
-.surprise-content-section.surprise-content-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =========================================================
-   PAPER PREVIEW
-   ========================================================= */
-
-.surprise-paper-preview {
-    opacity: 0;
-
-    transform:
-        translateY(25px)
-        scale(.97);
-
-    transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.22, 1, .36, 1);
-}
-
-.surprise-paper-preview.is-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-/* =========================================================
-   WISH CARDS
-   ========================================================= */
-
-.surprise-wish-card {
-    opacity: 0;
-
-    transform:
-        translateY(30px)
-        scale(.97);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.22, 1, .36, 1);
-}
-
-.surprise-wish-card.is-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-.surprise-wish-card:nth-child(2) {
-    transition-delay:
-        .12s;
-}
-
-.surprise-wish-card:nth-child(3) {
-    transition-delay:
-        .24s;
-}
-
-
-/* =========================================================
-   PROMISE CARDS
-   ========================================================= */
-
-.promise-card {
-    opacity: 0;
-
-    transform:
-        translateY(30px)
-        scale(.97);
-
-    transition:
-        opacity .7s ease,
-        transform .7s cubic-bezier(.22, 1, .36, 1);
-}
-
-.promise-card.is-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-.promise-card:nth-child(2) {
-    transition-delay:
-        .12s;
-}
-
-.promise-card:nth-child(3) {
-    transition-delay:
-        .24s;
-}
-
-.promise-card:nth-child(4) {
-    transition-delay:
-        .36s;
-}
-
-
-/* =========================================================
-   FINAL MESSAGE
-   ========================================================= */
-
-.surprise-final-message {
-    opacity: 0;
-
-    transform:
-        translateY(30px)
-        scale(.98);
-
-    transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.22, 1, .36, 1);
-}
-
-.surprise-final-message.is-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-
-/* =========================================================
-   FINAL KITTY
-   ========================================================= */
-
-.surprise-final-kitty {
-    display: inline-block;
-
-    animation:
-        finalKittyFloat
+        heartFloat
         3s
         ease-in-out
         infinite;
 }
 
-@keyframes finalKittyFloat {
-    0%,
-    100% {
-        transform:
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translateY(-6px);
-    }
-}
-
-
-/* =========================================================
-   FLOATING BACKGROUND PAWS
-   ========================================================= */
-
-.floating-paw {
-    animation:
-        floatingPaw
-        6s
-        ease-in-out
-        infinite;
-}
-
-.floating-paw--two {
-    animation-delay:
-        -1.5s;
-}
-
-.floating-paw--three {
-    animation-delay:
-        -3s;
-}
-
-.floating-paw--four {
-    animation-delay:
-        -4.5s;
-}
-
-@keyframes floatingPaw {
+@keyframes heartFloat {
     0%,
     100% {
         transform:
             translateY(0)
-            rotate(0);
+            rotate(-3deg);
     }
 
     50% {
         transform:
-            translateY(-12px)
+            translateY(-8px)
             rotate(4deg);
     }
 }
 
 
 /* =========================================================
-   PAGE PROGRESS
+   GLOW PULSE
    ========================================================= */
 
-.page-progress-item--active > span {
+.glow-pulse {
     animation:
-        activeGlow
-        2.4s
+        glowPulse
+        2.8s
         ease-in-out
         infinite;
 }
 
-@keyframes activeGlow {
+@keyframes glowPulse {
     0%,
     100% {
-        box-shadow:
-            0 0 0
-            rgba(196, 94, 120, 0);
+        filter:
+            drop-shadow(
+                0 0 0
+                rgba(255, 170, 190, 0)
+            );
     }
 
     50% {
-        box-shadow:
-            0 0 0 7px
-            rgba(196, 94, 120, .08);
+        filter:
+            drop-shadow(
+                0 0 15px
+                rgba(255, 170, 190, 0.35)
+            );
     }
 }
 
 
 /* =========================================================
-   NAVIGATION HOVER
+   CARD 3D HOVER
    ========================================================= */
 
-.navigation-link,
-.footer-link {
-    transform-style:
-        preserve-3d;
+.intro-feature-card,
+.journey-card,
+.home-final-card,
+.home-navigation-card,
+.home-next-card {
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease;
 }
 
-.navigation-link:hover {
+.intro-feature-card:hover,
+.journey-card:hover,
+.home-final-card:hover,
+.home-navigation-card:hover,
+.home-next-card:hover {
     transform:
-        translateY(-2px)
-        translateZ(5px);
-}
-
-.footer-link:hover {
-    transform:
-        translateY(-2px);
+        translateY(-8px)
+        rotateX(1deg)
+        rotateY(-1deg);
 }
 
 
 /* =========================================================
-   PREMIUM BUTTON
+   HERO CARD HOVER
+   ========================================================= */
+
+.home-hero-card {
+    transition:
+        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.5s ease;
+}
+
+.home-hero-card:hover {
+    transform:
+        translateY(-8px)
+        rotate(0.5deg)
+        scale(1.01);
+}
+
+
+/* =========================================================
+   BUTTON PREMIUM HOVER
    ========================================================= */
 
 .premium-button {
@@ -927,8 +334,9 @@ body {
     overflow:
         hidden;
 
-    transform-style:
-        preserve-3d;
+    transition:
+        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease;
 }
 
 .premium-button::before {
@@ -938,95 +346,200 @@ body {
     position:
         absolute;
 
-    inset:
+    top:
         0;
+
+    left:
+        -120%;
+
+    width:
+        80%;
+
+    height:
+        100%;
 
     background:
         linear-gradient(
-            120deg,
-            transparent 25%,
-            rgba(255,255,255,.3) 50%,
-            transparent 75%
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.42),
+            transparent
         );
 
     transform:
-        translateX(-130%);
+        skewX(-20deg);
 
     transition:
-        transform 700ms ease;
-
-    pointer-events:
-        none;
-}
-
-.premium-button:hover::before {
-    transform:
-        translateX(130%);
+        left 0.65s ease;
 }
 
 .premium-button:hover {
     transform:
-        translateY(-4px)
+        translateY(-3px)
         scale(1.015);
+}
+
+.premium-button:hover::before {
+    left:
+        140%;
 }
 
 .premium-button:active {
     transform:
-        translateY(1px)
-        scale(.985);
+        translateY(0)
+        scale(0.98);
 }
 
 
 /* =========================================================
-   BACKGROUND BREATHING
+   NAVIGATION LINK
    ========================================================= */
 
-.page-background {
-    animation:
-        backgroundBreath
-        12s
-        ease-in-out
-        infinite
-        alternate;
+.navigation-link {
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
-@keyframes backgroundBreath {
-    from {
+.navigation-link:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   JOURNEY ICON
+   ========================================================= */
+
+.journey-card-icon {
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.journey-card:hover .journey-card-icon {
+    transform:
+        translateY(-5px)
+        rotate(-4deg)
+        scale(1.06);
+}
+
+
+/* =========================================================
+   DISTANCE KITTY
+   ========================================================= */
+
+.distance-message-kitty {
+    animation:
+        distanceKitty
+        3.8s
+        ease-in-out
+        infinite;
+}
+
+@keyframes distanceKitty {
+    0%,
+    100% {
         transform:
-            scale(1);
+            translateY(0)
+            rotate(0);
+    }
+
+    50% {
+        transform:
+            translateY(-9px)
+            rotate(-2deg);
+    }
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+    animation:
+        headingReveal
+        0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+@keyframes headingReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px)
+            scale(0.98);
     }
 
     to {
+        opacity: 1;
         transform:
-            scale(1.035);
+            translateY(0)
+            scale(1);
     }
 }
 
 
 /* =========================================================
-   REVEAL UTILITY
+   PROGRESS DOTS
    ========================================================= */
 
-.reveal {
-    opacity:
-        0;
-
-    transform:
-        translateY(30px)
-        scale(.98);
-
+.page-progress-item > span,
+.home-progress-item > span {
     transition:
-        opacity 800ms ease,
-        transform 900ms cubic-bezier(.22, 1, .36, 1);
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.reveal.is-visible {
-    opacity:
-        1;
-
+.page-progress-item:hover > span,
+.home-progress-item:hover > span {
     transform:
-        translateY(0)
-        scale(1);
+        scale(1.15);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer-link {
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.footer-link:hover {
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   PAGE TRANSITION
+   ========================================================= */
+
+.page-transition {
+    animation:
+        pageTransition
+        0.75s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+@keyframes pageTransition {
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
 }
 
 
@@ -1040,64 +553,15 @@ body {
     *::before,
     *::after {
         animation-duration:
-            .01ms !important;
+            0.01ms !important;
 
         animation-iteration-count:
             1 !important;
 
-        transition-duration:
-            .01ms !important;
-
         scroll-behavior:
             auto !important;
-    }
-}
 
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 680px) {
-
-    .gift-box.gift-opening,
-    .gift-box.gift-opened {
-        transform-origin:
-            center bottom;
-    }
-
-
-    .surprise-kitty-reveal.kitty-revealed {
-        transform:
-            translateY(0)
-            scale(.88);
-    }
-
-
-    .surprise-kitty-reveal.kitty-revealed
-    .surprise-kitty {
-        animation-duration:
-            4.5s;
-    }
-
-
-    .kitty-paper.paper-revealed {
-        transform:
-            translateY(0)
-            scale(.92)
-            rotate(0);
-    }
-
-
-    .surprise-wish-card,
-    .promise-card {
         transition-duration:
-            .6s;
-    }
-
-
-    .page-background {
-        animation-duration:
-            16s;
+            0.01ms !important;
     }
 }
