@@ -1,212 +1,172 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    CONFETTI.JS
-   PREMIUM GIFT / SURPRISE CONFETTI SYSTEM
+   Premium Kitty Celebration Confetti
    ========================================================= */
 
-(() => {
+(function () {
     "use strict";
 
 
     /* =====================================================
-       SETTINGS
+       CONFIG
        ===================================================== */
 
-    const DEFAULT_COUNT = 90;
+    const CONFETTI_COUNT = 70;
+    const CONFETTI_DURATION_MIN = 2.2;
+    const CONFETTI_DURATION_MAX = 3.8;
 
-    const COLORS = [
-        "#f3a6bb",
-        "#f7c7d5",
-        "#e9a7bd",
-        "#fff1f5",
-        "#d88aa7",
-        "#f5d6df"
+
+    /* =====================================================
+       HELPERS
+       ===================================================== */
+
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    function randomInt(min, max) {
+        return Math.floor(random(min, max + 1));
+    }
+
+
+    /* =====================================================
+       CONFETTI COLORS
+       ===================================================== */
+
+    const colors = [
+        "#ffb6c8",
+        "#ffd6df",
+        "#f7a8bd",
+        "#fff0f4",
+        "#e8b4c8",
+        "#d9a7bd",
+        "#ffffff"
     ];
 
 
     /* =====================================================
-       CREATE CONFETTI CONTAINER
+       CREATE CONFETTI PIECE
        ===================================================== */
 
-    function getContainer() {
+    function createConfettiPiece() {
 
-        let container =
-            document.querySelector(
-                ".kitty-confetti-container"
-            );
-
-
-        if (!container) {
-
-            container =
-                document.createElement(
-                    "div"
-                );
-
-            container.className =
-                "kitty-confetti-container";
-
-            container.setAttribute(
-                "aria-hidden",
-                "true"
-            );
-
-            document.body.appendChild(
-                container
-            );
-
-        }
-
-
-        return container;
-
-    }
-
-
-    /* =====================================================
-       RANDOM HELPERS
-       ===================================================== */
-
-    function random(min, max) {
-
-        return Math.random() *
-            (max - min) +
-            min;
-
-    }
-
-
-    function randomItem(array) {
-
-        return array[
-            Math.floor(
-                Math.random() *
-                array.length
-            )
-        ];
-
-    }
-
-
-    /* =====================================================
-       CREATE ONE PIECE
-       ===================================================== */
-
-    function createPiece(
-        container,
-        originX,
-        originY
-    ) {
-
-        const piece =
-            document.createElement(
-                "span"
-            );
-
+        const piece = document.createElement("span");
 
         piece.className =
-            "kitty-confetti";
+            "confetti-piece";
 
 
-        const size =
-            random(5, 10);
+        /* ---------- SIZE ---------- */
 
+        const width =
+            random(5, 9);
+
+        const height =
+            random(7, 14);
+
+
+        /* ---------- START POSITION ---------- */
+
+        const startX =
+            random(5, 95);
+
+
+        /* ---------- FALL DISTANCE ---------- */
+
+        const fallY =
+            random(75, 115);
+
+
+        /* ---------- HORIZONTAL MOVEMENT ---------- */
+
+        const moveX =
+            random(-180, 180);
+
+
+        /* ---------- ROTATION ---------- */
 
         const rotation =
-            random(
-                0,
-                360
-            );
+            randomInt(360, 1080);
 
 
-        const drift =
-            random(
-                -180,
-                180
-            );
-
-
-        const fall =
-            random(
-                280,
-                600
-            );
-
+        /* ---------- DURATION ---------- */
 
         const duration =
             random(
-                900,
-                1800
+                CONFETTI_DURATION_MIN,
+                CONFETTI_DURATION_MAX
             );
 
 
-        const delay =
-            random(
-                0,
-                180
-            );
+        /* ---------- SHAPE ---------- */
+
+        const shape =
+            randomInt(0, 2);
 
 
-        piece.style.width =
-            `${size}px`;
-
-        piece.style.height =
-            `${size * random(
-                0.55,
-                1.2
-            )}px`;
-
+        piece.style.position =
+            "fixed";
 
         piece.style.left =
-            `${originX}px`;
+            `${startX}vw`;
 
         piece.style.top =
-            `${originY}px`;
+            `${random(-5, 8)}vh`;
 
+        piece.style.width =
+            `${width}px`;
+
+        piece.style.height =
+            `${height}px`;
 
         piece.style.background =
-            randomItem(
-                COLORS
-            );
+            colors[
+                randomInt(
+                    0,
+                    colors.length - 1
+                )
+            ];
 
+        piece.style.borderRadius =
+            shape === 0
+                ? "2px"
+                : "50%";
+
+        piece.style.zIndex =
+            "9999";
+
+        piece.style.pointerEvents =
+            "none";
 
         piece.style.setProperty(
             "--confetti-x",
-            `${drift}px`
+            `${moveX}px`
         );
-
 
         piece.style.setProperty(
             "--confetti-y",
-            `${fall}px`
+            `${fallY}vh`
         );
-
 
         piece.style.setProperty(
             "--confetti-rotate",
             `${rotation}deg`
         );
 
-
-        piece.style.animationDuration =
-            `${duration}ms`;
-
-
-        piece.style.animationDelay =
-            `${delay}ms`;
-
-
-        container.appendChild(
-            piece
+        piece.style.setProperty(
+            "--confetti-duration",
+            `${duration}s`
         );
 
 
-        setTimeout(() => {
+        /* ---------- RANDOM DELAY ---------- */
 
-            piece.remove();
+        piece.style.animationDelay =
+            `${random(0, 0.45)}s`;
 
-        }, duration + delay + 200);
 
+        return piece;
     }
 
 
@@ -214,25 +174,14 @@
        BURST
        ===================================================== */
 
-    function burst(options = {}) {
+    function launchConfetti(
+        count = CONFETTI_COUNT
+    ) {
 
-        const container =
-            getContainer();
+        const fragment =
+            document.createDocumentFragment();
 
-
-        const count =
-            options.count ??
-            DEFAULT_COUNT;
-
-
-        const originX =
-            options.x ??
-            window.innerWidth / 2;
-
-
-        const originY =
-            options.y ??
-            window.innerHeight * 0.38;
+        const pieces = [];
 
 
         for (
@@ -241,281 +190,203 @@
             i++
         ) {
 
-            createPiece(
-                container,
-                originX,
-                originY
+            const piece =
+                createConfettiPiece();
+
+            fragment.appendChild(
+                piece
             );
 
-        }
-
-    }
-
-
-    /* =====================================================
-       KITTY PAW BURST
-       ===================================================== */
-
-    function pawBurst(options = {}) {
-
-        const count =
-            options.count ?? 20;
-
-
-        const originX =
-            options.x ??
-            window.innerWidth / 2;
-
-
-        const originY =
-            options.y ??
-            window.innerHeight * 0.4;
-
-
-        for (
-            let i = 0;
-            i < count;
-            i++
-        ) {
-
-            const paw =
-                document.createElement(
-                    "span"
-                );
-
-
-            paw.className =
-                "kitty-confetti-paw";
-
-
-            paw.textContent =
-                "🐾";
-
-
-            paw.style.left =
-                `${originX}px`;
-
-            paw.style.top =
-                `${originY}px`;
-
-
-            paw.style.setProperty(
-                "--confetti-x",
-                `${random(
-                    -150,
-                    150
-                )}px`
+            pieces.push(
+                piece
             );
-
-
-            paw.style.setProperty(
-                "--confetti-y",
-                `${random(
-                    180,
-                    420
-                )}px`
-            );
-
-
-            paw.style.setProperty(
-                "--confetti-rotate",
-                `${random(
-                    -50,
-                    50
-                )}deg`
-            );
-
-
-            paw.style.animationDuration =
-                `${random(
-                    900,
-                    1500
-                )}ms`;
-
-
-            getContainer().appendChild(
-                paw
-            );
-
-
-            setTimeout(() => {
-
-                paw.remove();
-
-            }, 1800);
-
-        }
-
-    }
-
-
-    /* =====================================================
-       PREMIUM SURPRISE BURST
-       ===================================================== */
-
-    function surpriseBurst(options = {}) {
-
-        const x =
-            options.x ??
-            window.innerWidth / 2;
-
-
-        const y =
-            options.y ??
-            window.innerHeight * 0.42;
-
-
-        burst({
-            x,
-            y,
-            count:
-                options.count ??
-                110
-        });
-
-
-        setTimeout(() => {
-
-            pawBurst({
-                x,
-                y,
-                count: 18
-            });
-
-        }, 120);
-
-    }
-
-
-    /* =====================================================
-       AUTO GIFT BUTTON SUPPORT
-       ===================================================== */
-
-    function initGiftConfetti() {
-
-        const giftButtons =
-            document.querySelectorAll(
-                `
-                .gift-box,
-                .gift-button,
-                .surprise-gift,
-                [data-gift],
-                [data-surprise]
-                `
-            );
-
-
-        if (!giftButtons.length) {
-            return;
         }
 
 
-        giftButtons.forEach(
-            button => {
+        document.body.appendChild(
+            fragment
+        );
 
-                button.addEventListener(
-                    "click",
-                    event => {
 
-                        /*
-                         * Prevent duplicate
-                         * triggering.
-                         */
+        /* ---------- CLEANUP ---------- */
+
+        const cleanupTime =
+            (CONFETTI_DURATION_MAX + 1) *
+            1000;
+
+
+        window.setTimeout(
+            function () {
+
+                pieces.forEach(
+                    function (piece) {
 
                         if (
-                            button.dataset
-                                .confettiTriggered ===
-                            "true"
+                            piece &&
+                            piece.parentNode
                         ) {
-                            return;
+                            piece.parentNode.removeChild(
+                                piece
+                            );
                         }
-
-
-                        button.dataset
-                            .confettiTriggered =
-                            "true";
-
-
-                        surpriseBurst({
-                            x:
-                                event.clientX,
-
-                            y:
-                                event.clientY
-                        });
-
-
-                        /*
-                         * Allow another click
-                         * after the animation.
-                         */
-
-                        setTimeout(() => {
-
-                            delete button
-                                .dataset
-                                .confettiTriggered;
-
-                        }, 2200);
 
                     }
                 );
 
-            }
+            },
+            cleanupTime
         );
-
     }
 
 
     /* =====================================================
-       INITIALISE
+       DOUBLE BURST
        ===================================================== */
 
-    function init() {
+    function celebrate() {
 
-        /*
-         * Don't initialise automatically
-         * on every page if there is no
-         * gift/surprise element.
-         */
-
-        initGiftConfetti();
-
-    }
-
-
-    if (
-        document.readyState ===
-        "loading"
-    ) {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            init,
-            {
-                once: true
-            }
+        launchConfetti(
+            CONFETTI_COUNT
         );
 
-    } else {
+        window.setTimeout(
+            function () {
 
-        init();
+                launchConfetti(
+                    Math.floor(
+                        CONFETTI_COUNT * 0.45
+                    )
+                );
 
+            },
+            280
+        );
     }
 
 
     /* =====================================================
-       PUBLIC API
+       GLOBAL API
+       Allows animation.js / script.js to trigger it
        ===================================================== */
 
     window.KittiesConfetti = {
+        launch:
+            launchConfetti,
 
-        burst,
-
-        pawBurst,
-
-        surpriseBurst
-
+        celebrate:
+            celebrate
     };
+
+
+    /* =====================================================
+       SURPRISE / GIFT SUPPORT
+       No duplicate click handler
+       ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const target =
+                event.target.closest(
+                    "[data-confetti]"
+                );
+
+
+            if (!target) {
+                return;
+            }
+
+
+            /* Prevent accidental double firing */
+
+            if (
+                target.dataset.confettiFired ===
+                "true"
+            ) {
+                return;
+            }
+
+
+            target.dataset.confettiFired =
+                "true";
+
+
+            celebrate();
+
+
+            /* Allow another celebration later */
+
+            window.setTimeout(
+                function () {
+
+                    delete target.dataset.confettiFired;
+
+                },
+                1500
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       SURPRISE GIFT SUPPORT
+       If gift has data-gift-confetti,
+       celebration happens when opened.
+       ===================================================== */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            const gift =
+                event.target.closest(
+                    "[data-gift-confetti]"
+                );
+
+
+            if (!gift) {
+                return;
+            }
+
+
+            /* Only celebrate once per opening */
+
+            if (
+                gift.classList.contains(
+                    "is-open"
+                )
+            ) {
+                return;
+            }
+
+
+            window.setTimeout(
+                function () {
+
+                    celebrate();
+
+                },
+                450
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       OPTIONAL MANUAL TRIGGER
+       ===================================================== */
+
+    window.addEventListener(
+        "kitties:celebrate",
+        function () {
+
+            celebrate();
+
+        }
+    );
+
 
 })();
