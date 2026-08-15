@@ -1,156 +1,78 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    LOADING.JS
-   PREMIUM KITTY PAGE LOADER
+   Premium Kitty Page Loader
    ========================================================= */
 
-(() => {
+(function () {
     "use strict";
-
-    const MINIMUM_LOADING_TIME = 850;
-    const startTime = performance.now();
-
-    let loader = null;
 
 
     /* =====================================================
-       CREATE LOADER
+       CONFIG
        ===================================================== */
 
-    function createLoader() {
+    const MINIMUM_LOADING_TIME = 650;
+    const MAXIMUM_LOADING_TIME = 2200;
 
-        if (document.querySelector(".kitty-loader")) {
-            return document.querySelector(".kitty-loader");
+
+    /* =====================================================
+       LOADER SELECTORS
+       ===================================================== */
+
+    const SELECTORS = {
+        loader: [
+            "#page-loader",
+            ".page-loader",
+            ".loading-screen",
+            ".site-loader"
+        ],
+
+        loadingContent: [
+            ".loading-content"
+        ],
+
+        loadingKitty: [
+            ".loading-kitty"
+        ]
+    };
+
+
+    /* =====================================================
+       FIND FIRST MATCH
+       ===================================================== */
+
+    function findElement(selectors) {
+
+        for (
+            let i = 0;
+            i < selectors.length;
+            i++
+        ) {
+
+            const element =
+                document.querySelector(
+                    selectors[i]
+                );
+
+            if (element) {
+                return element;
+            }
         }
 
-        loader = document.createElement("div");
-
-        loader.className = "kitty-loader";
-
-        loader.setAttribute(
-            "aria-label",
-            "Loading Kitties Little World"
-        );
-
-        loader.setAttribute(
-            "role",
-            "status"
-        );
-
-
-        loader.innerHTML = `
-            <div class="kitty-loader-inner">
-
-                <div class="kitty-loader-orbit">
-
-                    <span class="kitty-loader-paw paw-one">
-                        🐾
-                    </span>
-
-                    <span class="kitty-loader-paw paw-two">
-                        🐾
-                    </span>
-
-                    <span class="kitty-loader-paw paw-three">
-                        🐾
-                    </span>
-
-                </div>
-
-
-                <div class="kitty-loader-cat">
-                    🐱
-                </div>
-
-
-                <div class="kitty-loader-text">
-
-                    <span class="kitty-loader-title">
-                        Kitties Little World
-                    </span>
-
-                    <span class="kitty-loader-subtitle">
-                        preparing something cute...
-                    </span>
-
-                </div>
-
-
-                <div
-                    class="kitty-loader-progress"
-                    aria-hidden="true"
-                >
-                    <span></span>
-                </div>
-
-            </div>
-        `;
-
-
-        /*
-         * Put loader at the beginning of body
-         * so it covers everything while loading.
-         */
-
-        if (document.body) {
-
-            document.body.prepend(loader);
-
-        } else {
-
-            document.addEventListener(
-                "DOMContentLoaded",
-                () => {
-                    document.body.prepend(loader);
-                },
-                {
-                    once: true
-                }
-            );
-
-        }
-
-
-        return loader;
+        return null;
     }
 
 
     /* =====================================================
-       INITIALISE
+       GET LOADER
        ===================================================== */
 
-    function init() {
+    function getLoader() {
 
-        const loadingScreen =
-            createLoader();
-
-        if (!loadingScreen) {
-            return;
-        }
-
-
-        document.documentElement.classList.add(
-            "is-loading"
+        return findElement(
+            SELECTORS.loader
         );
-
-        document.body.classList.add(
-            "is-loading"
-        );
-
-
-        /*
-         * Add CSS helper classes.
-         * animation.css can animate these.
-         */
-
-        requestAnimationFrame(() => {
-
-            loadingScreen.classList.add(
-                "is-visible"
-            );
-
-        });
-
     }
 
 
@@ -160,64 +82,237 @@
 
     function hideLoader() {
 
+        const loader =
+            getLoader();
+
         if (!loader) {
             return;
         }
 
 
-        const elapsed =
-            performance.now() - startTime;
+        /* Prevent duplicate execution */
 
-        const remaining =
-            Math.max(
-                0,
-                MINIMUM_LOADING_TIME - elapsed
-            );
-
-
-        setTimeout(() => {
-
-            loader.classList.add(
-                "is-leaving"
-            );
+        if (
+            loader.dataset.loadingHidden ===
+            "true"
+        ) {
+            return;
+        }
 
 
-            document.documentElement.classList.remove(
-                "is-loading"
-            );
-
-            document.body.classList.remove(
-                "is-loading"
-            );
-
-            document.body.classList.add(
-                "content-ready"
-            );
+        loader.dataset.loadingHidden =
+            "true";
 
 
-            /*
-             * Remove loader after fade animation.
-             */
+        loader.classList.add(
+            "is-loaded"
+        );
 
-            setTimeout(() => {
 
-                if (loader) {
+        loader.classList.add(
+            "fade-out"
+        );
 
-                    loader.remove();
 
-                    loader = null;
+        /* Remove after transition */
+
+        window.setTimeout(
+            function () {
+
+                if (
+                    loader &&
+                    loader.parentNode
+                ) {
+
+                    loader.setAttribute(
+                        "aria-hidden",
+                        "true"
+                    );
+
+                    loader.style.pointerEvents =
+                        "none";
+
+                    loader.style.visibility =
+                        "hidden";
 
                 }
 
-            }, 650);
+            },
+            700
+        );
+    }
 
-        }, remaining);
+
+    /* =====================================================
+       SHOW LOADER
+       ===================================================== */
+
+    function showLoader() {
+
+        const loader =
+            getLoader();
+
+        if (!loader) {
+            return;
+        }
+
+
+        loader.classList.remove(
+            "is-loaded"
+        );
+
+        loader.classList.remove(
+            "fade-out"
+        );
+
+
+        loader.removeAttribute(
+            "aria-hidden"
+        );
+
+
+        loader.style.visibility =
+            "visible";
+
+        loader.style.pointerEvents =
+            "auto";
+
+    }
+
+
+    /* =====================================================
+       PREPARE LOADER
+       ===================================================== */
+
+    function prepareLoader() {
+
+        const loader =
+            getLoader();
+
+        if (!loader) {
+            return;
+        }
+
+
+        loader.setAttribute(
+            "aria-live",
+            "polite"
+        );
+
+
+        loader.setAttribute(
+            "role",
+            "status"
+        );
+
+
+        const content =
+            findElement(
+                SELECTORS.loadingContent
+            );
+
+
+        if (content) {
+
+            content.classList.add(
+                "loading-content"
+            );
+
+        }
+
+
+        const kitty =
+            findElement(
+                SELECTORS.loadingKitty
+            );
+
+
+        if (kitty) {
+
+            kitty.classList.add(
+                "loading-kitty"
+            );
+
+        }
 
     }
 
 
     /* =====================================================
        PAGE READY
+       ===================================================== */
+
+    function pageReady() {
+
+        const startTime =
+            window.KittiesLoadingStart ||
+            performance.now();
+
+
+        const elapsed =
+            performance.now() -
+            startTime;
+
+
+        const remaining =
+            Math.max(
+                0,
+                MINIMUM_LOADING_TIME -
+                elapsed
+            );
+
+
+        window.setTimeout(
+            function () {
+
+                hideLoader();
+
+                document.documentElement
+                    .classList.add(
+                        "page-ready"
+                    );
+
+                document.body
+                    .classList.add(
+                        "page-ready"
+                    );
+
+            },
+            remaining
+        );
+
+    }
+
+
+    /* =====================================================
+       MAXIMUM SAFETY TIMEOUT
+       Prevents loader from getting stuck
+       ===================================================== */
+
+    function safetyTimeout() {
+
+        window.setTimeout(
+            function () {
+
+                hideLoader();
+
+            },
+            MAXIMUM_LOADING_TIME
+        );
+
+    }
+
+
+    /* =====================================================
+       PAGE LOAD START
+       ===================================================== */
+
+    window.KittiesLoadingStart =
+        performance.now();
+
+
+    /* =====================================================
+       DOM READY
        ===================================================== */
 
     if (
@@ -227,7 +322,13 @@
 
         document.addEventListener(
             "DOMContentLoaded",
-            init,
+            function () {
+
+                prepareLoader();
+                showLoader();
+                safetyTimeout();
+
+            },
             {
                 once: true
             }
@@ -235,49 +336,87 @@
 
     } else {
 
-        init();
+        prepareLoader();
+        showLoader();
+        safetyTimeout();
 
     }
 
 
-    window.addEventListener(
-        "load",
-        hideLoader,
-        {
-            once: true
+    /* =====================================================
+       WINDOW LOAD
+       Wait for images / fonts / page assets
+       ===================================================== */
+
+    if (
+        document.readyState ===
+        "complete"
+    ) {
+
+        pageReady();
+
+    } else {
+
+        window.addEventListener(
+            "load",
+            pageReady,
+            {
+                once: true
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       PAGE VISIBILITY SUPPORT
+       ===================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        function () {
+
+            if (
+                document.visibilityState ===
+                "visible"
+            ) {
+
+                const loader =
+                    getLoader();
+
+                if (
+                    loader &&
+                    loader.dataset.loadingHidden !==
+                    "true"
+                ) {
+
+                    pageReady();
+
+                }
+
+            }
+
         }
     );
 
 
     /* =====================================================
-       SAFETY FALLBACK
+       GLOBAL LOADING API
+       Other JS files can use this
        ===================================================== */
 
-    setTimeout(() => {
+    window.KittiesLoading = {
 
-        if (loader) {
-            hideLoader();
-        }
+        show:
+            showLoader,
 
-    }, 5000);
+        hide:
+            hideLoader,
 
-
-    /* =====================================================
-       PUBLIC API
-       ===================================================== */
-
-    window.KittiesLoader = {
-
-        hide: hideLoader,
-
-        show() {
-
-            if (!loader) {
-                init();
-            }
-
-        }
+        ready:
+            pageReady
 
     };
+
 
 })();
