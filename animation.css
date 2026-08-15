@@ -42,6 +42,7 @@
     opacity: 0;
     transform:
         translateY(28px);
+
     animation:
         revealUp
         0.9s
@@ -108,6 +109,16 @@
 .stagger-6 {
     animation-delay:
         0.48s;
+}
+
+.stagger-7 {
+    animation-delay:
+        0.56s;
+}
+
+.stagger-8 {
+    animation-delay:
+        0.64s;
 }
 
 
@@ -539,6 +550,997 @@
         opacity: 1;
         transform:
             translateY(0);
+    }
+}
+
+
+/* =========================================================
+   PREMIUM PAGE CONTENT
+   Applies to About / Letter / Memories / Surprise
+   ========================================================= */
+
+.page-content,
+.content-container,
+.page-container {
+    animation:
+        contentEntrance
+        0.9s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+@keyframes contentEntrance {
+    from {
+        opacity: 0;
+        transform:
+            translateY(20px)
+            scale(0.99);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   PREMIUM CONTENT CARDS
+   ========================================================= */
+
+.letter-card,
+.memory-card,
+.about-card,
+.surprise-card,
+.content-card {
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.45s ease;
+}
+
+.letter-card:hover,
+.memory-card:hover,
+.about-card:hover,
+.surprise-card:hover,
+.content-card:hover {
+    transform:
+        translateY(-6px);
+}
+
+
+/* =========================================================
+   SOFT 3D CONTAINER
+   ========================================================= */
+
+.premium-card,
+.letter-card,
+.memory-card,
+.about-card,
+.surprise-card {
+    transform-style:
+        preserve-3d;
+
+    backface-visibility:
+        hidden;
+}
+
+
+/* =========================================================
+   PAPER / LETTER REVEAL
+   ========================================================= */
+
+.paper-reveal {
+    opacity:
+        0;
+
+    transform:
+        translateY(25px)
+        rotateX(-8deg)
+        scale(0.96);
+
+    transform-origin:
+        top center;
+
+    animation:
+        paperReveal
+        1s
+        0.2s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+@keyframes paperReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(25px)
+            rotateX(-8deg)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotateX(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   LETTER PAPER FLOAT
+   ========================================================= */
+
+.paper-float {
+    animation:
+        paperFloat
+        5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes paperFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            rotate(0.4deg);
+    }
+}
+
+
+/* =========================================================
+   MEMORY IMAGE / CARD REVEAL
+   ========================================================= */
+
+.memory-reveal {
+    opacity:
+        0;
+
+    transform:
+        translateY(30px)
+        scale(0.94);
+
+    animation:
+        memoryReveal
+        0.9s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+@keyframes memoryReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   MEMORY IMAGE HOVER
+   ========================================================= */
+
+.memory-image,
+.memory-card img {
+    transition:
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.55s ease;
+}
+
+.memory-card:hover .memory-image,
+.memory-card:hover img {
+    transform:
+        scale(1.035);
+}
+
+
+/* =========================================================
+   SURPRISE SECTION
+   ========================================================= */
+
+.surprise-stage {
+    perspective:
+        1200px;
+}
+
+
+/* =========================================================
+   GIFT BOX
+   ========================================================= */
+
+.gift-box {
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.4s ease;
+}
+
+.gift-box:hover {
+    transform:
+        translateY(-8px)
+        rotateY(-4deg)
+        rotateX(2deg)
+        scale(1.025);
+
+    filter:
+        drop-shadow(
+            0 18px 25px
+            rgba(0, 0, 0, 0.12)
+        );
+}
+
+
+/* =========================================================
+   GIFT IDLE BOB
+   ========================================================= */
+
+.gift-box.gift-idle {
+    animation:
+        giftIdle
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes giftIdle {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotate(1deg);
+    }
+}
+
+
+/* =========================================================
+   GIFT OPEN
+   ========================================================= */
+
+.gift-box.is-opening {
+    animation:
+        giftOpen
+        0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+@keyframes giftOpen {
+    0% {
+        transform:
+            scale(1)
+            rotate(0);
+    }
+
+    35% {
+        transform:
+            scale(1.08)
+            rotate(-2deg);
+    }
+
+    65% {
+        transform:
+            scale(0.98)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            scale(1.03)
+            rotate(0);
+    }
+}
+
+
+/* =========================================================
+   GIFT LID
+   ========================================================= */
+
+.gift-lid {
+    transform-origin:
+        center bottom;
+
+    transition:
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gift-box.is-open .gift-lid {
+    transform:
+        translateY(-35px)
+        rotateX(-55deg)
+        rotateZ(-2deg);
+}
+
+
+/* =========================================================
+   KITTY REVEAL
+   ========================================================= */
+
+.surprise-kitty {
+    opacity:
+        0;
+
+    transform:
+        translateY(35px)
+        scale(0.75);
+
+    transform-origin:
+        center bottom;
+}
+
+.surprise-kitty.is-visible {
+    animation:
+        kittyReveal
+        1s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+@keyframes kittyReveal {
+    0% {
+        opacity: 0;
+        transform:
+            translateY(35px)
+            scale(0.75);
+    }
+
+    60% {
+        opacity: 1;
+        transform:
+            translateY(-6px)
+            scale(1.04);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   KITTY CELEBRATION BOB
+   ========================================================= */
+
+.surprise-kitty.is-visible .kitty-character {
+    animation:
+        celebrationBob
+        3s
+        ease-in-out
+        0.9s
+        infinite;
+}
+
+@keyframes celebrationBob {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(-6px)
+            rotate(1deg);
+    }
+}
+
+
+/* =========================================================
+   KITTY PAPER / PROMISE
+   ========================================================= */
+
+.kitty-paper {
+    opacity:
+        0;
+
+    transform:
+        translateY(18px)
+        rotate(-2deg)
+        scale(0.92);
+
+    transform-origin:
+        center bottom;
+}
+
+.kitty-paper.is-visible {
+    animation:
+        paperPromiseReveal
+        0.9s
+        0.25s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        forwards;
+}
+
+@keyframes paperPromiseReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(18px)
+            rotate(-2deg)
+            scale(0.92);
+    }
+
+    70% {
+        opacity: 1;
+        transform:
+            translateY(-3px)
+            rotate(1deg)
+            scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            rotate(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   PAPER TEXT REVEAL
+   ========================================================= */
+
+.promise-text {
+    opacity:
+        0;
+
+    transform:
+        translateY(10px);
+
+    animation:
+        promiseTextReveal
+        0.7s
+        0.7s
+        ease
+        forwards;
+}
+
+@keyframes promiseTextReveal {
+    to {
+        opacity: 1;
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HEARTS AROUND SURPRISE
+   ========================================================= */
+
+.surprise-heart {
+    opacity:
+        0;
+
+    animation:
+        surpriseHeart
+        2.8s
+        ease-in-out
+        infinite;
+}
+
+@keyframes surpriseHeart {
+    0%,
+    100% {
+        opacity: 0.55;
+        transform:
+            translateY(0)
+            scale(0.92)
+            rotate(-4deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform:
+            translateY(-12px)
+            scale(1.08)
+            rotate(5deg);
+    }
+}
+
+
+/* =========================================================
+   FLOATING HEART PARTICLES
+   ========================================================= */
+
+.floating-heart {
+    animation:
+        floatingHeart
+        4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes floatingHeart {
+    0% {
+        opacity: 0;
+        transform:
+            translateY(15px)
+            scale(0.7)
+            rotate(0);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translateY(-45px)
+            scale(1.1)
+            rotate(12deg);
+    }
+}
+
+
+/* =========================================================
+   NEXT PAGE BUTTON ATTENTION
+   ========================================================= */
+
+.next-page-button {
+    animation:
+        nextButtonGlow
+        3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes nextButtonGlow {
+    0%,
+    100% {
+        box-shadow:
+            0 8px 24px
+            rgba(0, 0, 0, 0.08);
+    }
+
+    50% {
+        box-shadow:
+            0 12px 32px
+            rgba(255, 170, 190, 0.22);
+    }
+}
+
+
+/* =========================================================
+   NEXT ARROW
+   ========================================================= */
+
+.next-page-button .arrow,
+.next-page-button .button-arrow {
+    display:
+        inline-block;
+
+    transition:
+        transform 0.3s ease;
+}
+
+.next-page-button:hover .arrow,
+.next-page-button:hover .button-arrow {
+    transform:
+        translateX(5px);
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.scroll-indicator {
+    animation:
+        scrollIndicator
+        2s
+        ease-in-out
+        infinite;
+}
+
+@keyframes scrollIndicator {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+        opacity:
+            0.55;
+    }
+
+    50% {
+        transform:
+            translateY(6px);
+        opacity:
+            1;
+    }
+}
+
+
+/* =========================================================
+   SOFT SPARKLE
+   ========================================================= */
+
+.sparkle {
+    animation:
+        sparkle
+        2.4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes sparkle {
+    0%,
+    100% {
+        opacity:
+            0.35;
+
+        transform:
+            scale(0.8)
+            rotate(0deg);
+    }
+
+    50% {
+        opacity:
+            1;
+
+        transform:
+            scale(1.15)
+            rotate(18deg);
+    }
+}
+
+
+/* =========================================================
+   CONFETTI SUPPORT
+   ========================================================= */
+
+.confetti-piece {
+    position:
+        fixed;
+
+    pointer-events:
+        none;
+
+    z-index:
+        9999;
+
+    animation:
+        confettiFall
+        var(--confetti-duration, 2.8s)
+        cubic-bezier(0.15, 0.8, 0.25, 1)
+        forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity:
+            1;
+
+        transform:
+            translate3d(
+                0,
+                -20px,
+                0
+            )
+            rotate(0deg)
+            scale(1);
+    }
+
+    100% {
+        opacity:
+            0;
+
+        transform:
+            translate3d(
+                var(--confetti-x, 0px),
+                var(--confetti-y, 100vh),
+                0
+            )
+            rotate(
+                var(--confetti-rotate, 720deg)
+            )
+            scale(0.85);
+    }
+}
+
+
+/* =========================================================
+   PAGE EXIT
+   ========================================================= */
+
+.page-exit {
+    animation:
+        pageExit
+        0.45s
+        cubic-bezier(0.4, 0, 1, 1)
+        forwards;
+}
+
+@keyframes pageExit {
+    from {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    to {
+        opacity:
+            0;
+
+        transform:
+            translateY(-12px)
+            scale(0.985);
+    }
+}
+
+
+/* =========================================================
+   LOADING CONTENT
+   ========================================================= */
+
+.loading-content {
+    animation:
+        loadingContent
+        0.8s
+        cubic-bezier(0.22, 1, 0.36, 1)
+        both;
+}
+
+@keyframes loadingContent {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(12px)
+            scale(0.96);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   LOADING KITTY
+   ========================================================= */
+
+.loading-kitty {
+    animation:
+        loadingKitty
+        1.4s
+        ease-in-out
+        infinite;
+}
+
+@keyframes loadingKitty {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            scale(1.04);
+    }
+}
+
+
+/* =========================================================
+   LOADING DOTS
+   ========================================================= */
+
+.loading-dot {
+    animation:
+        loadingDots
+        1.2s
+        ease-in-out
+        infinite;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay:
+        0.15s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay:
+        0.3s;
+}
+
+@keyframes loadingDots {
+    0%,
+    60%,
+    100% {
+        transform:
+            translateY(0);
+        opacity:
+            0.45;
+    }
+
+    30% {
+        transform:
+            translateY(-5px);
+        opacity:
+            1;
+    }
+}
+
+
+/* =========================================================
+   CURSOR INTERACTION SUPPORT
+   ========================================================= */
+
+.cursor-hover {
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.cursor-hover:hover {
+    transform:
+        translateY(-2px)
+        scale(1.015);
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   Prevent hover animations from causing weird mobile behavior
+   ========================================================= */
+
+@media (hover: none) {
+
+    .intro-feature-card:hover,
+    .journey-card:hover,
+    .home-final-card:hover,
+    .home-navigation-card:hover,
+    .home-next-card:hover,
+    .home-hero-card:hover {
+        transform:
+            none;
+    }
+
+    .premium-button:hover {
+        transform:
+            none;
+    }
+
+    .gift-box:hover {
+        transform:
+            none;
+    }
+}
+
+
+/* =========================================================
+   MOBILE ANIMATION OPTIMIZATION
+   ========================================================= */
+
+@media (max-width: 680px) {
+
+    .home-hero-content {
+        animation-name:
+            mobileHeroContent;
+    }
+
+    .home-hero-card-wrapper {
+        animation-name:
+            mobileHeroCard;
+    }
+
+    .paper-reveal {
+        transform:
+            translateY(18px)
+            scale(0.98);
+    }
+
+    .memory-reveal {
+        transform:
+            translateY(20px)
+            scale(0.97);
+    }
+}
+
+@keyframes mobileHeroContent {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+@keyframes mobileHeroCard {
+    from {
+        opacity:
+            0;
+
+        transform:
+            translateY(22px)
+            scale(0.96);
+    }
+
+    to {
+        opacity:
+            1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+    .kitty-float,
+    .kitty-bob,
+    .heart-float,
+    .distance-message-kitty {
+        animation-duration:
+            4.5s;
+    }
+
+    .gift-box.gift-idle {
+        animation-duration:
+            4s;
     }
 }
 
