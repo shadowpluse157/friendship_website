@@ -1,491 +1,367 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    SCRIPT.JS
-   MAIN WEBSITE CONTROLLER
+   Main Website Controller
    ========================================================= */
 
-(() => {
-    "use strict";
+"use strict";
 
-    /* =====================================================
-       DOM READY
-       ===================================================== */
 
-    document.addEventListener("DOMContentLoaded", () => {
+/* =========================================================
+   DOM READY
+   ========================================================= */
 
-        initMobileNavigation();
-        initPageNavigation();
-        initButtonProtection();
-        initExternalLinks();
-        initCurrentPageState();
-        initKeyboardNavigation();
+document.addEventListener("DOMContentLoaded", () => {
+
+    initMobileNavigation();
+    initNextPageButtons();
+    initPageLinks();
+    initExternalLinks();
+    initCardTilt();
+    initSmoothInteractions();
+
+});
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+function initMobileNavigation() {
+
+    const menuButton =
+        document.querySelector(".mobile-menu-button");
+
+    const navigation =
+        document.querySelector(".navigation-links");
+
+    if (!menuButton || !navigation) {
+        return;
+    }
+
+    menuButton.addEventListener("click", () => {
+
+        const isOpen =
+            navigation.classList.toggle("is-open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        menuButton.classList.toggle(
+            "is-active",
+            isOpen
+        );
 
     });
 
 
-    /* =====================================================
-       MOBILE NAVIGATION
-       ===================================================== */
+    /* Close menu after selecting a link */
 
-    function initMobileNavigation() {
+    navigation
+        .querySelectorAll("a")
+        .forEach(link => {
 
-        const menuButton =
-            document.querySelector(".mobile-menu-button");
+            link.addEventListener("click", () => {
 
-        const navigation =
-            document.querySelector(".navigation-links");
+                navigation.classList.remove(
+                    "is-open"
+                );
 
-        if (!menuButton || !navigation) {
-            return;
-        }
+                menuButton.classList.remove(
+                    "is-active"
+                );
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
 
 
-        menuButton.addEventListener("click", () => {
+    /* Close when clicking outside */
 
-            const isOpen =
-                navigation.classList.toggle("is-open");
+    document.addEventListener("click", event => {
 
-            menuButton.classList.toggle(
-                "is-active",
-                isOpen
+        if (
+            !navigation.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+
+            navigation.classList.remove(
+                "is-open"
+            );
+
+            menuButton.classList.remove(
+                "is-active"
             );
 
             menuButton.setAttribute(
                 "aria-expanded",
-                String(isOpen)
+                "false"
             );
-
-            menuButton.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-            document.body.classList.toggle(
-                "mobile-menu-open",
-                isOpen
-            );
-
-        });
-
-
-        /* Close menu after clicking a link */
-
-        navigation
-            .querySelectorAll("a")
-            .forEach(link => {
-
-                link.addEventListener("click", () => {
-
-                    navigation.classList.remove(
-                        "is-open"
-                    );
-
-                    menuButton.classList.remove(
-                        "is-active"
-                    );
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuButton.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-
-                    document.body.classList.remove(
-                        "mobile-menu-open"
-                    );
-
-                });
-
-            });
-
-
-        /* Close menu when clicking outside */
-
-        document.addEventListener(
-            "click",
-            event => {
-
-                const clickedInside =
-                    navigation.contains(event.target) ||
-                    menuButton.contains(event.target);
-
-                if (
-                    !clickedInside &&
-                    navigation.classList.contains(
-                        "is-open"
-                    )
-                ) {
-
-                    navigation.classList.remove(
-                        "is-open"
-                    );
-
-                    menuButton.classList.remove(
-                        "is-active"
-                    );
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuButton.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-
-                    document.body.classList.remove(
-                        "mobile-menu-open"
-                    );
-                }
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       PAGE NAVIGATION
-       ===================================================== */
-
-    function initPageNavigation() {
-
-        const pageLinks =
-            document.querySelectorAll(
-                'a[href$=".html"]'
-            );
-
-        if (!pageLinks.length) {
-            return;
         }
 
+    });
 
-        pageLinks.forEach(link => {
+}
 
-            link.addEventListener(
-                "click",
-                event => {
 
-                    const href =
-                        link.getAttribute("href");
+/* =========================================================
+   NEXT PAGE BUTTONS
+   ========================================================= */
 
-                    if (!href) {
-                        return;
-                    }
+function initNextPageButtons() {
 
-
-                    /*
-                     * Ignore:
-                     * - external links
-                     * - anchors
-                     * - already current page
-                     */
-
-                    if (
-                        href.startsWith("#") ||
-                        href.startsWith("http") ||
-                        href.startsWith("mailto:")
-                    ) {
-                        return;
-                    }
-
-
-                    const currentPage =
-                        getCurrentPage();
-
-                    const targetPage =
-                        href.split("/").pop();
-
-
-                    if (
-                        targetPage === currentPage
-                    ) {
-                        event.preventDefault();
-                        return;
-                    }
-
-
-                    /*
-                     * Small premium page transition.
-                     * animation.js can also use this class.
-                     */
-
-                    event.preventDefault();
-
-                    document.body.classList.add(
-                        "page-leaving"
-                    );
-
-
-                    setTimeout(() => {
-
-                        window.location.href =
-                            href;
-
-                    }, 280);
-
-                }
-            );
-
-        });
-
-    }
-
-
-    /* =====================================================
-       CURRENT PAGE
-       ===================================================== */
-
-    function getCurrentPage() {
-
-        const path =
-            window.location.pathname;
-
-        const file =
-            path.split("/").pop();
-
-        return file || "index.html";
-
-    }
-
-
-    function initCurrentPageState() {
-
-        const currentPage =
-            getCurrentPage();
-
-
-        document
-            .querySelectorAll(
-                ".navigation-link"
-            )
-            .forEach(link => {
-
-                const href =
-                    link.getAttribute("href");
-
-                if (!href) {
-                    return;
-                }
-
-                const target =
-                    href.split("/").pop();
-
-
-                link.classList.toggle(
-                    "navigation-link--active",
-                    target === currentPage
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(
-                ".footer-link"
-            )
-            .forEach(link => {
-
-                const href =
-                    link.getAttribute("href");
-
-                if (!href) {
-                    return;
-                }
-
-                const target =
-                    href.split("/").pop();
-
-
-                link.classList.toggle(
-                    "footer-link--active",
-                    target === currentPage
-                );
-
-            });
-
-    }
-
-
-    /* =====================================================
-       BUTTON PROTECTION
-       ===================================================== */
-
-    function initButtonProtection() {
-
-        const buttons =
-            document.querySelectorAll(
-                ".premium-button"
-            );
-
-        buttons.forEach(button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    button.classList.add(
-                        "button-clicked"
-                    );
-
-
-                    setTimeout(() => {
-
-                        button.classList.remove(
-                            "button-clicked"
-                        );
-
-                    }, 500);
-
-                }
-            );
-
-        });
-
-    }
-
-
-    /* =====================================================
-       EXTERNAL LINKS
-       ===================================================== */
-
-    function initExternalLinks() {
-
-        document
-            .querySelectorAll(
-                'a[target="_blank"]'
-            )
-            .forEach(link => {
-
-                link.setAttribute(
-                    "rel",
-                    "noopener noreferrer"
-                );
-
-            });
-
-    }
-
-
-    /* =====================================================
-       KEYBOARD NAVIGATION
-       ===================================================== */
-
-    function initKeyboardNavigation() {
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                /*
-                 * ESC closes mobile navigation.
-                 */
-
-                if (event.key === "Escape") {
-
-                    const menu =
-                        document.querySelector(
-                            ".navigation-links"
-                        );
-
-                    const button =
-                        document.querySelector(
-                            ".mobile-menu-button"
-                        );
-
-                    if (
-                        menu &&
-                        menu.classList.contains(
-                            "is-open"
-                        )
-                    ) {
-
-                        menu.classList.remove(
-                            "is-open"
-                        );
-
-                        if (button) {
-
-                            button.classList.remove(
-                                "is-active"
-                            );
-
-                            button.setAttribute(
-                                "aria-expanded",
-                                "false"
-                            );
-
-                            button.setAttribute(
-                                "aria-label",
-                                "Open navigation menu"
-                            );
-
-                        }
-
-                        document.body.classList.remove(
-                            "mobile-menu-open"
-                        );
-
-                    }
-
-                }
-
-            }
+    const nextButtons =
+        document.querySelectorAll(
+            "[data-next-page], .next-page-button"
         );
 
-    }
+    nextButtons.forEach(button => {
 
+        button.addEventListener("click", event => {
 
-    /* =====================================================
-       PAGE LOAD STATE
-       ===================================================== */
+            const target =
+                button.dataset.nextPage;
 
-    window.addEventListener(
-        "load",
-        () => {
-
-            document.body.classList.add(
-                "page-loaded"
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       PUBLIC HELPERS
-       ===================================================== */
-
-    window.KittiesWebsite = {
-
-        getCurrentPage,
-
-        navigateTo(page) {
-
-            if (!page) {
+            if (!target) {
                 return;
             }
 
-            document.body.classList.add(
-                "page-leaving"
-            );
+            event.preventDefault();
 
-            setTimeout(() => {
+            navigateToPage(target);
 
-                window.location.href =
-                    page;
+        });
 
-            }, 280);
+    });
 
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+   ========================================================= */
+
+function navigateToPage(url) {
+
+    if (!url) {
+        return;
+    }
+
+    document.body.classList.add(
+        "is-leaving"
+    );
+
+    window.setTimeout(() => {
+
+        window.location.href = url;
+
+    }, 280);
+
+}
+
+
+/* =========================================================
+   NORMAL PAGE LINKS
+   ========================================================= */
+
+function initPageLinks() {
+
+    const links =
+        document.querySelectorAll(
+            'a[href]:not([target="_blank"])'
+        );
+
+    links.forEach(link => {
+
+        const href =
+            link.getAttribute("href");
+
+        if (
+            !href ||
+            href === "#" ||
+            href.startsWith("javascript:")
+        ) {
+            return;
         }
 
-    };
+        link.addEventListener("click", event => {
 
-})();
+            if (
+                event.ctrlKey ||
+                event.metaKey ||
+                event.shiftKey ||
+                event.altKey
+            ) {
+                return;
+            }
+
+            if (
+                href.startsWith("http://") ||
+                href.startsWith("https://") ||
+                href.startsWith("#")
+            ) {
+                return;
+            }
+
+            event.preventDefault();
+
+            navigateToPage(href);
+
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   EXTERNAL LINKS
+   ========================================================= */
+
+function initExternalLinks() {
+
+    const links =
+        document.querySelectorAll(
+            'a[href^="http://"], a[href^="https://"]'
+        );
+
+    links.forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   PREMIUM 3D CARD TILT
+   ========================================================= */
+
+function initCardTilt() {
+
+    const cards =
+        document.querySelectorAll(
+            ".intro-feature-card, " +
+            ".journey-card, " +
+            ".home-final-card, " +
+            ".home-navigation-card, " +
+            ".home-next-card"
+        );
+
+    cards.forEach(card => {
+
+        card.addEventListener("mousemove", event => {
+
+            if (window.innerWidth <= 850) {
+                return;
+            }
+
+            const rect =
+                card.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+            const rotateY =
+                ((x - centerX) / centerX) * 3;
+
+            const rotateX =
+                ((centerY - y) / centerY) * 3;
+
+            card.style.transform =
+                `perspective(900px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-6px)`;
+
+        });
+
+
+        card.addEventListener("mouseleave", () => {
+
+            card.style.transform = "";
+
+        });
+
+    });
+
+}
+
+
+/* =========================================================
+   SMOOTH INTERACTIONS
+   ========================================================= */
+
+function initSmoothInteractions() {
+
+    const buttons =
+        document.querySelectorAll(
+            ".premium-button"
+        );
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "mousedown",
+            () => {
+                button.classList.add(
+                    "is-pressed"
+                );
+            }
+        );
+
+        button.addEventListener(
+            "mouseup",
+            () => {
+                button.classList.remove(
+                    "is-pressed"
+                );
+            }
+        );
+
+        button.addEventListener(
+            "mouseleave",
+            () => {
+                button.classList.remove(
+                    "is-pressed"
+                );
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   PAGE EXIT
+   ========================================================= */
+
+window.addEventListener("beforeunload", () => {
+
+    document.body.classList.add(
+        "is-leaving"
+    );
+
+});
