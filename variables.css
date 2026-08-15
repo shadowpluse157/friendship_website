@@ -1,272 +1,233 @@
-
 /* =========================================================
    KITTIES LITTLE WORLD
    VARIABLES.CSS
-   PREMIUM PEACH GOMA / KITTY THEME
    ========================================================= */
 
 :root {
 
     /* =====================================================
-       BACKGROUND
+       COLORS
        ===================================================== */
 
-    --background-base: #fff4f5;
+    --color-white:
+        #ffffff;
 
-    --background-soft: #ffe9ed;
+    --color-cream:
+        #fff8fb;
 
-    --background-deep: #fbd5dc;
+    --color-cream-soft:
+        #fff1f6;
 
-    --kitty-background-image:
-        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
+    --color-pink:
+        #f7a8c4;
 
-    /*
-       GIF ko soft repeat pattern ki tarah use karenge.
-       Content ke peeche readability ke liye overlay bhi hai.
-    */
+    --color-pink-light:
+        #ffd9e6;
 
-    --background-size: 420px auto;
+    --color-pink-soft:
+        #ffeaf1;
 
-    --background-position: center;
+    --color-pink-dark:
+        #d96f98;
 
-    --background-overlay:
-        rgba(255, 246, 247, 0.76);
+    --color-rose:
+        #c85b83;
 
+    --color-purple:
+        #a98bd4;
 
-    /* =====================================================
-       SURFACES
-       ===================================================== */
+    --color-purple-soft:
+        #eee5ff;
 
-    --surface:
-        rgba(255, 252, 252, 0.91);
+    --color-text:
+        #4a3d46;
 
-    --surface-solid:
-        #fffdfd;
+    --color-text-light:
+        #796b74;
 
-    --surface-muted:
-        rgba(255, 235, 239, 0.78);
+    --color-text-muted:
+        #9b8c95;
 
-    --surface-highlight:
-        #ffecef;
+    --color-border:
+        rgba(217, 111, 152, 0.18);
 
-    --surface-hover:
-        rgba(244, 165, 181, 0.16);
+    --color-border-soft:
+        rgba(217, 111, 152, 0.12);
 
-    --glass-background:
-        rgba(255, 251, 252, 0.78);
-
-    --header-background:
-        rgba(255, 249, 250, 0.84);
-
-    --footer-background:
-        rgba(255, 235, 239, 0.88);
+    --color-overlay:
+        rgba(255, 255, 255, 0.58);
 
 
     /* =====================================================
        TEXT
-       Dark enough to stay readable over pink/peach GIF
        ===================================================== */
 
-    --text-primary:
-        #402d34;
+    --font-display:
+        "Playfair Display",
+        Georgia,
+        serif;
 
-    --text-secondary:
-        #684f58;
+    --font-body:
+        "Poppins",
+        "Segoe UI",
+        sans-serif;
 
-    --text-muted:
-        #92767f;
-
-    --text-light:
-        #b79ba4;
+    --font-script:
+        "Dancing Script",
+        cursive;
 
 
     /* =====================================================
-       PREMIUM PINK / PEACH ACCENTS
+       FONT WEIGHTS
        ===================================================== */
 
-    --accent:
-        #e98fa6;
+    --weight-light:
+        300;
 
-    --accent-dark:
-        #c45e78;
+    --weight-regular:
+        400;
 
-    --accent-soft:
-        #ffe0e7;
+    --weight-medium:
+        500;
 
-    --accent-border:
-        rgba(196, 94, 120, 0.25);
+    --weight-semibold:
+        600;
+
+    --weight-bold:
+        700;
+
+    --weight-extrabold:
+        800;
 
 
     /* =====================================================
-       BORDERS
-       ===================================================== */
-
-    --border-soft:
-        rgba(143, 83, 101, 0.13);
-
-    --border-medium:
-        rgba(143, 83, 101, 0.20);
-
-    --border-strong:
-        rgba(143, 83, 101, 0.30);
-
-
-    /* =====================================================
-       LETTER / PAPER
-       ===================================================== */
-
-    --letter-paper-background:
-        #fffafa;
-
-    --letter-paper-border:
-        rgba(143, 83, 101, 0.20);
-
-    --letter-paper-inner-border:
-        rgba(143, 83, 101, 0.11);
-
-    --letter-heading:
-        #704552;
-
-    --letter-text:
-        #604852;
-
-    --letter-card-background:
-        rgba(255, 231, 237, 0.75);
-
-    --letter-card-border:
-        rgba(196, 94, 120, 0.18);
-
-    --paper-tape:
-        rgba(236, 168, 181, 0.72);
-
-
-    /* =====================================================
-       MEMORY / SCRAPBOOK
-       ===================================================== */
-
-    --scrapbook-background:
-        #fff9fa;
-
-    --scrapbook-border:
-        rgba(143, 83, 101, 0.16);
-
-
-    /* =====================================================
-       GIFT / SURPRISE
-       ===================================================== */
-
-    --gift-stage-background:
-        rgba(255, 241, 245, 0.86);
-
-    --gift-body-background:
-        #e98fa6;
-
-    --gift-lid-background:
-        #f1a9ba;
-
-    --gift-ribbon:
-        #c45e78;
-
-    --gift-ribbon-dark:
-        #a94863;
-
-    --gift-border:
-        rgba(139, 67, 86, 0.24);
-
-    --gift-shine:
-        rgba(255, 255, 255, 0.30);
-
-    --gift-shadow:
-        rgba(111, 56, 72, 0.18);
-
-
-    /* =====================================================
-       KITTY COLORS
-       ===================================================== */
-
-    --kitty-fur:
-        #f7d7dc;
-
-    --kitty-outline:
-        #a76b79;
-
-    --kitty-face-detail:
-        #63444d;
-
-    --kitty-blush:
-        #ed91a7;
-
-
-    /* =====================================================
-       BUTTONS
-       ===================================================== */
-
-    --button-primary-background:
-        #c45e78;
-
-    --button-primary-text:
-        #ffffff;
-
-    --button-secondary-background:
-        rgba(255, 255, 255, 0.88);
-
-
-    /* =====================================================
-       FOCUS
-       ===================================================== */
-
-    --focus-ring:
-        rgba(196, 94, 120, 0.42);
-
-
-    /* =====================================================
-       CONTENT
-       ===================================================== */
-
-    --content-width:
-        1320px;
-
-
-    /* =====================================================
-       RADIUS
+       BORDER RADIUS
        ===================================================== */
 
     --radius-small:
-        9px;
+        12px;
 
     --radius-medium:
-        17px;
+        18px;
+
+    --radius-card:
+        26px;
 
     --radius-large:
-        28px;
+        32px;
 
-    --radius-paper:
-        9px;
+    --radius-pill:
+        999px;
 
 
     /* =====================================================
        SHADOWS
        ===================================================== */
 
-    --shadow-small:
-        0 8px 24px
-        rgba(105, 55, 70, 0.08);
+    --shadow-soft:
+        0 8px 25px
+        rgba(128, 72, 100, 0.08);
 
     --shadow-card:
-        0 18px 55px
-        rgba(105, 55, 70, 0.11);
+        0 18px 45px
+        rgba(128, 72, 100, 0.12);
 
-    --shadow-paper:
+    --shadow-premium:
         0 25px 70px
-        rgba(105, 55, 70, 0.15);
+        rgba(128, 72, 100, 0.16);
 
     --shadow-button:
-        0 10px 27px
-        rgba(196, 94, 120, 0.22);
+        0 12px 30px
+        rgba(217, 111, 152, 0.22);
 
-    --shadow-button-hover:
-        0 16px 38px
-        rgba(196, 94, 120, 0.30);
+    --shadow-3d:
+        0 20px 0
+        rgba(180, 91, 126, 0.10),
+        0 30px 55px
+        rgba(128, 72, 100, 0.15);
+
+
+    /* =====================================================
+       SPACING
+       ===================================================== */
+
+    --space-1:
+        4px;
+
+    --space-2:
+        8px;
+
+    --space-3:
+        12px;
+
+    --space-4:
+        16px;
+
+    --space-5:
+        20px;
+
+    --space-6:
+        24px;
+
+    --space-7:
+        32px;
+
+    --space-8:
+        40px;
+
+    --space-9:
+        50px;
+
+    --space-10:
+        64px;
+
+    --space-11:
+        80px;
+
+    --space-12:
+        100px;
+
+
+    /* =====================================================
+       CONTENT WIDTHS
+       ===================================================== */
+
+    --container-width:
+        1180px;
+
+    --content-width:
+        900px;
+
+    --text-width:
+        760px;
+
+
+    /* =====================================================
+       HEADER
+       ===================================================== */
+
+    --header-height:
+        78px;
+
+    --header-radius:
+        24px;
+
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    --button-height:
+        50px;
+
+    --button-height-large:
+        58px;
+
+    --button-padding:
+        0 24px;
+
+    --button-radius:
+        var(--radius-pill);
 
 
     /* =====================================================
@@ -276,27 +237,35 @@
     --transition-fast:
         180ms ease;
 
-    --transition-medium:
-        450ms ease;
+    --transition-normal:
+        300ms ease;
 
-    --transition-slow:
-        800ms cubic-bezier(
+    --transition-smooth:
+        450ms cubic-bezier(
             0.22,
             1,
             0.36,
             1
         );
 
+    --transition-premium:
+        650ms cubic-bezier(
+            0.16,
+            1,
+            0.3,
+            1
+        );
+
 
     /* =====================================================
-       DECORATION
+       3D
        ===================================================== */
 
-    --floating-decoration-size:
-        22px;
+    --perspective:
+        1200px;
 
-    --floating-decoration-opacity:
-        0.20;
+    --perspective-deep:
+        1800px;
 
 
     /* =====================================================
@@ -304,10 +273,7 @@
        ===================================================== */
 
     --z-background:
-        -10;
-
-    --z-overlay:
-        -9;
+        -1;
 
     --z-content:
         1;
@@ -315,543 +281,118 @@
     --z-header:
         100;
 
+    --z-menu:
+        200;
+
     --z-modal:
-        1000;
+        500;
+
+    --z-confetti:
+        999;
+
+
+    /* =====================================================
+       PAGE OVERLAY
+       ===================================================== */
+
+    --page-overlay:
+        rgba(255, 248, 251, 0.72);
+
+    --card-background:
+        rgba(255, 255, 255, 0.72);
+
+    --card-background-strong:
+        rgba(255, 255, 255, 0.88);
+
+
+    /* =====================================================
+       GRADIENTS
+       ===================================================== */
+
+    --gradient-pink:
+        linear-gradient(
+            135deg,
+            #ffdce8 0%,
+            #f7a8c4 100%
+        );
+
+    --gradient-soft:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.92),
+            rgba(255, 235, 243, 0.82)
+        );
+
+    --gradient-premium:
+        linear-gradient(
+            135deg,
+            #fff8fb 0%,
+            #ffe5ef 48%,
+            #eee5ff 100%
+        );
+
+
+    /* =====================================================
+       BLUR
+       ===================================================== */
+
+    --blur-soft:
+        blur(10px);
+
+    --blur-medium:
+        blur(18px);
+
+    --blur-strong:
+        blur(28px);
 }
 
 
 /* =========================================================
-   CENTER EVERYTHING
+   DARKER / SMALL-SCREEN SAFE VARIABLES
    ========================================================= */
 
-/*
-   Main cards/content should remain centered.
-   No intentional left/right text decoration.
-*/
+@media (max-width: 680px) {
 
-main,
-section,
-.section-heading,
-.home-hero-content,
-.home-hero-card-wrapper,
-.distance-message-card,
-.home-final-card,
-.home-navigation-card,
-.home-next-card {
-    text-align: center;
-}
+    :root {
 
+        --header-height:
+            64px;
 
-/* =========================================================
-   REMOVE SIDE DECORATION
-   ========================================================= */
+        --radius-card:
+            23px;
 
-.floating-paw,
-.home-final-paw {
-    display: none;
-}
+        --radius-large:
+            26px;
 
+        --shadow-card:
+            0 14px 35px
+            rgba(128, 72, 100, 0.11);
 
-/* =========================================================
-   OPTIONAL WARM THEME
-   ========================================================= */
-
-[data-theme="warm"] {
-
-    --background-base:
-        #fff2f4;
-
-    --background-soft:
-        #ffe5ea;
-
-    --accent:
-        #e589a0;
-
-    --accent-dark:
-        #bf5872;
-
-    --accent-soft:
-        #ffdce4;
-}
-
-
-/* =========================================================
-   SELECTION
-   ========================================================= */
-
-::selection {
-    background:
-        var(--accent);
-
-    color:
-        #ffffff;
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-a:focus-visible,
-button:focus-visible {
-    outline:
-        3px solid
-        var(--focus-ring);
-
-    outline-offset:
-        4px;
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-
-        scroll-behavior:
-            auto !important;
+        --shadow-premium:
+            0 18px 45px
+            rgba(128, 72, 100, 0.13);
     }
 }
-```
-# variables.css — Premium Kitty Theme
-
-```css
-/* =========================================================
-   KITTIES LITTLE WORLD
-   VARIABLES.CSS
-   PREMIUM PEACH GOMA / KITTY THEME
-   ========================================================= */
-
-:root {
-
-    /* =====================================================
-       BACKGROUND
-       ===================================================== */
-
-    --background-base: #fff4f5;
-
-    --background-soft: #ffe9ed;
-
-    --background-deep: #fbd5dc;
-
-    --kitty-background-image:
-        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
-
-    /*
-       GIF ko soft repeat pattern ki tarah use karenge.
-       Content ke peeche readability ke liye overlay bhi hai.
-    */
-
-    --background-size: 420px auto;
-
-    --background-position: center;
-
-    --background-overlay:
-        rgba(255, 246, 247, 0.76);
-
-
-    /* =====================================================
-       SURFACES
-       ===================================================== */
-
-    --surface:
-        rgba(255, 252, 252, 0.91);
-
-    --surface-solid:
-        #fffdfd;
-
-    --surface-muted:
-        rgba(255, 235, 239, 0.78);
-
-    --surface-highlight:
-        #ffecef;
-
-    --surface-hover:
-        rgba(244, 165, 181, 0.16);
-
-    --glass-background:
-        rgba(255, 251, 252, 0.78);
-
-    --header-background:
-        rgba(255, 249, 250, 0.84);
-
-    --footer-background:
-        rgba(255, 235, 239, 0.88);
-
-
-    /* =====================================================
-       TEXT
-       Dark enough to stay readable over pink/peach GIF
-       ===================================================== */
-
-    --text-primary:
-        #402d34;
-
-    --text-secondary:
-        #684f58;
-
-    --text-muted:
-        #92767f;
-
-    --text-light:
-        #b79ba4;
-
-
-    /* =====================================================
-       PREMIUM PINK / PEACH ACCENTS
-       ===================================================== */
-
-    --accent:
-        #e98fa6;
-
-    --accent-dark:
-        #c45e78;
-
-    --accent-soft:
-        #ffe0e7;
-
-    --accent-border:
-        rgba(196, 94, 120, 0.25);
-
-
-    /* =====================================================
-       BORDERS
-       ===================================================== */
-
-    --border-soft:
-        rgba(143, 83, 101, 0.13);
-
-    --border-medium:
-        rgba(143, 83, 101, 0.20);
-
-    --border-strong:
-        rgba(143, 83, 101, 0.30);
-
-
-    /* =====================================================
-       LETTER / PAPER
-       ===================================================== */
-
-    --letter-paper-background:
-        #fffafa;
-
-    --letter-paper-border:
-        rgba(143, 83, 101, 0.20);
-
-    --letter-paper-inner-border:
-        rgba(143, 83, 101, 0.11);
-
-    --letter-heading:
-        #704552;
-
-    --letter-text:
-        #604852;
-
-    --letter-card-background:
-        rgba(255, 231, 237, 0.75);
-
-    --letter-card-border:
-        rgba(196, 94, 120, 0.18);
-
-    --paper-tape:
-        rgba(236, 168, 181, 0.72);
-
-
-    /* =====================================================
-       MEMORY / SCRAPBOOK
-       ===================================================== */
-
-    --scrapbook-background:
-        #fff9fa;
-
-    --scrapbook-border:
-        rgba(143, 83, 101, 0.16);
-
-
-    /* =====================================================
-       GIFT / SURPRISE
-       ===================================================== */
-
-    --gift-stage-background:
-        rgba(255, 241, 245, 0.86);
-
-    --gift-body-background:
-        #e98fa6;
-
-    --gift-lid-background:
-        #f1a9ba;
-
-    --gift-ribbon:
-        #c45e78;
-
-    --gift-ribbon-dark:
-        #a94863;
-
-    --gift-border:
-        rgba(139, 67, 86, 0.24);
-
-    --gift-shine:
-        rgba(255, 255, 255, 0.30);
-
-    --gift-shadow:
-        rgba(111, 56, 72, 0.18);
-
-
-    /* =====================================================
-       KITTY COLORS
-       ===================================================== */
-
-    --kitty-fur:
-        #f7d7dc;
-
-    --kitty-outline:
-        #a76b79;
-
-    --kitty-face-detail:
-        #63444d;
-
-    --kitty-blush:
-        #ed91a7;
-
-
-    /* =====================================================
-       BUTTONS
-       ===================================================== */
-
-    --button-primary-background:
-        #c45e78;
-
-    --button-primary-text:
-        #ffffff;
-
-    --button-secondary-background:
-        rgba(255, 255, 255, 0.88);
-
-
-    /* =====================================================
-       FOCUS
-       ===================================================== */
-
-    --focus-ring:
-        rgba(196, 94, 120, 0.42);
-
-
-    /* =====================================================
-       CONTENT
-       ===================================================== */
-
-    --content-width:
-        1320px;
-
-
-    /* =====================================================
-       RADIUS
-       ===================================================== */
-
-    --radius-small:
-        9px;
-
-    --radius-medium:
-        17px;
-
-    --radius-large:
-        28px;
-
-    --radius-paper:
-        9px;
-
-
-    /* =====================================================
-       SHADOWS
-       ===================================================== */
-
-    --shadow-small:
-        0 8px 24px
-        rgba(105, 55, 70, 0.08);
-
-    --shadow-card:
-        0 18px 55px
-        rgba(105, 55, 70, 0.11);
-
-    --shadow-paper:
-        0 25px 70px
-        rgba(105, 55, 70, 0.15);
-
-    --shadow-button:
-        0 10px 27px
-        rgba(196, 94, 120, 0.22);
-
-    --shadow-button-hover:
-        0 16px 38px
-        rgba(196, 94, 120, 0.30);
-
-
-    /* =====================================================
-       TRANSITIONS
-       ===================================================== */
-
-    --transition-fast:
-        180ms ease;
-
-    --transition-medium:
-        450ms ease;
-
-    --transition-slow:
-        800ms cubic-bezier(
-            0.22,
-            1,
-            0.36,
-            1
-        );
-
-
-    /* =====================================================
-       DECORATION
-       ===================================================== */
-
-    --floating-decoration-size:
-        22px;
-
-    --floating-decoration-opacity:
-        0.20;
-
-
-    /* =====================================================
-       Z-INDEX
-       ===================================================== */
-
-    --z-background:
-        -10;
-
-    --z-overlay:
-        -9;
-
-    --z-content:
-        1;
-
-    --z-header:
-        100;
-
-    --z-modal:
-        1000;
-}
 
 
 /* =========================================================
-   CENTER EVERYTHING
+   VERY SMALL DEVICES
    ========================================================= */
 
-/*
-   Main cards/content should remain centered.
-   No intentional left/right text decoration.
-*/
+@media (max-width: 340px) {
 
-main,
-section,
-.section-heading,
-.home-hero-content,
-.home-hero-card-wrapper,
-.distance-message-card,
-.home-final-card,
-.home-navigation-card,
-.home-next-card {
-    text-align: center;
-}
+    :root {
 
+        --radius-card:
+            20px;
 
-/* =========================================================
-   REMOVE SIDE DECORATION
-   ========================================================= */
+        --radius-large:
+            22px;
 
-.floating-paw,
-.home-final-paw {
-    display: none;
-}
+        --button-height:
+            46px;
 
-
-/* =========================================================
-   OPTIONAL WARM THEME
-   ========================================================= */
-
-[data-theme="warm"] {
-
-    --background-base:
-        #fff2f4;
-
-    --background-soft:
-        #ffe5ea;
-
-    --accent:
-        #e589a0;
-
-    --accent-dark:
-        #bf5872;
-
-    --accent-soft:
-        #ffdce4;
-}
-
-
-/* =========================================================
-   SELECTION
-   ========================================================= */
-
-::selection {
-    background:
-        var(--accent);
-
-    color:
-        #ffffff;
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-a:focus-visible,
-button:focus-visible {
-    outline:
-        3px solid
-        var(--focus-ring);
-
-    outline-offset:
-        4px;
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration:
-            0.01ms !important;
-
-        animation-iteration-count:
-            1 !important;
-
-        transition-duration:
-            0.01ms !important;
-
-        scroll-behavior:
-            auto !important;
+        --button-height-large:
+            52px;
     }
 }
