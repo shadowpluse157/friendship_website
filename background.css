@@ -1,1 +1,152 @@
+/* =========================================================
+   KITTIES LITTLE WORLD
+   BACKGROUND.CSS
+   ========================================================= */
 
+/* ---------- PAGE BACKGROUND ---------- */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background-image:
+        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center center;
+
+    background-size:
+        cover;
+
+    background-attachment:
+        fixed;
+}
+
+
+/* ---------- CONTENT LAYER ---------- */
+
+body::before {
+    content:
+        "";
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        -1;
+
+    pointer-events:
+        none;
+
+    background:
+        rgba(255, 248, 251, 0.72);
+}
+
+
+/* ---------- KEEP PAGE CONTENT ABOVE BACKGROUND ---------- */
+
+.site-header,
+main,
+footer {
+    position:
+        relative;
+
+    z-index:
+        1;
+}
+
+
+/* =========================================================
+   TABLETS
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    body {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+
+        background-attachment:
+            scroll;
+    }
+
+    body::before {
+        background:
+            rgba(255, 248, 251, 0.76);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 680px) {
+
+    body {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+
+        background-repeat:
+            no-repeat;
+
+        background-attachment:
+            scroll;
+    }
+
+    body::before {
+        background:
+            rgba(255, 248, 251, 0.80);
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 430px) {
+
+    body {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+
+        background-repeat:
+            no-repeat;
+    }
+
+    body::before {
+        background:
+            rgba(255, 248, 251, 0.82);
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 340px) {
+
+    body::before {
+        background:
+            rgba(255, 248, 251, 0.84);
+    }
+}
