@@ -1,21 +1,56 @@
+
 /* =========================================================
    KITTIES LITTLE WORLD
-   BACKGROUND.CSS
+   FULL SCREEN ANIMATED BACKGROUND
+   PEACH & GOMA EDITION
    ========================================================= */
 
-/* ---------- PAGE BACKGROUND ---------- */
 
-html,
-body {
+/* =========================================================
+   ROOT
+   ========================================================= */
+
+:root {
+    --background-gif:
+        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
+
+    --background-overlay:
+        rgba(255, 248, 246, 0.12);
+
+    --background-blur: 0px;
+}
+
+
+/* =========================================================
+   HTML / BODY
+   ========================================================= */
+
+html {
+    width: 100%;
     min-height: 100%;
+    margin: 0;
+    padding: 0;
+
+    scroll-behavior: smooth;
 }
 
 body {
-    background-image:
-        url("https://media.tenor.com/zvA-D9cY9dkAAAAj/peach-goma-peach-goma-love.gif");
+    position: relative;
 
-    background-repeat:
-        no-repeat;
+    width: 100%;
+    min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+
+    background-color: #f7efe8;
+
+    /* Fallback background */
+    background-image: var(--background-gif);
+
+    background-repeat: no-repeat;
 
     background-position:
         center center;
@@ -28,49 +63,292 @@ body {
 }
 
 
-/* ---------- CONTENT LAYER ---------- */
+/* =========================================================
+   MAIN FULL SCREEN BACKGROUND
+   ========================================================= */
 
-body::before {
-    content:
-        "";
+.page-background {
+    position: fixed;
 
-    position:
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    min-width: 100%;
+    min-height: 100%;
+
+    z-index: -10;
+
+    pointer-events: none;
+    user-select: none;
+
+    background-image:
+        var(--background-gif);
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center center;
+
+    background-size:
+        cover;
+
+    background-attachment:
         fixed;
 
-    inset:
-        0;
+    transform:
+        translateZ(0);
 
-    z-index:
-        -1;
+    backface-visibility:
+        hidden;
 
-    pointer-events:
-        none;
-
-    background:
-        rgba(255, 248, 251, 0.72);
-}
-
-
-/* ---------- KEEP PAGE CONTENT ABOVE BACKGROUND ---------- */
-
-.site-header,
-main,
-footer {
-    position:
-        relative;
-
-    z-index:
-        1;
+    will-change:
+        transform;
 }
 
 
 /* =========================================================
-   TABLETS
+   BACKGROUND OVERLAY
    ========================================================= */
 
-@media (max-width: 850px) {
+.background-overlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: -9;
+
+    pointer-events: none;
+
+    background:
+        var(--background-overlay);
+
+    backdrop-filter:
+        blur(var(--background-blur));
+
+    -webkit-backdrop-filter:
+        blur(var(--background-blur));
+}
+
+
+/* =========================================================
+   SITE WRAPPER
+   ========================================================= */
+
+.site-wrapper {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    z-index: 1;
+
+    isolation: isolate;
+}
+
+
+/* =========================================================
+   CONTENT LAYER
+   ========================================================= */
+
+main,
+.site-header,
+.site-footer {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   HEADER BACKGROUND
+   ========================================================= */
+
+.site-header {
+    background:
+        rgba(255, 250, 247, 0.72);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+main > section {
+    position: relative;
+}
+
+
+/* =========================================================
+   DESKTOP
+   761px+
+   ========================================================= */
+
+@media (min-width: 761px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+    }
 
     body {
+        background-image:
+            var(--background-gif);
+
+        background-repeat:
+            no-repeat;
+
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+
+        background-attachment:
+            fixed;
+    }
+
+    .page-background {
+        width: 100vw;
+        height: 100vh;
+
+        background-image:
+            var(--background-gif);
+
+        background-repeat:
+            no-repeat;
+
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+
+        background-attachment:
+            fixed;
+    }
+
+    .background-overlay {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+
+/* =========================================================
+   LAPTOP
+   761px — 1366px
+   ========================================================= */
+
+@media (min-width: 761px) and (max-width: 1366px) {
+
+    .page-background {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+
+    body {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+}
+
+
+/* =========================================================
+   LARGE LAPTOP / DESKTOP
+   1367px — 1599px
+   ========================================================= */
+
+@media (min-width: 1367px) and (max-width: 1599px) {
+
+    .page-background {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+}
+
+
+/* =========================================================
+   LARGE MONITOR
+   1600px+
+   ========================================================= */
+
+@media (min-width: 1600px) {
+
+    .page-background {
+        width: 100vw;
+        height: 100vh;
+
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+
+    body {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+}
+
+
+/* =========================================================
+   ULTRA WIDE MONITOR
+   ========================================================= */
+
+@media (min-width: 2000px) {
+
+    .page-background {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+}
+
+
+/* =========================================================
+   TABLET
+   481px — 760px
+   ========================================================= */
+
+@media (min-width: 481px) and (max-width: 760px) {
+
+    body {
+        background-image:
+            var(--background-gif);
+
+        background-repeat:
+            no-repeat;
+
         background-position:
             center center;
 
@@ -81,45 +359,104 @@ footer {
             scroll;
     }
 
-    body::before {
-        background:
-            rgba(255, 248, 251, 0.76);
+    .page-background {
+        width: 100vw;
+        height: 100vh;
+
+        background-image:
+            var(--background-gif);
+
+        background-repeat:
+            no-repeat;
+
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+
+        background-attachment:
+            scroll;
     }
 }
 
 
 /* =========================================================
    MOBILE
+   320px — 480px
    ========================================================= */
 
-@media (max-width: 680px) {
+@media (max-width: 480px) {
 
     body {
+        min-height: 100vh;
+
+        background-image:
+            var(--background-gif);
+
+        background-repeat:
+            no-repeat;
+
         background-position:
             center center;
 
         background-size:
             cover;
 
+        /*
+         * Fixed backgrounds can behave badly
+         * on some mobile browsers.
+         */
+        background-attachment:
+            scroll;
+    }
+
+    .page-background {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background-image:
+            var(--background-gif);
+
         background-repeat:
             no-repeat;
+
+        background-position:
+            center center;
+
+        background-size:
+            cover;
 
         background-attachment:
             scroll;
     }
 
-    body::before {
-        background:
-            rgba(255, 248, 251, 0.80);
+    .background-overlay {
+        width: 100vw;
+        height: 100vh;
     }
 }
 
 
 /* =========================================================
-   SMALL PHONES
+   VERY SMALL MOBILE
+   320px AND BELOW
    ========================================================= */
 
-@media (max-width: 430px) {
+@media (max-width: 320px) {
+
+    .page-background {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
 
     body {
         background-position:
@@ -127,26 +464,100 @@ footer {
 
         background-size:
             cover;
-
-        background-repeat:
-            no-repeat;
-    }
-
-    body::before {
-        background:
-            rgba(255, 248, 251, 0.82);
     }
 }
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   LANDSCAPE MOBILE
    ========================================================= */
 
-@media (max-width: 340px) {
+@media (max-width: 900px) and (orientation: landscape) {
 
-    body::before {
-        background:
-            rgba(255, 248, 251, 0.84);
+    .page-background {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
+    }
+
+    body {
+        background-position:
+            center center;
+
+        background-size:
+            cover;
     }
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    /*
+     * We do NOT remove the GIF because it is the
+     * requested background. We only disable CSS
+     * transitions/animations around the page.
+     */
+
+    html {
+        scroll-behavior:
+            auto;
+    }
+
+    * {
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+}
+
+
+/* =========================================================
+   SAFETY / NO HORIZONTAL SCROLL
+   ========================================================= */
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND PERFORMANCE
+   ========================================================= */
+
+.page-background {
+    contain:
+        layout
+        paint;
+
+    will-change:
+        transform;
+}
+
+
+/* =========================================================
+   FINAL FULL SCREEN GUARANTEE
+   ========================================================= */
+
+.page-background,
+.background-overlay {
+    right: 0;
+    bottom: 0;
+}
+
+
+/* =========================================================
+   END OF BACKGROUND.CSS
+   ========================================================= */
