@@ -1,392 +1,651 @@
-/* =========================================================
-   KITTIES LITTLE WORLD
-   CONFETTI.JS
-   Premium Kitty Celebration Confetti
-   ========================================================= */
-
-(function () {
+(() => {
     "use strict";
 
+    document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       CONFIG
-       ===================================================== */
+        /* =====================================================
+           CONFETTI SYSTEM
+           KITTIES LITTLE WORLD
+           ===================================================== */
 
-    const CONFETTI_COUNT = 70;
-    const CONFETTI_DURATION_MIN = 2.2;
-    const CONFETTI_DURATION_MAX = 3.8;
-
-
-    /* =====================================================
-       HELPERS
-       ===================================================== */
-
-    function random(min, max) {
-        return Math.random() * (max - min) + min;
-    }
-
-    function randomInt(min, max) {
-        return Math.floor(random(min, max + 1));
-    }
+        let confettiContainer = null;
+        let confettiRunning = false;
 
 
-    /* =====================================================
-       CONFETTI COLORS
-       ===================================================== */
+        /* =====================================================
+           CREATE CONTAINER
+           ===================================================== */
 
-    const colors = [
-        "#ffb6c8",
-        "#ffd6df",
-        "#f7a8bd",
-        "#fff0f4",
-        "#e8b4c8",
-        "#d9a7bd",
-        "#ffffff"
-    ];
+        function createConfettiContainer() {
 
+            if (confettiContainer) {
+                return confettiContainer;
+            }
 
-    /* =====================================================
-       CREATE CONFETTI PIECE
-       ===================================================== */
+            confettiContainer = document.createElement("div");
 
-    function createConfettiPiece() {
+            confettiContainer.className =
+                "kitty-confetti-container";
 
-        const piece = document.createElement("span");
-
-        piece.className =
-            "confetti-piece";
-
-
-        /* ---------- SIZE ---------- */
-
-        const width =
-            random(5, 9);
-
-        const height =
-            random(7, 14);
-
-
-        /* ---------- START POSITION ---------- */
-
-        const startX =
-            random(5, 95);
-
-
-        /* ---------- FALL DISTANCE ---------- */
-
-        const fallY =
-            random(75, 115);
-
-
-        /* ---------- HORIZONTAL MOVEMENT ---------- */
-
-        const moveX =
-            random(-180, 180);
-
-
-        /* ---------- ROTATION ---------- */
-
-        const rotation =
-            randomInt(360, 1080);
-
-
-        /* ---------- DURATION ---------- */
-
-        const duration =
-            random(
-                CONFETTI_DURATION_MIN,
-                CONFETTI_DURATION_MAX
+            confettiContainer.setAttribute(
+                "aria-hidden",
+                "true"
             );
 
-
-        /* ---------- SHAPE ---------- */
-
-        const shape =
-            randomInt(0, 2);
-
-
-        piece.style.position =
-            "fixed";
-
-        piece.style.left =
-            `${startX}vw`;
-
-        piece.style.top =
-            `${random(-5, 8)}vh`;
-
-        piece.style.width =
-            `${width}px`;
-
-        piece.style.height =
-            `${height}px`;
-
-        piece.style.background =
-            colors[
-                randomInt(
-                    0,
-                    colors.length - 1
-                )
-            ];
-
-        piece.style.borderRadius =
-            shape === 0
-                ? "2px"
-                : "50%";
-
-        piece.style.zIndex =
-            "9999";
-
-        piece.style.pointerEvents =
-            "none";
-
-        piece.style.setProperty(
-            "--confetti-x",
-            `${moveX}px`
-        );
-
-        piece.style.setProperty(
-            "--confetti-y",
-            `${fallY}vh`
-        );
-
-        piece.style.setProperty(
-            "--confetti-rotate",
-            `${rotation}deg`
-        );
-
-        piece.style.setProperty(
-            "--confetti-duration",
-            `${duration}s`
-        );
-
-
-        /* ---------- RANDOM DELAY ---------- */
-
-        piece.style.animationDelay =
-            `${random(0, 0.45)}s`;
-
-
-        return piece;
-    }
-
-
-    /* =====================================================
-       BURST
-       ===================================================== */
-
-    function launchConfetti(
-        count = CONFETTI_COUNT
-    ) {
-
-        const fragment =
-            document.createDocumentFragment();
-
-        const pieces = [];
-
-
-        for (
-            let i = 0;
-            i < count;
-            i++
-        ) {
-
-            const piece =
-                createConfettiPiece();
-
-            fragment.appendChild(
-                piece
+            document.body.appendChild(
+                confettiContainer
             );
 
-            pieces.push(
-                piece
-            );
+            addConfettiStyles();
+
+            return confettiContainer;
         }
 
 
-        document.body.appendChild(
-            fragment
-        );
+        /* =====================================================
+           CONFETTI CSS
+           ===================================================== */
+
+        function addConfettiStyles() {
+
+            if (
+                document.getElementById(
+                    "kitty-confetti-styles"
+                )
+            ) {
+                return;
+            }
+
+            const style =
+                document.createElement("style");
+
+            style.id =
+                "kitty-confetti-styles";
+
+            style.textContent = `
+
+                .kitty-confetti-container {
+                    position: fixed;
+                    inset: 0;
+
+                    z-index: 99990;
+
+                    overflow: hidden;
+
+                    pointer-events: none;
+                }
 
 
-        /* ---------- CLEANUP ---------- */
+                .kitty-confetti {
+                    position: absolute;
 
-        const cleanupTime =
-            (CONFETTI_DURATION_MAX + 1) *
-            1000;
+                    top: -30px;
+                    left: 0;
+
+                    width: 10px;
+                    height: 10px;
+
+                    pointer-events: none;
+
+                    will-change:
+                        transform,
+                        opacity;
+
+                    animation:
+                        kittyConfettiFall
+                        var(--fall-duration)
+                        linear
+                        forwards;
+                }
 
 
-        window.setTimeout(
-            function () {
+                .kitty-confetti--heart {
+                    width: auto;
+                    height: auto;
 
-                pieces.forEach(
-                    function (piece) {
+                    background: transparent !important;
 
-                        if (
-                            piece &&
-                            piece.parentNode
-                        ) {
-                            piece.parentNode.removeChild(
-                                piece
-                            );
-                        }
+                    font-size:
+                        var(--confetti-size);
+
+                    line-height: 1;
+
+                    animation:
+                        kittyHeartFall
+                        var(--fall-duration)
+                        ease-in
+                        forwards;
+                }
+
+
+                .kitty-confetti--paw {
+                    width: auto;
+                    height: auto;
+
+                    background: transparent !important;
+
+                    font-size:
+                        var(--confetti-size);
+
+                    line-height: 1;
+
+                    animation:
+                        kittyPawFall
+                        var(--fall-duration)
+                        ease-in
+                        forwards;
+                }
+
+
+                @keyframes kittyConfettiFall {
+
+                    0% {
+                        opacity: 0;
+
+                        transform:
+                            translate3d(
+                                0,
+                                -20px,
+                                0
+                            )
+                            rotate(0deg)
+                            scale(.8);
+                    }
+
+                    10% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        transform:
+                            translate3d(
+                                var(--drift),
+                                50vh,
+                                0
+                            )
+                            rotate(
+                                var(--rotation)
+                            )
+                            scale(1);
+                    }
+
+                    100% {
+                        opacity: 0;
+
+                        transform:
+                            translate3d(
+                                calc(
+                                    var(--drift) * -1
+                                ),
+                                110vh,
+                                0
+                            )
+                            rotate(
+                                calc(
+                                    var(--rotation) * -1
+                                )
+                            )
+                            scale(.7);
+                    }
+
+                }
+
+
+                @keyframes kittyHeartFall {
+
+                    0% {
+                        opacity: 0;
+
+                        transform:
+                            translate3d(
+                                0,
+                                -20px,
+                                0
+                            )
+                            rotate(-10deg)
+                            scale(.6);
+                    }
+
+                    12% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        transform:
+                            translate3d(
+                                var(--drift),
+                                50vh,
+                                0
+                            )
+                            rotate(12deg)
+                            scale(1);
+                    }
+
+                    100% {
+                        opacity: 0;
+
+                        transform:
+                            translate3d(
+                                calc(
+                                    var(--drift) * -1
+                                ),
+                                110vh,
+                                0
+                            )
+                            rotate(-15deg)
+                            scale(.75);
+                    }
+
+                }
+
+
+                @keyframes kittyPawFall {
+
+                    0% {
+                        opacity: 0;
+
+                        transform:
+                            translate3d(
+                                0,
+                                -20px,
+                                0
+                            )
+                            rotate(0deg)
+                            scale(.7);
+                    }
+
+                    15% {
+                        opacity: 1;
+                    }
+
+                    50% {
+                        transform:
+                            translate3d(
+                                var(--drift),
+                                50vh,
+                                0
+                            )
+                            rotate(-15deg)
+                            scale(1);
+                    }
+
+                    100% {
+                        opacity: 0;
+
+                        transform:
+                            translate3d(
+                                calc(
+                                    var(--drift) * -1
+                                ),
+                                110vh,
+                                0
+                            )
+                            rotate(20deg)
+                            scale(.65);
+                    }
+
+                }
+
+
+                @media (prefers-reduced-motion: reduce) {
+
+                    .kitty-confetti {
+                        animation-duration:
+                            .01ms !important;
+                    }
+
+                }
+
+            `;
+
+            document.head.appendChild(style);
+        }
+
+
+        /* =====================================================
+           CREATE SINGLE CONFETTI
+           ===================================================== */
+
+        function createPiece(
+            x,
+            type = "normal"
+        ) {
+
+            const container =
+                createConfettiContainer();
+
+            const piece =
+                document.createElement("span");
+
+            piece.className =
+                "kitty-confetti";
+
+
+            const colors = [
+                "#e9b8c4",
+                "#d8cce8",
+                "#cbdde7",
+                "#f3c9b9",
+                "#d9a6b2",
+                "#c88a9b"
+            ];
+
+
+            const color =
+                colors[
+                    Math.floor(
+                        Math.random() *
+                        colors.length
+                    )
+                ];
+
+
+            const duration =
+                2.5 +
+                Math.random() * 2.2;
+
+
+            const drift =
+                (Math.random() * 260) - 130;
+
+
+            const rotation =
+                Math.floor(
+                    Math.random() * 720
+                ) + 180;
+
+
+            const size =
+                6 +
+                Math.random() * 8;
+
+
+            piece.style.left =
+                `${x}%`;
+
+            piece.style.setProperty(
+                "--fall-duration",
+                `${duration}s`
+            );
+
+            piece.style.setProperty(
+                "--drift",
+                `${drift}px`
+            );
+
+            piece.style.setProperty(
+                "--rotation",
+                `${rotation}deg`
+            );
+
+            piece.style.setProperty(
+                "--confetti-size",
+                `${size}px`
+            );
+
+
+            if (type === "heart") {
+
+                piece.classList.add(
+                    "kitty-confetti--heart"
+                );
+
+                piece.textContent = "♥";
+
+                piece.style.color =
+                    color;
+
+            } else if (type === "paw") {
+
+                piece.classList.add(
+                    "kitty-confetti--paw"
+                );
+
+                piece.textContent = "🐾";
+
+                piece.style.fontSize =
+                    `${size + 4}px`;
+
+            } else {
+
+                piece.style.background =
+                    color;
+
+                piece.style.borderRadius =
+                    Math.random() > .5
+                        ? "50%"
+                        : "3px";
+
+                piece.style.transform =
+                    `rotate(
+                        ${Math.random() * 180}deg
+                    )`;
+            }
+
+
+            container.appendChild(piece);
+
+
+            setTimeout(() => {
+
+                piece.remove();
+
+            }, (duration + .5) * 1000);
+        }
+
+
+        /* =====================================================
+           BIG BURST
+           ===================================================== */
+
+        function launchConfetti(
+            amount = 100
+        ) {
+
+            if (confettiRunning) {
+                return;
+            }
+
+            confettiRunning = true;
+
+            createConfettiContainer();
+
+
+            const safeAmount =
+                Math.min(
+                    Math.max(amount, 20),
+                    180
+                );
+
+
+            for (
+                let i = 0;
+                i < safeAmount;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    const random =
+                        Math.random();
+
+                    let type =
+                        "normal";
+
+                    if (random < .18) {
+                        type = "heart";
+                    } else if (random < .30) {
+                        type = "paw";
+                    }
+
+                    createPiece(
+                        Math.random() * 100,
+                        type
+                    );
+
+                }, i * 15);
+            }
+
+
+            setTimeout(() => {
+
+                confettiRunning = false;
+
+            }, 2500);
+        }
+
+
+        /* =====================================================
+           SMALL BURST
+           ===================================================== */
+
+        function smallConfettiBurst() {
+
+            createConfettiContainer();
+
+            for (
+                let i = 0;
+                i < 30;
+                i++
+            ) {
+
+                setTimeout(() => {
+
+                    const random =
+                        Math.random();
+
+                    createPiece(
+                        35 +
+                        Math.random() * 30,
+                        random < .3
+                            ? "heart"
+                            : "normal"
+                    );
+
+                }, i * 18);
+            }
+        }
+
+
+        /* =====================================================
+           EXPOSE FUNCTIONS
+           ===================================================== */
+
+        window.kittyConfetti =
+            launchConfetti;
+
+        window.smallKittyConfetti =
+            smallConfettiBurst;
+
+
+        /* =====================================================
+           GIFT BOX CLICK
+           ===================================================== */
+
+        const giftBox =
+            document.querySelector(
+                ".gift-box"
+            );
+
+
+        if (giftBox) {
+
+            giftBox.addEventListener(
+                "click",
+                () => {
+
+                    launchConfetti(120);
+
+                },
+                { passive: true }
+            );
+
+        }
+
+
+        /* =====================================================
+           COMMON BUTTON TRIGGERS
+           ===================================================== */
+
+        const confettiButtons =
+            document.querySelectorAll(
+                `
+                [data-confetti],
+                .confetti-button,
+                .surprise-button
+                `
+            );
+
+
+        confettiButtons.forEach(
+            (button) => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        smallConfettiBurst();
 
                     }
                 );
 
-            },
-            cleanupTime
-        );
-    }
-
-
-    /* =====================================================
-       DOUBLE BURST
-       ===================================================== */
-
-    function celebrate() {
-
-        launchConfetti(
-            CONFETTI_COUNT
+            }
         );
 
-        window.setTimeout(
-            function () {
 
-                launchConfetti(
-                    Math.floor(
-                        CONFETTI_COUNT * 0.45
-                    )
+        /* =====================================================
+           OPTIONAL DATA ATTRIBUTE
+           ===================================================== */
+
+        document
+            .querySelectorAll(
+                "[data-confetti-burst]"
+            )
+            .forEach((element) => {
+
+                element.addEventListener(
+                    "click",
+                    () => {
+
+                        const amount =
+                            parseInt(
+                                element
+                                    .dataset
+                                    .confettiBurst,
+                                10
+                            ) || 100;
+
+                        launchConfetti(
+                            amount
+                        );
+
+                    }
                 );
 
-            },
-            280
+            });
+
+
+        /* =====================================================
+           CLEANUP
+           ===================================================== */
+
+        window.addEventListener(
+            "beforeunload",
+            () => {
+
+                if (
+                    confettiContainer
+                ) {
+
+                    confettiContainer.remove();
+
+                    confettiContainer =
+                        null;
+                }
+
+            }
         );
-    }
 
-
-    /* =====================================================
-       GLOBAL API
-       Allows animation.js / script.js to trigger it
-       ===================================================== */
-
-    window.KittiesConfetti = {
-        launch:
-            launchConfetti,
-
-        celebrate:
-            celebrate
-    };
-
-
-    /* =====================================================
-       SURPRISE / GIFT SUPPORT
-       No duplicate click handler
-       ===================================================== */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            const target =
-                event.target.closest(
-                    "[data-confetti]"
-                );
-
-
-            if (!target) {
-                return;
-            }
-
-
-            /* Prevent accidental double firing */
-
-            if (
-                target.dataset.confettiFired ===
-                "true"
-            ) {
-                return;
-            }
-
-
-            target.dataset.confettiFired =
-                "true";
-
-
-            celebrate();
-
-
-            /* Allow another celebration later */
-
-            window.setTimeout(
-                function () {
-
-                    delete target.dataset.confettiFired;
-
-                },
-                1500
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       SURPRISE GIFT SUPPORT
-       If gift has data-gift-confetti,
-       celebration happens when opened.
-       ===================================================== */
-
-    document.addEventListener(
-        "click",
-        function (event) {
-
-            const gift =
-                event.target.closest(
-                    "[data-gift-confetti]"
-                );
-
-
-            if (!gift) {
-                return;
-            }
-
-
-            /* Only celebrate once per opening */
-
-            if (
-                gift.classList.contains(
-                    "is-open"
-                )
-            ) {
-                return;
-            }
-
-
-            window.setTimeout(
-                function () {
-
-                    celebrate();
-
-                },
-                450
-            );
-
-        }
-    );
-
-
-    /* =====================================================
-       OPTIONAL MANUAL TRIGGER
-       ===================================================== */
-
-    window.addEventListener(
-        "kitties:celebrate",
-        function () {
-
-            celebrate();
-
-        }
-    );
-
+    });
 
 })();
