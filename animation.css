@@ -1,72 +1,34 @@
 /* =========================================================
    KITTIES LITTLE WORLD
-   ANIMATION.CSS
-   Premium 3D / Cute Kitty Animations
+   PREMIUM ANIMATION SYSTEM
+   animation.css
    ========================================================= */
+
+
+/* =========================================================
+   GLOBAL ANIMATION VARIABLES
+   ========================================================= */
+
+:root {
+    --anim-fast: 0.2s;
+    --anim-normal: 0.45s;
+    --anim-slow: 0.8s;
+
+    --ease-smooth: cubic-bezier(.2, .8, .2, 1);
+    --ease-soft: cubic-bezier(.16, 1, .3, 1);
+    --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+}
 
 
 /* =========================================================
    PAGE LOAD
    ========================================================= */
 
-.page-enter {
-    animation:
-        pageEnter
-        0.9s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+body {
+    animation: pageFadeIn 0.8s ease both;
 }
 
-@keyframes pageEnter {
-    from {
-        opacity: 0;
-        transform:
-            translateY(24px)
-            scale(0.985);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   FADE / REVEAL
-   ========================================================= */
-
-.reveal {
-    opacity: 0;
-    transform:
-        translateY(28px);
-
-    animation:
-        revealUp
-        0.9s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
-}
-
-@keyframes revealUp {
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
-    }
-}
-
-.fade-in {
-    animation:
-        fadeIn
-        0.8s
-        ease
-        both;
-}
-
-@keyframes fadeIn {
+@keyframes pageFadeIn {
     from {
         opacity: 0;
     }
@@ -78,47 +40,86 @@
 
 
 /* =========================================================
-   STAGGERED CONTENT
+   HEADER
    ========================================================= */
 
-.stagger-1 {
-    animation-delay:
-        0.08s;
+.site-header {
+    animation: headerSlideDown 0.8s var(--ease-soft) both;
 }
 
-.stagger-2 {
-    animation-delay:
-        0.16s;
+@keyframes headerSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.stagger-3 {
-    animation-delay:
-        0.24s;
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand,
+.brand-link {
+    animation: brandAppear 0.9s var(--ease-soft) 0.15s both;
 }
 
-.stagger-4 {
-    animation-delay:
-        0.32s;
+@keyframes brandAppear {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.stagger-5 {
-    animation-delay:
-        0.40s;
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.navigation-link {
+    animation: navAppear 0.6s var(--ease-soft) both;
 }
 
-.stagger-6 {
-    animation-delay:
-        0.48s;
+.navigation-link:nth-child(1) {
+    animation-delay: .15s;
 }
 
-.stagger-7 {
-    animation-delay:
-        0.56s;
+.navigation-link:nth-child(2) {
+    animation-delay: .22s;
 }
 
-.stagger-8 {
-    animation-delay:
-        0.64s;
+.navigation-link:nth-child(3) {
+    animation-delay: .29s;
+}
+
+.navigation-link:nth-child(4) {
+    animation-delay: .36s;
+}
+
+.navigation-link:nth-child(5) {
+    animation-delay: .43s;
+}
+
+@keyframes navAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -126,340 +127,197 @@
    HERO
    ========================================================= */
 
-.home-hero-content {
-    animation:
-        heroContent
-        1s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+.page-hero,
+.memories-hero,
+.about-hero,
+.letter-hero {
+    animation: heroFadeUp 1s var(--ease-soft) both;
 }
 
-@keyframes heroContent {
+@keyframes heroFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HERO KICKER
+   ========================================================= */
+
+.hero-kicker {
+    animation:
+        heroKickerAppear .8s var(--ease-soft) .2s both;
+}
+
+@keyframes heroKickerAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.page-hero h1,
+.memories-hero h1,
+.about-hero h1,
+.letter-hero h1 {
+    animation:
+        heroTitleReveal 1s var(--ease-soft) .35s both;
+}
+
+@keyframes heroTitleReveal {
     from {
         opacity: 0;
         transform:
-            translateX(-30px);
+            translateY(30px)
+            scale(.96);
+        filter: blur(5px);
     }
 
     to {
         opacity: 1;
         transform:
-            translateX(0);
+            translateY(0)
+            scale(1);
+        filter: blur(0);
     }
 }
 
-.home-hero-card-wrapper {
+
+/* =========================================================
+   TITLE ACCENT
+   ========================================================= */
+
+.hero-title-accent {
     animation:
-        heroCard
-        1.1s
-        0.15s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+        accentReveal 1s var(--ease-soft) .55s both;
 }
 
-@keyframes heroCard {
+@keyframes accentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.hero-description {
+    animation:
+        descriptionReveal .9s var(--ease-soft) .7s both;
+}
+
+@keyframes descriptionReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   HERO PAWS
+   ========================================================= */
+
+.memories-hero-paws,
+.surprise-hero-paws {
+    animation:
+        pawsReveal 1s var(--ease-soft) .9s both;
+}
+
+@keyframes pawsReveal {
     from {
         opacity: 0;
         transform:
-            translateX(35px)
-            rotate(3deg)
-            scale(0.94);
+            translateY(15px)
+            scale(.85);
     }
 
     to {
         opacity: 1;
         transform:
-            translateX(0)
-            rotate(0)
+            translateY(0)
             scale(1);
     }
 }
 
 
 /* =========================================================
-   FLOATING KITTY
+   FLOATING PAWS
    ========================================================= */
 
-.kitty-float {
+.floating-paw {
     animation:
-        kittyFloat
-        4s
-        ease-in-out
-        infinite;
+        floatingPawEnhanced 7s ease-in-out infinite;
 }
 
-@keyframes kittyFloat {
+.floating-paw--one {
+    animation-delay: 0s;
+}
+
+.floating-paw--two {
+    animation-delay: -2s;
+}
+
+.floating-paw--three {
+    animation-delay: -4s;
+}
+
+.floating-paw--four {
+    animation-delay: -5.5s;
+}
+
+@keyframes floatingPawEnhanced {
     0%,
     100% {
+        opacity: .5;
         transform:
-            translateY(0)
-            rotate(0deg);
+            translate3d(0, 0, 0)
+            rotate(-5deg);
+    }
+
+    25% {
+        opacity: .8;
     }
 
     50% {
+        opacity: .55;
         transform:
-            translateY(-10px)
-            rotate(1deg);
-    }
-}
-
-
-/* =========================================================
-   SOFT BOB
-   ========================================================= */
-
-.kitty-bob {
-    animation:
-        kittyBob
-        3.5s
-        ease-in-out
-        infinite;
-}
-
-@keyframes kittyBob {
-    0%,
-    100% {
-        transform:
-            translateY(0);
+            translate3d(0, -18px, 0)
+            rotate(6deg);
     }
 
-    50% {
-        transform:
-            translateY(-7px);
-    }
-}
-
-
-/* =========================================================
-   HEART FLOAT
-   ========================================================= */
-
-.heart-float {
-    animation:
-        heartFloat
-        3s
-        ease-in-out
-        infinite;
-}
-
-@keyframes heartFloat {
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(-3deg);
-    }
-
-    50% {
-        transform:
-            translateY(-8px)
-            rotate(4deg);
-    }
-}
-
-
-/* =========================================================
-   GLOW PULSE
-   ========================================================= */
-
-.glow-pulse {
-    animation:
-        glowPulse
-        2.8s
-        ease-in-out
-        infinite;
-}
-
-@keyframes glowPulse {
-    0%,
-    100% {
-        filter:
-            drop-shadow(
-                0 0 0
-                rgba(255, 170, 190, 0)
-            );
-    }
-
-    50% {
-        filter:
-            drop-shadow(
-                0 0 15px
-                rgba(255, 170, 190, 0.35)
-            );
-    }
-}
-
-
-/* =========================================================
-   CARD 3D HOVER
-   ========================================================= */
-
-.intro-feature-card,
-.journey-card,
-.home-final-card,
-.home-navigation-card,
-.home-next-card {
-    transition:
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.45s ease;
-}
-
-.intro-feature-card:hover,
-.journey-card:hover,
-.home-final-card:hover,
-.home-navigation-card:hover,
-.home-next-card:hover {
-    transform:
-        translateY(-8px)
-        rotateX(1deg)
-        rotateY(-1deg);
-}
-
-
-/* =========================================================
-   HERO CARD HOVER
-   ========================================================= */
-
-.home-hero-card {
-    transition:
-        transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.5s ease;
-}
-
-.home-hero-card:hover {
-    transform:
-        translateY(-8px)
-        rotate(0.5deg)
-        scale(1.01);
-}
-
-
-/* =========================================================
-   BUTTON PREMIUM HOVER
-   ========================================================= */
-
-.premium-button {
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    transition:
-        transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.3s ease;
-}
-
-.premium-button::before {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    top:
-        0;
-
-    left:
-        -120%;
-
-    width:
-        80%;
-
-    height:
-        100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.42),
-            transparent
-        );
-
-    transform:
-        skewX(-20deg);
-
-    transition:
-        left 0.65s ease;
-}
-
-.premium-button:hover {
-    transform:
-        translateY(-3px)
-        scale(1.015);
-}
-
-.premium-button:hover::before {
-    left:
-        140%;
-}
-
-.premium-button:active {
-    transform:
-        translateY(0)
-        scale(0.98);
-}
-
-
-/* =========================================================
-   NAVIGATION LINK
-   ========================================================= */
-
-.navigation-link {
-    transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease;
-}
-
-.navigation-link:hover {
-    transform:
-        translateY(-2px);
-}
-
-
-/* =========================================================
-   JOURNEY ICON
-   ========================================================= */
-
-.journey-card-icon {
-    transition:
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.journey-card:hover .journey-card-icon {
-    transform:
-        translateY(-5px)
-        rotate(-4deg)
-        scale(1.06);
-}
-
-
-/* =========================================================
-   DISTANCE KITTY
-   ========================================================= */
-
-.distance-message-kitty {
-    animation:
-        distanceKitty
-        3.8s
-        ease-in-out
-        infinite;
-}
-
-@keyframes distanceKitty {
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0);
-    }
-
-    50% {
-        transform:
-            translateY(-9px)
-            rotate(-2deg);
+    75% {
+        opacity: .75;
     }
 }
 
@@ -468,20 +326,85 @@
    SECTION HEADING
    ========================================================= */
 
-.section-heading {
+.section-heading,
+.surprise-content-heading,
+.surprise-wishes-heading,
+.surprise-promises-heading {
     animation:
-        headingReveal
-        0.8s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+        sectionHeadingReveal .8s var(--ease-soft) both;
 }
 
-@keyframes headingReveal {
+@keyframes sectionHeadingReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   SECTION KICKER
+   ========================================================= */
+
+.section-kicker,
+.hero-kicker-text {
+    animation:
+        kickerFade .7s ease both;
+}
+
+@keyframes kickerFade {
+    from {
+        opacity: 0;
+        letter-spacing: .08em;
+    }
+
+    to {
+        opacity: 1;
+        letter-spacing: .18em;
+    }
+}
+
+
+/* =========================================================
+   MEMORY TIMELINE
+   ========================================================= */
+
+.memory-timeline-item {
+    animation:
+        timelineReveal .9s var(--ease-soft) both;
+}
+
+.memory-timeline-item:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.memory-timeline-item:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.memory-timeline-item:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.memory-timeline-item:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.memory-timeline-item:nth-child(5) {
+    animation-delay: .5s;
+}
+
+@keyframes timelineReveal {
     from {
         opacity: 0;
         transform:
-            translateY(18px)
-            scale(0.98);
+            translateY(45px)
+            scale(.97);
     }
 
     to {
@@ -494,87 +417,458 @@
 
 
 /* =========================================================
-   PROGRESS DOTS
+   TIMELINE MARKER
    ========================================================= */
 
-.page-progress-item > span,
-.home-progress-item > span {
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-}
-
-.page-progress-item:hover > span,
-.home-progress-item:hover > span {
-    transform:
-        scale(1.15);
-}
-
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-.footer-link {
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.footer-link:hover {
-    transform:
-        translateY(-2px);
-}
-
-
-/* =========================================================
-   PAGE TRANSITION
-   ========================================================= */
-
-.page-transition {
+.memory-timeline-marker {
     animation:
-        pageTransition
-        0.75s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+        markerPulse 3s ease-in-out infinite;
 }
 
-@keyframes pageTransition {
+@keyframes markerPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 12px 35px rgba(93,62,62,.12),
+            inset 0 1px 0 #fff;
+    }
+
+    50% {
+        box-shadow:
+            0 12px 42px rgba(168,104,122,.22),
+            0 0 0 7px rgba(231,184,196,.08),
+            inset 0 1px 0 #fff;
+    }
+}
+
+
+/* =========================================================
+   MEMORY CARD
+   ========================================================= */
+
+.memory-timeline-card,
+.memory-note,
+.memory-counter-card,
+.surprise-wish-card,
+.promise-card {
+    will-change: transform;
+}
+
+
+/* =========================================================
+   MEMORY CARD ICON
+   ========================================================= */
+
+.memory-card-icon,
+.wish-icon,
+.promise-icon,
+.forget-icon {
+    transition:
+        transform .4s var(--ease-bounce),
+        box-shadow .4s ease;
+}
+
+.memory-timeline-card:hover .memory-card-icon,
+.surprise-wish-card:hover .wish-icon,
+.promise-card:hover .promise-icon,
+.forget-item:hover .forget-icon {
+    transform:
+        translateY(-4px)
+        rotate(-6deg)
+        scale(1.08);
+
+    box-shadow:
+        0 10px 25px rgba(155,98,116,.14);
+}
+
+
+/* =========================================================
+   MEMORY KITTY ROW
+   ========================================================= */
+
+.memory-kitty-row {
+    animation:
+        kittyRowFloat 4s ease-in-out infinite;
+}
+
+@keyframes kittyRowFloat {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   MEMORY NOTES
+   ========================================================= */
+
+.memory-note {
+    animation:
+        noteAppear .8s var(--ease-soft) both;
+}
+
+.memory-note:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.memory-note:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.memory-note:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.memory-note:nth-child(4) {
+    animation-delay: .4s;
+}
+
+@keyframes noteAppear {
     from {
         opacity: 0;
         transform:
-            translateY(18px);
+            translateY(35px)
+            rotate(-1deg);
     }
 
     to {
         opacity: 1;
         transform:
-            translateY(0);
+            translateY(0)
+            rotate(0);
     }
 }
 
 
 /* =========================================================
-   PREMIUM PAGE CONTENT
-   Applies to About / Letter / Memories / Surprise
+   NOTE PIN
    ========================================================= */
 
-.page-content,
-.content-container,
-.page-container {
+.memory-note-pin {
     animation:
-        contentEntrance
-        0.9s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+        pinSwing 4s ease-in-out infinite;
+    transform-origin: top center;
 }
 
-@keyframes contentEntrance {
+@keyframes pinSwing {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    50% {
+        transform: rotate(7deg);
+    }
+}
+
+
+/* =========================================================
+   NEVER FORGET CARD
+   ========================================================= */
+
+.never-forget-card {
+    animation:
+        largeCardReveal 1s var(--ease-soft) both;
+}
+
+@keyframes largeCardReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(45px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   FORGET ITEMS
+   ========================================================= */
+
+.forget-item {
+    animation:
+        forgetItemReveal .7s var(--ease-soft) both;
+}
+
+.forget-item:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.forget-item:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.forget-item:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.forget-item:nth-child(4) {
+    animation-delay: .4s;
+}
+
+@keyframes forgetItemReveal {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* =========================================================
+   COUNTER CARDS
+   ========================================================= */
+
+.memory-counter-card {
+    animation:
+        counterAppear .7s var(--ease-soft) both;
+}
+
+.memory-counter-card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.memory-counter-card:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.memory-counter-card:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.memory-counter-card:nth-child(4) {
+    animation-delay: .4s;
+}
+
+@keyframes counterAppear {
+    from {
+        opacity: 0;
+        transform:
+            translateY(30px)
+            scale(.94);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   COUNTER ICON
+   ========================================================= */
+
+.memory-counter-icon {
+    animation:
+        iconBounce 3s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   FINAL MEMORY
+   ========================================================= */
+
+.final-memory-card {
+    animation:
+        finalCardReveal 1s var(--ease-soft) both;
+}
+
+@keyframes finalCardReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(50px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   FINAL MEMORY KITTY
+   ========================================================= */
+
+.final-memory-kitty,
+.memories-next-kitty,
+.surprise-final-kitty {
+    animation:
+        softKittyFloat 4s ease-in-out infinite;
+}
+
+@keyframes softKittyFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-7px) rotate(2deg);
+    }
+}
+
+
+/* =========================================================
+   MEMORIES ENDING
+   ========================================================= */
+
+.memories-ending-card {
+    animation:
+        endingReveal .9s var(--ease-soft) both;
+}
+
+@keyframes endingReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   ENDING KITTY ROW
+   ========================================================= */
+
+.ending-kitty-row span {
+    display: inline-block;
+    animation:
+        tinyKittyBounce 2.5s ease-in-out infinite;
+}
+
+.ending-kitty-row span:nth-child(2) {
+    animation-delay: -.4s;
+}
+
+.ending-kitty-row span:nth-child(3) {
+    animation-delay: -.8s;
+}
+
+@keyframes tinyKittyBounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================================================
+   NEXT CARD
+   ========================================================= */
+
+.memories-next-card {
+    animation:
+        nextCardReveal 1s var(--ease-soft) both;
+}
+
+@keyframes nextCardReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(45px)
+            scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   NEXT DECORATIONS
+   ========================================================= */
+
+.memories-next-decoration {
+    animation:
+        decorationFloat 5s ease-in-out infinite;
+}
+
+.memories-next-decoration--two {
+    animation-delay: -2.5s;
+}
+
+@keyframes decorationFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translateY(-10px)
+            rotate(7deg);
+    }
+}
+
+
+/* =========================================================
+   PREMIUM BUTTON
+   ========================================================= */
+
+.premium-button {
+    animation:
+        buttonAppear .8s var(--ease-bounce) both;
+}
+
+@keyframes buttonAppear {
     from {
         opacity: 0;
         transform:
             translateY(20px)
-            scale(0.99);
+            scale(.92);
     }
 
     to {
@@ -585,144 +879,188 @@
     }
 }
 
-
-/* =========================================================
-   PREMIUM CONTENT CARDS
-   ========================================================= */
-
-.letter-card,
-.memory-card,
-.about-card,
-.surprise-card,
-.content-card {
-    transition:
-        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.45s ease;
-}
-
-.letter-card:hover,
-.memory-card:hover,
-.about-card:hover,
-.surprise-card:hover,
-.content-card:hover {
+.premium-button:active {
     transform:
-        translateY(-6px);
+        translateY(-1px)
+        scale(.97);
 }
 
 
 /* =========================================================
-   SOFT 3D CONTAINER
+   BUTTON SHINE
    ========================================================= */
 
-.premium-card,
-.letter-card,
-.memory-card,
-.about-card,
-.surprise-card {
-    transform-style:
-        preserve-3d;
-
-    backface-visibility:
-        hidden;
-}
-
-
-/* =========================================================
-   PAPER / LETTER REVEAL
-   ========================================================= */
-
-.paper-reveal {
-    opacity:
-        0;
-
-    transform:
-        translateY(25px)
-        rotateX(-8deg)
-        scale(0.96);
-
-    transform-origin:
-        top center;
-
+.premium-button::before {
     animation:
-        paperReveal
-        1s
-        0.2s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
+        buttonShine 5s ease-in-out infinite;
+}
+
+@keyframes buttonShine {
+    0% {
+        transform: translateX(-130%);
+    }
+
+    25%,
+    100% {
+        transform: translateX(130%);
+    }
+}
+
+
+/* =========================================================
+   BUTTON ARROW
+   ========================================================= */
+
+.button-arrow {
+    animation:
+        arrowIdle 2.5s ease-in-out infinite;
+}
+
+@keyframes arrowIdle {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+}
+
+
+/* =========================================================
+   PAGE PROGRESS
+   ========================================================= */
+
+.page-progress {
+    animation:
+        progressAppear .8s var(--ease-soft) both;
+}
+
+@keyframes progressAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   PROGRESS ACTIVE ITEM
+   ========================================================= */
+
+.page-progress-item--active {
+    animation:
+        activeProgressPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes activeProgressPulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(205,132,151,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 5px rgba(205,132,151,.08);
+    }
+}
+
+
+/* =========================================================
+   SURPRISE PAPER
+   ========================================================= */
+
+.surprise-paper-preview {
+    animation:
+        paperReveal 1s var(--ease-soft) both;
 }
 
 @keyframes paperReveal {
     from {
         opacity: 0;
         transform:
-            translateY(25px)
-            rotateX(-8deg)
-            scale(0.96);
+            translateY(45px)
+            rotate(-2deg)
+            scale(.95);
     }
 
     to {
         opacity: 1;
         transform:
             translateY(0)
-            rotateX(0)
+            rotate(-.4deg)
             scale(1);
     }
 }
 
 
 /* =========================================================
-   LETTER PAPER FLOAT
+   PAPER PAW
    ========================================================= */
 
-.paper-float {
+.paper-top-paw {
     animation:
-        paperFloat
-        5s
-        ease-in-out
-        infinite;
+        paperPawFloat 3s ease-in-out infinite;
 }
 
-@keyframes paperFloat {
+@keyframes paperPawFloat {
     0%,
     100% {
-        transform:
-            translateY(0)
-            rotate(0deg);
+        transform: translateY(0);
     }
 
     50% {
-        transform:
-            translateY(-5px)
-            rotate(0.4deg);
+        transform: translateY(-6px);
     }
 }
 
 
 /* =========================================================
-   MEMORY IMAGE / CARD REVEAL
+   WISH CARDS
    ========================================================= */
 
-.memory-reveal {
-    opacity:
-        0;
-
-    transform:
-        translateY(30px)
-        scale(0.94);
-
+.surprise-wish-card {
     animation:
-        memoryReveal
-        0.9s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
+        wishReveal .8s var(--ease-soft) both;
 }
 
-@keyframes memoryReveal {
+.surprise-wish-card:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.surprise-wish-card:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.surprise-wish-card:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.surprise-wish-card:nth-child(4) {
+    animation-delay: .4s;
+}
+
+.surprise-wish-card:nth-child(5) {
+    animation-delay: .5s;
+}
+
+.surprise-wish-card:nth-child(6) {
+    animation-delay: .6s;
+}
+
+@keyframes wishReveal {
     from {
         opacity: 0;
         transform:
             translateY(30px)
-            scale(0.94);
+            scale(.96);
     }
 
     to {
@@ -735,266 +1073,53 @@
 
 
 /* =========================================================
-   MEMORY IMAGE HOVER
+   WISH NUMBER
    ========================================================= */
 
-.memory-image,
-.memory-card img {
+.wish-number {
     transition:
-        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.55s ease;
+        transform .35s ease,
+        color .35s ease;
 }
 
-.memory-card:hover .memory-image,
-.memory-card:hover img {
-    transform:
-        scale(1.035);
-}
-
-
-/* =========================================================
-   SURPRISE SECTION
-   ========================================================= */
-
-.surprise-stage {
-    perspective:
-        1200px;
+.surprise-wish-card:hover .wish-number {
+    transform: scale(1.15);
+    color: #ad7181;
 }
 
 
 /* =========================================================
-   GIFT BOX
+   PROMISE CARDS
    ========================================================= */
 
-.gift-box {
-    transform-style:
-        preserve-3d;
-
-    transition:
-        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-        filter 0.4s ease;
-}
-
-.gift-box:hover {
-    transform:
-        translateY(-8px)
-        rotateY(-4deg)
-        rotateX(2deg)
-        scale(1.025);
-
-    filter:
-        drop-shadow(
-            0 18px 25px
-            rgba(0, 0, 0, 0.12)
-        );
-}
-
-
-/* =========================================================
-   GIFT IDLE BOB
-   ========================================================= */
-
-.gift-box.gift-idle {
+.promise-card {
     animation:
-        giftIdle
-        3.5s
-        ease-in-out
-        infinite;
+        promiseReveal .8s var(--ease-soft) both;
 }
 
-@keyframes giftIdle {
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-    }
-
-    50% {
-        transform:
-            translateY(-7px)
-            rotate(1deg);
-    }
+.promise-card:nth-child(1) {
+    animation-delay: .1s;
 }
 
-
-/* =========================================================
-   GIFT OPEN
-   ========================================================= */
-
-.gift-box.is-opening {
-    animation:
-        giftOpen
-        0.8s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
+.promise-card:nth-child(2) {
+    animation-delay: .2s;
 }
 
-@keyframes giftOpen {
-    0% {
-        transform:
-            scale(1)
-            rotate(0);
-    }
-
-    35% {
-        transform:
-            scale(1.08)
-            rotate(-2deg);
-    }
-
-    65% {
-        transform:
-            scale(0.98)
-            rotate(2deg);
-    }
-
-    100% {
-        transform:
-            scale(1.03)
-            rotate(0);
-    }
+.promise-card:nth-child(3) {
+    animation-delay: .3s;
 }
 
-
-/* =========================================================
-   GIFT LID
-   ========================================================= */
-
-.gift-lid {
-    transform-origin:
-        center bottom;
-
-    transition:
-        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+.promise-card:nth-child(4) {
+    animation-delay: .4s;
 }
 
-.gift-box.is-open .gift-lid {
-    transform:
-        translateY(-35px)
-        rotateX(-55deg)
-        rotateZ(-2deg);
-}
-
-
-/* =========================================================
-   KITTY REVEAL
-   ========================================================= */
-
-.surprise-kitty {
-    opacity:
-        0;
-
-    transform:
-        translateY(35px)
-        scale(0.75);
-
-    transform-origin:
-        center bottom;
-}
-
-.surprise-kitty.is-visible {
-    animation:
-        kittyReveal
-        1s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
-}
-
-@keyframes kittyReveal {
-    0% {
-        opacity: 0;
-        transform:
-            translateY(35px)
-            scale(0.75);
-    }
-
-    60% {
-        opacity: 1;
-        transform:
-            translateY(-6px)
-            scale(1.04);
-    }
-
-    100% {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   KITTY CELEBRATION BOB
-   ========================================================= */
-
-.surprise-kitty.is-visible .kitty-character {
-    animation:
-        celebrationBob
-        3s
-        ease-in-out
-        0.9s
-        infinite;
-}
-
-@keyframes celebrationBob {
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(0deg);
-    }
-
-    50% {
-        transform:
-            translateY(-6px)
-            rotate(1deg);
-    }
-}
-
-
-/* =========================================================
-   KITTY PAPER / PROMISE
-   ========================================================= */
-
-.kitty-paper {
-    opacity:
-        0;
-
-    transform:
-        translateY(18px)
-        rotate(-2deg)
-        scale(0.92);
-
-    transform-origin:
-        center bottom;
-}
-
-.kitty-paper.is-visible {
-    animation:
-        paperPromiseReveal
-        0.9s
-        0.25s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
-}
-
-@keyframes paperPromiseReveal {
+@keyframes promiseReveal {
     from {
         opacity: 0;
         transform:
-            translateY(18px)
-            rotate(-2deg)
-            scale(0.92);
-    }
-
-    70% {
-        opacity: 1;
-        transform:
-            translateY(-3px)
+            translateY(35px)
             rotate(1deg)
-            scale(1.02);
+            scale(.96);
     }
 
     to {
@@ -1008,451 +1133,651 @@
 
 
 /* =========================================================
-   PAPER TEXT REVEAL
+   PROMISE PAW
    ========================================================= */
 
-.promise-text {
-    opacity:
-        0;
-
-    transform:
-        translateY(10px);
-
+.promise-card-paw {
     animation:
-        promiseTextReveal
-        0.7s
-        0.7s
-        ease
-        forwards;
+        promisePawFloat 3s ease-in-out infinite;
 }
 
-@keyframes promiseTextReveal {
-    to {
-        opacity: 1;
-        transform:
-            translateY(0);
+@keyframes promisePawFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(5deg);
     }
 }
 
 
 /* =========================================================
-   HEARTS AROUND SURPRISE
+   FINAL SURPRISE MESSAGE
    ========================================================= */
 
-.surprise-heart {
-    opacity:
-        0;
-
+.surprise-final-message {
     animation:
-        surpriseHeart
-        2.8s
-        ease-in-out
-        infinite;
+        surpriseFinalReveal 1s var(--ease-soft) both;
 }
 
-@keyframes surpriseHeart {
-    0%,
-    100% {
-        opacity: 0.55;
+@keyframes surpriseFinalReveal {
+    from {
+        opacity: 0;
+        transform:
+            translateY(50px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
         transform:
             translateY(0)
-            scale(0.92)
-            rotate(-4deg);
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   FINAL DECORATION
+   ========================================================= */
+
+.surprise-final-decoration {
+    animation:
+        finalDecorationPulse 3s ease-in-out infinite;
+}
+
+@keyframes finalDecorationPulse {
+    0%,
+    100% {
+        opacity: .55;
+        transform: scale(1);
     }
 
     50% {
         opacity: 1;
-        transform:
-            translateY(-12px)
-            scale(1.08)
-            rotate(5deg);
+        transform: scale(1.05);
     }
 }
 
 
 /* =========================================================
-   FLOATING HEART PARTICLES
+   GIFT STAGE
    ========================================================= */
 
-.floating-heart {
+.gift-stage {
     animation:
-        floatingHeart
-        4s
-        ease-in-out
-        infinite;
+        giftStageReveal 1s var(--ease-soft) both;
 }
 
-@keyframes floatingHeart {
-    0% {
+@keyframes giftStageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   GIFT MESSAGE
+   ========================================================= */
+
+.gift-message {
+    animation:
+        giftMessageReveal .9s var(--ease-soft) .2s both;
+}
+
+@keyframes giftMessageReveal {
+    from {
         opacity: 0;
         transform:
-            translateY(15px)
-            scale(0.7)
+            translateY(-20px)
+            scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   GIFT BOX
+   ========================================================= */
+
+.gift-box {
+    animation:
+        giftIdle 4s ease-in-out infinite;
+}
+
+@keyframes giftIdle {
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotateX(0)
+            rotateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-7px)
+            rotateX(1deg)
+            rotateY(-2deg);
+    }
+}
+
+
+/* =========================================================
+   GIFT HOVER
+   ========================================================= */
+
+.gift-box:hover {
+    animation-play-state: paused;
+}
+
+
+/* =========================================================
+   GIFT SHADOW
+   ========================================================= */
+
+.gift-shadow {
+    animation:
+        giftShadowPulse 4s ease-in-out infinite;
+}
+
+@keyframes giftShadowPulse {
+    0%,
+    100% {
+        opacity: .55;
+        transform:
+            translateX(-50%)
+            scaleX(1);
+    }
+
+    50% {
+        opacity: .35;
+        transform:
+            translateX(-50%)
+            scaleX(.88);
+    }
+}
+
+
+/* =========================================================
+   GIFT BOW
+   ========================================================= */
+
+.gift-bow {
+    animation:
+        bowFloat 4s ease-in-out infinite;
+}
+
+@keyframes bowFloat {
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
             rotate(0);
     }
 
-    20% {
+    50% {
+        transform:
+            translateX(-50%)
+            rotate(2deg);
+    }
+}
+
+
+/* =========================================================
+   BOW LEFT / RIGHT
+   ========================================================= */
+
+.bow-left {
+    animation:
+        bowLeftWiggle 3s ease-in-out infinite;
+}
+
+.bow-right {
+    animation:
+        bowRightWiggle 3s ease-in-out infinite;
+}
+
+@keyframes bowLeftWiggle {
+    0%,
+    100% {
+        transform: rotate(25deg);
+    }
+
+    50% {
+        transform: rotate(19deg);
+    }
+}
+
+@keyframes bowRightWiggle {
+    0%,
+    100% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(-19deg);
+    }
+}
+
+
+/* =========================================================
+   GIFT CLICK HINT
+   ========================================================= */
+
+.gift-click-hint {
+    animation:
+        hintFloat 2s ease-in-out infinite;
+}
+
+@keyframes hintFloat {
+    0%,
+    100% {
+        opacity: .55;
+        transform: translateY(0);
+    }
+
+    50% {
         opacity: 1;
+        transform: translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   KITTY REVEAL
+   ========================================================= */
+
+.surprise-kitty-reveal {
+    transition:
+        opacity .8s ease,
+        visibility .8s ease,
+        transform .8s var(--ease-soft);
+}
+
+
+/* =========================================================
+   KITTY FACE
+   ========================================================= */
+
+.kitty-face {
+    animation:
+        kittyFaceFloat 4s ease-in-out infinite;
+}
+
+@keyframes kittyFaceFloat {
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   KITTY EARS
+   ========================================================= */
+
+.kitty-ear--left {
+    animation:
+        leftEarWiggle 4s ease-in-out infinite;
+}
+
+.kitty-ear--right {
+    animation:
+        rightEarWiggle 4s ease-in-out infinite;
+}
+
+@keyframes leftEarWiggle {
+    0%,
+    85%,
+    100% {
+        transform: rotate(-18deg);
+    }
+
+    90% {
+        transform: rotate(-25deg);
+    }
+
+    95% {
+        transform: rotate(-14deg);
+    }
+}
+
+@keyframes rightEarWiggle {
+    0%,
+    85%,
+    100% {
+        transform: rotate(18deg);
+    }
+
+    90% {
+        transform: rotate(25deg);
+    }
+
+    95% {
+        transform: rotate(14deg);
+    }
+}
+
+
+/* =========================================================
+   KITTY EYES
+   ========================================================= */
+
+.kitty-eye {
+    animation:
+        kittyBlink 5s ease-in-out infinite;
+}
+
+@keyframes kittyBlink {
+    0%,
+    44%,
+    48%,
+    100% {
+        transform: scaleY(1);
+    }
+
+    46% {
+        transform: scaleY(.12);
+    }
+}
+
+
+/* =========================================================
+   KITTY CHEEKS
+   ========================================================= */
+
+.kitty-cheek {
+    animation:
+        cheekPulse 3s ease-in-out infinite;
+}
+
+@keyframes cheekPulse {
+    0%,
+    100% {
+        opacity: .55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .9;
+        transform: scale(1.08);
+    }
+}
+
+
+/* =========================================================
+   KITTY BODY
+   ========================================================= */
+
+.kitty-body {
+    animation:
+        kittyBodyFloat 4s ease-in-out infinite;
+}
+
+@keyframes kittyBodyFloat {
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            translateY(-4px);
+    }
+}
+
+
+/* =========================================================
+   KITTY PAWS
+   ========================================================= */
+
+.kitty-paw--left {
+    animation:
+        pawWaveLeft 3s ease-in-out infinite;
+    transform-origin: bottom right;
+}
+
+.kitty-paw--right {
+    animation:
+        pawWaveRight 3s ease-in-out infinite;
+    transform-origin: bottom left;
+}
+
+@keyframes pawWaveLeft {
+    0%,
+    70%,
+    100% {
+        transform: rotate(0);
     }
 
     80% {
-        opacity: 0.8;
+        transform: rotate(-12deg);
     }
 
-    100% {
-        opacity: 0;
-        transform:
-            translateY(-45px)
-            scale(1.1)
-            rotate(12deg);
+    90% {
+        transform: rotate(5deg);
     }
 }
 
-
-/* =========================================================
-   NEXT PAGE BUTTON ATTENTION
-   ========================================================= */
-
-.next-page-button {
-    animation:
-        nextButtonGlow
-        3s
-        ease-in-out
-        infinite;
-}
-
-@keyframes nextButtonGlow {
+@keyframes pawWaveRight {
     0%,
+    70%,
     100% {
-        box-shadow:
-            0 8px 24px
-            rgba(0, 0, 0, 0.08);
+        transform: rotate(0);
     }
 
-    50% {
-        box-shadow:
-            0 12px 32px
-            rgba(255, 170, 190, 0.22);
+    80% {
+        transform: rotate(12deg);
+    }
+
+    90% {
+        transform: rotate(-5deg);
     }
 }
 
 
 /* =========================================================
-   NEXT ARROW
+   KITTY PAPER
    ========================================================= */
 
-.next-page-button .arrow,
-.next-page-button .button-arrow {
-    display:
-        inline-block;
-
-    transition:
-        transform 0.3s ease;
-}
-
-.next-page-button:hover .arrow,
-.next-page-button:hover .button-arrow {
-    transform:
-        translateX(5px);
-}
-
-
-/* =========================================================
-   SCROLL INDICATOR
-   ========================================================= */
-
-.scroll-indicator {
+.kitty-paper {
     animation:
-        scrollIndicator
-        2s
-        ease-in-out
-        infinite;
+        kittyPaperFloat 4s ease-in-out infinite;
 }
 
-@keyframes scrollIndicator {
+@keyframes kittyPaperFloat {
     0%,
     100% {
         transform:
+            translateX(-50%)
+            rotate(-2deg)
             translateY(0);
-        opacity:
-            0.55;
     }
 
     50% {
         transform:
-            translateY(6px);
-        opacity:
-            1;
-    }
-}
-
-
-/* =========================================================
-   SOFT SPARKLE
-   ========================================================= */
-
-.sparkle {
-    animation:
-        sparkle
-        2.4s
-        ease-in-out
-        infinite;
-}
-
-@keyframes sparkle {
-    0%,
-    100% {
-        opacity:
-            0.35;
-
-        transform:
-            scale(0.8)
-            rotate(0deg);
-    }
-
-    50% {
-        opacity:
-            1;
-
-        transform:
-            scale(1.15)
-            rotate(18deg);
-    }
-}
-
-
-/* =========================================================
-   CONFETTI SUPPORT
-   ========================================================= */
-
-.confetti-piece {
-    position:
-        fixed;
-
-    pointer-events:
-        none;
-
-    z-index:
-        9999;
-
-    animation:
-        confettiFall
-        var(--confetti-duration, 2.8s)
-        cubic-bezier(0.15, 0.8, 0.25, 1)
-        forwards;
-}
-
-@keyframes confettiFall {
-    0% {
-        opacity:
-            1;
-
-        transform:
-            translate3d(
-                0,
-                -20px,
-                0
-            )
+            translateX(-50%)
             rotate(0deg)
-            scale(1);
-    }
-
-    100% {
-        opacity:
-            0;
-
-        transform:
-            translate3d(
-                var(--confetti-x, 0px),
-                var(--confetti-y, 100vh),
-                0
-            )
-            rotate(
-                var(--confetti-rotate, 720deg)
-            )
-            scale(0.85);
+            translateY(-5px);
     }
 }
 
 
 /* =========================================================
-   PAGE EXIT
+   KITTY PAPER TAPE
    ========================================================= */
 
-.page-exit {
+.kitty-paper-tape {
     animation:
-        pageExit
-        0.45s
-        cubic-bezier(0.4, 0, 1, 1)
-        forwards;
+        tapeSwing 3s ease-in-out infinite;
 }
 
-@keyframes pageExit {
-    from {
-        opacity:
-            1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-    to {
-        opacity:
-            0;
-
-        transform:
-            translateY(-12px)
-            scale(0.985);
-    }
-}
-
-
-/* =========================================================
-   LOADING CONTENT
-   ========================================================= */
-
-.loading-content {
-    animation:
-        loadingContent
-        0.8s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        both;
-}
-
-@keyframes loadingContent {
-    from {
-        opacity:
-            0;
-
-        transform:
-            translateY(12px)
-            scale(0.96);
-    }
-
-    to {
-        opacity:
-            1;
-
-        transform:
-            translateY(0)
-            scale(1);
-    }
-}
-
-
-/* =========================================================
-   LOADING KITTY
-   ========================================================= */
-
-.loading-kitty {
-    animation:
-        loadingKitty
-        1.4s
-        ease-in-out
-        infinite;
-}
-
-@keyframes loadingKitty {
+@keyframes tapeSwing {
     0%,
     100% {
         transform:
-            translateY(0)
-            scale(1);
+            translateX(-50%)
+            rotate(2deg);
     }
 
     50% {
         transform:
-            translateY(-8px)
-            scale(1.04);
+            translateX(-50%)
+            rotate(-2deg);
     }
 }
 
 
 /* =========================================================
-   LOADING DOTS
+   FOOTER
    ========================================================= */
 
-.loading-dot {
+.site-footer {
     animation:
-        loadingDots
-        1.2s
-        ease-in-out
-        infinite;
+        footerReveal 1s var(--ease-soft) both;
 }
 
-.loading-dot:nth-child(2) {
-    animation-delay:
-        0.15s;
+@keyframes footerReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.loading-dot:nth-child(3) {
-    animation-delay:
-        0.3s;
+
+/* =========================================================
+   FOOTER KITTY
+   ========================================================= */
+
+.footer-kitty {
+    animation:
+        footerKittyFloat 4s ease-in-out infinite;
 }
 
-@keyframes loadingDots {
+@keyframes footerKittyFloat {
     0%,
-    60%,
     100% {
-        transform:
-            translateY(0);
-        opacity:
-            0.45;
+        transform: translateY(0);
     }
 
-    30% {
-        transform:
-            translateY(-5px);
-        opacity:
-            1;
+    50% {
+        transform: translateY(-5px) rotate(3deg);
     }
 }
 
 
 /* =========================================================
-   CURSOR INTERACTION SUPPORT
+   FOOTER PAW DIVIDER
    ========================================================= */
 
-.cursor-hover {
+.footer-paw-divider {
+    animation:
+        dividerPulse 3s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+    0%,
+    100% {
+        opacity: .55;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+
+/* =========================================================
+   FOOTER LINKS
+   ========================================================= */
+
+.footer-link {
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform .3s var(--ease-bounce),
+        color .3s ease,
+        background .3s ease;
 }
 
-.cursor-hover:hover {
-    transform:
-        translateY(-2px)
-        scale(1.015);
+.footer-link:hover {
+    transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   TOUCH DEVICES
-   Prevent hover animations from causing weird mobile behavior
+   GLOW EFFECT
    ========================================================= */
 
-@media (hover: none) {
+.hero-title-accent,
+.final-memory-highlight,
+.memories-ending-highlight {
+    text-shadow:
+        0 5px 25px rgba(180,116,135,.12);
+}
 
-    .intro-feature-card:hover,
-    .journey-card:hover,
-    .home-final-card:hover,
-    .home-navigation-card:hover,
-    .home-next-card:hover,
-    .home-hero-card:hover {
-        transform:
-            none;
-    }
 
-    .premium-button:hover {
-        transform:
-            none;
-    }
+/* =========================================================
+   SOFT CARD GLOW
+   ========================================================= */
 
-    .gift-box:hover {
-        transform:
-            none;
-    }
+.memory-timeline-card:hover,
+.memory-note:hover,
+.never-forget-card:hover,
+.memory-counter-card:hover,
+.surprise-wish-card:hover,
+.promise-card:hover,
+.surprise-final-message:hover,
+.gift-message:hover {
+    transition:
+        transform .45s var(--ease-smooth),
+        box-shadow .45s ease;
+}
+
+
+/* =========================================================
+   IMAGE HOVER
+   ========================================================= */
+
+img {
+    transition:
+        transform .5s var(--ease-smooth),
+        filter .5s ease;
+}
+
+img:hover {
+    transform: scale(1.015);
 }
 
 
@@ -1460,87 +1785,52 @@
    MOBILE ANIMATION OPTIMIZATION
    ========================================================= */
 
-@media (max-width: 680px) {
+@media (max-width: 760px) {
 
-    .home-hero-content {
-        animation-name:
-            mobileHeroContent;
+    .memory-timeline-item,
+    .memory-note,
+    .forget-item,
+    .memory-counter-card,
+    .surprise-wish-card,
+    .promise-card {
+        animation-duration: .65s;
     }
 
-    .home-hero-card-wrapper {
-        animation-name:
-            mobileHeroCard;
+    .memory-timeline-card:hover,
+    .memory-note:hover,
+    .surprise-wish-card:hover,
+    .promise-card:hover {
+        transform: translateY(-4px);
     }
 
-    .paper-reveal {
-        transform:
-            translateY(18px)
-            scale(0.98);
-    }
-
-    .memory-reveal {
-        transform:
-            translateY(20px)
-            scale(0.97);
-    }
-}
-
-@keyframes mobileHeroContent {
-    from {
-        opacity:
-            0;
-
-        transform:
-            translateY(18px);
-    }
-
-    to {
-        opacity:
-            1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes mobileHeroCard {
-    from {
-        opacity:
-            0;
-
-        transform:
-            translateY(22px)
-            scale(0.96);
-    }
-
-    to {
-        opacity:
-            1;
-
-        transform:
-            translateY(0)
-            scale(1);
+    .gift-box {
+        animation-duration: 4.5s;
     }
 }
 
 
 /* =========================================================
-   VERY SMALL DEVICES
+   SMALL MOBILE
    ========================================================= */
 
-@media (max-width: 340px) {
+@media (max-width: 480px) {
 
-    .kitty-float,
-    .kitty-bob,
-    .heart-float,
-    .distance-message-kitty {
-        animation-duration:
-            4.5s;
+    .page-hero h1,
+    .memories-hero h1,
+    .about-hero h1,
+    .letter-hero h1 {
+        animation-duration: .8s;
     }
 
-    .gift-box.gift-idle {
-        animation-duration:
-            4s;
+    .memory-timeline-card:hover,
+    .memory-note:hover,
+    .surprise-wish-card:hover,
+    .promise-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .floating-paw {
+        animation: none;
     }
 }
 
@@ -1554,16 +1844,11 @@
     *,
     *::before,
     *::after {
-        animation-duration:
-            0.01ms !important;
+        animation-duration: .01ms !important;
+        animation-delay: 0ms !important;
+        animation-iteration-count: 1 !important;
 
-        animation-iteration-count:
-            1 !important;
-
-        scroll-behavior:
-            auto !important;
-
-        transition-duration:
-            0.01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
     }
 }
