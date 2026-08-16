@@ -1,216 +1,275 @@
 /* =========================================================
    KITTIES LITTLE WORLD
    ANIMATION.JS
-   Premium Page Animations
+   Premium scroll + entrance animations
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+(() => {
+    "use strict";
 
-    /* =====================================================
-       PAGE ENTER
-       ===================================================== */
-
-    document.body.classList.add("page-enter");
-
-
-    /* =====================================================
-       REVEAL OBSERVER
-       Automatically reveals elements when they enter view
-       ===================================================== */
-
-    const revealElements = document.querySelectorAll(
-        ".reveal, .intro-feature-card, .journey-card, " +
-        ".distance-message-card, .home-final-card, " +
-        ".home-navigation-card, .home-next-card"
-    );
-
-    if ("IntersectionObserver" in window) {
-
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach((entry) => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    entry.target.classList.add("is-visible");
-
-                    observer.unobserve(entry.target);
-                });
-
-            },
-            {
-                threshold: 0.12,
-                rootMargin: "0px 0px -40px 0px"
-            }
-        );
-
-        revealElements.forEach((element) => {
-
-            if (!element.classList.contains("reveal")) {
-                element.classList.add("reveal");
-            }
-
-            revealObserver.observe(element);
-
-        });
-
-    } else {
-
-        revealElements.forEach((element) => {
-            element.classList.add("is-visible");
-        });
-
-    }
-
-
-    /* =====================================================
-       STAGGER CARD ANIMATIONS
-       ===================================================== */
-
-    const cardGroups = [
-        ".intro-feature-card",
-        ".journey-card"
-    ];
-
-    cardGroups.forEach((selector) => {
-
-        const cards = document.querySelectorAll(selector);
-
-        cards.forEach((card, index) => {
-
-            card.style.setProperty(
-                "--animation-delay",
-                `${index * 0.08}s`
-            );
-
-            card.classList.add("stagger-card");
-
-        });
-
+    document.addEventListener("DOMContentLoaded", () => {
+        initScrollReveal();
+        initFloatingElements();
+        initCardHover();
+        initHeroAnimation();
+        initCounterAnimation();
     });
 
 
     /* =====================================================
-       SECTION HEADING OBSERVER
+       HELPERS
        ===================================================== */
 
-    const headings = document.querySelectorAll(
-        ".section-heading"
-    );
+    const $ = (selector, parent = document) =>
+        parent.querySelector(selector);
 
-    if ("IntersectionObserver" in window) {
+    const $$ = (selector, parent = document) =>
+        [...parent.querySelectorAll(selector)];
 
-        const headingObserver = new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach((entry) => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-                    entry.target.classList.add(
-                        "heading-visible"
-                    );
-
-                    observer.unobserve(entry.target);
-
-                });
-
-            },
-            {
-                threshold: 0.2
-            }
-        );
-
-        headings.forEach((heading) => {
-            headingObserver.observe(heading);
-        });
-
-    } else {
-
-        headings.forEach((heading) => {
-            heading.classList.add("heading-visible");
-        });
-
-    }
-
-
-    /* =====================================================
-       PREMIUM 3D CARD TILT
-       Desktop only
-       ===================================================== */
-
-    const tiltCards = document.querySelectorAll(
-        ".intro-feature-card, " +
-        ".journey-card, " +
-        ".home-hero-card, " +
-        ".home-final-card, " +
-        ".home-navigation-card, " +
-        ".home-next-card"
-    );
-
-    const canHover = window.matchMedia(
-        "(hover: hover) and (pointer: fine)"
+    const reduceMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (canHover) {
 
-        tiltCards.forEach((card) => {
+    /* =====================================================
+       SCROLL REVEAL
+       ===================================================== */
 
-            card.addEventListener("mousemove", (event) => {
+    function initScrollReveal() {
 
-                const rect = card.getBoundingClientRect();
+        const elements = $$(
+            `
+            .memory-timeline-card,
+            .memory-note,
+            .never-forget-card,
+            .memory-counter-card,
+            .final-memory-card,
+            .memories-ending-card,
+            .memories-next-card,
+            .surprise-paper-preview,
+            .surprise-wish-card,
+            .promise-card,
+            .surprise-final-message,
+            .gift-message
+            `
+        );
 
-                const x =
-                    event.clientX - rect.left;
+        if (!elements.length) return;
 
-                const y =
-                    event.clientY - rect.top;
 
-                const centerX =
-                    rect.width / 2;
+        elements.forEach((element, index) => {
 
-                const centerY =
-                    rect.height / 2;
+            element.classList.add("animation-reveal");
 
-                const rotateX =
-                    ((y - centerY) / centerY) * -2.5;
-
-                const rotateY =
-                    ((x - centerX) / centerX) * 2.5;
-
-                card.style.setProperty(
-                    "--tilt-x",
-                    `${rotateX}deg`
+            if (!reduceMotion) {
+                element.style.setProperty(
+                    "--animation-delay",
+                    `${Math.min(index * 70, 420)}ms`
                 );
+            }
 
-                card.style.setProperty(
-                    "--tilt-y",
-                    `${rotateY}deg`
+        });
+
+
+        if (
+            reduceMotion ||
+            !("IntersectionObserver" in window)
+        ) {
+
+            elements.forEach(element => {
+                element.classList.add(
+                    "animation-visible"
                 );
-
-                card.classList.add("is-tilting");
-
             });
 
+            return;
+        }
 
-            card.addEventListener("mouseleave", () => {
 
-                card.style.setProperty(
-                    "--tilt-x",
-                    "0deg"
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+                        entry.target.classList.add(
+                            "animation-visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    });
+
+                },
+                {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -50px 0px"
+                }
+            );
+
+
+        elements.forEach(element => {
+            observer.observe(element);
+        });
+
+    }
+
+
+    /* =====================================================
+       FLOATING ELEMENTS
+       ===================================================== */
+
+    function initFloatingElements() {
+
+        if (reduceMotion) return;
+
+
+        const floatingElements = $$(
+            `
+            .floating-paw,
+            .memories-next-decoration,
+            .never-forget-decoration,
+            .surprise-final-decoration
+            `
+        );
+
+
+        floatingElements.forEach(
+            (element, index) => {
+
+                element.classList.add(
+                    "animation-floating"
                 );
 
-                card.style.setProperty(
-                    "--tilt-y",
-                    "0deg"
+
+                element.style.setProperty(
+                    "--float-delay",
+                    `${index * -1.2}s`
                 );
 
-                card.classList.remove("is-tilting");
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       CARD HOVER
+       ===================================================== */
+
+    function initCardHover() {
+
+        if (
+            reduceMotion ||
+            window.matchMedia(
+                "(hover: none)"
+            ).matches
+        ) {
+            return;
+        }
+
+
+        const cards = $$(
+            `
+            .memory-timeline-card,
+            .memory-note,
+            .memory-counter-card,
+            .surprise-wish-card,
+            .promise-card
+            `
+        );
+
+
+        cards.forEach(card => {
+
+            card.addEventListener(
+                "mouseenter",
+                () => {
+
+                    card.classList.add(
+                        "animation-hover"
+                    );
+
+                }
+            );
+
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+
+                    card.classList.remove(
+                        "animation-hover"
+                    );
+
+                }
+            );
+
+        });
+
+    }
+
+
+    /* =====================================================
+       HERO ANIMATION
+       ===================================================== */
+
+    function initHeroAnimation() {
+
+        const heroElements = $$(
+            `
+            .page-hero > *,
+            .memories-hero > *,
+            .about-hero > *,
+            .letter-hero > *,
+            .surprise-hero-content > *
+            `
+        );
+
+
+        if (!heroElements.length) return;
+
+
+        heroElements.forEach(
+            (element, index) => {
+
+                element.classList.add(
+                    "hero-animation-item"
+                );
+
+
+                if (!reduceMotion) {
+
+                    element.style.setProperty(
+                        "--hero-delay",
+                        `${index * 120}ms`
+                    );
+
+                }
+
+            }
+        );
+
+
+        requestAnimationFrame(() => {
+
+            requestAnimationFrame(() => {
+
+                heroElements.forEach(
+                    element => {
+
+                        element.classList.add(
+                            "hero-animation-visible"
+                        );
+
+                    }
+                );
 
             });
 
@@ -220,201 +279,239 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       BUTTON PRESS EFFECT
+       COUNTER ANIMATION
        ===================================================== */
 
-    const buttons = document.querySelectorAll(
-        ".premium-button"
-    );
+    function initCounterAnimation() {
 
-    buttons.forEach((button) => {
-
-        button.addEventListener("pointerdown", () => {
-            button.classList.add("button-pressed");
-        });
-
-        button.addEventListener("pointerup", () => {
-            button.classList.remove("button-pressed");
-        });
-
-        button.addEventListener("pointercancel", () => {
-            button.classList.remove("button-pressed");
-        });
-
-        button.addEventListener("pointerleave", () => {
-            button.classList.remove("button-pressed");
-        });
-
-    });
+        const counters =
+            $$(".memory-counter-card strong");
 
 
-    /* =====================================================
-       NEXT PAGE BUTTON
-       Smooth transition before navigation
-       ===================================================== */
+        if (!counters.length) return;
 
-    const nextButtons = document.querySelectorAll(
-        "[data-next-page], .next-page-button"
-    );
 
-    nextButtons.forEach((button) => {
+        if (reduceMotion) return;
 
-        button.addEventListener("click", (event) => {
 
-            const destination =
-                button.getAttribute("href") ||
-                button.dataset.nextPage;
+        counters.forEach(counter => {
 
-            if (!destination) {
+            const original =
+                counter.textContent.trim();
+
+
+            const numberMatch =
+                original.match(
+                    /\d+(?:\.\d+)?/
+                );
+
+
+            if (!numberMatch) return;
+
+
+            const target =
+                Number(numberMatch[0]);
+
+
+            if (!Number.isFinite(target)) {
                 return;
             }
 
-            event.preventDefault();
 
-            document.body.classList.add(
-                "page-leaving"
-            );
+            const suffix =
+                original.replace(
+                    numberMatch[0],
+                    ""
+                );
 
-            setTimeout(() => {
 
-                window.location.href =
-                    destination;
+            counter.dataset.counterTarget =
+                target;
 
-            }, 450);
+
+            counter.dataset.counterSuffix =
+                suffix;
+
+
+            counter.textContent =
+                "0" + suffix;
 
         });
 
-    });
+
+        if (
+            !("IntersectionObserver" in window)
+        ) {
+
+            counters.forEach(counter => {
+
+                const target =
+                    Number(
+                        counter.dataset.counterTarget
+                    );
 
 
-    /* =====================================================
-       KITTY HOVER / TOUCH FEEDBACK
-       ===================================================== */
+                if (Number.isFinite(target)) {
 
-    const kitties = document.querySelectorAll(
-        ".kitty-float, " +
-        ".kitty-bob, " +
-        ".distance-message-kitty, " +
-        ".home-hero-card-kitty"
-    );
+                    counter.textContent =
+                        target +
+                        (
+                            counter.dataset.counterSuffix ||
+                            ""
+                        );
 
-    kitties.forEach((kitty) => {
-
-        kitty.addEventListener("mouseenter", () => {
-            kitty.classList.add("kitty-active");
-        });
-
-        kitty.addEventListener("mouseleave", () => {
-            kitty.classList.remove("kitty-active");
-        });
-
-    });
-
-
-    /* =====================================================
-       HEART FLOAT RANDOM DELAY
-       ===================================================== */
-
-    const floatingHearts = document.querySelectorAll(
-        ".heart-float"
-    );
-
-    floatingHearts.forEach((heart, index) => {
-
-        const delay =
-            (index * 0.35) % 2.5;
-
-        heart.style.animationDelay =
-            `${delay}s`;
-
-    });
-
-
-    /* =====================================================
-       PARALLAX EFFECT
-       Very subtle premium movement
-       ===================================================== */
-
-    const parallaxElements = document.querySelectorAll(
-        "[data-parallax]"
-    );
-
-    if (
-        parallaxElements.length &&
-        !window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        let ticking = false;
-
-        const updateParallax = () => {
-
-            const scrollY =
-                window.scrollY;
-
-            parallaxElements.forEach((element) => {
-
-                const speed =
-                    parseFloat(
-                        element.dataset.parallax
-                    ) || 0.08;
-
-                const movement =
-                    scrollY * speed;
-
-                element.style.transform =
-                    `translate3d(0, ${movement}px, 0)`;
+                }
 
             });
 
-            ticking = false;
-        };
+            return;
+        }
 
 
-        window.addEventListener(
-            "scroll",
-            () => {
+        const observer =
+            new IntersectionObserver(
+                entries => {
 
-                if (!ticking) {
+                    entries.forEach(entry => {
 
-                    window.requestAnimationFrame(
-                        updateParallax
-                    );
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
 
-                    ticking = true;
+
+                        animateCounter(
+                            entry.target
+                        );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    });
+
+                },
+                {
+                    threshold: 0.5
                 }
+            );
 
-            },
-            {
-                passive: true
+
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+
+    }
+
+
+    /* =====================================================
+       COUNTER ENGINE
+       ===================================================== */
+
+    function animateCounter(element) {
+
+        const target =
+            Number(
+                element.dataset.counterTarget
+            );
+
+
+        if (!Number.isFinite(target)) {
+            return;
+        }
+
+
+        const suffix =
+            element.dataset.counterSuffix ||
+            "";
+
+
+        const duration = 1200;
+
+        const startTime =
+            performance.now();
+
+
+        function update(currentTime) {
+
+            const elapsed =
+                currentTime -
+                startTime;
+
+
+            const progress =
+                Math.min(
+                    elapsed / duration,
+                    1
+                );
+
+
+            const eased =
+                1 -
+                Math.pow(
+                    1 - progress,
+                    3
+                );
+
+
+            const value =
+                Math.round(
+                    target * eased
+                );
+
+
+            element.textContent =
+                value + suffix;
+
+
+            if (progress < 1) {
+
+                requestAnimationFrame(
+                    update
+                );
+
             }
+
+        }
+
+
+        requestAnimationFrame(
+            update
         );
 
     }
 
 
     /* =====================================================
-       SCROLL TOP ON PAGE LOAD
+       PAGE VISIBILITY
        ===================================================== */
 
-    if ("scrollRestoration" in history) {
-        history.scrollRestoration = "manual";
-    }
+    document.addEventListener(
+        "visibilitychange",
+        () => {
 
-    window.scrollTo(0, 0);
+            if (reduceMotion) return;
 
 
-    /* =====================================================
-       PAGE READY
-       ===================================================== */
+            if (
+                document.visibilityState ===
+                "hidden"
+            ) {
 
-    requestAnimationFrame(() => {
+                document.body.classList.add(
+                    "page-hidden"
+                );
 
-        document.body.classList.add(
-            "animations-ready"
-        );
+            } else {
 
-    });
+                document.body.classList.remove(
+                    "page-hidden"
+                );
 
-});
+            }
+
+        }
+    );
+
+
+})();
