@@ -1,286 +1,340 @@
-/* =========================================================
-   KITTIES LITTLE WORLD
-   CURSOR.JS
-   Premium Kitty Cursor
-   ========================================================= */
+(() => {
+    "use strict";
 
-"use strict";
+    document.addEventListener("DOMContentLoaded", () => {
 
+        /* =====================================================
+           CUSTOM CURSOR
+           ===================================================== */
 
-/* =========================================================
-   CURSOR INITIALIZATION
-   ========================================================= */
+        const isTouchDevice =
+            window.matchMedia("(hover: none), (pointer: coarse)").matches;
 
-document.addEventListener("DOMContentLoaded", () => {
+        if (isTouchDevice) {
+            return;
+        }
 
-    initKittyCursor();
+        const cursor = document.createElement("div");
+        const cursorDot = document.createElement("div");
 
-});
+        cursor.className = "custom-cursor";
+        cursorDot.className = "custom-cursor-dot";
 
-
-/* =========================================================
-   MAIN CURSOR
-   ========================================================= */
-
-function initKittyCursor() {
-
-    /*
-     * Custom cursor is only useful on devices
-     * that actually have a fine pointer.
-     */
-
-    const finePointer =
-        window.matchMedia("(pointer: fine)");
-
-    if (!finePointer.matches) {
-        return;
-    }
+        document.body.appendChild(cursor);
+        document.body.appendChild(cursorDot);
 
 
-    /* Prevent duplicate cursor */
+        /* =====================================================
+           CURSOR POSITION
+           ===================================================== */
 
-    if (
-        document.querySelector(
-            ".kitty-cursor"
-        )
-    ) {
-        return;
-    }
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
 
-
-    /* Create cursor */
-
-    const cursor =
-        document.createElement("div");
-
-    cursor.className =
-        "kitty-cursor";
-
-    cursor.setAttribute(
-        "aria-hidden",
-        "true"
-    );
+        let cursorX = mouseX;
+        let cursorY = mouseY;
 
 
-    /* Inner glow */
+        document.addEventListener("mousemove", (event) => {
 
-    const cursorGlow =
-        document.createElement("span");
+            mouseX = event.clientX;
+            mouseY = event.clientY;
 
-    cursorGlow.className =
-        "kitty-cursor-glow";
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
 
-
-    /* Kitty face */
-
-    const cursorFace =
-        document.createElement("span");
-
-    cursorFace.className =
-        "kitty-cursor-face";
-
-    cursorFace.textContent =
-        "🐾";
+        });
 
 
-    cursor.appendChild(
-        cursorGlow
-    );
+        /* =====================================================
+           SMOOTH CURSOR
+           ===================================================== */
 
-    cursor.appendChild(
-        cursorFace
-    );
+        function animateCursor() {
 
-    document.body.appendChild(
-        cursor
-    );
+            cursorX += (mouseX - cursorX) * 0.18;
+            cursorY += (mouseY - cursorY) * 0.18;
 
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
 
-    /* =====================================================
-       CURSOR POSITION
-       ===================================================== */
+            requestAnimationFrame(animateCursor);
+        }
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-
-    let currentX = mouseX;
-    let currentY = mouseY;
+        animateCursor();
 
 
-    document.addEventListener(
-        "mousemove",
-        event => {
+        /* =====================================================
+           CLICK EFFECT
+           ===================================================== */
 
-            mouseX =
-                event.clientX;
+        document.addEventListener("click", (event) => {
 
-            mouseY =
-                event.clientY;
-
-            cursor.classList.add(
-                "is-visible"
+            createClickEffect(
+                event.clientX,
+                event.clientY
             );
 
-        },
-        {
-            passive: true
+        });
+
+
+        function createClickEffect(x, y) {
+
+            const effect = document.createElement("span");
+
+            effect.className = "cursor-click-effect";
+
+            effect.textContent = "♡";
+
+            effect.style.left = `${x}px`;
+            effect.style.top = `${y}px`;
+
+            document.body.appendChild(effect);
+
+            setTimeout(() => {
+                effect.remove();
+            }, 700);
+
         }
-    );
 
 
-    /* =====================================================
-       SMOOTH MOVEMENT
-       ===================================================== */
+        /* =====================================================
+           INTERACTIVE ELEMENTS
+           ===================================================== */
 
-    function animateCursor() {
-
-        currentX +=
-            (mouseX - currentX) * 0.18;
-
-        currentY +=
-            (mouseY - currentY) * 0.18;
-
-        cursor.style.transform =
-            `translate3d(
-                ${currentX}px,
-                ${currentY}px,
-                0
-            ) translate(-50%, -50%)`;
-
-        requestAnimationFrame(
-            animateCursor
+        const interactiveElements = document.querySelectorAll(
+            `
+            a,
+            button,
+            input,
+            textarea,
+            select,
+            .gift-box,
+            .premium-button,
+            .navigation-link,
+            .mobile-menu-button
+            `
         );
 
-    }
 
-    animateCursor();
+        interactiveElements.forEach((element) => {
 
+            element.addEventListener("mouseenter", () => {
 
-    /* =====================================================
-       CLICK EFFECT
-       ===================================================== */
+                cursor.classList.add("cursor-hover");
+                cursorDot.classList.add("cursor-dot-hover");
 
-    document.addEventListener(
-        "mousedown",
-        () => {
-
-            cursor.classList.add(
-                "is-clicking"
-            );
-
-        }
-    );
+            });
 
 
-    document.addEventListener(
-        "mouseup",
-        () => {
+            element.addEventListener("mouseleave", () => {
 
-            cursor.classList.remove(
-                "is-clicking"
-            );
+                cursor.classList.remove("cursor-hover");
+                cursorDot.classList.remove("cursor-dot-hover");
 
-        }
-    );
+            });
+
+        });
 
 
-    /* =====================================================
-       INTERACTIVE ELEMENTS
-       ===================================================== */
+        /* =====================================================
+           MOUSE DOWN
+           ===================================================== */
 
-    const interactiveSelector =
-        [
-            "a",
-            "button",
-            "input",
-            "textarea",
-            "select",
-            ".premium-button",
-            ".mobile-menu-button",
-            ".intro-feature-card",
-            ".journey-card",
-            ".home-final-card",
-            ".home-navigation-card",
-            ".home-next-card"
-        ].join(",");
+        document.addEventListener("mousedown", () => {
+
+            cursor.classList.add("cursor-clicking");
+
+        });
 
 
-    document.addEventListener(
-        "mouseover",
-        event => {
+        document.addEventListener("mouseup", () => {
 
-            const target =
-                event.target.closest(
-                    interactiveSelector
-                );
+            cursor.classList.remove("cursor-clicking");
 
-            if (!target) {
-                return;
+        });
+
+
+        /* =====================================================
+           WINDOW LEAVE
+           ===================================================== */
+
+        document.addEventListener("mouseleave", () => {
+
+            cursor.classList.add("cursor-hidden");
+            cursorDot.classList.add("cursor-hidden");
+
+        });
+
+
+        document.addEventListener("mouseenter", () => {
+
+            cursor.classList.remove("cursor-hidden");
+            cursorDot.classList.remove("cursor-hidden");
+
+        });
+
+
+        /* =====================================================
+           CURSOR CSS
+           ===================================================== */
+
+        const cursorStyle = document.createElement("style");
+
+        cursorStyle.textContent = `
+
+            .custom-cursor {
+                position: fixed;
+                z-index: 99999;
+
+                width: 34px;
+                height: 34px;
+
+                pointer-events: none;
+
+                border: 1.5px solid rgba(173, 111, 130, .65);
+
+                border-radius: 50%;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(1);
+
+                transition:
+                    width .25s ease,
+                    height .25s ease,
+                    border-color .25s ease,
+                    background .25s ease,
+                    opacity .25s ease;
+
+                box-shadow:
+                    0 5px 20px rgba(110, 70, 80, .12);
+
+                backdrop-filter: blur(2px);
             }
 
-            cursor.classList.add(
-                "is-hovering"
-            );
 
-        }
-    );
+            .custom-cursor-dot {
+                position: fixed;
+                z-index: 100000;
 
+                width: 6px;
+                height: 6px;
 
-    document.addEventListener(
-        "mouseout",
-        event => {
+                pointer-events: none;
 
-            const target =
-                event.target.closest(
-                    interactiveSelector
-                );
+                border-radius: 50%;
 
-            if (!target) {
-                return;
+                background: #ad7182;
+
+                transform:
+                    translate(-50%, -50%);
+
+                transition:
+                    width .2s ease,
+                    height .2s ease,
+                    opacity .2s ease;
+
+                box-shadow:
+                    0 2px 8px rgba(100, 60, 70, .2);
             }
 
-            cursor.classList.remove(
-                "is-hovering"
-            );
 
-        }
-    );
+            .custom-cursor.cursor-hover {
+                width: 48px;
+                height: 48px;
 
+                background: rgba(247, 223, 228, .25);
 
-    /* =====================================================
-       LEAVE WINDOW
-       ===================================================== */
-
-    document.addEventListener(
-        "mouseleave",
-        () => {
-
-            cursor.classList.remove(
-                "is-visible"
-            );
-
-        }
-    );
+                border-color: rgba(169, 105, 123, .8);
+            }
 
 
-    document.addEventListener(
-        "mouseenter",
-        () => {
-
-            cursor.classList.add(
-                "is-visible"
-            );
-
-        }
-    );
+            .custom-cursor-dot.cursor-dot-hover {
+                width: 8px;
+                height: 8px;
+            }
 
 
-    /* =====================================================
-       POINTER CHANGE
-       ===================================================== */
+            .custom-cursor.cursor-clicking {
+                width: 25px;
+                height: 25px;
 
-    document.documentElement.classList.add(
-        "has-kitty-cursor"
-    );
+                background: rgba(231, 174, 190, .22);
+            }
 
-}
+
+            .custom-cursor.cursor-hidden,
+            .custom-cursor-dot.cursor-hidden {
+                opacity: 0;
+            }
+
+
+            .cursor-click-effect {
+                position: fixed;
+                z-index: 99998;
+
+                pointer-events: none;
+
+                color: #bd7f91;
+
+                font-size: 20px;
+                line-height: 1;
+
+                transform:
+                    translate(-50%, -50%)
+                    scale(.5);
+
+                animation:
+                    cursorHeartPop .7s
+                    cubic-bezier(.2,.8,.2,1)
+                    forwards;
+            }
+
+
+            @keyframes cursorHeartPop {
+
+                0% {
+                    opacity: 0;
+                    transform:
+                        translate(-50%, -50%)
+                        scale(.3)
+                        rotate(-10deg);
+                }
+
+                20% {
+                    opacity: 1;
+                }
+
+                100% {
+                    opacity: 0;
+
+                    transform:
+                        translate(
+                            -50%,
+                            calc(-50% - 35px)
+                        )
+                        scale(1.25)
+                        rotate(8deg);
+                }
+
+            }
+
+
+            @media (hover: none), (pointer: coarse) {
+
+                .custom-cursor,
+                .custom-cursor-dot,
+                .cursor-click-effect {
+                    display: none !important;
+                }
+
+            }
+
+        `;
+
+        document.head.appendChild(cursorStyle);
+
+    });
+
+})();
