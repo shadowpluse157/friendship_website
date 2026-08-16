@@ -1,422 +1,410 @@
-/* =========================================================
-   KITTIES LITTLE WORLD
-   LOADING.JS
-   Premium Kitty Page Loader
-   ========================================================= */
-
-(function () {
+(() => {
     "use strict";
 
+    document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       CONFIG
-       ===================================================== */
+        /* =====================================================
+           LOADING SCREEN
+           ===================================================== */
 
-    const MINIMUM_LOADING_TIME = 650;
-    const MAXIMUM_LOADING_TIME = 2200;
+        const loader = document.createElement("div");
 
+        loader.className = "page-loader";
 
-    /* =====================================================
-       LOADER SELECTORS
-       ===================================================== */
+        loader.innerHTML = `
+            <div class="loader-content">
 
-    const SELECTORS = {
-        loader: [
-            "#page-loader",
-            ".page-loader",
-            ".loading-screen",
-            ".site-loader"
-        ],
+                <div class="loader-kitty">
+                    🐱
+                </div>
 
-        loadingContent: [
-            ".loading-content"
-        ],
+                <div class="loader-paw-row">
+                    <span>🐾</span>
+                    <span>🐾</span>
+                    <span>🐾</span>
+                </div>
 
-        loadingKitty: [
-            ".loading-kitty"
-        ]
-    };
+                <div class="loader-title">
+                    Kitties Little World
+                </div>
 
+                <div class="loader-subtitle">
+                    preparing something cute...
+                </div>
 
-    /* =====================================================
-       FIND FIRST MATCH
-       ===================================================== */
+                <div class="loader-progress">
+                    <div class="loader-progress-bar"></div>
+                </div>
 
-    function findElement(selectors) {
+                <div class="loader-percent">
+                    0%
+                </div>
 
-        for (
-            let i = 0;
-            i < selectors.length;
-            i++
-        ) {
+            </div>
+        `;
 
-            const element =
-                document.querySelector(
-                    selectors[i]
-                );
-
-            if (element) {
-                return element;
-            }
-        }
-
-        return null;
-    }
+        document.body.prepend(loader);
 
 
-    /* =====================================================
-       GET LOADER
-       ===================================================== */
+        /* =====================================================
+           LOADER STYLE
+           ===================================================== */
 
-    function getLoader() {
+        const style = document.createElement("style");
 
-        return findElement(
-            SELECTORS.loader
-        );
-    }
+        style.textContent = `
 
+            .page-loader {
+                position: fixed;
+                inset: 0;
 
-    /* =====================================================
-       HIDE LOADER
-       ===================================================== */
+                z-index: 999999;
 
-    function hideLoader() {
+                display: grid;
+                place-items: center;
 
-        const loader =
-            getLoader();
-
-        if (!loader) {
-            return;
-        }
-
-
-        /* Prevent duplicate execution */
-
-        if (
-            loader.dataset.loadingHidden ===
-            "true"
-        ) {
-            return;
-        }
-
-
-        loader.dataset.loadingHidden =
-            "true";
-
-
-        loader.classList.add(
-            "is-loaded"
-        );
-
-
-        loader.classList.add(
-            "fade-out"
-        );
-
-
-        /* Remove after transition */
-
-        window.setTimeout(
-            function () {
-
-                if (
-                    loader &&
-                    loader.parentNode
-                ) {
-
-                    loader.setAttribute(
-                        "aria-hidden",
-                        "true"
+                background:
+                    radial-gradient(
+                        circle at 20% 20%,
+                        rgba(247, 205, 215, .55),
+                        transparent 32%
+                    ),
+                    radial-gradient(
+                        circle at 80% 25%,
+                        rgba(216, 204, 232, .5),
+                        transparent 34%
+                    ),
+                    linear-gradient(
+                        135deg,
+                        #fffaf6,
+                        #f7efe8,
+                        #f3e9e4
                     );
 
-                    loader.style.pointerEvents =
-                        "none";
+                opacity: 1;
+                visibility: visible;
 
-                    loader.style.visibility =
-                        "hidden";
+                transition:
+                    opacity .8s ease,
+                    visibility .8s ease;
+            }
 
+
+            .page-loader.loader-hidden {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+
+            .loader-content {
+                width: min(90%, 430px);
+
+                padding: 45px 30px;
+
+                text-align: center;
+
+                border-radius: 35px;
+
+                background:
+                    linear-gradient(
+                        145deg,
+                        rgba(255,255,255,.82),
+                        rgba(255,247,243,.65)
+                    );
+
+                border: 1px solid rgba(130,95,95,.1);
+
+                box-shadow:
+                    0 30px 80px rgba(77,52,52,.12),
+                    inset 0 1px 0 rgba(255,255,255,.95);
+
+                backdrop-filter: blur(18px);
+                -webkit-backdrop-filter: blur(18px);
+            }
+
+
+            .loader-kitty {
+                font-size: 4rem;
+
+                line-height: 1;
+
+                animation:
+                    loaderKitty 1.6s
+                    ease-in-out
+                    infinite;
+            }
+
+
+            @keyframes loaderKitty {
+
+                0%,
+                100% {
+                    transform:
+                        translateY(0)
+                        rotate(-3deg);
                 }
 
-            },
-            700
-        );
-    }
+                50% {
+                    transform:
+                        translateY(-10px)
+                        rotate(3deg);
+                }
+
+            }
 
 
-    /* =====================================================
-       SHOW LOADER
-       ===================================================== */
+            .loader-paw-row {
+                display: flex;
 
-    function showLoader() {
+                justify-content: center;
 
-        const loader =
-            getLoader();
+                gap: 12px;
 
-        if (!loader) {
-            return;
-        }
+                margin-top: 18px;
 
+                color: #bd7f91;
 
-        loader.classList.remove(
-            "is-loaded"
-        );
-
-        loader.classList.remove(
-            "fade-out"
-        );
+                font-size: 1rem;
+            }
 
 
-        loader.removeAttribute(
-            "aria-hidden"
-        );
+            .loader-paw-row span {
+                display: inline-block;
+
+                opacity: .35;
+
+                animation:
+                    pawLoading 1.4s
+                    ease-in-out
+                    infinite;
+            }
 
 
-        loader.style.visibility =
-            "visible";
-
-        loader.style.pointerEvents =
-            "auto";
-
-    }
+            .loader-paw-row span:nth-child(1) {
+                animation-delay: 0s;
+            }
 
 
-    /* =====================================================
-       PREPARE LOADER
-       ===================================================== */
-
-    function prepareLoader() {
-
-        const loader =
-            getLoader();
-
-        if (!loader) {
-            return;
-        }
+            .loader-paw-row span:nth-child(2) {
+                animation-delay: .18s;
+            }
 
 
-        loader.setAttribute(
-            "aria-live",
-            "polite"
-        );
+            .loader-paw-row span:nth-child(3) {
+                animation-delay: .36s;
+            }
 
 
-        loader.setAttribute(
-            "role",
-            "status"
-        );
+            @keyframes pawLoading {
+
+                0%,
+                100% {
+                    opacity: .3;
+                    transform: translateY(0);
+                }
+
+                50% {
+                    opacity: 1;
+                    transform: translateY(-5px);
+                }
+
+            }
 
 
-        const content =
-            findElement(
-                SELECTORS.loadingContent
-            );
+            .loader-title {
+                margin-top: 18px;
+
+                color: #574444;
+
+                font-family:
+                    "Playfair Display",
+                    serif;
+
+                font-size: 1.45rem;
+
+                font-weight: 700;
+            }
 
 
-        if (content) {
+            .loader-subtitle {
+                margin-top: 6px;
 
-            content.classList.add(
-                "loading-content"
-            );
+                color: #927b7b;
 
-        }
+                font-size: .78rem;
 
-
-        const kitty =
-            findElement(
-                SELECTORS.loadingKitty
-            );
+                letter-spacing: .04em;
+            }
 
 
-        if (kitty) {
+            .loader-progress {
+                position: relative;
 
-            kitty.classList.add(
-                "loading-kitty"
-            );
+                width: 100%;
+                height: 7px;
 
-        }
+                margin-top: 25px;
 
-    }
+                overflow: hidden;
 
+                border-radius: 999px;
 
-    /* =====================================================
-       PAGE READY
-       ===================================================== */
-
-    function pageReady() {
-
-        const startTime =
-            window.KittiesLoadingStart ||
-            performance.now();
+                background:
+                    rgba(188,137,150,.14);
+            }
 
 
-        const elapsed =
-            performance.now() -
-            startTime;
+            .loader-progress-bar {
+                width: 0%;
+                height: 100%;
 
+                border-radius: inherit;
 
-        const remaining =
-            Math.max(
-                0,
-                MINIMUM_LOADING_TIME -
-                elapsed
-            );
-
-
-        window.setTimeout(
-            function () {
-
-                hideLoader();
-
-                document.documentElement
-                    .classList.add(
-                        "page-ready"
+                background:
+                    linear-gradient(
+                        90deg,
+                        #dca8b5,
+                        #b9798c
                     );
 
-                document.body
-                    .classList.add(
-                        "page-ready"
-                    );
+                box-shadow:
+                    0 3px 12px rgba(185,121,140,.25);
 
-            },
-            remaining
-        );
-
-    }
-
-
-    /* =====================================================
-       MAXIMUM SAFETY TIMEOUT
-       Prevents loader from getting stuck
-       ===================================================== */
-
-    function safetyTimeout() {
-
-        window.setTimeout(
-            function () {
-
-                hideLoader();
-
-            },
-            MAXIMUM_LOADING_TIME
-        );
-
-    }
-
-
-    /* =====================================================
-       PAGE LOAD START
-       ===================================================== */
-
-    window.KittiesLoadingStart =
-        performance.now();
-
-
-    /* =====================================================
-       DOM READY
-       ===================================================== */
-
-    if (
-        document.readyState ===
-        "loading"
-    ) {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-                prepareLoader();
-                showLoader();
-                safetyTimeout();
-
-            },
-            {
-                once: true
+                transition:
+                    width .15s ease;
             }
-        );
-
-    } else {
-
-        prepareLoader();
-        showLoader();
-        safetyTimeout();
-
-    }
 
 
-    /* =====================================================
-       WINDOW LOAD
-       Wait for images / fonts / page assets
-       ===================================================== */
+            .loader-percent {
+                margin-top: 10px;
 
-    if (
-        document.readyState ===
-        "complete"
-    ) {
+                color: #a56d7d;
 
-        pageReady();
+                font-size: .72rem;
 
-    } else {
+                font-weight: 700;
 
-        window.addEventListener(
-            "load",
-            pageReady,
-            {
-                once: true
+                letter-spacing: .08em;
             }
-        );
-
-    }
 
 
-    /* =====================================================
-       PAGE VISIBILITY SUPPORT
-       ===================================================== */
+            @media (max-width: 480px) {
 
-    document.addEventListener(
-        "visibilitychange",
-        function () {
+                .loader-content {
+                    width: calc(100% - 30px);
+
+                    padding:
+                        38px 22px;
+
+                    border-radius: 28px;
+                }
+
+
+                .loader-kitty {
+                    font-size: 3.5rem;
+                }
+
+
+                .loader-title {
+                    font-size: 1.2rem;
+                }
+
+            }
+
+        `;
+
+        document.head.appendChild(style);
+
+
+        /* =====================================================
+           LOADING PROGRESS
+           ===================================================== */
+
+        const progressBar =
+            loader.querySelector(".loader-progress-bar");
+
+        const percentText =
+            loader.querySelector(".loader-percent");
+
+        let progress = 0;
+
+        const progressInterval = setInterval(() => {
+
+            progress += Math.floor(
+                Math.random() * 7
+            ) + 2;
+
+            if (progress >= 92) {
+                progress = 92;
+                clearInterval(progressInterval);
+            }
+
+            progressBar.style.width = `${progress}%`;
+            percentText.textContent = `${progress}%`;
+
+        }, 100);
+
+
+        /* =====================================================
+           PAGE FULLY LOADED
+           ===================================================== */
+
+        const finishLoading = () => {
+
+            clearInterval(progressInterval);
+
+            progress = 100;
+
+            progressBar.style.width = "100%";
+            percentText.textContent = "100%";
+
+
+            setTimeout(() => {
+
+                loader.classList.add("loader-hidden");
+
+                setTimeout(() => {
+
+                    loader.remove();
+
+                }, 900);
+
+            }, 350);
+
+        };
+
+
+        if (document.readyState === "complete") {
+
+            setTimeout(finishLoading, 500);
+
+        } else {
+
+            window.addEventListener(
+                "load",
+                finishLoading,
+                { once: true }
+            );
+
+        }
+
+
+        /* =====================================================
+           FAIL-SAFE
+           ===================================================== */
+
+        setTimeout(() => {
 
             if (
-                document.visibilityState ===
-                "visible"
+                document.body.contains(loader) &&
+                !loader.classList.contains("loader-hidden")
             ) {
-
-                const loader =
-                    getLoader();
-
-                if (
-                    loader &&
-                    loader.dataset.loadingHidden !==
-                    "true"
-                ) {
-
-                    pageReady();
-
-                }
-
+                finishLoading();
             }
 
-        }
-    );
+        }, 8000);
 
-
-    /* =====================================================
-       GLOBAL LOADING API
-       Other JS files can use this
-       ===================================================== */
-
-    window.KittiesLoading = {
-
-        show:
-            showLoader,
-
-        hide:
-            hideLoader,
-
-        ready:
-            pageReady
-
-    };
-
+    });
 
 })();
