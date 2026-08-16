@@ -1,1186 +1,666 @@
 /* =========================================================
    KITTIES LITTLE WORLD
-   RESPONSIVE.CSS
+   PREMIUM 3D CAT-THEME — RESPONSIVE.JS
+   Works with the provided style.css
    ========================================================= */
 
+(() => {
+    "use strict";
 
-/* =========================================================
-   LARGE TABLETS / SMALL LAPTOPS
-   ========================================================= */
+    /* =====================================================
+       DOM READY
+       ===================================================== */
 
-@media (max-width: 1100px) {
+    document.addEventListener("DOMContentLoaded", () => {
+        initMobileMenu();
+        initMobileMenuClose();
+        initActiveNavigation();
+        initHeaderScroll();
+        initScrollReveal();
+        initCardTilt();
+        initHeroParallax();
+        initResponsiveGift();
+        initTouchSupport();
+        initViewportHeight();
+        initKeyboardNavigation();
+        initReducedMotion();
+        initResizeHandler();
+    });
 
-    .home-hero {
-        grid-template-columns:
-            minmax(0, 1fr)
-            minmax(280px, 0.65fr);
 
-        gap:
-            45px;
-    }
+    /* =====================================================
+       HELPERS
+       ===================================================== */
 
-    .home-journey-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
+    const $ = (selector, parent = document) =>
+        parent.querySelector(selector);
 
-    .intro-feature-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
+    const $$ = (selector, parent = document) =>
+        [...parent.querySelectorAll(selector)];
 
-    .intro-feature-card:last-child {
-        grid-column:
-            1 / -1;
+    const isMobile = () =>
+        window.matchMedia("(max-width: 760px)").matches;
 
-        max-width:
-            520px;
+    const prefersReducedMotion = () =>
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-        width:
-            100%;
 
-        margin:
-            0 auto;
-    }
+    /* =====================================================
+       MOBILE MENU
+       ===================================================== */
 
-    .content-container,
-    .page-container {
-        width:
-            min(
-                calc(100% - 60px),
-                var(--container-width)
-            );
-    }
-}
+    function initMobileMenu() {
+        const menuButton = $(".mobile-menu-button");
+        const navLinks = $(".navigation-links");
 
+        if (!menuButton || !navLinks) return;
 
-/* =========================================================
-   TABLETS
-   ========================================================= */
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open navigation menu");
 
-@media (max-width: 850px) {
+        menuButton.addEventListener("click", () => {
+            const isOpen =
+                navLinks.classList.toggle("navigation-links--open");
 
-    /* ---------- GLOBAL ---------- */
+            menuButton.classList.toggle("mobile-menu-button--open", isOpen);
 
-    .content-container,
-    .page-container {
-        width:
-            calc(100% - 40px);
-    }
-
-    /* ---------- HEADER ---------- */
-
-    .site-header {
-        padding:
-            10px 20px;
-    }
-
-    .main-navigation {
-        min-height:
-            58px;
-    }
-
-    .navigation-links {
-        gap:
-            2px;
-    }
-
-    .navigation-link {
-        padding:
-            8px 10px;
-
-        font-size:
-            11px;
-    }
-
-
-    /* ---------- HERO ---------- */
-
-    .home-hero {
-        min-height:
-            auto;
-
-        padding:
-            75px 0
-            80px;
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            55px;
-    }
-
-    .home-hero-content {
-        max-width:
-            720px;
-    }
-
-    .home-hero-card-wrapper {
-        order:
-            2;
-    }
-
-    .home-hero-card {
-        transform:
-            rotate(0);
-    }
-
-    .home-hero-card:hover {
-        transform:
-            translateY(-5px);
-    }
-
-
-    /* ---------- GENERAL PAGE CONTENT ---------- */
-
-    .page-hero,
-    .about-hero,
-    .letter-hero,
-    .memories-hero,
-    .surprise-hero {
-        min-height:
-            auto;
-
-        padding:
-            70px 0;
-    }
-
-    .page-content,
-    .about-content,
-    .letter-content,
-    .memories-content,
-    .surprise-content {
-        max-width:
-            760px;
-
-        margin:
-            0 auto;
-    }
-
-
-    /* ---------- INTRO ---------- */
-
-    .home-introduction {
-        padding:
-            75px 0
-            80px;
-    }
-
-    .intro-feature-grid {
-        margin-top:
-            40px;
-    }
-
-
-    /* ---------- DISTANCE ---------- */
-
-    .distance-message-section {
-        padding:
-            20px 0
-            80px;
-    }
-
-    .distance-message-card {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            20px;
-
-        padding:
-            40px 30px;
-    }
-
-
-    /* ---------- JOURNEY ---------- */
-
-    .home-journey-section {
-        padding:
-            35px 0
-            80px;
-    }
-
-    .home-journey-grid {
-        margin-top:
-            40px;
-    }
-
-
-    /* ---------- LETTER ---------- */
-
-    .letter-card,
-    .letter-paper,
-    .letter-container {
-        padding:
-            45px 38px;
-    }
-
-
-    /* ---------- MEMORIES ---------- */
-
-    .memories-grid,
-    .memory-grid {
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-
-        gap:
-            18px;
-    }
-
-
-    /* ---------- SURPRISE ---------- */
-
-    .surprise-gift {
-        max-width:
-            390px;
-
-        margin:
-            0 auto;
-    }
-
-    .surprise-paper,
-    .future-paper,
-    .promise-paper {
-        max-width:
-            720px;
-
-        margin:
-            0 auto;
-    }
-}
-
-
-/* =========================================================
-   MOBILE NAVIGATION
-   ========================================================= */
-
-@media (max-width: 680px) {
-
-    /* ---------- GLOBAL ---------- */
-
-    .content-container,
-    .page-container {
-        width:
-            calc(100% - 30px);
-    }
-
-
-    /* ---------- HEADER ---------- */
-
-    .site-header {
-        padding:
-            9px 15px;
-    }
-
-    .main-navigation {
-        position:
-            relative;
-    }
-
-    .mobile-menu-button {
-        display:
-            flex;
-    }
-
-    .navigation-links {
-        position:
-            absolute;
-
-        top:
-            calc(100% + 10px);
-
-        left:
-            0;
-
-        right:
-            0;
-
-        padding:
-            10px;
-
-        display:
-            none;
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
-
-        background:
-            rgba(255, 250, 251, 0.96);
-
-        border:
-            1px solid
-            var(--border-soft);
-
-        border-radius:
-            22px;
-
-        box-shadow:
-            var(--shadow-card);
-
-        backdrop-filter:
-            blur(18px);
-
-        -webkit-backdrop-filter:
-            blur(18px);
-    }
-
-    .navigation-links.is-open {
-        display:
-            flex;
-    }
-
-    .navigation-link {
-        width:
-            100%;
-
-        padding:
-            12px;
-
-        text-align:
-            center;
-
-        border-radius:
-            14px;
-    }
-
-    .brand-text {
-        align-items:
-            flex-start;
-    }
-
-    .brand-name {
-        font-size:
-            15px;
-    }
-
-    .brand-tagline {
-        font-size:
-            7px;
-    }
-
-
-    /* ---------- GLOBAL WIDTH ---------- */
-
-    .home-introduction,
-    .home-journey-section,
-    .distance-message-section,
-    .home-final-section,
-    .home-navigation-section,
-    .home-next-section {
-        width:
-            calc(100% - 30px);
-    }
-
-
-    /* ---------- ALL PAGE HEROES ---------- */
-
-    .page-hero,
-    .about-hero,
-    .letter-hero,
-    .memories-hero,
-    .surprise-hero {
-        width:
-            calc(100% - 30px);
-
-        padding:
-            55px 0
-            60px;
-    }
-
-
-    /* ---------- HERO ---------- */
-
-    .home-hero {
-        width:
-            calc(100% - 30px);
-
-        padding:
-            58px 0
-            65px;
-    }
-
-    .hero-title {
-        font-size:
-            clamp(
-                43px,
-                14vw,
-                66px
-            );
-    }
-
-    .hero-description {
-        font-size:
-            13px;
-
-        line-height:
-            1.8;
-    }
-
-    .hero-actions {
-        flex-direction:
-            column;
-
-        width:
-            100%;
-    }
-
-    .hero-actions .premium-button {
-        width:
-            min(
-                100%,
-                310px
-            );
-    }
-
-    .hero-mini-note {
-        font-size:
-            8px;
-    }
-
-    .home-hero-card {
-        width:
-            100%;
-
-        padding:
-            25px 20px;
-    }
-
-    .home-hero-card-kitty {
-        width:
-            100px;
-
-        height:
-            100px;
-
-        font-size:
-            51px;
-    }
-
-
-    /* ---------- PAGE HEADINGS ---------- */
-
-    .page-title,
-    .about-title,
-    .letter-title,
-    .memories-title,
-    .surprise-title {
-        font-size:
-            clamp(
-                38px,
-                12vw,
-                58px
-            );
-    }
-
-    .page-subtitle,
-    .about-subtitle,
-    .letter-subtitle,
-    .memories-subtitle,
-    .surprise-subtitle {
-        font-size:
-            12px;
-
-        line-height:
-            1.8;
-    }
-
-
-    /* ---------- SECTION HEADINGS ---------- */
-
-    .section-heading h2 {
-        font-size:
-            clamp(
-                31px,
-                10vw,
-                47px
-            );
-    }
-
-    .section-subtitle {
-        font-size:
-            12px;
-
-        line-height:
-            1.75;
-    }
-
-
-    /* ---------- INTRO CARDS ---------- */
-
-    .intro-feature-grid {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            15px;
-
-        margin-top:
-            35px;
-    }
-
-    .intro-feature-card,
-    .intro-feature-card:last-child {
-        grid-column:
-            auto;
-
-        max-width:
-            none;
-
-        min-height:
-            auto;
-
-        padding:
-            28px 23px;
-    }
-
-    .intro-feature-card h3 {
-        font-size:
-            23px;
-    }
-
-
-    /* ---------- DISTANCE CARD ---------- */
-
-    .distance-message-card {
-        padding:
-            35px 22px;
-    }
-
-    .distance-message-kitty {
-        width:
-            95px;
-
-        height:
-            95px;
-
-        font-size:
-            46px;
-    }
-
-    .distance-message-content h2 {
-        font-size:
-            clamp(
-                29px,
-                9vw,
-                42px
-            );
-    }
-
-    .distance-message-content p {
-        font-size:
-            12px;
-
-        line-height:
-            1.8;
-    }
-
-
-    /* ---------- JOURNEY ---------- */
-
-    .home-journey-grid {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            15px;
-    }
-
-    .journey-card {
-        min-height:
-            245px;
-
-        padding:
-            26px 22px;
-    }
-
-    .journey-card-icon {
-        margin-top:
-            25px;
-    }
-
-    .journey-card h3 {
-        font-size:
-            25px;
-    }
-
-
-    /* ---------- NORMAL CONTENT CARDS ---------- */
-
-    .page-card,
-    .content-card,
-    .about-card,
-    .letter-card,
-    .memory-card,
-    .surprise-card {
-        width:
-            100%;
-
-        padding:
-            30px 22px;
-
-        border-radius:
-            var(--radius-card);
-    }
-
-
-    /* ---------- TEXT ---------- */
-
-    .page-content p,
-    .about-content p,
-    .letter-content p,
-    .memories-content p,
-    .surprise-content p {
-        font-size:
-            12px;
-
-        line-height:
-            1.9;
-    }
-
-
-    /* ---------- LETTER ---------- */
-
-    .letter-card,
-    .letter-paper,
-    .letter-container {
-        padding:
-            32px 22px;
-    }
-
-    .letter-card h2,
-    .letter-paper h2,
-    .letter-container h2 {
-        font-size:
-            clamp(
-                27px,
-                8vw,
-                40px
-            );
-    }
-
-
-    /* ---------- MEMORIES ---------- */
-
-    .memories-grid,
-    .memory-grid {
-        grid-template-columns:
-            1fr;
-
-        gap:
-            15px;
-    }
-
-    .memory-card {
-        min-height:
-            auto;
-    }
-
-    .memory-image {
-        width:
-            100%;
-    }
-
-
-    /* ---------- SURPRISE ---------- */
-
-    .surprise-gift,
-    .gift-container {
-        width:
-            min(
-                100%,
-                320px
+            menuButton.setAttribute(
+                "aria-expanded",
+                String(isOpen)
             );
 
-        margin:
-            0 auto;
-    }
-
-    .surprise-paper,
-    .future-paper,
-    .promise-paper {
-        width:
-            100%;
-
-        padding:
-            30px 22px;
-    }
-
-    .surprise-paper h2,
-    .future-paper h2,
-    .promise-paper h2 {
-        font-size:
-            clamp(
-                27px,
-                8vw,
-                40px
-            );
-    }
-
-    .kitty-holder,
-    .surprise-kitty {
-        max-width:
-            220px;
-
-        margin:
-            0 auto;
-    }
-
-
-    /* ---------- FINAL CARDS ---------- */
-
-    .home-final-card,
-    .home-navigation-card,
-    .home-next-card {
-        padding:
-            34px 22px;
-    }
-
-    .home-final-card h2,
-    .home-navigation-content h2,
-    .home-next-card h2 {
-        font-size:
-            clamp(
-                29px,
-                9vw,
-                43px
-            );
-    }
-
-    .home-final-card p,
-    .home-navigation-content p,
-    .home-next-card p {
-        font-size:
-            12px;
-
-        line-height:
-            1.8;
-    }
-
-
-    /* ---------- BUTTONS ---------- */
-
-    .premium-button {
-        max-width:
-            100%;
-
-        min-height:
-            46px;
-
-        padding:
-            0 20px;
-    }
-
-    .premium-button--large {
-        width:
-            min(
-                100%,
-                310px
-            );
-    }
-
-
-    /* ---------- PROGRESS ---------- */
-
-    .home-progress,
-    .page-progress {
-        gap:
-            5px;
-
-        font-size:
-            7px;
-    }
-
-    .home-progress-line,
-    .page-progress-line {
-        width:
-            12px;
-    }
-
-    .page-progress-item > span {
-        width:
-            19px;
-
-        height:
-            19px;
-    }
-
-
-    /* ---------- FOOTER ---------- */
-
-    .footer-inner {
-        width:
-            calc(100% - 30px);
-
-        padding:
-            38px 0
-            22px;
-    }
-
-    .footer-navigation {
-        gap:
-            2px;
-    }
-
-    .footer-link {
-        padding:
-            7px 8px;
-
-        font-size:
-            8px;
-    }
-
-    .footer-bottom {
-        flex-direction:
-            column;
-
-        gap:
-            6px;
-
-        text-align:
-            center;
-    }
-}
-
-
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
-
-@media (max-width: 430px) {
-
-    /* ---------- HEADER ---------- */
-
-    .brand-symbol {
-        width:
-            39px;
-
-        height:
-            39px;
-
-        font-size:
-            19px;
-    }
-
-    .brand-name {
-        font-size:
-            14px;
-    }
-
-    .brand-tagline {
-        display:
-            none;
-    }
-
-    .mobile-menu-button {
-        width:
-            41px;
-
-        height:
-            41px;
-    }
-
-
-    /* ---------- HERO ---------- */
-
-    .home-hero {
-        padding:
-            48px 0
-            55px;
-    }
-
-    .hero-kicker {
-        font-size:
-            8px;
-    }
-
-    .hero-title {
-        font-size:
-            clamp(
-                39px,
-                14vw,
-                56px
-            );
-    }
-
-    .hero-description {
-        margin-top:
-            22px;
-
-        font-size:
-            12px;
-    }
-
-    .home-hero-card {
-        border-radius:
-            23px;
-    }
-
-    .home-hero-card h2 {
-        font-size:
-            26px;
-    }
-
-
-    /* ---------- OTHER PAGES ---------- */
-
-    .page-hero,
-    .about-hero,
-    .letter-hero,
-    .memories-hero,
-    .surprise-hero {
-        padding:
-            45px 0
-            50px;
-    }
-
-    .page-title,
-    .about-title,
-    .letter-title,
-    .memories-title,
-    .surprise-title {
-        font-size:
-            clamp(
-                35px,
-                13vw,
-                52px
-            );
-    }
-
-
-    /* ---------- INTRO ---------- */
-
-    .home-introduction {
-        padding:
-            55px 0
-            60px;
-    }
-
-    .intro-feature-card {
-        padding:
-            25px 18px;
-    }
-
-
-    /* ---------- DISTANCE ---------- */
-
-    .distance-message-section {
-        padding:
-            10px 0
-            60px;
-    }
-
-    .distance-message-card {
-        border-radius:
-            23px;
-
-        padding:
-            30px 17px;
-    }
-
-
-    /* ---------- JOURNEY ---------- */
-
-    .home-journey-section {
-        padding:
-            25px 0
-            60px;
-    }
-
-    .journey-card {
-        min-height:
-            225px;
-
-        border-radius:
-            23px;
-    }
-
-
-    /* ---------- LETTER ---------- */
-
-    .letter-card,
-    .letter-paper,
-    .letter-container {
-        padding:
-            28px 18px;
-    }
-
-
-    /* ---------- MEMORY ---------- */
-
-    .memory-card {
-        padding:
-            22px 17px;
-    }
-
-
-    /* ---------- SURPRISE ---------- */
-
-    .surprise-gift,
-    .gift-container {
-        width:
-            min(
-                100%,
-                290px
-            );
-    }
-
-    .surprise-paper,
-    .future-paper,
-    .promise-paper {
-        padding:
-            26px 18px;
-    }
-
-
-    /* ---------- BUTTONS ---------- */
-
-    .premium-button {
-        min-height:
-            46px;
-
-        padding:
-            0 18px;
-
-        font-size:
-            11px;
-    }
-
-    .premium-button--large {
-        min-height:
-            51px;
-
-        font-size:
-            12px;
-    }
-
-
-    /* ---------- FOOTER ---------- */
-
-    .footer-navigation {
-        flex-direction:
-            column;
-
-        width:
-            100%;
-    }
-
-    .footer-link {
-        width:
-            min(
-                180px,
-                100%
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
             );
 
-        text-align:
-            center;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL DEVICES
-   ========================================================= */
-
-@media (max-width: 340px) {
-
-    .home-hero,
-    .home-introduction,
-    .home-journey-section,
-    .distance-message-section,
-    .home-final-section,
-    .home-navigation-section,
-    .home-next-section,
-    .page-hero,
-    .about-hero,
-    .letter-hero,
-    .memories-hero,
-    .surprise-hero {
-        width:
-            calc(100% - 20px);
+            document.body.classList.toggle(
+                "mobile-navigation-open",
+                isOpen
+            );
+        });
     }
 
-    .content-container,
-    .page-container {
-        width:
-            calc(100% - 20px);
+
+    /* =====================================================
+       MOBILE MENU CLOSE
+       ===================================================== */
+
+    function initMobileMenuClose() {
+        const navLinks = $(".navigation-links");
+
+        if (!navLinks) return;
+
+        $$(".navigation-link", navLinks).forEach(link => {
+            link.addEventListener("click", () => {
+                if (!isMobile()) return;
+
+                navLinks.classList.remove("navigation-links--open");
+
+                const menuButton = $(".mobile-menu-button");
+
+                if (menuButton) {
+                    menuButton.classList.remove(
+                        "mobile-menu-button--open"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Open navigation menu"
+                    );
+                }
+
+                document.body.classList.remove(
+                    "mobile-navigation-open"
+                );
+            });
+        });
+
+        document.addEventListener("click", event => {
+            if (!isMobile()) return;
+
+            const menuButton = $(".mobile-menu-button");
+
+            if (
+                !navLinks.contains(event.target) &&
+                !menuButton?.contains(event.target)
+            ) {
+                navLinks.classList.remove(
+                    "navigation-links--open"
+                );
+
+                menuButton?.classList.remove(
+                    "mobile-menu-button--open"
+                );
+
+                menuButton?.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                document.body.classList.remove(
+                    "mobile-navigation-open"
+                );
+            }
+        });
     }
 
-    .hero-title {
-        font-size:
-            38px;
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+       ===================================================== */
+
+    function initActiveNavigation() {
+        const currentPage =
+            window.location.pathname
+                .split("/")
+                .pop()
+                .toLowerCase() || "index.html";
+
+        $$(".navigation-link, .footer-link").forEach(link => {
+            const href = link.getAttribute("href");
+
+            if (!href) return;
+
+            const cleanHref =
+                href.split("#")[0]
+                    .split("?")[0]
+                    .split("/")
+                    .pop()
+                    .toLowerCase();
+
+            if (
+                cleanHref === currentPage ||
+                (currentPage === "" && cleanHref === "index.html")
+            ) {
+                link.classList.add(
+                    "navigation-link--active",
+                    "footer-link--active"
+                );
+
+                link.setAttribute("aria-current", "page");
+            }
+        });
     }
 
-    .section-heading h2 {
-        font-size:
-            29px;
+
+    /* =====================================================
+       HEADER SCROLL EFFECT
+       ===================================================== */
+
+    function initHeaderScroll() {
+        const header = $(".site-header");
+
+        if (!header) return;
+
+        let ticking = false;
+
+        const updateHeader = () => {
+            if (window.scrollY > 20) {
+                header.classList.add("site-header--scrolled");
+            } else {
+                header.classList.remove("site-header--scrolled");
+            }
+
+            ticking = false;
+        };
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(updateHeader);
+                    ticking = true;
+                }
+            },
+            { passive: true }
+        );
+
+        updateHeader();
     }
 
-    .page-title,
-    .about-title,
-    .letter-title,
-    .memories-title,
-    .surprise-title {
-        font-size:
-            34px;
+
+    /* =====================================================
+       SCROLL REVEAL
+       ===================================================== */
+
+    function initScrollReveal() {
+        if (prefersReducedMotion()) return;
+
+        const elements = [
+            ".memory-timeline-item",
+            ".memory-note",
+            ".forget-item",
+            ".memory-counter-card",
+            ".final-memory-card",
+            ".memories-ending-card",
+            ".memories-next-card",
+            ".surprise-paper-preview",
+            ".surprise-wish-card",
+            ".promise-card",
+            ".surprise-final-message",
+            ".gift-message"
+        ];
+
+        const revealElements = $$(elements.join(","));
+
+        if (!revealElements.length) return;
+
+        revealElements.forEach((element, index) => {
+            element.classList.add("responsive-reveal");
+
+            element.style.setProperty(
+                "--reveal-delay",
+                `${Math.min(index % 6, 5) * 70}ms`
+            );
+        });
+
+        if (!("IntersectionObserver" in window)) {
+            revealElements.forEach(element => {
+                element.classList.add(
+                    "responsive-reveal--visible"
+                );
+            });
+
+            return;
+        }
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add(
+                        "responsive-reveal--visible"
+                    );
+
+                    observer.unobserve(entry.target);
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -45px 0px"
+            }
+        );
+
+        revealElements.forEach(element => {
+            observer.observe(element);
+        });
     }
 
-    .home-hero-card,
-    .intro-feature-card,
-    .journey-card,
-    .home-final-card,
-    .home-navigation-card,
-    .home-next-card,
-    .page-card,
-    .content-card,
-    .about-card,
-    .letter-card,
-    .memory-card,
-    .surprise-card {
-        border-radius:
-            20px;
+
+    /* =====================================================
+       3D CARD TILT
+       ===================================================== */
+
+    function initCardTilt() {
+        if (prefersReducedMotion()) return;
+
+        const cards = $$(".memory-note, .memory-timeline-card, .promise-card, .surprise-wish-card");
+
+        if (!cards.length) return;
+
+        cards.forEach(card => {
+            if (isMobile()) return;
+
+            card.addEventListener("pointermove", event => {
+                if (event.pointerType === "touch") return;
+
+                const rect = card.getBoundingClientRect();
+
+                const x =
+                    (event.clientX - rect.left) /
+                    rect.width;
+
+                const y =
+                    (event.clientY - rect.top) /
+                    rect.height;
+
+                const rotateY = (x - 0.5) * 5;
+                const rotateX = (0.5 - y) * 5;
+
+                card.style.setProperty(
+                    "--tilt-x",
+                    `${rotateX}deg`
+                );
+
+                card.style.setProperty(
+                    "--tilt-y",
+                    `${rotateY}deg`
+                );
+
+                card.classList.add("responsive-card-tilting");
+            });
+
+            card.addEventListener("pointerleave", () => {
+                card.style.setProperty(
+                    "--tilt-x",
+                    "0deg"
+                );
+
+                card.style.setProperty(
+                    "--tilt-y",
+                    "0deg"
+                );
+
+                card.classList.remove(
+                    "responsive-card-tilting"
+                );
+            });
+        });
     }
 
-    .premium-button {
-        font-size:
-            10px;
 
-        padding:
-            0 15px;
+    /* =====================================================
+       HERO PARALLAX
+       ===================================================== */
+
+    function initHeroParallax() {
+        if (prefersReducedMotion()) return;
+
+        const heroes = $$(
+            ".page-hero, .memories-hero, .about-hero, .letter-hero"
+        );
+
+        if (!heroes.length) return;
+
+        let ticking = false;
+
+        const update = () => {
+            if (isMobile()) {
+                heroes.forEach(hero => {
+                    hero.style.removeProperty(
+                        "--hero-offset"
+                    );
+                });
+
+                ticking = false;
+                return;
+            }
+
+            const scrollY = window.scrollY;
+
+            heroes.forEach(hero => {
+                const rect = hero.getBoundingClientRect();
+
+                if (
+                    rect.bottom < 0 ||
+                    rect.top > window.innerHeight
+                ) {
+                    return;
+                }
+
+                const offset =
+                    Math.max(
+                        -40,
+                        Math.min(
+                            40,
+                            scrollY * 0.08
+                        )
+                    );
+
+                hero.style.setProperty(
+                    "--hero-offset",
+                    `${offset}px`
+                );
+            });
+
+            ticking = false;
+        };
+
+        window.addEventListener(
+            "scroll",
+            () => {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                    ticking = true;
+                }
+            },
+            { passive: true }
+        );
+
+        update();
     }
-}
 
 
-/* =========================================================
-   LANDSCAPE MOBILE
-   ========================================================= */
+    /* =====================================================
+       RESPONSIVE GIFT
+       ===================================================== */
 
-@media (max-height: 500px) and (max-width: 850px) {
+    function initResponsiveGift() {
+        const giftBox = $(".gift-box");
 
-    .home-hero,
-    .page-hero,
-    .about-hero,
-    .letter-hero,
-    .memories-hero,
-    .surprise-hero {
-        padding-top:
-            35px;
+        if (!giftBox) return;
 
-        padding-bottom:
-            45px;
+        const updateGiftScale = () => {
+            if (window.innerWidth <= 380) {
+                giftBox.style.setProperty(
+                    "--gift-responsive-scale",
+                    "0.72"
+                );
+            } else if (window.innerWidth <= 480) {
+                giftBox.style.setProperty(
+                    "--gift-responsive-scale",
+                    "0.85"
+                );
+            } else if (window.innerWidth <= 760) {
+                giftBox.style.setProperty(
+                    "--gift-responsive-scale",
+                    "0.92"
+                );
+            } else {
+                giftBox.style.setProperty(
+                    "--gift-responsive-scale",
+                    "1"
+                );
+            }
+        };
+
+        updateGiftScale();
+
+        window.addEventListener(
+            "resize",
+            updateGiftScale,
+            { passive: true }
+        );
     }
 
-    .home-hero-card-kitty {
-        width:
-            75px;
 
-        height:
-            75px;
+    /* =====================================================
+       TOUCH SUPPORT
+       ===================================================== */
 
-        font-size:
-            38px;
+    function initTouchSupport() {
+        const interactiveCards = $$(
+            ".memory-note, .memory-timeline-card, .promise-card, .surprise-wish-card"
+        );
+
+        interactiveCards.forEach(card => {
+            card.addEventListener(
+                "touchstart",
+                () => {
+                    card.classList.add(
+                        "responsive-touch-active"
+                    );
+                },
+                { passive: true }
+            );
+
+            card.addEventListener(
+                "touchend",
+                () => {
+                    setTimeout(() => {
+                        card.classList.remove(
+                            "responsive-touch-active"
+                        );
+                    }, 180);
+                },
+                { passive: true }
+            );
+        });
     }
-}
+
+
+    /* =====================================================
+       MOBILE VIEWPORT HEIGHT
+       ===================================================== */
+
+    function initViewportHeight() {
+        const setViewportHeight = () => {
+            const vh =
+                window.innerHeight * 0.01;
+
+            document.documentElement.style.setProperty(
+                "--vh",
+                `${vh}px`
+            );
+        };
+
+        setViewportHeight();
+
+        window.addEventListener(
+            "resize",
+            setViewportHeight,
+            { passive: true }
+        );
+
+        window.addEventListener(
+            "orientationchange",
+            () => {
+                setTimeout(
+                    setViewportHeight,
+                    120
+                );
+            },
+            { passive: true }
+        );
+    }
+
+
+    /* =====================================================
+       KEYBOARD NAVIGATION
+       ===================================================== */
+
+    function initKeyboardNavigation() {
+        const menuButton = $(".mobile-menu-button");
+
+        if (!menuButton) return;
+
+        menuButton.addEventListener("keydown", event => {
+            if (event.key !== "Enter" && event.key !== " ") {
+                return;
+            }
+
+            event.preventDefault();
+            menuButton.click();
+        });
+
+        document.addEventListener("keydown", event => {
+            if (event.key !== "Escape") return;
+
+            const navLinks = $(".navigation-links");
+
+            if (!navLinks) return;
+
+            navLinks.classList.remove(
+                "navigation-links--open"
+            );
+
+            menuButton.classList.remove(
+                "mobile-menu-button--open"
+            );
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            document.body.classList.remove(
+                "mobile-navigation-open"
+            );
+        });
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+       ===================================================== */
+
+    function initReducedMotion() {
+        const mediaQuery =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            );
+
+        const applyReducedMotion = event => {
+            document.documentElement.classList.toggle(
+                "reduced-motion",
+                event.matches
+            );
+        };
+
+        applyReducedMotion(mediaQuery);
+
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener(
+                "change",
+                applyReducedMotion
+            );
+        }
+    }
+
+
+    /* =====================================================
+       RESIZE HANDLER
+       ===================================================== */
+
+    function initResizeHandler() {
+        let resizeTimer;
+
+        window.addEventListener(
+            "resize",
+            () => {
+                clearTimeout(resizeTimer);
+
+                resizeTimer = setTimeout(() => {
+                    const navLinks =
+                        $(".navigation-links");
+
+                    const menuButton =
+                        $(".mobile-menu-button");
+
+                    if (
+                        !isMobile() &&
+                        navLinks
+                    ) {
+                        navLinks.classList.remove(
+                            "navigation-links--open"
+                        );
+
+                        menuButton?.classList.remove(
+                            "mobile-menu-button--open"
+                        );
+
+                        menuButton?.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        document.body.classList.remove(
+                            "mobile-navigation-open"
+                        );
+                    }
+                }, 150);
+            },
+            { passive: true }
+        );
+    }
+
+})();
