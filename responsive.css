@@ -1,666 +1,358 @@
 /* =========================================================
-   KITTIES LITTLE WORLD
-   PREMIUM 3D CAT-THEME — RESPONSIVE.JS
-   Works with the provided style.css
+   RESPONSIVE.CSS
+   Kitties Little World — Responsive Layout
    ========================================================= */
 
-(() => {
-    "use strict";
+/* ---------- GLOBAL RESPONSIVE FIXES ---------- */
 
-    /* =====================================================
-       DOM READY
-       ===================================================== */
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
-    document.addEventListener("DOMContentLoaded", () => {
-        initMobileMenu();
-        initMobileMenuClose();
-        initActiveNavigation();
-        initHeaderScroll();
-        initScrollReveal();
-        initCardTilt();
-        initHeroParallax();
-        initResponsiveGift();
-        initTouchSupport();
-        initViewportHeight();
-        initKeyboardNavigation();
-        initReducedMotion();
-        initResizeHandler();
-    });
+body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+/* Prevent oversized elements from creating horizontal scrolling */
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+}
+
+/* ---------- TABLETS ---------- */
+
+@media (max-width: 1024px) {
+
+    .container,
+    .content,
+    .main-container,
+    .page-container {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    /* Main content stays centered */
+    main,
+    section {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Memories */
+    .memories-container,
+    .memories,
+    .memory-container,
+    .memory-section {
+        width: 100%;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .memory-grid,
+    .memories-grid {
+        width: 100%;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    /* Cards */
+    .memory-card,
+    .memory-item,
+    .memory {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
 
 
-    /* =====================================================
-       HELPERS
-       ===================================================== */
+/* ---------- MOBILE ---------- */
 
-    const $ = (selector, parent = document) =>
-        parent.querySelector(selector);
+@media (max-width: 768px) {
 
-    const $$ = (selector, parent = document) =>
-        [...parent.querySelectorAll(selector)];
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
 
-    const isMobile = () =>
-        window.matchMedia("(max-width: 760px)").matches;
+    /* Main wrappers */
+    .container,
+    .content,
+    .main-container,
+    .page-container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
 
-    const prefersReducedMotion = () =>
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    /* Headings */
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 1.15;
+        text-align: center;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
 
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        line-height: 1.2;
+        text-align: center;
+    }
 
-    /* =====================================================
-       MOBILE MENU
-       ===================================================== */
+    h3 {
+        font-size: clamp(1.2rem, 5vw, 1.7rem);
+        text-align: center;
+    }
 
-    function initMobileMenu() {
-        const menuButton = $(".mobile-menu-button");
-        const navLinks = $(".navigation-links");
-
-        if (!menuButton || !navLinks) return;
-
-        menuButton.setAttribute("aria-expanded", "false");
-        menuButton.setAttribute("aria-label", "Open navigation menu");
-
-        menuButton.addEventListener("click", () => {
-            const isOpen =
-                navLinks.classList.toggle("navigation-links--open");
-
-            menuButton.classList.toggle("mobile-menu-button--open", isOpen);
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation menu"
-                    : "Open navigation menu"
-            );
-
-            document.body.classList.toggle(
-                "mobile-navigation-open",
-                isOpen
-            );
-        });
+    p {
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 
 
-    /* =====================================================
-       MOBILE MENU CLOSE
-       ===================================================== */
+    /* ---------- MEMORIES ---------- */
 
-    function initMobileMenuClose() {
-        const navLinks = $(".navigation-links");
+    .memories-container,
+    .memories,
+    .memory-container,
+    .memory-section {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 12px;
+        padding-right: 12px;
+        box-sizing: border-box;
 
-        if (!navLinks) return;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 
-        $$(".navigation-link", navLinks).forEach(link => {
-            link.addEventListener("click", () => {
-                if (!isMobile()) return;
+    .memory-grid,
+    .memories-grid {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
 
-                navLinks.classList.remove("navigation-links--open");
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        align-items: center;
 
-                const menuButton = $(".mobile-menu-button");
+        box-sizing: border-box;
+    }
 
-                if (menuButton) {
-                    menuButton.classList.remove(
-                        "mobile-menu-button--open"
-                    );
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    menuButton.setAttribute(
-                        "aria-label",
-                        "Open navigation menu"
-                    );
-                }
-
-                document.body.classList.remove(
-                    "mobile-navigation-open"
-                );
-            });
-        });
-
-        document.addEventListener("click", event => {
-            if (!isMobile()) return;
-
-            const menuButton = $(".mobile-menu-button");
-
-            if (
-                !navLinks.contains(event.target) &&
-                !menuButton?.contains(event.target)
-            ) {
-                navLinks.classList.remove(
-                    "navigation-links--open"
-                );
-
-                menuButton?.classList.remove(
-                    "mobile-menu-button--open"
-                );
-
-                menuButton?.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                document.body.classList.remove(
-                    "mobile-navigation-open"
-                );
-            }
-        });
+    .memory-card,
+    .memory-item,
+    .memory {
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
     }
 
 
-    /* =====================================================
-       ACTIVE NAVIGATION
-       ===================================================== */
+    /* ---------- IMAGES ---------- */
 
-    function initActiveNavigation() {
-        const currentPage =
-            window.location.pathname
-                .split("/")
-                .pop()
-                .toLowerCase() || "index.html";
-
-        $$(".navigation-link, .footer-link").forEach(link => {
-            const href = link.getAttribute("href");
-
-            if (!href) return;
-
-            const cleanHref =
-                href.split("#")[0]
-                    .split("?")[0]
-                    .split("/")
-                    .pop()
-                    .toLowerCase();
-
-            if (
-                cleanHref === currentPage ||
-                (currentPage === "" && cleanHref === "index.html")
-            ) {
-                link.classList.add(
-                    "navigation-link--active",
-                    "footer-link--active"
-                );
-
-                link.setAttribute("aria-current", "page");
-            }
-        });
+    .memory-card img,
+    .memory-item img,
+    .memory img {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: cover;
+        box-sizing: border-box;
     }
 
 
-    /* =====================================================
-       HEADER SCROLL EFFECT
-       ===================================================== */
+    /* ---------- BUTTONS ---------- */
 
-    function initHeaderScroll() {
-        const header = $(".site-header");
-
-        if (!header) return;
-
-        let ticking = false;
-
-        const updateHeader = () => {
-            if (window.scrollY > 20) {
-                header.classList.add("site-header--scrolled");
-            } else {
-                header.classList.remove("site-header--scrolled");
-            }
-
-            ticking = false;
-        };
-
-        window.addEventListener(
-            "scroll",
-            () => {
-                if (!ticking) {
-                    window.requestAnimationFrame(updateHeader);
-                    ticking = true;
-                }
-            },
-            { passive: true }
-        );
-
-        updateHeader();
+    button,
+    .btn,
+    a.button,
+    .button {
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
 
-    /* =====================================================
-       SCROLL REVEAL
-       ===================================================== */
+    /* ---------- NAVIGATION ---------- */
 
-    function initScrollReveal() {
-        if (prefersReducedMotion()) return;
-
-        const elements = [
-            ".memory-timeline-item",
-            ".memory-note",
-            ".forget-item",
-            ".memory-counter-card",
-            ".final-memory-card",
-            ".memories-ending-card",
-            ".memories-next-card",
-            ".surprise-paper-preview",
-            ".surprise-wish-card",
-            ".promise-card",
-            ".surprise-final-message",
-            ".gift-message"
-        ];
-
-        const revealElements = $$(elements.join(","));
-
-        if (!revealElements.length) return;
-
-        revealElements.forEach((element, index) => {
-            element.classList.add("responsive-reveal");
-
-            element.style.setProperty(
-                "--reveal-delay",
-                `${Math.min(index % 6, 5) * 70}ms`
-            );
-        });
-
-        if (!("IntersectionObserver" in window)) {
-            revealElements.forEach(element => {
-                element.classList.add(
-                    "responsive-reveal--visible"
-                );
-            });
-
-            return;
-        }
-
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting) return;
-
-                    entry.target.classList.add(
-                        "responsive-reveal--visible"
-                    );
-
-                    observer.unobserve(entry.target);
-                });
-            },
-            {
-                threshold: 0.12,
-                rootMargin: "0px 0px -45px 0px"
-            }
-        );
-
-        revealElements.forEach(element => {
-            observer.observe(element);
-        });
+    nav,
+    .navbar,
+    .navigation {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
 
-    /* =====================================================
-       3D CARD TILT
-       ===================================================== */
+    /* ---------- FLEX FIX ---------- */
 
-    function initCardTilt() {
-        if (prefersReducedMotion()) return;
-
-        const cards = $$(".memory-note, .memory-timeline-card, .promise-card, .surprise-wish-card");
-
-        if (!cards.length) return;
-
-        cards.forEach(card => {
-            if (isMobile()) return;
-
-            card.addEventListener("pointermove", event => {
-                if (event.pointerType === "touch") return;
-
-                const rect = card.getBoundingClientRect();
-
-                const x =
-                    (event.clientX - rect.left) /
-                    rect.width;
-
-                const y =
-                    (event.clientY - rect.top) /
-                    rect.height;
-
-                const rotateY = (x - 0.5) * 5;
-                const rotateX = (0.5 - y) * 5;
-
-                card.style.setProperty(
-                    "--tilt-x",
-                    `${rotateX}deg`
-                );
-
-                card.style.setProperty(
-                    "--tilt-y",
-                    `${rotateY}deg`
-                );
-
-                card.classList.add("responsive-card-tilting");
-            });
-
-            card.addEventListener("pointerleave", () => {
-                card.style.setProperty(
-                    "--tilt-x",
-                    "0deg"
-                );
-
-                card.style.setProperty(
-                    "--tilt-y",
-                    "0deg"
-                );
-
-                card.classList.remove(
-                    "responsive-card-tilting"
-                );
-            });
-        });
+    .row,
+    .flex-row {
+        flex-wrap: wrap;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
+    /* Prevent fixed-width children from pushing the page */
+    [style*="width"] {
+        max-width: 100%;
+    }
+}
 
-    /* =====================================================
-       HERO PARALLAX
-       ===================================================== */
 
-    function initHeroParallax() {
-        if (prefersReducedMotion()) return;
+/* ---------- SMALL PHONES ---------- */
 
-        const heroes = $$(
-            ".page-hero, .memories-hero, .about-hero, .letter-hero"
-        );
+@media (max-width: 480px) {
 
-        if (!heroes.length) return;
-
-        let ticking = false;
-
-        const update = () => {
-            if (isMobile()) {
-                heroes.forEach(hero => {
-                    hero.style.removeProperty(
-                        "--hero-offset"
-                    );
-                });
-
-                ticking = false;
-                return;
-            }
-
-            const scrollY = window.scrollY;
-
-            heroes.forEach(hero => {
-                const rect = hero.getBoundingClientRect();
-
-                if (
-                    rect.bottom < 0 ||
-                    rect.top > window.innerHeight
-                ) {
-                    return;
-                }
-
-                const offset =
-                    Math.max(
-                        -40,
-                        Math.min(
-                            40,
-                            scrollY * 0.08
-                        )
-                    );
-
-                hero.style.setProperty(
-                    "--hero-offset",
-                    `${offset}px`
-                );
-            });
-
-            ticking = false;
-        };
-
-        window.addEventListener(
-            "scroll",
-            () => {
-                if (!ticking) {
-                    requestAnimationFrame(update);
-                    ticking = true;
-                }
-            },
-            { passive: true }
-        );
-
-        update();
+    .container,
+    .content,
+    .main-container,
+    .page-container {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
-
-    /* =====================================================
-       RESPONSIVE GIFT
-       ===================================================== */
-
-    function initResponsiveGift() {
-        const giftBox = $(".gift-box");
-
-        if (!giftBox) return;
-
-        const updateGiftScale = () => {
-            if (window.innerWidth <= 380) {
-                giftBox.style.setProperty(
-                    "--gift-responsive-scale",
-                    "0.72"
-                );
-            } else if (window.innerWidth <= 480) {
-                giftBox.style.setProperty(
-                    "--gift-responsive-scale",
-                    "0.85"
-                );
-            } else if (window.innerWidth <= 760) {
-                giftBox.style.setProperty(
-                    "--gift-responsive-scale",
-                    "0.92"
-                );
-            } else {
-                giftBox.style.setProperty(
-                    "--gift-responsive-scale",
-                    "1"
-                );
-            }
-        };
-
-        updateGiftScale();
-
-        window.addEventListener(
-            "resize",
-            updateGiftScale,
-            { passive: true }
-        );
+    .memories-container,
+    .memories,
+    .memory-container,
+    .memory-section {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
-
-    /* =====================================================
-       TOUCH SUPPORT
-       ===================================================== */
-
-    function initTouchSupport() {
-        const interactiveCards = $$(
-            ".memory-note, .memory-timeline-card, .promise-card, .surprise-wish-card"
-        );
-
-        interactiveCards.forEach(card => {
-            card.addEventListener(
-                "touchstart",
-                () => {
-                    card.classList.add(
-                        "responsive-touch-active"
-                    );
-                },
-                { passive: true }
-            );
-
-            card.addEventListener(
-                "touchend",
-                () => {
-                    setTimeout(() => {
-                        card.classList.remove(
-                            "responsive-touch-active"
-                        );
-                    }, 180);
-                },
-                { passive: true }
-            );
-        });
+    .memory-card,
+    .memory-item,
+    .memory {
+        width: 100%;
+        max-width: 420px;
     }
 
-
-    /* =====================================================
-       MOBILE VIEWPORT HEIGHT
-       ===================================================== */
-
-    function initViewportHeight() {
-        const setViewportHeight = () => {
-            const vh =
-                window.innerHeight * 0.01;
-
-            document.documentElement.style.setProperty(
-                "--vh",
-                `${vh}px`
-            );
-        };
-
-        setViewportHeight();
-
-        window.addEventListener(
-            "resize",
-            setViewportHeight,
-            { passive: true }
-        );
-
-        window.addEventListener(
-            "orientationchange",
-            () => {
-                setTimeout(
-                    setViewportHeight,
-                    120
-                );
-            },
-            { passive: true }
-        );
+    h1 {
+        font-size: clamp(1.8rem, 9vw, 2.5rem);
     }
 
-
-    /* =====================================================
-       KEYBOARD NAVIGATION
-       ===================================================== */
-
-    function initKeyboardNavigation() {
-        const menuButton = $(".mobile-menu-button");
-
-        if (!menuButton) return;
-
-        menuButton.addEventListener("keydown", event => {
-            if (event.key !== "Enter" && event.key !== " ") {
-                return;
-            }
-
-            event.preventDefault();
-            menuButton.click();
-        });
-
-        document.addEventListener("keydown", event => {
-            if (event.key !== "Escape") return;
-
-            const navLinks = $(".navigation-links");
-
-            if (!navLinks) return;
-
-            navLinks.classList.remove(
-                "navigation-links--open"
-            );
-
-            menuButton.classList.remove(
-                "mobile-menu-button--open"
-            );
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            document.body.classList.remove(
-                "mobile-navigation-open"
-            );
-        });
+    h2 {
+        font-size: clamp(1.4rem, 7vw, 2rem);
     }
 
-
-    /* =====================================================
-       REDUCED MOTION
-       ===================================================== */
-
-    function initReducedMotion() {
-        const mediaQuery =
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            );
-
-        const applyReducedMotion = event => {
-            document.documentElement.classList.toggle(
-                "reduced-motion",
-                event.matches
-            );
-        };
-
-        applyReducedMotion(mediaQuery);
-
-        if (mediaQuery.addEventListener) {
-            mediaQuery.addEventListener(
-                "change",
-                applyReducedMotion
-            );
-        }
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
     }
 
+    button,
+    .btn,
+    a.button,
+    .button {
+        width: auto;
+        max-width: 100%;
+    }
+}
 
-    /* =====================================================
-       RESIZE HANDLER
-       ===================================================== */
 
-    function initResizeHandler() {
-        let resizeTimer;
+/* ---------- VERY SMALL PHONES ---------- */
 
-        window.addEventListener(
-            "resize",
-            () => {
-                clearTimeout(resizeTimer);
+@media (max-width: 360px) {
 
-                resizeTimer = setTimeout(() => {
-                    const navLinks =
-                        $(".navigation-links");
-
-                    const menuButton =
-                        $(".mobile-menu-button");
-
-                    if (
-                        !isMobile() &&
-                        navLinks
-                    ) {
-                        navLinks.classList.remove(
-                            "navigation-links--open"
-                        );
-
-                        menuButton?.classList.remove(
-                            "mobile-menu-button--open"
-                        );
-
-                        menuButton?.setAttribute(
-                            "aria-expanded",
-                            "false"
-                        );
-
-                        document.body.classList.remove(
-                            "mobile-navigation-open"
-                        );
-                    }
-                }, 150);
-            },
-            { passive: true }
-        );
+    .container,
+    .content,
+    .main-container,
+    .page-container {
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
-})();
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.35rem;
+    }
+
+    .memory-card,
+    .memory-item,
+    .memory {
+        max-width: 100%;
+    }
+}
+
+
+/* ---------- LANDSCAPE MOBILE ---------- */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    body {
+        min-height: 100vh;
+    }
+
+    .memories-container,
+    .memories,
+    .memory-container,
+    .memory-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ---------- FINAL OVERFLOW PROTECTION ---------- */
+
+body > *,
+main > *,
+section > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+iframe {
+    max-width: 100%;
+    border: 0;
+}
+
