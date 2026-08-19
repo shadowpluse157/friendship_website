@@ -20,14 +20,7 @@
         content="The story behind our little kitty world — two places, two lives, one connection."
     >
 
-    <title>
-        About Us | Kitties Little World 🐾
-    </title>
-
-
-    <!-- ==================================================
-         FONTS
-         ================================================== -->
+    <title>About Us | Kitties Little World 🐾</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -42,25 +35,157 @@
         rel="stylesheet"
     >
 
-
-    <!-- ==================================================
-         CSS
-         ================================================== -->
-
     <link rel="stylesheet" href="variables.css">
-<link rel="stylesheet" href="background.css">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="animation.css">
-<link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="responsive.css">
+
+    <style>
+        /* ==================================================
+           ABOUT PAGE TEXT ALIGNMENT FIX
+           Text stays with its heading/content
+           and does not move to the left/right.
+           ================================================== */
+
+        .about-page .about-page-content,
+        .about-page .about-hero-card,
+        .about-page .section-heading,
+        .about-page .about-centered-card,
+        .about-page .about-story-content,
+        .about-page .about-feeling-top,
+        .about-page .about-next-chapter-section,
+        .about-page .about-final-section,
+        .about-page .about-letter-transition-card {
+            text-align: center;
+        }
+
+        .about-page .hero-title,
+        .about-page .hero-description,
+        .about-page .section-heading h2,
+        .about-page .section-subtitle,
+        .about-page .about-card-kitty,
+        .about-page .about-hero-card h2,
+        .about-page .about-hero-card p,
+        .about-page .about-works-content h2,
+        .about-page .about-works-content p,
+        .about-page .about-story-content h2,
+        .about-page .about-story-content p,
+        .about-page .about-feeling-section h2,
+        .about-page .about-feeling-section p,
+        .about-page .about-next-chapter-section h2,
+        .about-page .about-next-chapter-section p,
+        .about-page .about-final-section h2,
+        .about-page .about-final-section p,
+        .about-page .about-letter-transition-card h2,
+        .about-page .about-letter-transition-card p {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .about-page .about-location-card,
+        .about-page .about-connection-card,
+        .about-page .about-rule-card,
+        .about-page .little-thing-card,
+        .about-page .routine-card {
+            text-align: center;
+        }
+
+        .about-page .about-location-card p,
+        .about-page .about-connection-card p,
+        .about-page .about-rule-card p,
+        .about-page .little-thing-card p,
+        .about-page .about-works-content p,
+        .about-page .about-story-content p,
+        .about-page .routine-line,
+        .about-page .about-feeling-section p,
+        .about-page .about-next-chapter-section p,
+        .about-page .about-final-section p,
+        .about-page .about-letter-transition-card p {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-page .about-works-content,
+        .about-page .about-story-content {
+            text-align: center;
+        }
+
+        .about-page .story-highlight {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .about-page .about-feeling-top {
+            justify-content: center;
+        }
+
+        .about-page .about-card-divider,
+        .about-page .about-final-divider,
+        .about-page .next-chapter-divider,
+        .about-page .about-hero-paws,
+        .about-page .connection-paw-row,
+        .about-page .about-feeling-bottom {
+            justify-content: center;
+        }
+
+        .about-page .routine-line {
+            justify-content: center;
+        }
+
+        .about-page .about-centered-content {
+            justify-items: center;
+        }
+
+        @media (max-width: 768px) {
+
+            .about-page .about-page-content,
+            .about-page .about-hero-card,
+            .about-page .section-heading,
+            .about-page .about-centered-card,
+            .about-page .about-story-content,
+            .about-page .about-location-card,
+            .about-page .about-connection-card,
+            .about-page .about-rule-card,
+            .about-page .little-thing-card,
+            .about-page .routine-card,
+            .about-page .about-feeling-section,
+            .about-page .about-next-chapter-section,
+            .about-page .about-final-section,
+            .about-page .about-letter-transition-card {
+                text-align: center;
+            }
+
+            .about-page .hero-title,
+            .about-page .hero-description,
+            .about-page .section-heading h2,
+            .about-page .section-subtitle,
+            .about-page .about-hero-card h2,
+            .about-page .about-hero-card p,
+            .about-page .about-location-card p,
+            .about-page .about-connection-card p,
+            .about-page .about-rule-card p,
+            .about-page .little-thing-card p,
+            .about-page .about-works-content p,
+            .about-page .about-story-content p,
+            .about-page .about-feeling-section p,
+            .about-page .about-next-chapter-section p,
+            .about-page .about-final-section p,
+            .about-page .about-letter-transition-card p {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+
 </head>
 
 
 <body class="about-page">
 
-
-    <!-- ==================================================
-         BACKGROUND
-         ================================================== -->
 
     <div
         class="page-background"
@@ -72,10 +197,6 @@
         aria-hidden="true"
     ></div>
 
-
-    <!-- ==================================================
-         DECORATIVE ELEMENTS
-         ================================================== -->
 
     <div
         class="floating-paw floating-paw--one"
@@ -106,16 +227,8 @@
     </div>
 
 
-    <!-- ==================================================
-         SITE WRAPPER
-         ================================================== -->
-
     <div class="site-wrapper">
 
-
-        <!-- ==================================================
-             NAVIGATION
-             ================================================== -->
 
         <header class="site-header">
 
@@ -205,16 +318,8 @@
         </header>
 
 
-        <!-- ==================================================
-             MAIN CONTENT
-             ================================================== -->
-
         <main class="about-main">
 
-
-            <!-- ==================================================
-                 ABOUT HERO
-                 ================================================== -->
 
             <section class="about-hero">
 
@@ -277,8 +382,6 @@
                 </div>
 
 
-                <!-- HERO STORY -->
-
                 <div class="about-hero-card">
 
                     <div class="about-card-top">
@@ -339,10 +442,6 @@
 
             </section>
 
-
-            <!-- ==================================================
-                 THE DISTANCE
-                 ================================================== -->
 
             <section class="about-distance-section">
 
@@ -465,10 +564,6 @@
             </section>
 
 
-            <!-- ==================================================
-                 WHAT MAKES IT WORK
-                 ================================================== -->
-
             <section class="about-works-section">
 
                 <div class="about-centered-card">
@@ -530,10 +625,6 @@
 
             </section>
 
-
-            <!-- ==================================================
-                 OUR LITTLE RULES
-                 ================================================== -->
 
             <section class="about-rules-section">
 
@@ -643,10 +734,6 @@
 
             </section>
 
-
-            <!-- ==================================================
-                 THE LITTLE THINGS
-                 ================================================== -->
 
             <section class="about-little-things-section">
 
@@ -798,10 +885,6 @@
             </section>
 
 
-            <!-- ==================================================
-                 OUR CONNECTION
-                 ================================================== -->
-
             <section class="about-connection-story-section">
 
                 <div class="about-centered-card">
@@ -896,10 +979,6 @@
 
             </section>
 
-
-            <!-- ==================================================
-                 TWO ROUTINES
-                 ================================================== -->
 
             <section class="about-routines-section">
 
@@ -1073,10 +1152,6 @@
             </section>
 
 
-            <!-- ==================================================
-                 THE FEELING
-                 ================================================== -->
-
             <section class="about-feeling-section">
 
                 <div class="about-centered-card">
@@ -1143,10 +1218,6 @@
 
             </section>
 
-
-            <!-- ==================================================
-                 THE NEXT CHAPTER
-                 ================================================== -->
 
             <section class="about-next-chapter-section">
 
@@ -1215,10 +1286,6 @@
 
             </section>
 
-
-            <!-- ==================================================
-                 FINAL ABOUT MESSAGE
-                 ================================================== -->
 
             <section class="about-final-section">
 
@@ -1301,10 +1368,6 @@
             </section>
 
 
-            <!-- ==================================================
-                 NEXT PAGE — LETTER
-                 ================================================== -->
-
             <section class="about-letter-transition">
 
                 <div class="about-letter-transition-card">
@@ -1348,8 +1411,6 @@
                     </p>
 
 
-                    <!-- NEXT PAGE BUTTON -->
-
                     <a
                         href="letter.html"
                         class="premium-button premium-button--primary premium-button--large"
@@ -1370,8 +1431,6 @@
 
                     </a>
 
-
-                    <!-- PAGE PROGRESS -->
 
                     <div class="page-progress">
 
@@ -1414,10 +1473,6 @@
 
         </main>
 
-
-        <!-- ==================================================
-             FOOTER
-             ================================================== -->
 
         <footer class="site-footer">
 
@@ -1519,10 +1574,6 @@
 
     </div>
 
-
-    <!-- ==================================================
-         JAVASCRIPT
-         ================================================== -->
 
     <script src="js/loading.js"></script>
     <script src="js/cursor.js"></script>
