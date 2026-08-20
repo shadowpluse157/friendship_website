@@ -2,33 +2,20 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="theme-color"
-        content="#f7efe8"
-    >
+    <meta name="theme-color" content="#f7efe8">
 
     <meta
         name="description"
         content="A little letter written across the distance between Dubai and Pakistan."
     >
 
-    <title>
-        A Little Letter | Kitties Little World 🐾
-    </title>
+    <title>A Little Letter | Kitties Little World 🐾</title>
 
-
-    <!-- ==================================================
-         FONTS
-         ================================================== -->
-
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link
@@ -42,129 +29,116 @@
         rel="stylesheet"
     >
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="variables.css">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="responsive.css">
 
-    <!-- ==================================================
-         CSS
-         ================================================== -->
-
-   <link rel="stylesheet" href="variables.css">
-<link rel="stylesheet" href="background.css">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="animation.css">
-<link rel="stylesheet" href="responsive.css">
-
-
-    <!-- ==================================================
-         LETTER TEXT ALIGNMENT
-         ================================================== -->
-
+    <!-- LETTER TEXT ALIGNMENT -->
     <style>
-
-        /* Main letter paragraphs */
-        .letter-body p {
+        /* Everything inside the letter paper stays centered */
+        .letter-paper,
+        .letter-paper * {
             text-align: center;
         }
 
-        /* Special paragraph classes */
-        .letter-body .letter-greeting,
-        .letter-body .letter-emphasis,
-        .letter-body .letter-romantic-quote,
-        .letter-body .letter-romantic-highlight,
-        .letter-body .letter-final-highlight,
-        .letter-body .love-note-main,
-        .letter-body .letter-cute-final,
-        .letter-body .flirty-card-highlight,
-        .letter-body .final-promise-signature,
-        .letter-body .letter-signature-text,
-        .letter-body .letter-signature-small {
-            text-align: center;
+        .letter-body {
+            text-align: center !important;
         }
 
-        /* Card paragraphs */
-        .letter-body .letter-quote-card p,
-        .letter-body .letter-cute-card p,
-        .letter-body .letter-flirty-card p,
-        .letter-body .letter-love-note p,
-        .letter-body .final-promise-card p,
-        .letter-body .letter-final-message p,
-        .letter-body .future-wish-card p,
-        .letter-body .promise-card p {
-            text-align: center;
+        .letter-body p,
+        .letter-body h2,
+        .letter-body h3,
+        .letter-body span,
+        .letter-body strong {
+            text-align: center !important;
         }
 
+        /* Keep lists centered too */
+        .future-wish-list,
+        .future-wish-list li {
+            text-align: center !important;
+        }
+
+        /* Letter subsections */
+        .letter-subsection {
+            text-align: center !important;
+        }
+
+        /* Cards */
+        .letter-quote-card,
+        .letter-cute-card,
+        .letter-flirty-card,
+        .letter-love-note,
+        .letter-future-box,
+        .final-promise-card,
+        .letter-final-message,
+        .letter-signature-section {
+            text-align: center !important;
+        }
+
+        /* Heading with text underneath */
+        .letter-subsection h2 {
+            text-align: center !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .letter-subsection p {
+            text-align: center !important;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Make the actual letter look like one centered paper */
+        .letter-body {
+            max-width: 900px;
+            margin: 0 auto;
+        }
     </style>
 
 </head>
 
-
 <body class="letter-page">
 
+    <!-- BACKGROUND -->
 
-    <!-- ==================================================
-         BACKGROUND
-         ================================================== -->
+    <div class="page-background" aria-hidden="true"></div>
 
-    <div
-        class="page-background"
-        aria-hidden="true"
-    ></div>
-
-    <div
-        class="background-overlay"
-        aria-hidden="true"
-    ></div>
+    <div class="background-overlay" aria-hidden="true"></div>
 
 
-    <!-- ==================================================
-         DECORATIVE KITTY ELEMENTS
-         ================================================== -->
+    <!-- DECORATIVE KITTY ELEMENTS -->
 
-    <div
-        class="floating-paw floating-paw--one"
-        aria-hidden="true"
-    >
+    <div class="floating-paw floating-paw--one" aria-hidden="true">
         🐾
     </div>
 
-    <div
-        class="floating-paw floating-paw--two"
-        aria-hidden="true"
-    >
+    <div class="floating-paw floating-paw--two" aria-hidden="true">
         ♡
     </div>
 
-    <div
-        class="floating-paw floating-paw--three"
-        aria-hidden="true"
-    >
+    <div class="floating-paw floating-paw--three" aria-hidden="true">
         ✦
     </div>
 
-    <div
-        class="floating-paw floating-paw--four"
-        aria-hidden="true"
-    >
+    <div class="floating-paw floating-paw--four" aria-hidden="true">
         🐾
     </div>
 
 
-    <!-- ==================================================
-         SITE WRAPPER
-         ================================================== -->
+    <!-- SITE WRAPPER -->
 
     <div class="site-wrapper">
 
 
-        <!-- ==================================================
-             NAVIGATION
-             ================================================== -->
+        <!-- NAVIGATION -->
 
         <header class="site-header">
 
-            <nav
-                class="main-navigation"
-                aria-label="Main navigation"
-            >
+            <nav class="main-navigation" aria-label="Main navigation">
 
                 <a
                     href="index.html"
@@ -172,9 +146,7 @@
                     aria-label="Kitties Little World Home"
                 >
 
-                    <span class="brand-symbol">
-                        🐱
-                    </span>
+                    <span class="brand-symbol">🐱</span>
 
                     <span class="brand-text">
 
@@ -193,17 +165,11 @@
 
                 <div class="navigation-links">
 
-                    <a
-                        href="index.html"
-                        class="navigation-link"
-                    >
+                    <a href="index.html" class="navigation-link">
                         Home
                     </a>
 
-                    <a
-                        href="about.html"
-                        class="navigation-link"
-                    >
+                    <a href="about.html" class="navigation-link">
                         About
                     </a>
 
@@ -214,17 +180,11 @@
                         Letter
                     </a>
 
-                    <a
-                        href="memories.html"
-                        class="navigation-link"
-                    >
+                    <a href="memories.html" class="navigation-link">
                         Memories
                     </a>
 
-                    <a
-                        href="surprise.html"
-                        class="navigation-link"
-                    >
+                    <a href="surprise.html" class="navigation-link">
                         Surprise
                     </a>
 
@@ -237,11 +197,9 @@
                     aria-label="Open navigation menu"
                     aria-expanded="false"
                 >
-
                     <span></span>
                     <span></span>
                     <span></span>
-
                 </button>
 
             </nav>
@@ -249,16 +207,12 @@
         </header>
 
 
-        <!-- ==================================================
-             MAIN
-             ================================================== -->
+        <!-- MAIN -->
 
         <main class="letter-main">
 
 
-            <!-- ==================================================
-                 LETTER HERO
-                 ================================================== -->
+            <!-- LETTER HERO -->
 
             <section class="letter-hero">
 
@@ -280,6 +234,7 @@
                     <h1 class="hero-title">
 
                         For you,
+
                         <span class="hero-title-accent">
                             my favorite kitty.
                         </span>
@@ -300,13 +255,9 @@
                     <div class="letter-hero-paws">
 
                         <span>🐾</span>
-
                         <span></span>
-
                         <span>♡</span>
-
                         <span></span>
-
                         <span>🐾</span>
 
                     </div>
@@ -324,9 +275,7 @@
                             FOR MY FAVORITE PERSON
                         </span>
 
-                        <span>
-                            💌
-                        </span>
+                        <span>💌</span>
 
                     </div>
 
@@ -352,9 +301,7 @@
                             with love
                         </span>
 
-                        <strong>
-                            🐾
-                        </strong>
+                        <strong>🐾</strong>
 
                     </div>
 
@@ -363,9 +310,7 @@
             </section>
 
 
-            <!-- ==================================================
-                 THE LETTER
-                 ================================================== -->
+            <!-- THE LETTER -->
 
             <section class="letter-section">
 
@@ -382,9 +327,7 @@
                                 A LITTLE NOTE
                             </span>
 
-                            <span>
-                                🐾
-                            </span>
+                            <span>🐾</span>
 
                         </div>
 
@@ -404,9 +347,7 @@
                     </div>
 
 
-                    <!-- ==================================================
-                         LETTER BODY
-                         ================================================== -->
+                    <!-- LETTER BODY -->
 
                     <div class="letter-body">
 
@@ -417,7 +358,6 @@
 
 
                         <p>
-
                             I honestly don't know how to start
                             a letter like this because there are
                             so many things I want to say.
@@ -425,12 +365,10 @@
                             If I tried sending all of them in
                             one normal message, I'd probably
                             end up writing forever.
-
                         </p>
 
 
                         <p>
-
                             So I thought I'd put them here instead.
 
                             A little place where I don't have to
@@ -440,12 +378,10 @@
                             <strong>
                                 this letter was never going to be short.
                             </strong>
-
                         </p>
 
 
                         <p>
-
                             You became someone really special
                             to me in a way I didn't expect.
 
@@ -455,7 +391,6 @@
                             where we manage to talk...
 
                             you became part of my everyday thoughts.
-
                         </p>
 
 
@@ -468,10 +403,8 @@
                             </span>
 
                             <p>
-
                                 Different places don't have to
                                 mean different hearts.
-
                             </p>
 
                             <span class="letter-quote-paw">
@@ -482,7 +415,6 @@
 
 
                         <p>
-
                             You're in Dubai.
 
                             I'm here in Pakistan.
@@ -490,7 +422,6 @@
                             There are miles between us,
                             different routines and days when
                             both of us are simply too busy.
-
                         </p>
 
 
@@ -505,12 +436,10 @@
 
 
                         <p>
-
                             I like knowing that even when
                             we're both busy doing our own
                             things, there's still that little
                             thought in the back of my mind...
-
                         </p>
 
 
@@ -539,9 +468,7 @@
                         </p>
 
 
-                        <!-- ==================================================
-                             BUSY DAYS
-                             ================================================== -->
+                        <!-- BUSY DAYS -->
 
                         <div class="letter-subsection">
 
@@ -554,38 +481,30 @@
                             </h2>
 
                             <p>
-
                                 I know we both have our own work,
                                 responsibilities and things that
                                 need our attention.
-
                             </p>
 
                             <p>
-
                                 I don't expect us to disappear
                                 from our own lives just to talk
                                 all day.
-
                             </p>
 
                             <p>
-
                                 Actually, one of the things I
                                 appreciate most is that we can
                                 both have our own lives and still
                                 make room for each other.
-
                             </p>
 
                             <p>
-
                                 Sometimes it's a long conversation.
 
                                 Sometimes it's only a few messages.
 
                                 Sometimes one of us replies later.
-
                             </p>
 
                             <p>
@@ -593,18 +512,14 @@
                             </p>
 
                             <p class="letter-emphasis">
-
                                 And that means more than
                                 constantly being online ever could.
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             CUTE / PLAYFUL SECTION
-                             ================================================== -->
+                        <!-- CUTE / PLAYFUL SECTION -->
 
                         <div class="letter-cute-card">
 
@@ -624,16 +539,13 @@
                                 </h2>
 
                                 <p>
-
                                     I'm sorry, but once someone
                                     becomes part of a kitty-themed
                                     website, there is absolutely
                                     no escape.
-
                                 </p>
 
                                 <p>
-
                                     You will receive random
                                     kitty pictures.
 
@@ -645,7 +557,6 @@
                                     And you will probably have
                                     to tolerate my dramatic
                                     "where are youuu" moments. 🤭🐾
-
                                 </p>
 
                                 <p class="letter-cute-final">
@@ -657,9 +568,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             APPRECIATION
-                             ================================================== -->
+                        <!-- APPRECIATION -->
 
                         <div class="letter-subsection">
 
@@ -677,7 +586,6 @@
                             </p>
 
                             <p>
-
                                 The messages.
 
                                 The jokes.
@@ -686,26 +594,21 @@
 
                                 The moments when one of us
                                 is busy but still checks in.
-
                             </p>
 
                             <p>
-
                                 I appreciate that our connection
                                 doesn't have to be perfect to be
                                 meaningful.
-
                             </p>
 
                             <p>
-
                                 We can have busy days.
 
                                 We can have quiet days.
 
                                 We can have moments where there
                                 isn't much to say.
-
                             </p>
 
                             <p class="letter-emphasis">
@@ -730,9 +633,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             FIRST FUTURE THOUGHT
-                             ================================================== -->
+                        <!-- FIRST FUTURE THOUGHT -->
 
                         <div class="letter-subsection">
 
@@ -746,24 +647,19 @@
                             </h2>
 
                             <p>
-
                                 I don't know exactly what the
                                 future will look like.
 
                                 Nobody really does.
-
                             </p>
 
                             <p>
-
                                 But I do know there are things
                                 I'd love for us to experience
                                 someday.
-
                             </p>
 
                             <p>
-
                                 More conversations.
 
                                 More memories.
@@ -771,32 +667,25 @@
                                 More ridiculous kitty moments.
 
                                 More reasons to smile.
-
                             </p>
 
                             <p>
-
                                 And, when life gives us the
                                 opportunity, I hope there comes
                                 a time when the distance between
                                 Dubai and Pakistan feels a little
                                 less important than it does now.
-
                             </p>
 
                             <p class="letter-emphasis">
-
                                 Until then, we'll keep making
                                 our little moments.
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             FUTURE WISHES
-                             ================================================== -->
+                        <!-- FUTURE WISHES -->
 
                         <div class="letter-subsection">
 
@@ -810,41 +699,31 @@
                             </h2>
 
                             <p>
-
                                 I hope we keep talking even when
                                 life gets busier.
-
                             </p>
 
                             <p>
-
                                 I hope we keep sending each other
                                 random things that make absolutely
                                 no sense to anyone else.
-
                             </p>
 
                             <p>
-
                                 I hope we keep laughing at the
                                 dumbest jokes.
-
                             </p>
 
                             <p>
-
                                 I hope there are many more nights
                                 where we realise we've been talking
                                 for way longer than we planned.
-
                             </p>
 
                             <p>
-
                                 I hope there are more memories,
                                 more stories, more little surprises
                                 and more reasons to say,
-
                             </p>
 
                             <p class="letter-emphasis">
@@ -852,21 +731,17 @@
                             </p>
 
                             <p>
-
                                 And maybe one day, when the distance
                                 isn't the thing separating our days,
                                 we'll look back at all these messages
                                 and realise how much of our story
                                 started through a screen.
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             FUTURE MOMENTS
-                             ================================================== -->
+                        <!-- FUTURE MOMENTS -->
 
                         <div class="letter-future-grid">
 
@@ -885,11 +760,9 @@
                                 </h3>
 
                                 <p>
-
                                     The kind where "just five minutes"
                                     somehow turns into a whole
                                     conversation.
-
                                 </p>
 
                                 <span class="future-wish-paw">
@@ -914,10 +787,8 @@
                                 </h3>
 
                                 <p>
-
                                     More moments that we'll eventually
                                     look back at and smile about.
-
                                 </p>
 
                                 <span class="future-wish-paw">
@@ -942,11 +813,9 @@
                                 </h3>
 
                                 <p>
-
                                     Even on the busiest days,
                                     I hope we keep finding tiny
                                     reasons to make each other smile.
-
                                 </p>
 
                                 <span class="future-wish-paw">
@@ -958,9 +827,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             PROMISE SECTION
-                             ================================================== -->
+                        <!-- PROMISE INTRO -->
 
                         <div class="letter-subsection letter-promises-intro">
 
@@ -974,18 +841,14 @@
                             </h2>
 
                             <p>
-
                                 I don't want to promise things
                                 that sound perfect only because
                                 they're written beautifully.
-
                             </p>
 
                             <p>
-
                                 I'd rather promise the simple things
                                 that actually matter.
-
                             </p>
 
                         </div>
@@ -994,7 +857,6 @@
                         <!-- PROMISE CARDS -->
 
                         <div class="letter-promises-grid">
-
 
                             <article class="promise-card">
 
@@ -1015,13 +877,11 @@
                                 </h3>
 
                                 <p>
-
                                     I won't expect you to stop
                                     everything just because I
                                     want to talk.
 
                                     Your life matters too.
-
                                 </p>
 
                                 <div class="promise-card-paw">
@@ -1050,12 +910,10 @@
                                 </h3>
 
                                 <p>
-
                                     When something matters,
                                     I'll try to talk about it
                                     instead of letting silence
                                     make everything complicated.
-
                                 </p>
 
                                 <div class="promise-card-paw">
@@ -1084,12 +942,10 @@
                                 </h3>
 
                                 <p>
-
                                     This one is extremely serious.
 
                                     Random kitty pictures are
                                     basically a lifetime commitment.
-
                                 </p>
 
                                 <div class="promise-card-paw">
@@ -1118,11 +974,9 @@
                                 </h3>
 
                                 <p>
-
                                     I won't take the little moments
                                     for granted just because
                                     they're small.
-
                                 </p>
 
                                 <div class="promise-card-paw">
@@ -1134,9 +988,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             ROMANTIC SECTION
-                             ================================================== -->
+                        <!-- ROMANTIC SECTION -->
 
                         <div class="letter-romantic-section">
 
@@ -1154,20 +1006,16 @@
                             </h2>
 
                             <p>
-
                                 There's something really sweet
                                 about having someone you can think
                                 about during an ordinary day.
-
                             </p>
 
                             <p>
-
                                 Not because something huge happened.
 
                                 Just because a random thought appears
                                 and suddenly you want to tell them.
-
                             </p>
 
                             <p>
@@ -1175,27 +1023,21 @@
                             </p>
 
                             <p>
-
                                 I'll be doing something completely
                                 unrelated and suddenly think,
-
                             </p>
 
                             <p class="letter-romantic-quote">
-
                                 "She would definitely have something
                                 to say about this." 🤭
-
                             </p>
 
                             <p>
-
                                 And yes...
 
                                 you have officially become one
                                 of those people whose opinion
                                 randomly appears in my head.
-
                             </p>
 
                             <p class="letter-romantic-highlight">
@@ -1205,9 +1047,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             PLAYFUL FLIRTING
-                             ================================================== -->
+                        <!-- PLAYFUL FLIRTING -->
 
                         <div class="letter-flirty-card">
 
@@ -1226,36 +1066,28 @@
                                 </h2>
 
                                 <p>
-
                                     You should probably know that
                                     being this cute and then expecting
                                     me to behave normally is slightly
                                     unfair.
-
                                 </p>
 
                                 <p>
-
                                     And yes, I'm aware that I just
                                     blamed you for my own inability
                                     to stop being cheesy. 🤭
-
                                 </p>
 
                                 <p>
-
                                     Also, if you ever wonder why
                                     there are so many cute things
                                     on this website...
-
                                 </p>
 
                                 <p class="flirty-card-highlight">
-
                                     It's because apparently one
                                     cute person inspired an entire
                                     kitty universe. 🐱🐾
-
                                 </p>
 
                             </div>
@@ -1263,9 +1095,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             EMOTIONAL DISTANCE SECTION
-                             ================================================== -->
+                        <!-- EMOTIONAL DISTANCE -->
 
                         <div class="letter-subsection">
 
@@ -1279,35 +1109,27 @@
                             </h2>
 
                             <p>
-
                                 There will probably be days when
                                 I wish we could just talk without
                                 checking schedules or waiting for
                                 a free moment.
-
                             </p>
 
                             <p>
-
                                 Days when I wish the screen wasn't
                                 the thing connecting two different
                                 places.
-
                             </p>
 
                             <p>
-
                                 But even then, I don't want the
                                 distance to make me forget how
                                 special the connection itself is.
-
                             </p>
 
                             <p>
-
                                 Because being apart doesn't erase
                                 the conversations we've had.
-
                             </p>
 
                             <p>
@@ -1319,18 +1141,14 @@
                             </p>
 
                             <p class="letter-emphasis">
-
                                 And it definitely doesn't erase
                                 how much I care.
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             LITTLE LOVE NOTE
-                             ================================================== -->
+                        <!-- LITTLE LOVE NOTE -->
 
                         <div class="letter-love-note">
 
@@ -1339,10 +1157,8 @@
                             </span>
 
                             <p>
-
                                 If distance ever feels annoying,
                                 we'll just blame the map.
-
                             </p>
 
                             <p class="love-note-main">
@@ -1356,9 +1172,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             THE FUTURE
-                             ================================================== -->
+                        <!-- THE FUTURE -->
 
                         <div class="letter-subsection">
 
@@ -1372,55 +1186,43 @@
                             </h2>
 
                             <p>
-
                                 I hope life gives both of us
                                 beautiful opportunities.
 
                                 I hope we grow, learn, work hard
                                 and become better versions of
                                 ourselves.
-
                             </p>
 
                             <p>
-
                                 And while we're busy building
                                 our own futures, I hope we never
                                 completely lose these little
                                 moments that belong to us.
-
                             </p>
 
                             <p>
-
                                 I hope there are more birthdays,
                                 more celebrations, more random
                                 conversations and more reasons
                                 to look back and smile.
-
                             </p>
 
                             <p>
-
                                 I hope one day we can look at
                                 the distance between Dubai and
                                 Pakistan and say,
-
                             </p>
 
                             <p class="letter-emphasis">
-
                                 "Remember when this used to feel
                                 so far away?" 🐾
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             FUTURE WISH BOX
-                             ================================================== -->
+                        <!-- FUTURE WISH BOX -->
 
                         <div class="letter-future-box">
 
@@ -1480,9 +1282,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             FINAL PROMISES
-                             ================================================== -->
+                        <!-- FINAL PROMISES -->
 
                         <div class="letter-subsection">
 
@@ -1495,65 +1295,49 @@
                             </h2>
 
                             <p>
-
                                 I promise I'll keep appreciating
                                 the little things.
-
                             </p>
 
                             <p>
-
                                 I promise I'll try to communicate
                                 honestly when something matters.
-
                             </p>
 
                             <p>
-
                                 I promise I'll respect your time,
                                 your work, your responsibilities
                                 and your own space.
-
                             </p>
 
                             <p>
-
                                 I promise I'll keep cheering for
                                 the things you want to achieve.
-
                             </p>
 
                             <p>
-
                                 And whenever life gets busy,
                                 I'll remember that being busy
                                 doesn't mean someone stopped caring.
-
                             </p>
 
                             <p class="letter-emphasis">
-
                                 Sometimes it simply means
                                 we're both trying to build
                                 our futures.
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             PROMISE FEATURE CARD
-                             ================================================== -->
+                        <!-- PROMISE FEATURE CARD -->
 
                         <div class="final-promise-card">
 
                             <div class="final-promise-card-paws">
-
                                 <span>🐾</span>
                                 <span>♡</span>
                                 <span>🐾</span>
-
                             </div>
 
                             <div class="final-promise-card-kitty">
@@ -1566,12 +1350,10 @@
                             </h2>
 
                             <p>
-
                                 Because sometimes a few minutes
                                 with someone you care about can
                                 mean more than hours of ordinary
                                 conversation with anyone else.
-
                             </p>
 
                             <span class="final-promise-signature">
@@ -1582,9 +1364,7 @@
                         </div>
 
 
-                        <!-- ==================================================
-                             FINAL EMOTIONAL MESSAGE
-                             ================================================== -->
+                        <!-- FINAL EMOTIONAL MESSAGE -->
 
                         <div class="letter-final-message">
 
@@ -1606,48 +1386,36 @@
                             </p>
 
                             <p>
-
                                 Thank you for making time when
                                 you could have simply stayed busy
                                 with everything else.
-
                             </p>
 
                             <p>
-
                                 Thank you for being someone I can
                                 think about during an ordinary day
                                 and suddenly smile.
-
                             </p>
 
                             <p>
-
                                 I don't know exactly where every
                                 road ahead will take us.
-
                             </p>
 
                             <p>
-
                                 But I know I'm happy that this
                                 little part of the journey exists.
-
                             </p>
 
                             <p class="letter-final-highlight">
-
                                 And I'm really, really glad
                                 you're in my story. 🤍🐱
-
                             </p>
 
                         </div>
 
 
-                        <!-- ==================================================
-                             FINAL KITTY SIGNATURE
-                             ================================================== -->
+                        <!-- FINAL KITTY SIGNATURE -->
 
                         <div class="letter-signature-section">
 
@@ -1672,12 +1440,10 @@
                             </h3>
 
                             <p class="letter-signature-small">
-
                                 And yes, you are absolutely
                                 responsible for at least
                                 37% of the kitty content
                                 on this website. 😭🐾
-
                             </p>
 
                         </div>
@@ -1686,9 +1452,7 @@
                     </div>
 
 
-                    <!-- ==================================================
-                         LETTER PAPER FOOTER
-                         ================================================== -->
+                    <!-- LETTER PAPER FOOTER -->
 
                     <div class="letter-paper-footer">
 
@@ -1696,9 +1460,7 @@
                             written across the distance
                         </span>
 
-                        <span>
-                            🐾
-                        </span>
+                        <span>🐾</span>
 
                         <span>
                             Dubai 🇦🇪 × Pakistan 🇵🇰
@@ -1711,9 +1473,7 @@
             </section>
 
 
-            <!-- ==================================================
-                 NEXT PAGE TRANSITION
-                 ================================================== -->
+            <!-- NEXT PAGE -->
 
             <section class="letter-next-section">
 
@@ -1741,11 +1501,9 @@
                     </h2>
 
                     <p>
-
                         The letter said what I wanted to say.
 
                         But every good story needs its memories too.
-
                     </p>
 
                     <p class="letter-next-small">
@@ -1818,9 +1576,7 @@
         </main>
 
 
-        <!-- ==================================================
-             FOOTER
-             ================================================== -->
+        <!-- FOOTER -->
 
         <footer class="site-footer">
 
@@ -1853,10 +1609,8 @@
 
 
                 <p class="footer-text">
-
                     Made for the little moments
                     that distance can't erase.
-
                 </p>
 
 
@@ -1865,17 +1619,11 @@
                     aria-label="Footer navigation"
                 >
 
-                    <a
-                        href="index.html"
-                        class="footer-link"
-                    >
+                    <a href="index.html" class="footer-link">
                         Home
                     </a>
 
-                    <a
-                        href="about.html"
-                        class="footer-link"
-                    >
+                    <a href="about.html" class="footer-link">
                         About
                     </a>
 
@@ -1886,17 +1634,11 @@
                         Letter
                     </a>
 
-                    <a
-                        href="memories.html"
-                        class="footer-link"
-                    >
+                    <a href="memories.html" class="footer-link">
                         Memories
                     </a>
 
-                    <a
-                        href="surprise.html"
-                        class="footer-link"
-                    >
+                    <a href="surprise.html" class="footer-link">
                         Surprise
                     </a>
 
@@ -1923,9 +1665,7 @@
     </div>
 
 
-    <!-- ==================================================
-         JAVASCRIPT
-         ================================================== -->
+    <!-- JAVASCRIPT -->
 
     <script src="js/loading.js"></script>
     <script src="js/cursor.js"></script>
