@@ -17,12 +17,13 @@
 
     <meta
         name="description"
-        content="A little letter written across the distance between Dubai and Pakistan."
+        content="A little surprise made with love for my favorite kitty."
     >
 
     <title>
-        A Little Letter | Kitties Little World 🐾
+        A Little Surprise | Kitties Little World 🐾
     </title>
+
 
     <!-- ==================================================
          FONTS
@@ -41,6 +42,7 @@
         rel="stylesheet"
     >
 
+
     <!-- ==================================================
          CSS
          ================================================== -->
@@ -48,403 +50,14 @@
     <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="background.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="animation.css">
+    <link rel="stylesheet" href="responsive.css">
 
-
-    <!-- ==================================================
-         SECRET SURPRISE STYLES
-         ================================================== -->
-
-    <style>
-
-        .surprise-launcher {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-
-            display: grid;
-            place-items: center;
-
-            padding: 24px;
-
-            background:
-                rgba(247, 239, 232, .97);
-
-            backdrop-filter: blur(12px);
-
-            transition: .7s;
-        }
-
-
-        .surprise-launcher.is-hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-
-        .surprise-launcher-card {
-            width: min(680px, 100%);
-
-            text-align: center;
-
-            padding:
-                clamp(30px, 6vw, 64px);
-
-            border-radius: 32px;
-
-            background:
-                rgba(255, 255, 255, .92);
-
-            box-shadow:
-                0 30px 90px
-                rgba(80, 45, 60, .18);
-
-            animation:
-                surpriseIn .8s ease both;
-        }
-
-
-        .surprise-launcher-kitty {
-            font-size: 80px;
-
-            animation:
-                kittyFloat 2.8s
-                ease-in-out infinite;
-        }
-
-
-        .surprise-launcher-kicker {
-            display: block;
-
-            letter-spacing: .2em;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            opacity: .65;
-
-            margin: 12px;
-        }
-
-
-        .surprise-launcher-card h2 {
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(32px, 6vw, 56px);
-
-            margin:
-                0 0 14px;
-        }
-
-
-        .surprise-launcher-card p {
-            line-height: 1.8;
-
-            max-width: 520px;
-
-            margin:
-                0 auto 26px;
-        }
-
-
-        .surprise-open-button,
-        .surprise-reveal-button {
-
-            border: 0;
-
-            cursor: pointer;
-
-            padding:
-                15px 24px;
-
-            border-radius: 999px;
-
-            font: inherit;
-
-            font-weight: 700;
-        }
-
-
-        .surprise-open-button {
-
-            color: #fff;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #9b6478,
-                    #c68ca0
-                );
-
-            box-shadow:
-                0 14px 32px
-                rgba(155, 100, 120, .28);
-        }
-
-
-        .surprise-zone {
-
-            position: relative;
-
-            overflow: hidden;
-
-            margin:
-                48px auto;
-
-            padding:
-                clamp(28px, 6vw, 70px)
-                20px;
-
-            width:
-                min(1120px, calc(100% - 32px));
-
-            border-radius: 34px;
-
-            text-align: center;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fffaf7,
-                    #f8edf1
-                );
-
-            box-shadow:
-                0 24px 70px
-                rgba(90, 55, 65, .12);
-        }
-
-
-        .surprise-zone h2 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size:
-                clamp(32px, 5vw, 58px);
-
-            margin:
-                0 0 12px;
-        }
-
-
-        .surprise-zone > p {
-
-            max-width: 650px;
-
-            margin:
-                0 auto 28px;
-
-            line-height: 1.8;
-        }
-
-
-        .surprise-reveal-button {
-
-            background: #fff;
-
-            box-shadow:
-                0 10px 28px
-                rgba(70, 40, 55, .13);
-        }
-
-
-        .surprise-hidden-message {
-
-            max-width: 760px;
-
-            margin:
-                28px auto 0;
-
-            padding: 28px;
-
-            border-radius: 24px;
-
-            background:
-                rgba(255, 255, 255, .82);
-
-            opacity: 0;
-
-            transform:
-                translateY(18px)
-                scale(.98);
-
-            max-height: 0;
-
-            overflow: hidden;
-
-            transition: .7s;
-        }
-
-
-        .surprise-hidden-message.is-visible {
-
-            opacity: 1;
-
-            transform: none;
-
-            max-height: 700px;
-        }
-
-
-        .surprise-hidden-message h3 {
-
-            font-family:
-                "Playfair Display",
-                serif;
-
-            font-size: 30px;
-        }
-
-
-        .surprise-hidden-message p {
-
-            line-height: 1.9;
-        }
-
-
-        .surprise-secret {
-
-            font-weight: 700;
-        }
-
-
-        .surprise-particle {
-
-            position: fixed;
-
-            z-index: 100000;
-
-            pointer-events: none;
-
-            font-size: 22px;
-
-            animation:
-                surpriseParticle
-                1.8s
-                ease-out
-                forwards;
-        }
-
-
-        @keyframes surpriseIn {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(30px)
-                    scale(.94);
-            }
-
-            to {
-                opacity: 1;
-
-                transform: none;
-            }
-        }
-
-
-        @keyframes kittyFloat {
-
-            0%,
-            100% {
-                transform:
-                    translateY(0);
-            }
-
-            50% {
-                transform:
-                    translateY(-12px);
-            }
-        }
-
-
-        @keyframes surpriseParticle {
-
-            0% {
-                opacity: 1;
-
-                transform:
-                    translate(0, 0)
-                    rotate(0);
-            }
-
-            100% {
-                opacity: 0;
-
-                transform:
-                    translate(
-                        var(--x),
-                        var(--y)
-                    )
-                    rotate(420deg);
-            }
-        }
-
-    </style>
 
 </head>
 
 
-<body class="letter-page">
-
-
-    <!-- ==================================================
-         SECRET SURPRISE OPENING
-         ================================================== -->
-
-    <div
-        class="surprise-launcher"
-        id="surpriseLauncher"
-    >
-
-        <div class="surprise-launcher-card">
-
-            <div
-                class="surprise-launcher-kitty"
-                aria-hidden="true"
-            >
-                🐱
-            </div>
-
-
-            <span class="surprise-launcher-kicker">
-                A LITTLE SECRET FOR YOU
-            </span>
-
-
-            <h2>
-                Hey, favorite kitty... 🤍
-            </h2>
-
-
-            <p>
-                I made something a little extra for you.
-                Don't open it unless you're ready for
-                a tiny emotional kitty attack. 🐾
-            </p>
-
-
-            <button
-                type="button"
-                class="surprise-open-button"
-                id="openSurpriseButton"
-            >
-
-                🐾 Open your surprise
-
-            </button>
-
-        </div>
-
-    </div>
+<body class="surprise-page">
 
 
     <!-- ==================================================
@@ -455,7 +68,6 @@
         class="page-background"
         aria-hidden="true"
     ></div>
-
 
     <div
         class="background-overlay"
@@ -474,7 +86,6 @@
         🐾
     </div>
 
-
     <div
         class="floating-paw floating-paw--two"
         aria-hidden="true"
@@ -482,14 +93,12 @@
         ♡
     </div>
 
-
     <div
         class="floating-paw floating-paw--three"
         aria-hidden="true"
     >
         ✦
     </div>
-
 
     <div
         class="floating-paw floating-paw--four"
@@ -507,7 +116,7 @@
 
 
         <!-- ==================================================
-             NAVIGATION
+             HEADER
              ================================================== -->
 
         <header class="site-header">
@@ -528,13 +137,11 @@
                         🐱
                     </span>
 
-
                     <span class="brand-text">
 
                         <span class="brand-name">
                             Kitties Little World
                         </span>
-
 
                         <span class="brand-tagline">
                             two places • one little world
@@ -547,14 +154,12 @@
 
                 <div class="navigation-links">
 
-
                     <a
                         href="index.html"
                         class="navigation-link"
                     >
                         Home
                     </a>
-
 
                     <a
                         href="about.html"
@@ -563,14 +168,12 @@
                         About
                     </a>
 
-
                     <a
                         href="letter.html"
-                        class="navigation-link navigation-link--active"
+                        class="navigation-link"
                     >
                         Letter
                     </a>
-
 
                     <a
                         href="memories.html"
@@ -579,14 +182,12 @@
                         Memories
                     </a>
 
-
                     <a
                         href="surprise.html"
-                        class="navigation-link"
+                        class="navigation-link navigation-link--active"
                     >
                         Surprise
                     </a>
-
 
                 </div>
 
@@ -604,7 +205,6 @@
 
                 </button>
 
-
             </nav>
 
         </header>
@@ -614,24 +214,23 @@
              MAIN
              ================================================== -->
 
-        <main class="letter-main">
+        <main>
 
 
             <!-- ==================================================
-                 LETTER HERO
+                 SURPRISE HERO
                  ================================================== -->
 
-            <section class="letter-hero">
+            <section class="page-hero">
 
-                <div class="letter-hero-content">
-
+                <div class="page-hero-content">
 
                     <div class="hero-kicker">
 
                         <span class="hero-kicker-line"></span>
 
                         <span class="hero-kicker-text">
-                            A LETTER ACROSS THE DISTANCE
+                            A LITTLE SURPRISE
                         </span>
 
                         <span class="hero-kicker-line"></span>
@@ -639,12 +238,11 @@
                     </div>
 
 
-                    <h1 class="hero-title">
+                    <h1>
 
-                        For you,
-
+                        I made
                         <span class="hero-title-accent">
-                            my favorite kitty.
+                            something for you.
                         </span>
 
                     </h1>
@@ -652,15 +250,15 @@
 
                     <p class="hero-description">
 
-                        From Pakistan 🇵🇰 to Dubai 🇦🇪,
-                        here's a little piece of my heart
-                        written down instead of sent
-                        as just another message.
+                        Not everything needs a reason.
+
+                        Sometimes you just want to make
+                        someone you care about smile. 🐱🤍
 
                     </p>
 
 
-                    <div class="letter-hero-paws">
+                    <div class="surprise-hero-paws">
 
                         <span>🐾</span>
 
@@ -676,375 +274,602 @@
 
                 </div>
 
-
-                <!-- LETTER PREVIEW -->
-
-                <div class="letter-preview-card">
-
-                    <div class="letter-preview-top">
-
-                        <span>
-                            FOR MY FAVORITE PERSON
-                        </span>
-
-                        <span>
-                            💌
-                        </span>
-
-                    </div>
+            </section>
 
 
-                    <div class="letter-preview-kitty">
+            <!-- ==================================================
+                 SURPRISE CONTENT
+                 ================================================== -->
+
+            <section class="surprise-content-section">
+
+
+                <div class="surprise-content-heading">
+
+                    <span class="section-kicker">
+                        A LITTLE SOMETHING FOR YOU
+                    </span>
+
+                    <h2>
+                        Because you deserve
+                        a little surprise. 🐱🤍
+                    </h2>
+
+                    <p>
+                        I wanted to make something that feels
+                        a little more special than an ordinary message.
+                    </p>
+
+                </div>
+
+
+                <!-- ==================================================
+                     PAPER PREVIEW
+                     ================================================== -->
+
+                <div class="surprise-paper-preview">
+
+                    <div class="surprise-paper-kitty">
                         🐱
                     </div>
 
+                    <span class="section-kicker">
+                        A LITTLE NOTE
+                    </span>
+
+                    <h2>
+                        Open this with a smile. 🤍
+                    </h2>
 
                     <p>
-
-                        "If I could put every little thought
-                        I've had about us into one place,
-                        it would probably still need
-                        another hundred pages."
-
+                        There are some things that are easier
+                        to say when you take your time writing them.
                     </p>
 
-
-                    <div class="letter-preview-signature">
-
-                        <span>
-                            with love
-                        </span>
-
-                        <strong>
-                            🐾
-                        </strong>
-
+                    <div class="surprise-paper-paws">
+                        🐾 ♡ 🐾
                     </div>
 
                 </div>
 
-            </section>
-                    <!-- ==================================================
-             SURPRISE CONTENT
-             ================================================== -->
 
-        <section class="surprise-content-section">
+                <!-- ==================================================
+                     WISHES
+                     ================================================== -->
 
-            <div class="surprise-content-heading">
+                <section class="surprise-wishes-section">
 
-                <span class="section-kicker">
-                    A LITTLE SOMETHING FOR YOU
-                </span>
+                    <div class="section-heading section-heading--center">
 
-                <h2>
-                    Because you deserve
-                    a little surprise. 🐱🤍
-                </h2>
-
-                <p>
-                    I wanted to make something that feels
-                    a little more special than an ordinary message.
-                </p>
-
-            </div>
-
-
-            <!-- ==================================================
-                 PAPER PREVIEW
-                 ================================================== -->
-
-            <div class="surprise-paper-preview">
-
-                <div class="surprise-paper-kitty">
-                    🐱
-                </div>
-
-                <span class="section-kicker">
-                    A LITTLE NOTE
-                </span>
-
-                <h2>
-                    Open this with a smile. 🤍
-                </h2>
-
-                <p>
-                    There are some things that are easier
-                    to say when you take your time writing them.
-                </p>
-
-                <div class="surprise-paper-paws">
-                    🐾 ♡ 🐾
-                </div>
-
-            </div>
-
-
-            <!-- ==================================================
-                 LITTLE WISHES
-                 ================================================== -->
-
-            <section class="surprise-wishes-section">
-
-                <div class="surprise-wishes-heading">
-
-                    <span class="section-kicker">
-                        LITTLE WISHES
-                    </span>
-
-                    <h2>
-                        A few things I hope
-                        we never lose.
-                    </h2>
-
-                    <p>
-                        Nothing complicated.
-                        Just the little things that make
-                        our connection special.
-                    </p>
-
-                </div>
-
-
-                <div class="surprise-wishes-grid">
-
-
-                    <article class="surprise-wish-card">
-
-                        <span class="wish-number">
-                            01
+                        <span class="section-kicker">
+                            LITTLE WISHES
                         </span>
 
-                        <span class="wish-icon">
-                            💬
-                        </span>
+                        <h2>
+                            A few things I hope
+                            we never lose.
+                        </h2>
 
-                        <div class="wish-content">
+                        <p>
+                            Nothing complicated.
+                            Just the little things that make
+                            our connection special.
+                        </p>
 
-                            <h3>
-                                Keep talking.
-                            </h3>
-
-                            <p>
-                                Even when life gets busy,
-                                I hope we always find little
-                                moments to check in and share
-                                what's happening in our days.
-                            </p>
-
-                        </div>
-
-                    </article>
+                    </div>
 
 
-                    <article class="surprise-wish-card">
-
-                        <span class="wish-number">
-                            02
-                        </span>
-
-                        <span class="wish-icon">
-                            🐾
-                        </span>
-
-                        <div class="wish-content">
-
-                            <h3>
-                                Keep the silly moments.
-                            </h3>
-
-                            <p>
-                                The random messages, weird jokes,
-                                kitty pictures and completely
-                                unnecessary conversations.
-                            </p>
-
-                        </div>
-
-                    </article>
+                    <div class="surprise-wishes-grid">
 
 
-                    <article class="surprise-wish-card">
+                        <article class="surprise-wish-card">
 
-                        <span class="wish-number">
-                            03
-                        </span>
-
-                        <span class="wish-icon">
-                            ✨
-                        </span>
-
-                        <div class="wish-content">
-
-                            <h3>
-                                Keep making memories.
-                            </h3>
-
-                            <p>
-                                I hope there are many more little
-                                moments that one day make us smile
-                                when we look back.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- ==================================================
-                 PROMISES
-                 ================================================== -->
-
-            <section class="surprise-promises-section">
-
-                <div class="surprise-promises-heading">
-
-                    <span class="section-kicker">
-                        LITTLE PROMISES
-                    </span>
-
-                    <h2>
-                        Four tiny promises
-                        from your kitty. 🐱
-                    </h2>
-
-                    <p>
-                        Nothing dramatic.
-                        Just simple things that matter.
-                    </p>
-
-                </div>
-
-
-                <div class="surprise-promises-grid">
-
-
-                    <article class="promise-card">
-
-                        <div class="promise-card-top">
-
-                            <span class="promise-number">
+                            <span class="wish-number">
                                 01
                             </span>
 
-                            <span class="promise-icon">
-                                🤍
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Respect your time.
-                        </h3>
-
-                        <p>
-                            Your studies, work, responsibilities
-                            and personal time will always matter.
-                            I don't need every minute of your day.
-                        </p>
-
-                        <div class="promise-card-paw">
-                            🐾
-                        </div>
-
-                    </article>
-
-
-                    <article class="promise-card">
-
-                        <div class="promise-card-top">
-
-                            <span class="promise-number">
-                                02
-                            </span>
-
-                            <span class="promise-icon">
+                            <span class="wish-icon">
                                 💬
                             </span>
 
-                        </div>
+                            <div class="wish-content">
 
-                        <h3>
-                            Communicate honestly.
-                        </h3>
+                                <h3>
+                                    Keep talking.
+                                </h3>
 
-                        <p>
-                            If something matters, I'll try to
-                            talk about it instead of letting
-                            silence make things complicated.
-                        </p>
+                                <p>
+                                    Even when life gets busy,
+                                    I hope we always find little
+                                    moments to check in and share
+                                    what's happening in our days.
+                                </p>
 
-                        <div class="promise-card-paw">
-                            🐾
-                        </div>
+                            </div>
 
-                    </article>
+                        </article>
 
 
-                    <article class="promise-card">
+                        <article class="surprise-wish-card">
 
-                        <div class="promise-card-top">
+                            <span class="wish-number">
+                                02
+                            </span>
 
-                            <span class="promise-number">
+                            <span class="wish-icon">
+                                🐾
+                            </span>
+
+                            <div class="wish-content">
+
+                                <h3>
+                                    Keep the silly moments.
+                                </h3>
+
+                                <p>
+                                    The random messages, weird jokes,
+                                    kitty pictures and completely
+                                    unnecessary conversations.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="surprise-wish-card">
+
+                            <span class="wish-number">
                                 03
                             </span>
 
-                            <span class="promise-icon">
-                                🐱
+                            <span class="wish-icon">
+                                ✨
                             </span>
 
-                        </div>
+                            <div class="wish-content">
 
-                        <h3>
-                            Keep the kitty energy.
-                        </h3>
+                                <h3>
+                                    Keep making memories.
+                                </h3>
+
+                                <p>
+                                    I hope there are many more little
+                                    moments that one day make us smile
+                                    when we look back.
+                                </p>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==================================================
+                     PROMISES
+                     ================================================== -->
+
+                <section class="surprise-promises-section">
+
+                    <div class="section-heading section-heading--center">
+
+                        <span class="section-kicker">
+                            LITTLE PROMISES
+                        </span>
+
+                        <h2>
+                            Four tiny promises
+                            from your kitty. 🐱
+                        </h2>
 
                         <p>
-                            Random kitty pictures,
-                            silly messages and dramatic
-                            little moments are staying. 😭🐾
+                            Nothing dramatic.
+                            Just simple things that matter.
                         </p>
 
-                        <div class="promise-card-paw">
-                            🐾
-                        </div>
-
-                    </article>
+                    </div>
 
 
-                    <article class="promise-card">
+                    <div class="surprise-promises-grid">
 
-                        <div class="promise-card-top">
 
-                            <span class="promise-number">
-                                04
-                            </span>
+                        <article class="promise-card">
 
-                            <span class="promise-icon">
-                                🌷
-                            </span>
+                            <div class="promise-card-top">
 
-                        </div>
+                                <span class="promise-number">
+                                    01
+                                </span>
 
-                        <h3>
-                            Appreciate the little things.
-                        </h3>
+                                <span class="promise-icon">
+                                    🤍
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                I'll respect your busy days.
+                            </h3>
+
+                            <p>
+                                I won't expect you to stop
+                                everything just because I
+                                want to talk.
+
+                                Your life matters too.
+                            </p>
+
+                            <div class="promise-card-paw">
+                                🐾
+                            </div>
+
+                        </article>
+
+
+                        <article class="promise-card">
+
+                            <div class="promise-card-top">
+
+                                <span class="promise-number">
+                                    02
+                                </span>
+
+                                <span class="promise-icon">
+                                    💬
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                I'll keep communicating.
+                            </h3>
+
+                            <p>
+                                When something matters,
+                                I'll try to talk about it
+                                instead of letting silence
+                                make everything complicated.
+                            </p>
+
+                            <div class="promise-card-paw">
+                                🐾
+                            </div>
+
+                        </article>
+
+
+                        <article class="promise-card">
+
+                            <div class="promise-card-top">
+
+                                <span class="promise-number">
+                                    03
+                                </span>
+
+                                <span class="promise-icon">
+                                    🐱
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                I'll keep the kitty energy alive.
+                            </h3>
+
+                            <p>
+                                This one is extremely serious.
+
+                                Random kitty pictures are
+                                basically a lifetime commitment.
+                            </p>
+
+                            <div class="promise-card-paw">
+                                🐾
+                            </div>
+
+                        </article>
+
+
+                        <article class="promise-card">
+
+                            <div class="promise-card-top">
+
+                                <span class="promise-number">
+                                    04
+                                </span>
+
+                                <span class="promise-icon">
+                                    🌷
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                I'll appreciate the little things.
+                            </h3>
+
+                            <p>
+                                I won't take the little moments
+                                for granted just because
+                                they're small.
+                            </p>
+
+                            <div class="promise-card-paw">
+                                🐾
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+                <!-- ==================================================
+                     FINAL SURPRISE MESSAGE
+                     ================================================== -->
+
+                <div class="surprise-final-message">
+
+                    <span class="surprise-final-kitty">
+                        😽
+                    </span>
+
+                    <span class="section-kicker">
+                        ONE LAST THING
+                    </span>
+
+                    <h2>
+                        You really are
+                        one of my favorite people.
+                    </h2>
+
+                    <p>
+                        There's something really sweet
+                        about having someone you can think
+                        about during an ordinary day.
+
+                        Not because something huge happened.
+
+                        Just because a random thought appears
+                        and suddenly you want to tell them.
+                    </p>
+
+                    <p>
+                        That's you sometimes. 🐱🤍
+                    </p>
+
+                    <div class="surprise-final-decoration">
+                        🐾 ♡ 🐾
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ==================================================
+                 GIFT SECTION
+                 ================================================== -->
+
+            <section class="gift-section">
+
+                <div class="gift-stage">
+
+
+                    <!-- GIFT MESSAGE -->
+
+                    <div class="gift-message">
+
+                        <span class="gift-message-kitty">
+                            🐱
+                        </span>
+
+                        <span class="gift-message-label">
+                            YOUR LITTLE SURPRISE
+                        </span>
+
+                        <h2>
+                            There's something
+                            waiting for you...
+                        </h2>
 
                         <p>
-                            I don't want to take the small
-                            moments for granted just because
-                            they seem ordinary.
+                            Click the gift. 🎁
                         </p>
 
-                        <div class="promise-card-paw">
-                            🐾
+                    </div>
+
+
+                    <!-- ==================================================
+                         GIFT BOX
+                         ================================================== -->
+
+                    <div
+                        class="gift-box"
+                        id="giftBox"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Open the surprise gift"
+                    >
+
+
+                        <div class="gift-shadow"></div>
+
+
+                        <div class="gift-base">
+
+                            <div class="gift-base-front"></div>
+
+                            <div class="gift-base-side"></div>
+
                         </div>
 
-                    </article>
+
+                        <div class="gift-lid">
+
+                            <div class="gift-lid-top"></div>
+
+                            <div class="gift-lid-front"></div>
+
+                            <div class="gift-lid-side"></div>
+
+                        </div>
+
+
+                        <div class="gift-ribbon"></div>
+
+                        <div class="gift-ribbon-horizontal"></div>
+
+
+                        <div class="gift-bow">
+
+                            <span class="bow-left"></span>
+
+                            <span class="bow-right"></span>
+
+                            <span class="bow-center"></span>
+
+                        </div>
+
+
+                        <span class="gift-sparkle gift-sparkle--one">
+                            ✦
+                        </span>
+
+                        <span class="gift-sparkle gift-sparkle--two">
+                            ✧
+                        </span>
+
+                        <span class="gift-sparkle gift-sparkle--three">
+                            ✦
+                        </span>
+
+
+                    </div>
+
+
+                    <p class="gift-click-hint">
+                        tap / click the gift 🐾
+                    </p>
+
+
+                    <!-- ==================================================
+                         KITTY REVEAL
+                         ================================================== -->
+
+                    <div
+                        class="surprise-kitty-reveal"
+                        id="surpriseKitty"
+                    >
+
+                        <div class="surprise-kitty">
+
+
+                            <div class="kitty-ear kitty-ear--left"></div>
+
+                            <div class="kitty-ear kitty-ear--right"></div>
+
+
+                            <div class="kitty-face">
+
+                                <span class="kitty-eye kitty-eye--left">
+                                    •
+                                </span>
+
+                                <span class="kitty-eye kitty-eye--right">
+                                    •
+                                </span>
+
+                                <span class="kitty-nose">
+                                    ♥
+                                </span>
+
+                                <span class="kitty-mouth">
+                                    ᴗ
+                                </span>
+
+                                <span class="kitty-cheek kitty-cheek--left">
+                                    ♡
+                                </span>
+
+                                <span class="kitty-cheek kitty-cheek--right">
+                                    ♡
+                                </span>
+
+                            </div>
+
+
+                            <div class="kitty-body">
+
+                                <div class="kitty-belly">
+                                    ♡
+                                </div>
+
+                            </div>
+
+
+                            <span class="kitty-paw kitty-paw--left">
+                                🐾
+                            </span>
+
+                            <span class="kitty-paw kitty-paw--right">
+                                🐾
+                            </span>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <!-- ==================================================
+                         KITTY PAPER
+                         ================================================== -->
+
+                    <div
+                        class="kitty-paper"
+                        id="kittyPaper"
+                    >
+
+                        <div class="kitty-paper-tape"></div>
+
+                        <span class="kitty-paper-paw">
+                            🐾
+                        </span>
+
+                        <span class="kitty-paper-label">
+                            SECRET MESSAGE
+                        </span>
+
+                        <h2>
+                            For my favorite kitty 🤍
+                        </h2>
+
+                        <div class="kitty-paper-divider">
+                            ♡
+                        </div>
+
+                        <p>
+                            You are officially one of the
+                            cutest parts of this little world.
+                        </p>
+
+                        <p>
+                            And yes...
+
+                            this entire kitty universe
+                            is partly your fault. 😭🐱
+                        </p>
+
+                    </div>
 
 
                 </div>
@@ -1053,318 +878,175 @@
 
 
             <!-- ==================================================
-                 FINAL SURPRISE MESSAGE
+                 ENDING
                  ================================================== -->
 
-            <div class="surprise-final-message">
+            <section class="surprise-ending-section">
 
-                <span class="surprise-final-kitty">
-                    😽
-                </span>
+                <div class="surprise-ending-card">
 
-                <span class="section-kicker">
-                    ONE LAST THING
-                </span>
-
-                <h2>
-                    You made your way into
-                    my little world somehow.
-                </h2>
-
-                <p>
-                    And honestly, I'm really glad you did.
-                    I hope this little website reminds you
-                    that even ordinary conversations can become
-                    some of our favorite memories.
-                </p>
-
-                <div class="surprise-final-decoration">
-                    🐾 ♡ 🐾
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             GIFT SECTION
-             ================================================== -->
-
-        <section class="gift-section">
-
-            <div class="gift-stage">
-
-
-                <!-- GIFT MESSAGE -->
-
-                <div class="gift-message">
-
-                    <span class="gift-message-kitty">
-                        🐱
-                    </span>
-
-                    <span class="gift-message-label">
-                        YOUR LITTLE SURPRISE
+                    <span class="section-kicker">
+                        BEFORE YOU GO
                     </span>
 
                     <h2>
-                        There's something
-                        waiting for you...
+                        Thank you for being
+                        part of my little world. 🤍
                     </h2>
 
                     <p>
-                        Click the gift. 🎁
+                        Thank you for the conversations,
+                        the random moments, the laughs,
+                        the silly messages and all those
+                        little memories that somehow became
+                        important.
                     </p>
 
-                </div>
+                    <p>
+                        I hope this tiny surprise
+                        made you smile.
+                    </p>
 
-
-                <!-- ==================================================
-                     CSS GIFT BOX
-                     ================================================== -->
-
-                <div
-                    class="gift-box"
-                    role="button"
-                    tabindex="0"
-                    aria-label="Open the surprise gift"
-                >
-
-                    <div class="gift-shadow"></div>
-
-
-                    <!-- GIFT BODY -->
-
-                    <div class="gift-base">
-
-                        <div class="gift-base-front"></div>
-
-                        <div class="gift-base-side"></div>
-
+                    <div class="surprise-ending-paws">
+                        🐱 🐾 ♡ 🐾 🐱
                     </div>
-
-
-                    <!-- GIFT LID -->
-
-                    <div class="gift-lid">
-
-                        <div class="gift-lid-top"></div>
-
-                        <div class="gift-lid-front"></div>
-
-                        <div class="gift-lid-side"></div>
-
-                    </div>
-
-
-                    <!-- RIBBON -->
-
-                    <div class="gift-ribbon"></div>
-
-                    <div class="gift-ribbon-horizontal"></div>
-
-
-                    <!-- BOW -->
-
-                    <div class="gift-bow">
-
-                        <span class="gift-bow-left"></span>
-
-                        <span class="gift-bow-right"></span>
-
-                        <span class="gift-bow-center"></span>
-
-                    </div>
-
-
-                    <!-- SPARKLES -->
-
-                    <span class="gift-sparkle gift-sparkle--one">
-                        ✦
-                    </span>
-
-                    <span class="gift-sparkle gift-sparkle--two">
-                        ✧
-                    </span>
-
-                    <span class="gift-sparkle gift-sparkle--three">
-                        ✦
-                    </span>
 
                 </div>
 
+            </section>
 
-                <!-- ==================================================
-                     HIDDEN KITTY MESSAGE
-                     ================================================== -->
 
-                <div class="kitty-paper">
+            <!-- ==================================================
+                 NEXT PAGE
+                 ================================================== -->
 
-                    <div class="kitty-paper-tape"></div>
+            <section class="letter-next-section">
 
-                    <span class="kitty-paper-paw">
+                <div class="letter-next-card">
+
+
+                    <div class="letter-next-decoration letter-next-decoration--one">
                         🐾
-                    </span>
-
-                    <span class="kitty-paper-label">
-                        SECRET MESSAGE
-                    </span>
-
-                    <h2>
-                        For my favorite kitty 🤍
-                    </h2>
-
-                    <div class="kitty-paper-divider">
-                        ♡
                     </div>
 
+                    <div class="letter-next-decoration letter-next-decoration--two">
+                        🐾
+                    </div>
+
+
+                    <div class="letter-next-kitty">
+                        🐱
+                    </div>
+
+
+                    <span class="section-kicker">
+                        LITTLE JOURNEY
+                    </span>
+
+
+                    <h2>
+                        And that's the
+                        little surprise. 🐾
+                    </h2>
+
+
                     <p>
-                        You are officially one of the
-                        cutest parts of this little world.
+                        But this little world
+                        doesn't have to end here.
                     </p>
 
+
+                    <p class="letter-next-small">
+                        Come back whenever you want. 🤍
+                    </p>
+
+
+                    <a
+                        href="index.html"
+                        class="premium-button premium-button--primary premium-button--large"
+                    >
+
+                        <span class="button-kitty">
+                            🐱
+                        </span>
+
+                        <span>
+                            Back to Home
+                        </span>
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <!-- PAGE PROGRESS -->
+
+                    <div class="page-progress">
+
+
+                        <span class="page-progress-item page-progress-item--completed">
+                            <span>✓</span>
+                            Home
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item page-progress-item--completed">
+                            <span>✓</span>
+                            About
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item page-progress-item--completed">
+                            <span>✓</span>
+                            Letter
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item page-progress-item--completed">
+                            <span>✓</span>
+                            Memories
+                        </span>
+
+
+                        <span class="page-progress-line"></span>
+
+
+                        <span class="page-progress-item page-progress-item--active">
+                            <span>🎁</span>
+                            Surprise
+                        </span>
+
+
+                    </div>
+
+
                 </div>
 
+            </section>
 
-            </div>
 
-        </section>
+        </main>
 
 
         <!-- ==================================================
-             FINAL PAGE MESSAGE
-             ================================================== -->
-
-        <section class="surprise-ending-section">
-
-            <div class="surprise-ending-card">
-
-                <span class="section-kicker">
-                    END OF THE SURPRISE
-                </span>
-
-                <h2>
-                    But definitely not
-                    the end of the story. 🐾
-                </h2>
-
-                <p>
-                    Thank you for being here,
-                    for being yourself and for becoming
-                    such a special part of my little world.
-                </p>
-
-                <div class="surprise-ending-paws">
-                    🐱 🐾 ♡ 🐾 🐱
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             PAGE PROGRESS
-             ================================================== -->
-
-        <section class="letter-next-section">
-
-            <div class="letter-next-card">
-
-                <div class="letter-next-decoration letter-next-decoration--one">
-                    🐾
-                </div>
-
-                <div class="letter-next-decoration letter-next-decoration--two">
-                    ♡
-                </div>
-
-                <div class="letter-next-kitty">
-                    🐱
-                </div>
-
-                <span class="section-kicker">
-                    THE LITTLE JOURNEY
-                </span>
-
-                <h2>
-                    You made it
-                    to the surprise. 🤍
-                </h2>
-
-                <p>
-                    And now the little kitty world
-                    is officially yours.
-                </p>
-
-                <a
-                    href="index.html"
-                    class="premium-button premium-button--primary premium-button--large"
-                >
-
-                    <span class="button-kitty">
-                        🐱
-                    </span>
-
-                    <span>
-                        Back to Home
-                    </span>
-
-                    <span class="button-arrow">
-                        →
-                    </span>
-
-                </a>
-
-
-                <div class="page-progress">
-
-                    <span class="page-progress-item page-progress-item--completed">
-                        <span>✓</span>
-                        Home
-                    </span>
-
-                    <span class="page-progress-line"></span>
-
-                    <span class="page-progress-item page-progress-item--completed">
-                        <span>✓</span>
-                        About
-                    </span>
-
-                    <span class="page-progress-line"></span>
-
-                    <span class="page-progress-item page-progress-item--completed">
-                        <span>✓</span>
-                        Letter
-                    </span>
-
-                    <span class="page-progress-line"></span>
-
-                    <span class="page-progress-item page-progress-item--completed">
-                        <span>✓</span>
-                        Memories
-                    </span>
-
-                    <span class="page-progress-line"></span>
-
-                    <span class="page-progress-item page-progress-item--active">
-                        <span>🎁</span>
-                        Surprise
-                    </span>
-
-                </div>
-
-            </div>
-
-        </section>
-                <!-- ==================================================
              FOOTER
              ================================================== -->
 
         <footer class="site-footer">
 
             <div class="footer-inner">
+
 
                 <div class="footer-brand">
 
@@ -1393,10 +1075,8 @@
 
 
                 <p class="footer-text">
-
                     Made for the little moments
                     that distance can't erase.
-
                 </p>
 
 
@@ -1450,10 +1130,11 @@
                     </span>
 
                     <span>
-                        Made with care • 2026
+                        Made with care 
                     </span>
 
                 </div>
+
 
             </div>
 
@@ -1463,7 +1144,7 @@
     </div>
 
 
-      <!-- ==================================================
+    <!-- ==================================================
          JAVASCRIPT
          ================================================== -->
 
@@ -1472,6 +1153,7 @@
     <script src="js/confetti.js"></script>
     <script src="js/animation.js"></script>
     <script src="js/script.js"></script>
+
 
 </body>
 
