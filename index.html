@@ -1,1 +1,986 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#080717"
+>
+
+<meta
+    name="description"
+    content="A special birthday experience created for Ali."
+>
+
+<title>A Special Delivery — Ali</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+  
+
+<!-- =========================================================
+     PRELOADER
+========================================================== -->
+
+<div class="preloader" id="preloader">
+
+    <div class="preloader-orbit">
+
+        <div class="preloader-core"></div>
+
+        <span class="orbit-dot orbit-dot-1"></span>
+        <span class="orbit-dot orbit-dot-2"></span>
+        <span class="orbit-dot orbit-dot-3"></span>
+
+    </div>
+
+    <p class="preloader-text">
+        Preparing something special...
+    </p>
+
+</div>
+
+
+<!-- =========================================================
+     MAIN EXPERIENCE
+========================================================== -->
+
+<main class="experience" id="experience">
+
+
+    <!-- =====================================================
+         CINEMATIC BACKGROUND
+    ====================================================== -->
+
+    <div class="scene-background" aria-hidden="true">
+
+        <!-- Deep gradient sky -->
+        <div class="sky-gradient"></div>
+
+        <!-- Window -->
+        <div class="window">
+
+            <div class="window-frame window-frame-top"></div>
+            <div class="window-frame window-frame-bottom"></div>
+            <div class="window-frame window-frame-left"></div>
+            <div class="window-frame window-frame-right"></div>
+
+            <div class="window-cross window-cross-horizontal"></div>
+            <div class="window-cross window-cross-vertical"></div>
+
+            <div class="window-glow"></div>
+
+        </div>
+
+
+        <!-- Moon -->
+        <div class="moon-system">
+
+            <div class="moon-halo"></div>
+
+            <div class="moon">
+
+                <div class="moon-crater crater-1"></div>
+                <div class="moon-crater crater-2"></div>
+                <div class="moon-crater crater-3"></div>
+                <div class="moon-crater crater-4"></div>
+                <div class="moon-crater crater-5"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Stars -->
+        <div class="star-field">
+
+            <span class="star star-1"></span>
+            <span class="star star-2"></span>
+            <span class="star star-3"></span>
+            <span class="star star-4"></span>
+            <span class="star star-5"></span>
+            <span class="star star-6"></span>
+            <span class="star star-7"></span>
+            <span class="star star-8"></span>
+            <span class="star star-9"></span>
+            <span class="star star-10"></span>
+            <span class="star star-11"></span>
+            <span class="star star-12"></span>
+            <span class="star star-13"></span>
+            <span class="star star-14"></span>
+            <span class="star star-15"></span>
+            <span class="star star-16"></span>
+            <span class="star star-17"></span>
+            <span class="star star-18"></span>
+            <span class="star star-19"></span>
+            <span class="star star-20"></span>
+
+        </div>
+
+
+        <!-- Shooting stars -->
+        <div class="shooting-stars">
+
+            <span class="shooting-star shooting-star-1"></span>
+            <span class="shooting-star shooting-star-2"></span>
+
+        </div>
+
+
+        <!-- Clouds -->
+        <div class="cloud-field">
+
+            <div class="cloud cloud-1"></div>
+            <div class="cloud cloud-2"></div>
+            <div class="cloud cloud-3"></div>
+
+        </div>
+
+
+        <!-- Distant skyline -->
+        <div class="distant-skyline">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <!-- Floating dust -->
+        <div class="dust-field" id="dustField"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOP UI
+    ====================================================== -->
+
+    <header class="top-interface">
+
+        <div class="brand-mark">
+
+            <span class="brand-symbol">✦</span>
+
+            <span class="brand-name">
+                A LITTLE UNIVERSE
+            </span>
+
+        </div>
+
+
+        <div class="chapter-indicator">
+
+            <span class="chapter-current">01</span>
+
+            <span class="chapter-line"></span>
+
+            <span class="chapter-total">11</span>
+
+        </div>
+
+
+        <button
+            class="sound-button"
+            id="soundToggle"
+            type="button"
+            aria-label="Toggle sound"
+        >
+
+            <span class="sound-icon" id="soundIcon">
+                ♫
+            </span>
+
+            <span class="sound-label">
+                SOUND
+            </span>
+
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         INTRO COPY
+    ====================================================== -->
+
+    <section class="hero-copy" id="heroCopy">
+
+        <div class="eyebrow">
+
+            <span class="eyebrow-line"></span>
+
+            <span>
+                SPECIAL DELIVERY
+            </span>
+
+            <span class="eyebrow-line"></span>
+
+        </div>
+
+
+        <h1 class="hero-title">
+
+            <span class="title-line title-line-1">
+                You Have A
+            </span>
+
+            <span class="title-line title-line-2">
+                Special <em>Delivery.</em>
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+            Something small, something special,
+            and something made just for you.
+        </p>
+
+
+        <div class="destination">
+
+            <span>TO</span>
+
+            <strong>ALI</strong>
+
+            <i>♡</i>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         3D STAGE
+    ====================================================== -->
+
+    <section class="parcel-world" id="parcelWorld">
+
+
+        <!-- Ambient spotlight -->
+        <div class="stage-light stage-light-main"></div>
+        <div class="stage-light stage-light-side"></div>
+
+
+        <!-- Ground -->
+        <div class="ground">
+
+            <div class="ground-glow"></div>
+
+            <div class="ground-reflection"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             3D PARCEL
+        ================================================== -->
+
+        <div
+            class="parcel-wrapper"
+            id="parcelWrapper"
+        >
+
+            <div
+                class="parcel-3d"
+                id="parcel"
+                data-state="closed"
+            >
+
+
+                <!-- =========================================
+                     BOX TOP
+                ========================================== -->
+
+                <div class="box-face box-top">
+
+                    <div class="cardboard-texture"></div>
+
+                    <div class="top-tape">
+
+                        <div class="tape-highlight"></div>
+
+                        <span class="tape-seal">
+                            SPECIAL
+                        </span>
+
+                    </div>
+
+
+                    <div class="top-stamp">
+
+                        <span class="stamp-star">✦</span>
+
+                        <span>
+                            HANDLE
+                        </span>
+
+                        <span>
+                            WITH CARE
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOX FRONT
+                ========================================== -->
+
+                <div class="box-face box-front">
+
+                    <div class="cardboard-texture"></div>
+
+
+                    <!-- Main shipping label -->
+                    <div class="shipping-label">
+
+                        <div class="label-top">
+
+                            <span>
+                                SPECIAL DELIVERY
+                            </span>
+
+                            <span>
+                                ✦
+                            </span>
+
+                        </div>
+
+
+                        <div class="label-divider"></div>
+
+
+                        <div class="label-destination">
+
+                            <small>
+                                DELIVER TO
+                            </small>
+
+                            <strong>
+                                ALI
+                            </strong>
+
+                        </div>
+
+
+                        <div class="label-divider"></div>
+
+
+                        <div class="label-route">
+
+                            <div>
+
+                                <small>
+                                    FROM
+                                </small>
+
+                                <span>
+                                    SOMEWHERE UNDER
+                                </span>
+
+                                <span>
+                                    THE SAME SKY
+                                </span>
+
+                            </div>
+
+
+                            <div class="route-symbol">
+                                ♡
+                            </div>
+
+                        </div>
+
+
+                        <div class="label-bottom">
+
+                            <span>
+                                FRAGILE
+                            </span>
+
+                            <span>
+                                25 · 10 · 26
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Barcode -->
+                    <div class="barcode">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <!-- Tape -->
+                    <div class="front-tape">
+
+                        <div class="front-tape-shine"></div>
+
+                    </div>
+
+
+                    <!-- Corner mark -->
+                    <div class="box-corner-mark">
+                        ✦
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOX RIGHT
+                ========================================== -->
+
+                <div class="box-face box-right">
+
+                    <div class="cardboard-texture"></div>
+
+
+                    <div class="right-symbol">
+                        ♡
+                    </div>
+
+
+                    <div class="right-writing">
+
+                        <span>
+                            MADE
+                        </span>
+
+                        <span>
+                            WITH
+                        </span>
+
+                        <strong>
+                            CARE
+                        </strong>
+
+                    </div>
+
+
+                    <div class="right-arrow">
+                        ↑
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOX LEFT
+                ========================================== -->
+
+                <div class="box-face box-left">
+
+                    <div class="cardboard-texture"></div>
+
+
+                    <div class="left-stamp">
+
+                        <span>
+                            ✦
+                        </span>
+
+                        <small>
+                            ONE LITTLE
+                        </small>
+
+                        <strong>
+                            WORLD
+                        </strong>
+
+                    </div>
+
+
+                    <div class="left-lines">
+
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOX BACK
+                ========================================== -->
+
+                <div class="box-face box-back">
+
+                    <div class="cardboard-texture"></div>
+
+                    <div class="back-message">
+
+                        <span>
+                            OPEN
+                        </span>
+
+                        <strong>
+                            WHEN READY
+                        </strong>
+
+                        <i>
+                            ♡
+                        </i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOX BOTTOM
+                ========================================== -->
+
+                <div class="box-face box-bottom">
+
+                    <div class="cardboard-texture"></div>
+
+                </div>
+
+
+                <!-- =========================================
+                     LID / FLAPS
+                ========================================== -->
+
+                <div class="box-lid lid-left">
+
+                    <div class="lid-tape"></div>
+
+                </div>
+
+                <div class="box-lid lid-right">
+
+                    <div class="lid-tape"></div>
+
+                </div>
+
+                <div class="box-lid lid-front">
+
+                    <div class="lid-tape"></div>
+
+                </div>
+
+                <div class="box-lid lid-back">
+
+                    <div class="lid-tape"></div>
+
+                </div>
+
+
+                <!-- =========================================
+                     INSIDE OF BOX
+                ========================================== -->
+
+                <div
+                    class="box-interior"
+                    id="boxInterior"
+                >
+
+                    <div class="interior-glow"></div>
+
+                    <div class="interior-stars">
+
+                        <span>✦</span>
+                        <span>✧</span>
+                        <span>⋆</span>
+                        <span>✦</span>
+                        <span>♡</span>
+                        <span>✧</span>
+
+                    </div>
+
+
+                    <div class="tiny-universe">
+
+                        <div class="universe-core"></div>
+
+                        <div class="mini-orbit orbit-a">
+                            <span></span>
+                        </div>
+
+                        <div class="mini-orbit orbit-b">
+                            <span></span>
+                        </div>
+
+                        <div class="mini-moon"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     PEELABLE TAPE
+                ========================================== -->
+
+                <button
+                    class="peel-tape"
+                    id="tapeHandle"
+                    type="button"
+                    aria-label="Peel the tape"
+                >
+
+                    <span class="tape-edge"></span>
+
+                    <span class="tape-label">
+                        PEEL ME
+                    </span>
+
+                    <span class="tape-arrow">
+                        ↗
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- Parcel shadow -->
+        <div class="parcel-shadow" id="parcelShadow"></div>
+
+
+        <!-- =================================================
+             INTERACTION PROMPT
+        ================================================== -->
+
+        <div
+            class="interaction-panel"
+            id="interactionPanel"
+        >
+
+            <div class="interaction-icon">
+                ✦
+            </div>
+
+            <span class="interaction-title">
+                There's something inside.
+            </span>
+
+            <span class="interaction-subtitle">
+                Peel the seal to open your delivery.
+            </span>
+
+        </div>
+
+
+        <!-- Open button -->
+        <button
+            class="open-button"
+            id="openParcelButton"
+            type="button"
+        >
+
+            <span class="open-button-glow"></span>
+
+            <span class="open-button-icon">
+                ✦
+            </span>
+
+            <span class="open-button-text">
+                Open Your Gift
+            </span>
+
+            <span class="open-button-arrow">
+                →
+            </span>
+
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         CELEBRATION REVEAL
+    ====================================================== -->
+
+    <section
+        class="celebration"
+        id="celebration"
+        aria-hidden="true"
+    >
+
+        <!-- Celebration glow -->
+        <div class="celebration-backdrop"></div>
+
+
+        <!-- Confetti -->
+        <div
+            class="confetti-container"
+            id="confettiContainer"
+        ></div>
+
+
+        <!-- Balloons -->
+        <div
+            class="balloon-container"
+            id="balloonContainer"
+        >
+
+            <div class="balloon balloon-pink">
+                <span></span>
+            </div>
+
+            <div class="balloon balloon-purple">
+                <span></span>
+            </div>
+
+            <div class="balloon balloon-gold">
+                <span></span>
+            </div>
+
+            <div class="balloon balloon-white">
+                <span></span>
+            </div>
+
+            <div class="balloon balloon-lilac">
+                <span></span>
+            </div>
+
+        </div>
+
+
+        <!-- Stars -->
+        <div class="celebration-stars">
+
+            <span>✦</span>
+            <span>✧</span>
+            <span>⋆</span>
+            <span>✦</span>
+            <span>✧</span>
+            <span>⋆</span>
+            <span>✦</span>
+            <span>♡</span>
+
+        </div>
+
+
+        <!-- Main message -->
+        <div class="celebration-content">
+
+            <div class="celebration-eyebrow">
+                THE SPECIAL DELIVERY HAS ARRIVED
+            </div>
+
+
+            <h2 class="celebration-title">
+
+                <span>
+                    HAPPY
+                </span>
+
+                <strong>
+                    19TH
+                </strong>
+
+                <em>
+                    BIRTHDAY, ALI!
+                </em>
+
+            </h2>
+
+
+            <div class="celebration-divider">
+
+                <span></span>
+
+                <i>♡</i>
+
+                <span></span>
+
+            </div>
+
+
+            <p class="celebration-description">
+                Welcome to a little universe made
+                especially for you.
+            </p>
+
+
+            <p class="celebration-small-note">
+                Stars, wishes, memories, music
+                and little moments are waiting inside.
+            </p>
+
+        </div>
+
+
+        <!-- Continue -->
+        <div class="continue-section">
+
+            <div class="progress-display">
+
+                <span class="progress-active">
+                    01
+                </span>
+
+                <span class="progress-separator">
+                    /
+                </span>
+
+                <span>
+                    11
+                </span>
+
+            </div>
+
+
+            <a
+                href="birthday.html"
+                class="continue-button"
+                id="continueButton"
+            >
+
+                <span>
+                    Continue
+                </span>
+
+                <i>
+                    →
+                </i>
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CLICK PARTICLE LAYER
+    ====================================================== -->
+
+    <div
+        class="click-particle-layer"
+        id="clickParticleLayer"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         CURSOR LIGHT
+    ====================================================== -->
+
+    <div
+        class="cursor-light"
+        id="cursorLight"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         AUDIO
+    ====================================================== -->
+
+    <audio
+        id="birthdayMusic"
+        preload="auto"
+        loop
+    >
+        <source
+            src="assets/indian-love-story-piano.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <!-- =====================================================
+         AMBIENT SOUND PLACEHOLDERS
+    ====================================================== -->
+
+    <audio
+        id="tapeSound"
+        preload="auto"
+    >
+        <source
+            src="assets/tape-peel.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <audio
+        id="boxOpenSound"
+        preload="auto"
+    >
+        <source
+            src="assets/box-open.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+    <audio
+        id="celebrationSound"
+        preload="auto"
+    >
+        <source
+            src="assets/celebration.mp3"
+            type="audio/mpeg"
+        >
+    </audio>
+
+
+</main>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script src="script.js"></script>
+<script src="parcel.js"></script>
+
+
+</body>
+</html>
