@@ -2,35 +2,26 @@
 /* =========================================================
    ALI BIRTHDAY — PARCEL.JS
    Virtual Parcel Unboxing
+   Corrected to match current index.html
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
     "use strict";
 
     /* ---------------------------------------------------------
-       ELEMENT HELPERS
+       ELEMENT HELPER
     --------------------------------------------------------- */
 
     const find = (...selectors) => {
         for (const selector of selectors) {
             const element = document.querySelector(selector);
-            if (element) return element;
+
+            if (element) {
+                return element;
+            }
         }
+
         return null;
-    };
-
-    const findAll = (...selectors) => {
-        const elements = [];
-
-        selectors.forEach(selector => {
-            document.querySelectorAll(selector).forEach(element => {
-                if (!elements.includes(element)) {
-                    elements.push(element);
-                }
-            });
-        });
-
-        return elements;
     };
 
 
@@ -40,31 +31,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const parcel = find(
         "#parcel",
+        ".parcel-3d",
         ".parcel",
-        ".parcel-box",
         ".gift-parcel",
-        ".gift-box",
-        ".package"
+        ".gift-box"
     );
 
     const parcelBox = find(
         "#parcelBox",
+        ".parcel-wrapper",
         ".parcel-box",
-        ".parcel",
-        ".gift-box",
-        ".package"
+        "#parcel",
+        ".parcel"
     );
 
     const openButton = find(
+        "#openParcelButton",
         "#openParcel",
         "#open-parcel",
+        ".open-button",
         ".open-parcel",
         ".parcel-open",
         "[data-open-parcel]"
     );
 
     const tape = find(
+        "#tapeHandle",
         "#parcelTape",
+        ".peel-tape",
         ".parcel-tape",
         ".tape",
         "[data-parcel-tape]"
@@ -88,19 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
         "#parcelInside",
         ".parcel-inside",
         ".inside-parcel",
-        ".gift-inside"
+        ".gift-inside",
+        ".parcel-interior"
     );
 
     const reveal = find(
         "#parcelReveal",
+        "#celebration",
         ".parcel-reveal",
         ".gift-reveal",
-        ".birthday-reveal"
+        ".birthday-reveal",
+        ".celebration"
     );
 
     const continueButton = find(
         "#continueButton",
         "#continueBtn",
+        ".continue-button",
+        ".continue-btn",
         ".parcel-continue",
         "[data-parcel-continue]"
     );
@@ -108,30 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ---------------------------------------------------------
        AUDIO
-       ---------------------------------------------------------
-
-       Optional IDs supported:
-
-       #parcelOpenSound
-       #parcelSound
-       #openSound
-
-       #birthdayMusic
-       #backgroundMusic
-       #music
-
-       Put your audio files in the project folder if needed.
-
-       Example:
-
-       <audio id="parcelOpenSound" src="sounds/open.mp3"></audio>
-       <audio id="birthdayMusic" src="music/indian-love-story-piano.mp3"></audio>
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     const openSound = find(
         "#parcelOpenSound",
         "#parcelSound",
-        "#openSound"
+        "#openSound",
+        "#boxOpenSound"
     );
 
     const music = find(
@@ -142,8 +124,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ---------------------------------------------------------
+       EXTRA SOUNDS
+       --------------------------------------------------------- */
+
+    const tapeSound = find(
+        "#tapeSound"
+    );
+
+    const celebrationSound = find(
+        "#celebrationSound"
+    );
+
+
+    /* ---------------------------------------------------------
        STATE
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     let parcelOpened = false;
     let opening = false;
@@ -152,26 +147,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ---------------------------------------------------------
-       INITIAL STATE
-    --------------------------------------------------------- */
+       INITIAL PAGE STATE
+       --------------------------------------------------------- */
 
     document.body.classList.add("parcel-page");
 
     if (reveal) {
         reveal.classList.remove("show");
-        reveal.setAttribute("aria-hidden", "true");
+
+        if (reveal.id !== "celebration") {
+            reveal.setAttribute("aria-hidden", "true");
+        }
     }
 
     if (continueButton) {
         continueButton.style.opacity = "0";
         continueButton.style.pointerEvents = "none";
+        continueButton.style.visibility = "hidden";
         continueButton.setAttribute("aria-hidden", "true");
     }
 
 
     /* ---------------------------------------------------------
-       OPTIONAL STATUS TEXT
-    --------------------------------------------------------- */
+       STATUS
+       --------------------------------------------------------- */
 
     const status = find(
         "#parcelStatus",
@@ -179,16 +178,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ".opening-status"
     );
 
-    const setStatus = message => {
+    function setStatus(message) {
         if (!status) return;
 
         status.textContent = message;
-    };
+    }
 
 
     /* ---------------------------------------------------------
-       PLAY SOUND
-    --------------------------------------------------------- */
+       AUDIO HELPER
+       --------------------------------------------------------- */
 
     function playSound(audio) {
         if (!audio) return;
@@ -199,10 +198,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const promise = audio.play();
 
             if (promise && typeof promise.catch === "function") {
-                promise.catch(() => {
-                    // Browser may block audio until interaction.
-                });
+                promise.catch(() => {});
             }
+
         } catch (error) {
             // Audio is optional.
         }
@@ -222,9 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const promise = music.play();
 
             if (promise && typeof promise.catch === "function") {
-                promise.catch(() => {
-                    return;
-                });
+                promise.catch(() => {});
             }
 
             let volume = 0;
@@ -238,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 music.volume = volume;
+
             }, 100);
 
         } catch (error) {
@@ -247,14 +244,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ---------------------------------------------------------
-       CREATE EFFECT CONTAINER
-    --------------------------------------------------------- */
+       EFFECT CONTAINER
+       --------------------------------------------------------- */
 
     function getEffectsContainer() {
         let container = document.querySelector(".parcel-effects");
 
         if (!container) {
             container = document.createElement("div");
+
             container.className = "parcel-effects";
 
             Object.assign(container.style, {
@@ -273,11 +271,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ---------------------------------------------------------
-       CREATE PARTICLE
-    --------------------------------------------------------- */
+       PARTICLES
+       --------------------------------------------------------- */
 
     function createParticle(type = "heart") {
+
         const container = getEffectsContainer();
+
         const particle = document.createElement("span");
 
         const symbols = {
@@ -293,25 +293,34 @@ document.addEventListener("DOMContentLoaded", () => {
         particle.textContent =
             collection[Math.floor(Math.random() * collection.length)];
 
-        particle.className = `parcel-particle parcel-${type}`;
+        particle.className =
+            parcel-particle parcel-${type};
 
         const startX = Math.random() * 100;
         const startY = 55 + Math.random() * 20;
 
-        const drift = -80 + Math.random() * 160;
-        const duration = 2.5 + Math.random() * 2.5;
-        const delay = Math.random() * 0.35;
-        const size = 12 + Math.random() * 18;
+        const drift =
+            -80 + Math.random() * 160;
+
+        const duration =
+            2.5 + Math.random() * 2.5;
+
+        const delay =
+            Math.random() * 0.35;
+
+        const size =
+            12 + Math.random() * 18;
 
         Object.assign(particle.style, {
             position: "absolute",
-            left: `${startX}%`,
-            top: `${startY}%`,
-            fontSize: `${size}px`,
+            left: ${startX}%`,
+            top: ${startY}%,
+            fontSize: ${size}px`,
             opacity: "0",
-            transform: "translate3d(0, 0, 0) scale(.4)",
-            animation: `parcelParticleFloat ${duration}s ease-out ${delay}s forwards`,
-            "--parcel-drift": `${drift}px`
+            transform: "translate3d(0,0,0) scale(.4)",
+            animation:
+                parcelParticleFloat ${duration}s ease-out ${delay}s forwards`,
+            "--parcel-drift": ${drift}px`
         });
 
         container.appendChild(particle);
@@ -323,82 +332,100 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ---------------------------------------------------------
-       HEART BURST
-    --------------------------------------------------------- */
+       EFFECT BURSTS
+       --------------------------------------------------------- */
 
     function createHeartBurst(amount = 22) {
+
         for (let i = 0; i < amount; i++) {
+
             setTimeout(() => {
                 createParticle("heart");
             }, i * 35);
+
         }
     }
 
 
-    /* ---------------------------------------------------------
-       STAR BURST
-    --------------------------------------------------------- */
-
     function createStarBurst(amount = 28) {
+
         for (let i = 0; i < amount; i++) {
+
             setTimeout(() => {
                 createParticle("star");
             }, i * 25);
+
         }
     }
 
 
-    /* ---------------------------------------------------------
-       SPARKLE BURST
-    --------------------------------------------------------- */
-
     function createSparkleBurst(amount = 35) {
+
         for (let i = 0; i < amount; i++) {
+
             setTimeout(() => {
                 createParticle("sparkle");
             }, i * 20);
+
         }
     }
 
 
-    /* ---------------------------------------------------------
-       BALLOON BURST
-    --------------------------------------------------------- */
-
     function createBalloonBurst(amount = 8) {
+
         for (let i = 0; i < amount; i++) {
+
             setTimeout(() => {
                 createParticle("balloon");
             }, i * 100);
+
         }
     }
 
 
-    /* ---------------------------------------------------------
-       CONFETTI BURST
-    --------------------------------------------------------- */
-
     function createConfettiBurst(amount = 45) {
-        const container = getEffectsContainer();
 
-        const shapes = ["■", "▪", "◆", "●", "✦"];
+        const container =
+            getEffectsContainer();
+
+        const shapes =
+            ["■", "▪", "◆", "●", "✦"];
 
         for (let i = 0; i < amount; i++) {
-            const piece = document.createElement("span");
 
-            piece.className = "parcel-confetti";
+            const piece =
+                document.createElement("span");
+
+            piece.className =
+                "parcel-confetti";
 
             piece.textContent =
-                shapes[Math.floor(Math.random() * shapes.length)];
+                shapes[
+                    Math.floor(
+                        Math.random() * shapes.length
+                    )
+                ];
 
-            const x = 50 + (Math.random() * 36 - 18);
-            const y = 48 + (Math.random() * 15 - 7);
+            const x =
+                50 + (Math.random() * 36 - 18);
 
-            const drift = -180 + Math.random() * 360;
-            const fall = 260 + Math.random() * 380;
-            const rotate = 180 + Math.random() * 720;
-            const duration = 1.8 + Math.random() * 1.5;
-            const size = 5 + Math.random() * 9;
+            const y =
+                48 + (Math.random() * 15 - 7);
+
+            const drift =
+                -180 + Math.random() * 360;
+
+            const fall =
+                260 + Math.random() * 380;
+
+            const rotate =
+                180 + Math.random() * 720;
+
+            const duration =
+                1.8 + Math.random() * 1.5;
+
+            const size =
+                5 + Math.random() * 9;
 
             Object.assign(piece.style, {
                 position: "absolute",
@@ -406,14 +433,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 top: `${y}%`,
                 fontSize: `${size}px`,
                 opacity: "0",
-                transform: "translate3d(0, 0, 0) rotate(0deg)",
+                transform:
+                    "translate3d(0,0,0) rotate(0deg)",
                 "--confetti-x": `${drift}px`,
                 "--confetti-y": `${fall}px`,
                 "--confetti-rotate": `${rotate}deg`,
-                animation: `parcelConfettiFall ${duration}s cubic-bezier(.2,.7,.2,1) forwards`
+                animation:
+                    parcelConfettiFall ${duration}s cubic-bezier(.2,.7,.2,1) forwards`
             });
 
-            container.appendChild(piece);
+           ` container.appendChild(piece);
 
             setTimeout(() => {
                 piece.remove();
@@ -423,122 +452,206 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* ---------------------------------------------------------
-       COMPLETE REVEAL EFFECT
-    --------------------------------------------------------- */
+       COMPLETE CELEBRATION
+       --------------------------------------------------------- */
 
     function createRevealEffects() {
-        createConfettiBurst(55);
-        createHeartBurst(30);
-        createStarBurst(35);
-        createSparkleBurst(40);
-        createBalloonBurst(10);
 
-        document.body.classList.add("parcel-celebration");
+        createConfettiBurst(45);
+        createHeartBurst(25);
+        createStarBurst(30);
+        createSparkleBurst(35);
+        createBalloonBurst(8);
+
+        document.body.classList.add(
+            "parcel-celebration"
+        );
 
         setTimeout(() => {
-            document.body.classList.remove("parcel-celebration");
+
+            document.body.classList.remove(
+                "parcel-celebration"
+            );
+
         }, 2500);
     }
 
 
     /* ---------------------------------------------------------
-       REVEAL CONTENT
-    --------------------------------------------------------- */
+       SHOW REVEAL
+       --------------------------------------------------------- */
 
     function showReveal() {
+
         if (reveal) {
+
             reveal.classList.add("show");
-            reveal.setAttribute("aria-hidden", "false");
+
+            if (reveal.id !== "celebration") {
+                reveal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+            }
         }
 
         if (continueButton) {
+
             continueButton.style.opacity = "1";
             continueButton.style.pointerEvents = "auto";
-            continueButton.setAttribute("aria-hidden", "false");
+            continueButton.style.visibility = "visible";
+
+            continueButton.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+            continueButton.classList.add(
+                "continue-visible"
+            );
         }
 
-        document.body.classList.add("parcel-opened");
+        document.body.classList.add(
+            "parcel-opened"
+        );
 
-        setStatus("A little birthday surprise was waiting inside. 🤍");
+        setStatus(
+            "A little birthday surprise was waiting inside. 🤍"
+        );
     }
 
 
     /* ---------------------------------------------------------
        OPEN PARCEL
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     function openParcel() {
-        if (parcelOpened || opening) return;
+
+        if (parcelOpened || opening) {
+            return;
+        }
 
         opening = true;
 
-        setStatus("Opening your little parcel...");
+        setStatus(
+            "Opening your little parcel..."
+        );
 
-        /* Add opening classes */
+
+        /* -----------------------------------------------------
+           OPENING CLASSES
+        ----------------------------------------------------- */
 
         if (parcelBox) {
-            parcelBox.classList.add("parcel-opening");
+            parcelBox.classList.add(
+                "parcel-opening"
+            );
         }
 
         if (parcel) {
-            parcel.classList.add("parcel-opening");
+            parcel.classList.add(
+                "parcel-opening"
+            );
         }
 
         if (tape) {
-            tape.classList.add("tape-peel");
+            tape.classList.add(
+                "tape-peel"
+            );
         }
 
         if (ribbon) {
-            ribbon.classList.add("ribbon-release");
+            ribbon.classList.add(
+                "ribbon-release"
+            );
         }
 
         if (lid) {
-            lid.classList.add("lid-opening");
+            lid.classList.add(
+                "lid-opening"
+            );
         }
 
-        /* Play opening sound */
 
-        playSound(openSound);
+        /* -----------------------------------------------------
+           SOUNDS
+           ----------------------------------------------------- */
 
-        /* Little initial sparkle */
+        playSound(tapeSound || openSound);
+
+
+        /* -----------------------------------------------------
+           INITIAL SPARKLES
+           ----------------------------------------------------- */
 
         createSparkleBurst(12);
 
-        setTimeout(() => {
 
-            /* Mark as opened */
+        /* -----------------------------------------------------
+           FINISH OPENING
+           ----------------------------------------------------- */
+
+        setTimeout(() => {
 
             parcelOpened = true;
             opening = false;
 
+
             if (parcelBox) {
-                parcelBox.classList.add("parcel-opened");
-                parcelBox.classList.remove("parcel-opening");
+
+                parcelBox.classList.add(
+                    "parcel-opened"
+                );
+
+                parcelBox.classList.remove(
+                    "parcel-opening"
+                );
             }
+
 
             if (parcel) {
-                parcel.classList.add("parcel-opened");
-                parcel.classList.remove("parcel-opening");
+
+                parcel.classList.add(
+                    "parcel-opened"
+                );
+
+                parcel.classList.remove(
+                    "parcel-opening"
+                );
             }
 
-            /* Inside content */
+
+            /* -------------------------------------------------
+               INSIDE
+               ------------------------------------------------- */
 
             if (inside) {
-                inside.classList.add("inside-visible");
+
+                inside.classList.add(
+                    "inside-visible"
+                );
             }
 
-            /* Celebration */
+
+            /* -------------------------------------------------
+               CELEBRATION
+               ------------------------------------------------- */
 
             createRevealEffects();
 
-            /* Start music after real user interaction */
+            playSound(celebrationSound);
 
             startMusic();
 
-            /* Reveal birthday content */
+
+            /* -------------------------------------------------
+               REVEAL CONTINUE
+               ------------------------------------------------- */
 
             setTimeout(() => {
+
                 showReveal();
+
             }, 450);
 
         }, OPENING_TIME);
@@ -547,133 +660,211 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ---------------------------------------------------------
        OPEN BUTTON
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     if (openButton) {
-        openButton.addEventListener("click", event => {
-            event.preventDefault();
-            openParcel();
-        });
 
-        openButton.addEventListener("keydown", event => {
-            if (event.key === "Enter" || event.key === " ") {
+        openButton.addEventListener(
+            "click",
+            event => {
+
                 event.preventDefault();
+
                 openParcel();
             }
-        });
+        );
+
+
+        openButton.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    openParcel();
+                }
+            }
+        );
+
     }
 
 
     /* ---------------------------------------------------------
-       CLICKING THE PARCEL
-    --------------------------------------------------------- */
+       CLICK PARCEL
+       --------------------------------------------------------- */
 
     if (parcelBox) {
-        parcelBox.addEventListener("click", event => {
 
-            if (parcelOpened || opening) return;
+        parcelBox.addEventListener(
+            "click",
+            event => {
 
-            /*
-             * If an explicit open button exists,
-             * let that button handle the opening.
-             */
+                if (
+                    parcelOpened ||
+                    opening
+                ) {
+                    return;
+                }
 
-            if (openButton && event.target.closest(
-                "#openParcel, #open-parcel, .open-parcel, .parcel-open, [data-open-parcel]"
-            )) {
-                return;
+
+                if (
+                    openButton &&
+                    event.target.closest(
+                        "#openParcelButton, #openParcel, #open-parcel, .open-button, .open-parcel, .parcel-open, [data-open-parcel]"
+                    )
+                ) {
+                    return;
+                }
+
+
+                openParcel();
+
             }
+        );
 
-            openParcel();
-        });
     }
 
 
     /* ---------------------------------------------------------
        KEYBOARD ACCESSIBILITY
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     if (parcelBox) {
-        parcelBox.setAttribute("tabindex", "0");
-        parcelBox.setAttribute("role", "button");
+
+        parcelBox.setAttribute(
+            "tabindex",
+            "0"
+        );
+
+        parcelBox.setAttribute(
+            "role",
+            "button"
+        );
+
         parcelBox.setAttribute(
             "aria-label",
             "Open the birthday parcel"
         );
 
-        parcelBox.addEventListener("keydown", event => {
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
-                event.preventDefault();
-                openParcel();
+
+        parcelBox.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    openParcel();
+                }
+
             }
-        });
+        );
+
     }
 
 
     /* ---------------------------------------------------------
        CONTINUE BUTTON
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     if (continueButton) {
-        continueButton.addEventListener("click", event => {
 
-            if (!parcelOpened) {
-                event.preventDefault();
+        continueButton.addEventListener(
+            "click",
+            event => {
 
-                setStatus(
-                    "Open the parcel first. There is something waiting inside. ✦"
-                );
+                if (!parcelOpened) {
 
-                if (parcelBox) {
-                    parcelBox.classList.add("parcel-attention");
+                    event.preventDefault();
 
-                    setTimeout(() => {
-                        parcelBox.classList.remove("parcel-attention");
-                    }, 700);
+                    setStatus(
+                        "Open the parcel first. There is something waiting inside. ✦"
+                    );
+
+
+                    if (parcelBox) {
+
+                        parcelBox.classList.add(
+                            "parcel-attention"
+                        );
+
+
+                        setTimeout(() => {
+
+                            parcelBox.classList.remove(
+                                "parcel-attention"
+                            );
+
+                        }, 700);
+
+                    }
+
+                    return;
                 }
 
-                return;
-            }
+                /*
+                 * Once the parcel has opened,
+                 * normal <a href="birthday.html">
+                 * navigation is allowed.
+                 */
 
-            /*
-             * If it is an <a>, normal navigation will happen.
-             * script.js will also handle the page transition.
-             */
-        });
+            }
+        );
+
     }
 
 
     /* ---------------------------------------------------------
        DOUBLE CLICK PROTECTION
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
-    document.addEventListener("dblclick", event => {
+    document.addEventListener(
+        "dblclick",
+        event => {
 
-        if (!parcelBox) return;
+            if (!parcelBox) {
+                return;
+            }
 
-        if (
-            event.target.closest(".parcel-box") ||
-            event.target.closest(".parcel") ||
-            event.target.closest(".gift-box")
-        ) {
-            event.preventDefault();
+            if (
+                event.target.closest(
+                    ".parcel-wrapper"
+                ) ||
+                event.target.closest(
+                    ".parcel-3d"
+                ) ||
+                event.target.closest(
+                    ".parcel-box"
+                ) ||
+                event.target.closest(
+                    ".gift-box"
+                )
+            ) {
+
+                event.preventDefault();
+            }
+
         }
-    });
+    );
 
 
     /* ---------------------------------------------------------
        DYNAMIC PARCEL ANIMATIONS
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
-    const parcelStyles = document.createElement("style");
+    const parcelStyles =
+        document.createElement("style");
 
-    parcelStyles.textContent = `
-        /* ================================================
-           PARCEL EFFECTS
-        ================================================ */
+    parcelStyles.textContent = 
 
         .parcel-effects {
             isolation: isolate;
@@ -684,9 +875,16 @@ document.addEventListener("DOMContentLoaded", () => {
             user-select: none;
         }
 
+
+        /* ================================================
+           PARTICLE FLOAT
+        ================================================ */
+
         @keyframes parcelParticleFloat {
+
             0% {
                 opacity: 0;
+
                 transform:
                     translate3d(0, 30px, 0)
                     scale(.35)
@@ -703,17 +901,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
             100% {
                 opacity: 0;
+
                 transform:
-                    translate3d(var(--parcel-drift), -300px, 0)
+                    translate3d(
+                        var(--parcel-drift),
+                        -300px,
+                        0
+                    )
                     scale(1.15)
                     rotate(180deg);
             }
+
         }
 
 
+        /* ================================================
+           CONFETTI
+        ================================================ */
+
         @keyframes parcelConfettiFall {
+
             0% {
                 opacity: 0;
+
                 transform:
                     translate3d(0, -30px, 0)
                     rotate(0deg)
@@ -726,6 +936,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             100% {
                 opacity: 0;
+
                 transform:
                     translate3d(
                         var(--confetti-x),
@@ -735,26 +946,38 @@ document.addEventListener("DOMContentLoaded", () => {
                     rotate(var(--confetti-rotate))
                     scale(1);
             }
+
         }
 
 
         /* ================================================
-           OPENING STATES
+           OPENING
         ================================================ */
 
         .parcel-opening {
             pointer-events: none;
         }
 
+
+        /* ================================================
+           TAPE
+        ================================================ */
+
         .tape-peel {
+
             animation:
                 parcelTapePeel .7s ease forwards;
-            transform-origin: center;
+
+            transform-origin:
+                center;
         }
 
+
         @keyframes parcelTapePeel {
+
             0% {
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     rotate(0deg);
@@ -762,6 +985,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             45% {
                 opacity: 1;
+
                 transform:
                     translateY(-8px)
                     rotate(-4deg);
@@ -769,83 +993,118 @@ document.addEventListener("DOMContentLoaded", () => {
 
             100% {
                 opacity: 0;
+
                 transform:
                     translateY(-28px)
                     rotate(8deg)
                     scale(.85);
             }
+
         }
 
 
+        /* ================================================
+           RIBBON
+        ================================================ */
+
         .ribbon-release {
+
             animation:
                 parcelRibbonRelease .9s ease forwards;
         }
 
+
         @keyframes parcelRibbonRelease {
+
             0% {
                 opacity: 1;
-                transform: scale(1);
+
+                transform:
+                    scale(1);
             }
 
             35% {
-                transform: scale(1.04);
+                transform:
+                    scale(1.04);
             }
 
             100% {
                 opacity: 0;
+
                 transform:
                     scale(1.15)
                     translateY(-10px);
             }
+
         }
 
+
+        /* ================================================
+           LID
+        ================================================ */
 
         .lid-opening {
+
             animation:
-                parcelLidOpening 1.25s
+                parcelLidOpening
+                1.25s
                 cubic-bezier(.16,.8,.25,1)
                 forwards;
-            transform-origin: center bottom;
+
+            transform-origin:
+                center bottom;
         }
 
+
         @keyframes parcelLidOpening {
+
             0% {
+
                 transform:
                     translate3d(0,0,0)
                     rotateX(0deg);
             }
 
             45% {
+
                 transform:
                     translate3d(0,-8px,0)
                     rotateX(-28deg);
             }
 
             100% {
+
                 transform:
                     translate3d(0,-80px,0)
                     rotateX(-72deg)
                     rotateZ(-2deg);
+
                 opacity: .18;
             }
+
         }
 
 
         /* ================================================
-           INSIDE REVEAL
+           INSIDE
         ================================================ */
 
         .inside-visible {
+
             animation:
-                parcelInsideReveal 1.1s
+                parcelInsideReveal
+                1.1s
                 cubic-bezier(.2,.8,.2,1)
                 forwards;
         }
 
+
         @keyframes parcelInsideReveal {
+
             0% {
+
                 opacity: 0;
+
                 transform:
                     translateY(30px)
                     scale(.9);
@@ -856,36 +1115,61 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             100% {
+
                 opacity: 1;
+
                 transform:
                     translateY(0)
                     scale(1);
             }
+
         }
 
 
         /* ================================================
-           REVEAL CONTENT
+           REVEAL
         ================================================ */
 
         .parcel-reveal {
+
             opacity: 0;
+
             visibility: hidden;
+
             transform:
                 translateY(24px)
                 scale(.96);
+
             transition:
                 opacity .9s ease,
                 transform .9s cubic-bezier(.2,.8,.2,1),
                 visibility .9s ease;
         }
 
+
         .parcel-reveal.show {
+
             opacity: 1;
+
             visibility: visible;
+
             transform:
                 translateY(0)
                 scale(1);
+        }
+
+
+        /* ================================================
+           CONTINUE BUTTON
+        ================================================ */
+
+        .continue-button.continue-visible {
+
+            opacity: 1 !important;
+
+            visibility: visible !important;
+
+            pointer-events: auto !important;
         }
 
 
@@ -894,10 +1178,15 @@ document.addEventListener("DOMContentLoaded", () => {
         ================================================ */
 
         .parcel-celebration {
-            animation: parcelCelebrationPulse 1.2s ease;
+
+            animation:
+                parcelCelebrationPulse
+                1.2s ease;
         }
 
+
         @keyframes parcelCelebrationPulse {
+
             0% {
                 filter: brightness(1);
             }
@@ -909,6 +1198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             100% {
                 filter: brightness(1);
             }
+
         }
 
 
@@ -917,32 +1207,42 @@ document.addEventListener("DOMContentLoaded", () => {
         ================================================ */
 
         .parcel-attention {
+
             animation:
-                parcelAttention .7s
+                parcelAttention
+                .7s
                 cubic-bezier(.36,.07,.19,.97);
         }
 
+
         @keyframes parcelAttention {
+
             0%,
             100% {
-                transform: translateX(0);
+                transform:
+                    translateX(0);
             }
 
             20% {
-                transform: translateX(-7px);
+                transform:
+                    translateX(-7px);
             }
 
             40% {
-                transform: translateX(7px);
+                transform:
+                    translateX(7px);
             }
 
             60% {
-                transform: translateX(-5px);
+                transform:
+                    translateX(-5px);
             }
 
             80% {
-                transform: translateX(5px);
+                transform:
+                    translateX(5px);
             }
+
         }
 
 
@@ -960,12 +1260,17 @@ document.addEventListener("DOMContentLoaded", () => {
             .inside-visible,
             .parcel-celebration,
             .parcel-attention {
-                animation: none !important;
+
+                animation:
+                    none !important;
             }
 
             .parcel-reveal {
-                transition: none !important;
+
+                transition:
+                    none !important;
             }
+
         }
 
 
@@ -982,35 +1287,40 @@ document.addEventListener("DOMContentLoaded", () => {
             .parcel-confetti {
                 animation-duration: 1.6s;
             }
-        }
-    `;
 
-    document.head.appendChild(parcelStyles);
+        }
+
+    ;
+
+    document.head.appendChild(
+        parcelStyles
+    );
 
 
     /* ---------------------------------------------------------
-       PAGE EXIT CLEANUP
-    --------------------------------------------------------- */
+       PAGE SHOW CLEANUP
+       --------------------------------------------------------- */
 
-    window.addEventListener("pageshow", () => {
-        document.body.classList.remove("page-leaving");
-    });
+    window.addEventListener(
+        "pageshow",
+        () => {
+
+            document.body.classList.remove(
+                "page-leaving"
+            );
+
+        }
+    );
 
 
     /* ---------------------------------------------------------
        DEBUG HELPER
-    ---------------------------------------------------------
-
-       Open browser console and type:
-
-       parcelDebug()
-
-       This tells you which optional elements were found.
-    --------------------------------------------------------- */
+       --------------------------------------------------------- */
 
     window.parcelDebug = () => {
 
         console.table({
+
             parcel: !!parcel,
             parcelBox: !!parcelBox,
             openButton: !!openButton,
@@ -1021,10 +1331,27 @@ document.addEventListener("DOMContentLoaded", () => {
             reveal: !!reveal,
             continueButton: !!continueButton,
             openSound: !!openSound,
+            tapeSound: !!tapeSound,
+            celebrationSound: !!celebrationSound,
             music: !!music,
             opened: parcelOpened
+
         });
 
     };
+
+
+    /* ---------------------------------------------------------
+       CONSOLE CONFIRMATION
+       --------------------------------------------------------- */
+
+    console.log(
+        "ALI BIRTHDAY — Parcel system loaded successfully."
+    );
+
+    console.log(
+        "Open button found:",
+        !!openButton
+    );
 
 });
