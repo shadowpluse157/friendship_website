@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         particle.className =
-            `parcel-particle parcel-${type}`;
+            parcel-particle parcel-${type};
 
 
         const startX =
@@ -295,13 +295,13 @@ document.addEventListener("DOMContentLoaded", () => {
             particle.style,
             {
                 position: "absolute",
-                left: `${startX}%`,
-                top: `${startY}%`,
-                fontSize: `${size}px`,
+                left: ${startX}%,
+                top: ${startY}%,
+                fontSize: ${size}px,
                 opacity: "0",
-                "--parcel-drift": `${drift}px`,
+                "--parcel-drift": ${drift}px,
                 animation:
-                    `parcelParticleFloat ${duration}s ease-out ${delay}s forwards`
+                    parcelParticleFloat ${duration}s ease-out ${delay}s forwards
             }
         );
 
@@ -442,15 +442,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 piece.style,
                 {
                     position: "absolute",
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    fontSize: `${size}px`,
+                    left: ${x}%,
+                    top: ${y}%,
+                    fontSize: ${size}px,
                     opacity: "0",
-                    "--confetti-x": `${drift}px`,
-                    "--confetti-y": `${fall}px`,
-                    "--confetti-rotate": `${rotate}deg`,
+                    "--confetti-x": ${drift}px,
+                    "--confetti-y": ${fall}px,
+                    "--confetti-rotate": ${rotate}deg,
                     animation:
-                        `parcelConfettiFall ${duration}s cubic-bezier(.2,.7,.2,1) forwards`
+                        parcelConfettiFall ${duration}s cubic-bezier(.2,.7,.2,1) forwards
                 }
             );
 
