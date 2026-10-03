@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             bar.style.setProperty(
                 "--wave-delay",
-                `${index * 0.06}s`
+                ${index * 0.06}s
             );
 
         });
@@ -697,7 +697,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (progressFill) {
 
             progressFill.style.width =
-                ${percentage}%`;
+                ${percentage}%;
 
         }
 
