@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "#secondsBox",
         ".countdown-seconds-box",
         ".seconds-box",
-        "[data-countdown-box='seconds']"
+        "[data-countdown-box='seconds]"
     );
 
 
@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const targetDate =
         new Date(
-            `${BIRTHDAY_YEAR}-10-25T00:00:00${PAKISTAN_OFFSET}`
+            ${BIRTHDAY_YEAR}-10-25T00:00:00${PAKISTAN_OFFSET}
         );
 
 
@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             countdown.setAttribute(
                 "aria-label",
-                ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds remaining until Ali's birthday`
+                ${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds remaining until Ali's birthday
             );
 
         }
@@ -739,7 +739,7 @@ birthday.js
 music.js
 countdown.js
 
-Aur `music.js` ke liye folder mein ye rakhna:
+Aur music.jske liye folder mein ye rakhna:
 
 text
 ALI-BIRTHDAY/
