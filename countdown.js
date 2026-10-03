@@ -729,22 +729,3 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
 });
-
-**Ab tumhari JS files complete hain:**
-
-text
-script.js
-parcel.js
-birthday.js
-music.js
-countdown.js
-
-Aur music.jske liye folder mein ye rakhna:
-
-text
-ALI-BIRTHDAY/
-├── music/
-│   └── indian-love-story-piano.mp3
-
-
-Bas **audio file ka naam exactly same** rakhna, ya `music.js` ke `DEFAULT_SOURCE` ko apne filename ke according change kar dena.
