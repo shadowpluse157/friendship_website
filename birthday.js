@@ -315,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ];
 
         particle.className =
-            `birthday-particle birthday-${type}`;
+            birthday-particle birthday-${type};
 
         const x =
             50 +
@@ -341,19 +341,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             position: "absolute",
 
-            left: `${x}%`,
+            left: ${x}%,
 
-            top: `${y}%`,
+            top: ${y}%,
 
-            fontSize: `${size}px`,
+            fontSize: ${size}px,
 
             opacity: "0",
 
             "--birthday-drift":
-                `${drift}px`,
+                ${drift}px,
 
             animation:
-                `birthdayParticleFloat ${duration}s ease-out forwards`
+                birthdayParticleFloat ${duration}s ease-out forwards
         });
 
         container.appendChild(particle);
@@ -431,25 +431,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     position: "absolute",
 
-                    left: `${x}%`,
+                    left: ${x}%,
 
-                    top: `${y}%`,
+                    top: ${y}%,
 
-                    fontSize: `${size}px`,
+                    fontSize: ${size}px,
 
                     opacity: "0",
 
                     "--confetti-x":
-                        `${drift}px`,
+                        ${drift}px,
 
                     "--confetti-y":
-                        `${fall}px`,
+                        ${fall}px,
 
                     "--confetti-rotate":
-                        `${rotate}deg`,
+                        ${rotate}deg,
 
                     animation:
-                        `birthdayConfettiFall ${duration}s cubic-bezier(.2,.7,.2,1) forwards`
+                        birthdayConfettiFall ${duration}s cubic-bezier(.2,.7,.2,1) forwards
                 });
 
                 container.appendChild(piece);
@@ -914,7 +914,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const style =
         document.createElement("style");
 
-    style.textContent = `
+    style.textContent = 
 
         /* ============================================
            BIRTHDAY PARTICLES
@@ -1251,7 +1251,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-    `;
+    ;
 
     document.head.appendChild(style);
 
