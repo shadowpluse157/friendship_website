@@ -19,7 +19,7 @@ document.body.classList.add("page-ready");
    ===================================================== */
 
 const pageLinks = document.querySelectorAll(
-    'a[href$=".html"], .continue-btn, .continue-button'
+    a[href$=".html"], .continue-btn, .continue-button
 );
 
 pageLinks.forEach((link) => {
@@ -160,12 +160,12 @@ if (enableTilt && paperCard) {
                     ((y / rect.height) - 0.5) * -2.5;
 
                 paperCard.style.transform =
-                    `
+                    
                     perspective(1400px)
                     rotateX(${rotateX}deg)
                     rotateY(${rotateY}deg)
                     translateY(0)
-                    `;
+                    ;
 
                 ticking = false;
 
@@ -179,12 +179,12 @@ if (enableTilt && paperCard) {
         () => {
 
             paperCard.style.transform =
-                `
+                
                 perspective(1400px)
                 rotateX(0deg)
                 rotateY(0deg)
                 translateY(0)
-                `;
+                ;
 
         }
     );
@@ -223,7 +223,7 @@ if (progress) {
 
         progress.style.setProperty(
             "--scroll-progress",
-            `${percentage}%`
+            ${percentage}%
         );
 
     };
@@ -463,7 +463,7 @@ if (
                     .style
                     .setProperty(
                         "--mouse-x",
-                        `${x * 12}px`
+                        ${x * 12}px
                     );
 
                 document.documentElement
@@ -579,13 +579,13 @@ for (
         ];
 
     particle.style.left =
-        ${Math.random() * 100}%`;
+        ${Math.random() * 100}% ;
 
     particle.style.top =
-        ${Math.random() * 100}%`;
+        ${Math.random() * 100}% ;
 
     particle.style.animationDelay =
-        ${Math.random() * 7}s`;
+        ${Math.random() * 7}s ;
 
     particle.style.animationDuration =
         ${6 + Math.random() * 7}s`;
@@ -659,10 +659,10 @@ document.addEventListener(
         "button-ripple";
 
     ripple.style.left =
-        ${event.clientX - rect.left}px`;
+        ${event.clientX - rect.left}px ;
 
     ripple.style.top =
-        ${event.clientY - rect.top}px`;
+        ${event.clientY - rect.top}px ;
 
     button.appendChild(
         ripple
@@ -686,7 +686,7 @@ PAGE LEAVE STYLE
 const pageTransitionStyle =
 document.createElement("style");
 
-pageTransitionStyle.textContent = `
+pageTransitionStyle.textContent = 
 
 
 .page-ready {
