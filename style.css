@@ -3879,3 +3879,623 @@ MEMORY CARDS
         opacity: 1;
 
         transform:
+animation-delay: 2.5s;
+
+
+}
+
+.final-particles span:nth-child(7) {
+left: 76%;
+top: 30%;
+
+
+animation-delay: 4s;
+
+
+}
+
+.final-particles span:nth-child(8) {
+left: 88%;
+top: 62%;
+
+
+animation-delay: 1.8s;
+
+
+}
+
+.final-particles span:nth-child(9) {
+left: 94%;
+top: 20%;
+
+
+animation-delay: 3.5s;
+
+
+}
+
+.final-particles span:nth-child(10) {
+left: 47%;
+top: 92%;
+
+
+animation-delay: 4.5s;
+
+
+}
+
+@keyframes particleFloat {
+0%,100% {
+opacity: .25;
+
+
+    transform:
+        translate3d(0,0,0)
+        rotate(0deg);
+}
+
+50% {
+    opacity: .75;
+
+    transform:
+        translate3d(0,-20px,0)
+        rotate(25deg);
+}
+
+
+}
+
+/* =========================================================
+19. UNIVERSAL HOVER EFFECTS
+========================================================= */
+
+.paper-card,
+.song-card,
+.memory-card,
+.kitty-item {
+will-change: transform;
+}
+
+.paper-card {
+transition:
+box-shadow .5s var(--ease);
+}
+
+.paper-card:hover {
+box-shadow:
+0 35px 100px rgba(0,0,0,.45),
+0 0 45px rgba(174,145,255,.05);
+}
+
+/* =========================================================
+20. SELECTION
+========================================================= */
+
+::selection {
+background:
+rgba(165,135,230,.35);
+
+
+color:
+    #ffffff;
+
+
+}
+
+/* =========================================================
+21. SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+width: 8px;
+}
+
+::-webkit-scrollbar-track {
+background:
+#060713;
+}
+
+::-webkit-scrollbar-thumb {
+border-radius: 999px;
+
+
+background:
+    linear-gradient(
+        180deg,
+        #8d76bd,
+        #51436e
+    );
+
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+background:
+linear-gradient(
+180deg,
+#aa91d8,
+#675682
+);
+}
+
+/* =========================================================
+22. COMMON CONTINUE BUTTON
+========================================================= */
+
+.continue-btn,
+.continue-button {
+position: relative;
+
+
+display: inline-flex;
+
+justify-content: center;
+align-items: center;
+
+gap: 10px;
+
+margin-top: 20px;
+
+padding: 14px 25px;
+
+border-radius: 999px;
+
+background:
+    linear-gradient(
+        135deg,
+        #9b7cff,
+        #c59de9
+    );
+
+color: white;
+
+font-size: 12px;
+font-weight: 800;
+
+letter-spacing: .12em;
+
+cursor: pointer;
+
+box-shadow:
+    0 12px 30px rgba(117,86,190,.28);
+
+transition:
+    transform .3s var(--ease),
+    box-shadow .3s var(--ease);
+
+
+}
+
+.continue-btn:hover,
+.continue-button:hover {
+transform:
+translateY(-3px);
+
+
+box-shadow:
+    0 18px 38px rgba(117,86,190,.36);
+
+
+}
+
+.continue-btn:active,
+.continue-button:active {
+transform:
+translateY(0)
+scale(.98);
+}
+
+/* =========================================================
+23. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+.chapter-page {
+    width:
+        min(
+            calc(100% - 28px),
+            850px
+        );
+
+    padding:
+        75px 0
+        70px;
+}
+
+.paper-content {
+    padding:
+        30px 45px
+        40px;
+}
+
+.chapter-heading {
+    margin-bottom: 40px;
+}
+
+.chapter-heading h1 {
+    font-size:
+        clamp(38px,8vw,60px);
+}
+
+.hero-copy {
+    padding-top: 125px;
+}
+
+.parcel-world {
+    min-height: 450px;
+}
+
+.window {
+    width: 94vw;
+}
+
+
+}
+
+/* =========================================================
+24. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+.chapter-page {
+    width:
+        calc(100% - 20px);
+
+    padding:
+        65px 0
+        55px;
+}
+
+.chapter-progress {
+    top: 16px;
+    right: 16px;
+
+    padding: 7px 11px;
+
+    font-size: 9px;
+}
+
+.chapter-heading {
+    margin-bottom: 30px;
+}
+
+.chapter-number {
+    font-size: 9px;
+
+    letter-spacing: .32em;
+}
+
+.chapter-heading h1 {
+    font-size:
+        clamp(34px,11vw,48px);
+}
+
+.chapter-subtitle {
+    margin-top: 14px;
+
+    padding: 0 10px;
+
+    font-size: 13px;
+}
+
+.paper-card {
+    border-radius: 21px;
+}
+
+.paper-top {
+    padding:
+        20px 15px
+        13px;
+
+    font-size: 8px;
+
+    letter-spacing: .25em;
+}
+
+.paper-content {
+    padding:
+        28px 20px
+        35px;
+
+    text-align: center;
+}
+
+.paper-bottom {
+    padding: 16px;
+
+    font-size: 9px;
+}
+
+.paper-section {
+    margin-bottom: 45px;
+}
+
+.paper-section p {
+    font-size: 14px;
+
+    line-height: 1.85;
+}
+
+.paper-lead {
+    font-size: 22px !important;
+}
+
+.paper-section h2 {
+    font-size: 25px;
+}
+
+.paper-quote,
+.final-quote {
+    padding:
+        20px 18px;
+
+    font-size: 17px;
+}
+
+.memory-cards {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+}
+
+.memory-card {
+    min-height: 125px;
+}
+
+.song-card {
+    padding:
+        25px 18px;
+}
+
+.secret-reveal {
+    padding:
+        22px 17px;
+
+    font-size: 17px;
+}
+
+.hidden-message {
+    padding:
+        22px 15px;
+
+    font-size: 15px;
+}
+
+.final-ending {
+    margin-top: 40px;
+}
+
+.final-last-text {
+    font-size: 18px !important;
+}
+
+
+/* FIRST PAGE MOBILE */
+
+.top-interface {
+    top: 18px;
+    left: 18px;
+    right: 18px;
+}
+
+.brand {
+    font-size: 8px;
+
+    letter-spacing: .25em;
+}
+
+.chapter-indicator {
+    font-size: 8px;
+}
+
+.hero-copy {
+    width:
+        calc(100% - 30px);
+
+    padding-top: 100px;
+}
+
+.hero-eyebrow {
+    font-size: 8px;
+
+    letter-spacing: .32em;
+}
+
+.hero-title {
+    font-size:
+        clamp(37px,12vw,52px);
+}
+
+.hero-description {
+    font-size: 13px;
+}
+
+.destination {
+    font-size: 8px;
+
+    letter-spacing: .2em;
+}
+
+.parcel-world {
+    min-height: 400px;
+
+    margin-top: 0;
+}
+
+.parcel-wrapper {
+    transform:
+        scale(.82);
+
+    margin-top: -10px;
+}
+
+.celebration {
+    top: 52%;
+}
+
+.celebration h2 {
+    font-size:
+        clamp(34px,10vw,48px);
+}
+
+.celebration-eyebrow {
+    font-size: 8px;
+}
+
+.continue-section {
+    bottom: 20px;
+}
+
+.continue-button {
+    min-width: 140px;
+
+    padding:
+        11px 18px;
+
+    font-size: 9px;
+}
+
+.moon {
+    width: 80px;
+    height: 80px;
+
+    top: 12%;
+}
+
+.window {
+    top: 8%;
+
+    height: 72vh;
+
+    border-radius: 25px;
+}
+
+
+}
+
+/* =========================================================
+25. SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+
+.hero-copy {
+    padding-top: 90px;
+}
+
+.hero-title {
+    font-size: 35px;
+}
+
+.hero-description {
+    font-size: 12px;
+}
+
+.parcel-wrapper {
+    transform:
+        scale(.72);
+}
+
+.parcel-world {
+    min-height: 370px;
+}
+
+.continue-section {
+    bottom: 15px;
+}
+
+
+}
+
+/* =========================================================
+26. LANDSCAPE PHONES
+========================================================= */
+
+@media (max-height: 600px) and (orientation: landscape) {
+
+
+.hero-copy {
+    padding-top: 80px;
+}
+
+.parcel-world {
+    min-height: 350px;
+}
+
+.parcel-wrapper {
+    transform:
+        scale(.72);
+}
+
+.continue-section {
+    bottom: 10px;
+}
+
+
+}
+
+/* =========================================================
+27. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+*,
+*::before,
+*::after {
+    animation-duration:
+        .01ms !important;
+
+    animation-iteration-count:
+        1 !important;
+
+    scroll-behavior:
+        auto !important;
+
+    transition-duration:
+        .01ms !important;
+}
+
+.parcel-3d {
+    animation: none;
+}
+
+.stars,
+.dust,
+.final-particles {
+    animation: none;
+}
+
+
+}
+
+/* =========================================================
+28. TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+
+.paper-card:hover {
+    box-shadow:
+        var(--shadow-heavy);
+}
+
+.open-button:hover,
+.continue-button:hover,
+.continue-btn:hover {
+    transform: none;
+}
+
+
+}
+
+/* =========================================================
+END OF MASTER STYLE SHEET
+========================================================= */
